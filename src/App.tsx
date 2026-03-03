@@ -67,6 +67,13 @@ const GroundingSystemsPage = React.lazy(() => import('./features/grounding-syste
 const MotorStartersPage = React.lazy(() => import('./features/motor-starters/MotorStartersPage'))
 const FireAlarmPage = React.lazy(() => import('./features/fire-alarm/FireAlarmPage'))
 
+// Batch 5: Symbols, Instrumentation, Medium Voltage, Power Quality, Code Requirements
+const ElectricalSymbolsPage = React.lazy(() => import('./features/electrical-symbols/ElectricalSymbolsPage'))
+const InstrumentationPage = React.lazy(() => import('./features/instrumentation/InstrumentationPage'))
+const MediumVoltagePage = React.lazy(() => import('./features/medium-voltage/MediumVoltagePage'))
+const PowerQualityPage = React.lazy(() => import('./features/power-quality/PowerQualityPage'))
+const CodeRequirementsPage = React.lazy(() => import('./features/code-requirements/CodeRequirementsPage'))
+
 // Category items
 const electricalItems: CalcItem[] = [
   { to: '/electrical/ohms-law', title: "Ohm's Law", subtitle: 'Voltage, current & resistance', icon: '\u03A9' },
@@ -106,6 +113,7 @@ const motorItems: CalcItem[] = [
   { to: '/motors/ocp', title: 'Motor OCP', subtitle: 'Motor overcurrent protection', icon: '\u26D4' },
   { to: '/motors/starters', title: 'Motor Starters', subtitle: 'DOL, star-delta, soft start, VFD', icon: '\u25B6' },
   { to: '/motors/vfd', title: 'VFD Reference', subtitle: 'Parameters, faults, sizing', icon: '\u223F' },
+  { to: '/motors/medium-voltage', title: 'Medium Voltage', subtitle: 'MV switchgear, cable, protection', icon: '\u26A1' },
 ]
 
 const referenceItems: CalcItem[] = [
@@ -120,6 +128,10 @@ const referenceItems: CalcItem[] = [
   { to: '/reference/plc-basics', title: 'PLC Basics', subtitle: 'I/O, ladder logic, protocols', icon: '\uD83E\uDDE0' },
   { to: '/reference/grounding-systems', title: 'Grounding Systems', subtitle: 'HRG, solidly grounded, testing', icon: '\u23DA' },
   { to: '/reference/fire-alarm', title: 'Fire Alarm', subtitle: 'Systems, devices, wiring, inspection', icon: '\uD83D\uDD14' },
+  { to: '/reference/electrical-symbols', title: 'Electrical Symbols', subtitle: 'Schematic, one-line, control symbols', icon: '\uD83D\uDD0C' },
+  { to: '/reference/instrumentation', title: 'Instrumentation', subtitle: '4-20mA, RTDs, P&ID, HART', icon: '\uD83D\uDCE1' },
+  { to: '/reference/power-quality', title: 'Power Quality', subtitle: 'Harmonics, THD, K-factor calculator', icon: '\uD83D\uDCC8' },
+  { to: '/reference/code-requirements', title: 'CEC Code by Task', subtitle: 'Rules for disconnects, TECK, motors', icon: '\uD83D\uDCDC' },
 ]
 
 const safetyItems: CalcItem[] = [
@@ -207,6 +219,7 @@ export default function App() {
             <Route path="/motors/ocp" element={<MotorOCPPage />} />
             <Route path="/motors/starters" element={<MotorStartersPage />} />
             <Route path="/motors/vfd" element={<VFDReferencePage />} />
+            <Route path="/motors/medium-voltage" element={<MediumVoltagePage />} />
 
             {/* Reference */}
             <Route path="/reference" element={<CategoryPage title="Reference" items={referenceItems} />} />
@@ -221,6 +234,10 @@ export default function App() {
             <Route path="/reference/plc-basics" element={<PLCBasicsPage />} />
             <Route path="/reference/grounding-systems" element={<GroundingSystemsPage />} />
             <Route path="/reference/fire-alarm" element={<FireAlarmPage />} />
+            <Route path="/reference/electrical-symbols" element={<ElectricalSymbolsPage />} />
+            <Route path="/reference/instrumentation" element={<InstrumentationPage />} />
+            <Route path="/reference/power-quality" element={<PowerQualityPage />} />
+            <Route path="/reference/code-requirements" element={<CodeRequirementsPage />} />
 
             {/* Safety */}
             <Route path="/safety" element={<CategoryPage title="Safety" items={safetyItems} />} />

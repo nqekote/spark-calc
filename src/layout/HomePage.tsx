@@ -42,6 +42,7 @@ const allCalculators: Calculator[] = [
   { to: '/motors/ocp', title: 'Motor OCP', icon: '\u26D4', category: 'Motors' },
   { to: '/motors/starters', title: 'Motor Starters', icon: '\u25B6', category: 'Motors' },
   { to: '/motors/vfd', title: 'VFD Reference', icon: '\u223F', category: 'Motors' },
+  { to: '/motors/medium-voltage', title: 'Medium Voltage', icon: '\u26A1', category: 'Motors' },
   // Safety
   { to: '/safety/arc-flash', title: 'Arc Flash', icon: '\u26A1', category: 'Safety' },
   { to: '/safety/loto', title: 'Lockout / Tagout', icon: '\uD83D\uDD12', category: 'Safety' },
@@ -62,6 +63,10 @@ const allCalculators: Calculator[] = [
   { to: '/reference/plc-basics', title: 'PLC Basics', icon: '\uD83E\uDDE0', category: 'Reference' },
   { to: '/reference/grounding-systems', title: 'Grounding Systems', icon: '\u23DA', category: 'Reference' },
   { to: '/reference/fire-alarm', title: 'Fire Alarm', icon: '\uD83D\uDD14', category: 'Reference' },
+  { to: '/reference/electrical-symbols', title: 'Electrical Symbols', icon: '\uD83D\uDD0C', category: 'Reference' },
+  { to: '/reference/instrumentation', title: 'Instrumentation', icon: '\uD83D\uDCE1', category: 'Reference' },
+  { to: '/reference/power-quality', title: 'Power Quality', icon: '\uD83D\uDCC8', category: 'Reference' },
+  { to: '/reference/code-requirements', title: 'CEC Code by Task', icon: '\uD83D\uDCDC', category: 'Reference' },
   // Tools
   { to: '/materials', title: 'Material Lists', icon: '\uD83D\uDCCB', category: 'Tools' },
   { to: '/tools/panel-schedule', title: 'Panel Schedule', icon: '\uD83D\uDCCA', category: 'Tools' },
@@ -73,12 +78,12 @@ const quickAccessRoutes = [
   '/wire/teck-cable',
   '/safety/loto',
   '/safety/arc-flash',
-  '/reference/troubleshooting',
+  '/reference/code-requirements',
   '/motors/vfd',
-  '/reference/control-circuits',
-  '/wire/ampacity',
+  '/reference/instrumentation',
+  '/reference/electrical-symbols',
   '/mining/safety',
-  '/materials',
+  '/reference/troubleshooting',
 ]
 
 export default function HomePage() {
