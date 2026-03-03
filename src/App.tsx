@@ -24,7 +24,7 @@ const ResidentialDemandPage = React.lazy(() => import('./features/residential-de
 const CECReferencePage = React.lazy(() => import('./features/cec-reference/CECReferencePage'))
 const MaterialListPage = React.lazy(() => import('./features/material-list/MaterialListPage'))
 
-// New reference & utility pages
+// Reference & utility pages
 const RacewaySpacingPage = React.lazy(() => import('./features/raceway-spacing/RacewaySpacingPage'))
 const GroundingConductorPage = React.lazy(() => import('./features/grounding-conductor/GroundingConductorPage'))
 const GfciAfciPage = React.lazy(() => import('./features/gfci-afci/GfciAfciPage'))
@@ -38,13 +38,32 @@ const HazardousAreasPage = React.lazy(() => import('./features/hazardous-areas/H
 const CableTrayPage = React.lazy(() => import('./features/cable-tray/CableTrayPage'))
 const MinePowerPage = React.lazy(() => import('./features/mine-power/MinePowerPage'))
 
+// New calculators (batch 2)
+const TransformerSizingPage = React.lazy(() => import('./features/transformer-sizing/TransformerSizingPage'))
+const ShortCircuitPage = React.lazy(() => import('./features/short-circuit/ShortCircuitPage'))
+const LightingCalcPage = React.lazy(() => import('./features/lighting-calc/LightingCalcPage'))
+const DisconnectSizingPage = React.lazy(() => import('./features/disconnect-sizing/DisconnectSizingPage'))
+const GeneratorSizingPage = React.lazy(() => import('./features/generator-sizing/GeneratorSizingPage'))
+
+// New references & tools (batch 2)
+const FormulasPage = React.lazy(() => import('./features/formulas/FormulasPage'))
+const CableTypesPage = React.lazy(() => import('./features/cable-types/CableTypesPage'))
+const HourTrackerPage = React.lazy(() => import('./features/hour-tracker/HourTrackerPage'))
+const ExamPrepPage = React.lazy(() => import('./features/exam-prep/ExamPrepPage'))
+const PanelSchedulePage = React.lazy(() => import('./features/panel-schedule/PanelSchedulePage'))
+
 // Category items
 const electricalItems: CalcItem[] = [
   { to: '/electrical/ohms-law', title: "Ohm's Law", subtitle: 'Voltage, current & resistance', icon: '\u03A9' },
   { to: '/electrical/power', title: 'Power Calculator', subtitle: 'Watts, VA & power formulas', icon: '\u26A1' },
   { to: '/electrical/voltage-drop', title: 'Voltage Drop', subtitle: 'Wire length & voltage loss', icon: '\u2193' },
   { to: '/electrical/power-factor', title: 'Power Factor', subtitle: 'PF correction & analysis', icon: '\u223C' },
-  { to: '/electrical/gfci-afci', title: 'GFCI / AFCI', subtitle: 'Protection requirements', icon: '\u26A1' },
+  { to: '/electrical/gfci-afci', title: 'GFCI / AFCI', subtitle: 'Protection requirements', icon: '\uD83D\uDEE1' },
+  { to: '/electrical/short-circuit', title: 'Short Circuit', subtitle: 'Available fault current', icon: '\uD83D\uDCA5' },
+  { to: '/electrical/lighting', title: 'Lighting Calculator', subtitle: 'Lux, lumens & fixture count', icon: '\uD83D\uDCA1' },
+  { to: '/electrical/transformer-sizing', title: 'Transformer Sizing', subtitle: 'kVA sizing & standard sizes', icon: '\u2394' },
+  { to: '/electrical/disconnect', title: 'Disconnect Sizing', subtitle: 'HP-rated switch selection', icon: '\u2393' },
+  { to: '/electrical/generator', title: 'Generator Sizing', subtitle: 'Backup power calculator', icon: '\u26A1' },
 ]
 
 const conduitItems: CalcItem[] = [
@@ -59,6 +78,7 @@ const wireItems: CalcItem[] = [
   { to: '/wire/ampacity', title: 'Ampacity Lookup', subtitle: 'Wire ampacity tables', icon: '\u1D2C' },
   { to: '/wire/sizing', title: 'Wire Sizing', subtitle: 'Conductor sizing tool', icon: '\u2338' },
   { to: '/wire/grounding', title: 'Grounding Conductor', subtitle: 'CEC Table 17 sizing', icon: '\u23DA' },
+  { to: '/wire/cable-types', title: 'Cable Types', subtitle: 'NMD90, TECK90, AC90, SHD-GC', icon: '\uD83D\uDD0C' },
   { to: '/wire/ocp-transformer', title: 'Transformer OCP', subtitle: 'Transformer overcurrent protection', icon: '\u2397' },
   { to: '/wire/ocp-feeder', title: 'Feeder OCP', subtitle: 'Feeder overcurrent protection', icon: '\u2393' },
   { to: '/wire/torque-specs', title: 'Torque Specs', subtitle: 'Termination torque values', icon: '\uD83D\uDD27' },
@@ -71,11 +91,11 @@ const motorItems: CalcItem[] = [
 ]
 
 const referenceItems: CalcItem[] = [
+  { to: '/reference/formulas', title: 'Formulas Cheat Sheet', subtitle: 'All electrical formulas', icon: '\uD83D\uDCDD' },
   { to: '/reference/box-fill', title: 'Box Fill', subtitle: 'Junction box fill calculations', icon: '\u25A3' },
   { to: '/reference/residential', title: 'Residential Demand', subtitle: 'Dwelling unit load calc', icon: '\u2302' },
   { to: '/reference/cec', title: 'CEC Reference', subtitle: 'Canadian Electrical Code tables', icon: '\uD83D\uDCD6' },
-  { to: '/reference/unit-converter', title: 'Unit Converter', subtitle: 'AWG↔mm², °C↔°F, m↔ft', icon: '\uD83D\uDD04' },
-  { to: '/materials', title: 'Material Lists', subtitle: 'Job material tracking & notes', icon: '\uD83D\uDCCB' },
+  { to: '/reference/unit-converter', title: 'Unit Converter', subtitle: 'AWG\u2194mm\u00B2, \u00B0C\u2194\u00B0F, m\u2194ft', icon: '\uD83D\uDD04' },
 ]
 
 const miningItems: CalcItem[] = [
@@ -83,6 +103,13 @@ const miningItems: CalcItem[] = [
   { to: '/mining/hazardous-areas', title: 'Hazardous Areas', subtitle: 'Zone & Class classification', icon: '\uD83D\uDCA8' },
   { to: '/mining/power', title: 'Mine Power Systems', subtitle: 'Equipment, voltages, troubleshooting', icon: '\u26CF' },
   { to: '/mining/cable-tray', title: 'Cable Tray Sizing', subtitle: 'Tray fill calculator (TECK90)', icon: '\u25A4' },
+]
+
+const toolsItems: CalcItem[] = [
+  { to: '/materials', title: 'Material Lists', subtitle: 'Job material tracking & notes', icon: '\uD83D\uDCCB' },
+  { to: '/tools/panel-schedule', title: 'Panel Schedule', subtitle: 'Digital panel schedule builder', icon: '\uD83D\uDCCA' },
+  { to: '/tools/hour-tracker', title: 'Hour Tracker', subtitle: 'Apprentice hour logging', icon: '\u23F1' },
+  { to: '/tools/exam-prep', title: 'Exam Prep', subtitle: 'CEC flashcards & practice', icon: '\uD83C\uDF93' },
 ]
 
 function LoadingSpinner() {
@@ -118,6 +145,11 @@ export default function App() {
             <Route path="/electrical/voltage-drop" element={<VoltageDropPage />} />
             <Route path="/electrical/power-factor" element={<PowerFactorPage />} />
             <Route path="/electrical/gfci-afci" element={<GfciAfciPage />} />
+            <Route path="/electrical/short-circuit" element={<ShortCircuitPage />} />
+            <Route path="/electrical/lighting" element={<LightingCalcPage />} />
+            <Route path="/electrical/transformer-sizing" element={<TransformerSizingPage />} />
+            <Route path="/electrical/disconnect" element={<DisconnectSizingPage />} />
+            <Route path="/electrical/generator" element={<GeneratorSizingPage />} />
 
             {/* Conduit */}
             <Route path="/conduit" element={<CategoryPage title="Conduit" items={conduitItems} />} />
@@ -132,6 +164,7 @@ export default function App() {
             <Route path="/wire/ampacity" element={<AmpacityPage />} />
             <Route path="/wire/sizing" element={<WireSizingPage />} />
             <Route path="/wire/grounding" element={<GroundingConductorPage />} />
+            <Route path="/wire/cable-types" element={<CableTypesPage />} />
             <Route path="/wire/ocp-transformer" element={<TransformerOCPPage />} />
             <Route path="/wire/ocp-feeder" element={<FeederOCPPage />} />
             <Route path="/wire/torque-specs" element={<TorqueSpecsPage />} />
@@ -144,6 +177,7 @@ export default function App() {
 
             {/* Reference */}
             <Route path="/reference" element={<CategoryPage title="Reference" items={referenceItems} />} />
+            <Route path="/reference/formulas" element={<FormulasPage />} />
             <Route path="/reference/box-fill" element={<BoxFillPage />} />
             <Route path="/reference/residential" element={<ResidentialDemandPage />} />
             <Route path="/reference/cec" element={<CECReferencePage />} />
@@ -156,7 +190,11 @@ export default function App() {
             <Route path="/mining/power" element={<MinePowerPage />} />
             <Route path="/mining/cable-tray" element={<CableTrayPage />} />
 
-            {/* Material Lists */}
+            {/* Tools */}
+            <Route path="/tools" element={<CategoryPage title="Tools" items={toolsItems} />} />
+            <Route path="/tools/panel-schedule" element={<PanelSchedulePage />} />
+            <Route path="/tools/hour-tracker" element={<HourTrackerPage />} />
+            <Route path="/tools/exam-prep" element={<ExamPrepPage />} />
             <Route path="/materials" element={<MaterialListPage />} />
           </Routes>
         </Suspense>

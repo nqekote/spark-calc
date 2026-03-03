@@ -16,6 +16,11 @@ const allCalculators: Calculator[] = [
   { to: '/electrical/voltage-drop', title: 'Voltage Drop', icon: '\u2193', category: 'Electrical' },
   { to: '/electrical/power-factor', title: 'Power Factor', icon: '\u223C', category: 'Electrical' },
   { to: '/electrical/gfci-afci', title: 'GFCI / AFCI', icon: '\u26A1', category: 'Electrical' },
+  { to: '/electrical/short-circuit', title: 'Short Circuit', icon: '\uD83D\uDCA5', category: 'Electrical' },
+  { to: '/electrical/lighting', title: 'Lighting Calculator', icon: '\uD83D\uDCA1', category: 'Electrical' },
+  { to: '/electrical/transformer-sizing', title: 'Transformer Sizing', icon: '\u2394', category: 'Electrical' },
+  { to: '/electrical/disconnect', title: 'Disconnect Sizing', icon: '\u2393', category: 'Electrical' },
+  { to: '/electrical/generator', title: 'Generator Sizing', icon: '\u26A1', category: 'Electrical' },
   // Conduit
   { to: '/conduit/bending', title: 'EMT Bending', icon: '\u2312', category: 'Conduit' },
   { to: '/conduit/fill', title: 'Conduit Fill', icon: '\u25CE', category: 'Conduit' },
@@ -28,6 +33,7 @@ const allCalculators: Calculator[] = [
   { to: '/wire/grounding', title: 'Grounding Conductor', icon: '\u23DA', category: 'Wire & Protection' },
   { to: '/wire/ocp-transformer', title: 'Transformer OCP', icon: '\u2397', category: 'Wire & Protection' },
   { to: '/wire/ocp-feeder', title: 'Feeder OCP', icon: '\u2393', category: 'Wire & Protection' },
+  { to: '/wire/cable-types', title: 'Cable Types', icon: '\uD83D\uDD0C', category: 'Wire & Protection' },
   { to: '/wire/torque-specs', title: 'Torque Specs', icon: '\uD83D\uDD27', category: 'Wire & Protection' },
   // Motors
   { to: '/motors/flc', title: 'Motor FLC Tables', icon: '\u2699', category: 'Motors' },
@@ -42,9 +48,13 @@ const allCalculators: Calculator[] = [
   { to: '/reference/box-fill', title: 'Box Fill', icon: '\u25A3', category: 'Reference' },
   { to: '/reference/residential', title: 'Residential Demand', icon: '\u2302', category: 'Reference' },
   { to: '/reference/cec', title: 'CEC Reference', icon: '\uD83D\uDCD6', category: 'Reference' },
+  { to: '/reference/formulas', title: 'Formulas Cheat Sheet', icon: '\uD83D\uDCDD', category: 'Reference' },
   { to: '/reference/unit-converter', title: 'Unit Converter', icon: '\uD83D\uDD04', category: 'Reference' },
   // Tools
   { to: '/materials', title: 'Material Lists', icon: '\uD83D\uDCCB', category: 'Tools' },
+  { to: '/tools/panel-schedule', title: 'Panel Schedule', icon: '\uD83D\uDCCA', category: 'Tools' },
+  { to: '/tools/hour-tracker', title: 'Hour Tracker', icon: '\u23F1', category: 'Tools' },
+  { to: '/tools/exam-prep', title: 'Exam Prep', icon: '\uD83C\uDF93', category: 'Tools' },
 ]
 
 const quickAccessRoutes = [
@@ -52,7 +62,10 @@ const quickAccessRoutes = [
   '/conduit/bending',
   '/wire/ampacity',
   '/mining/safety',
-  '/mining/power',
+  '/tools/panel-schedule',
+  '/reference/formulas',
+  '/tools/hour-tracker',
+  '/tools/exam-prep',
   '/materials',
 ]
 
