@@ -35,6 +35,7 @@ const allCalculators: Calculator[] = [
   { to: '/wire/ocp-feeder', title: 'Feeder OCP', icon: '\u2393', category: 'Wire & Protection' },
   { to: '/wire/cable-types', title: 'Cable Types', icon: '\uD83D\uDD0C', category: 'Wire & Protection' },
   { to: '/wire/torque-specs', title: 'Torque Specs', icon: '\uD83D\uDD27', category: 'Wire & Protection' },
+  { to: '/wire/teck-cable', title: 'TECK90 Cable Guide', icon: '\uD83D\uDD29', category: 'Wire & Protection' },
   // Motors
   { to: '/motors/flc', title: 'Motor FLC Tables', icon: '\u2699', category: 'Motors' },
   { to: '/motors/branch', title: 'Motor Branch Circuit', icon: '\u2442', category: 'Motors' },
@@ -50,6 +51,10 @@ const allCalculators: Calculator[] = [
   { to: '/reference/cec', title: 'CEC Reference', icon: '\uD83D\uDCD6', category: 'Reference' },
   { to: '/reference/formulas', title: 'Formulas Cheat Sheet', icon: '\uD83D\uDCDD', category: 'Reference' },
   { to: '/reference/unit-converter', title: 'Unit Converter', icon: '\uD83D\uDD04', category: 'Reference' },
+  { to: '/reference/troubleshooting', title: 'Troubleshooting', icon: '\uD83D\uDD0D', category: 'Reference' },
+  { to: '/reference/multimeter', title: 'Multimeter Guide', icon: '\uD83D\uDCCF', category: 'Reference' },
+  { to: '/reference/control-circuits', title: 'Control Circuits', icon: '\u2B61', category: 'Reference' },
+  { to: '/reference/plc-basics', title: 'PLC Basics', icon: '\uD83E\uDDE0', category: 'Reference' },
   // Tools
   { to: '/materials', title: 'Material Lists', icon: '\uD83D\uDCCB', category: 'Tools' },
   { to: '/tools/panel-schedule', title: 'Panel Schedule', icon: '\uD83D\uDCCA', category: 'Tools' },
@@ -58,14 +63,14 @@ const allCalculators: Calculator[] = [
 ]
 
 const quickAccessRoutes = [
-  '/electrical/ohms-law',
-  '/conduit/bending',
+  '/wire/teck-cable',
+  '/reference/troubleshooting',
+  '/reference/control-circuits',
+  '/electrical/disconnect',
+  '/reference/multimeter',
+  '/reference/plc-basics',
   '/wire/ampacity',
   '/mining/safety',
-  '/tools/panel-schedule',
-  '/reference/formulas',
-  '/tools/hour-tracker',
-  '/tools/exam-prep',
   '/materials',
 ]
 

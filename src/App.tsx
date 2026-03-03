@@ -52,6 +52,13 @@ const HourTrackerPage = React.lazy(() => import('./features/hour-tracker/HourTra
 const ExamPrepPage = React.lazy(() => import('./features/exam-prep/ExamPrepPage'))
 const PanelSchedulePage = React.lazy(() => import('./features/panel-schedule/PanelSchedulePage'))
 
+// Batch 3: PLC, TECK, Troubleshooting, Multimeter, Control Circuits
+const PLCBasicsPage = React.lazy(() => import('./features/plc-basics/PLCBasicsPage'))
+const TECKCablePage = React.lazy(() => import('./features/teck-cable/TECKCablePage'))
+const TroubleshootingPage = React.lazy(() => import('./features/troubleshooting/TroubleshootingPage'))
+const MultimeterPage = React.lazy(() => import('./features/multimeter/MultimeterPage'))
+const ControlCircuitsPage = React.lazy(() => import('./features/control-circuits/ControlCircuitsPage'))
+
 // Category items
 const electricalItems: CalcItem[] = [
   { to: '/electrical/ohms-law', title: "Ohm's Law", subtitle: 'Voltage, current & resistance', icon: '\u03A9' },
@@ -82,6 +89,7 @@ const wireItems: CalcItem[] = [
   { to: '/wire/ocp-transformer', title: 'Transformer OCP', subtitle: 'Transformer overcurrent protection', icon: '\u2397' },
   { to: '/wire/ocp-feeder', title: 'Feeder OCP', subtitle: 'Feeder overcurrent protection', icon: '\u2393' },
   { to: '/wire/torque-specs', title: 'Torque Specs', subtitle: 'Termination torque values', icon: '\uD83D\uDD27' },
+  { to: '/wire/teck-cable', title: 'TECK90 Cable Guide', subtitle: 'Specs, glands, installation', icon: '\uD83D\uDD29' },
 ]
 
 const motorItems: CalcItem[] = [
@@ -96,6 +104,10 @@ const referenceItems: CalcItem[] = [
   { to: '/reference/residential', title: 'Residential Demand', subtitle: 'Dwelling unit load calc', icon: '\u2302' },
   { to: '/reference/cec', title: 'CEC Reference', subtitle: 'Canadian Electrical Code tables', icon: '\uD83D\uDCD6' },
   { to: '/reference/unit-converter', title: 'Unit Converter', subtitle: 'AWG\u2194mm\u00B2, \u00B0C\u2194\u00B0F, m\u2194ft', icon: '\uD83D\uDD04' },
+  { to: '/reference/troubleshooting', title: 'Troubleshooting', subtitle: 'Motors, controls, power, grounding', icon: '\uD83D\uDD0D' },
+  { to: '/reference/multimeter', title: 'Multimeter Guide', subtitle: 'Voltage, current, resistance, safety', icon: '\uD83D\uDCCF' },
+  { to: '/reference/control-circuits', title: 'Control Circuits', subtitle: 'Schematics, symbols, disconnects', icon: '\u2B61' },
+  { to: '/reference/plc-basics', title: 'PLC Basics', subtitle: 'I/O, ladder logic, protocols', icon: '\uD83E\uDDE0' },
 ]
 
 const miningItems: CalcItem[] = [
@@ -168,6 +180,7 @@ export default function App() {
             <Route path="/wire/ocp-transformer" element={<TransformerOCPPage />} />
             <Route path="/wire/ocp-feeder" element={<FeederOCPPage />} />
             <Route path="/wire/torque-specs" element={<TorqueSpecsPage />} />
+            <Route path="/wire/teck-cable" element={<TECKCablePage />} />
 
             {/* Motors */}
             <Route path="/motors" element={<CategoryPage title="Motors" items={motorItems} />} />
@@ -182,6 +195,10 @@ export default function App() {
             <Route path="/reference/residential" element={<ResidentialDemandPage />} />
             <Route path="/reference/cec" element={<CECReferencePage />} />
             <Route path="/reference/unit-converter" element={<UnitConverterPage />} />
+            <Route path="/reference/troubleshooting" element={<TroubleshootingPage />} />
+            <Route path="/reference/multimeter" element={<MultimeterPage />} />
+            <Route path="/reference/control-circuits" element={<ControlCircuitsPage />} />
+            <Route path="/reference/plc-basics" element={<PLCBasicsPage />} />
 
             {/* Mining */}
             <Route path="/mining" element={<CategoryPage title="Mining" items={miningItems} />} />
