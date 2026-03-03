@@ -40,6 +40,11 @@ const allCalculators: Calculator[] = [
   { to: '/motors/flc', title: 'Motor FLC Tables', icon: '\u2699', category: 'Motors' },
   { to: '/motors/branch', title: 'Motor Branch Circuit', icon: '\u2442', category: 'Motors' },
   { to: '/motors/ocp', title: 'Motor OCP', icon: '\u26D4', category: 'Motors' },
+  { to: '/motors/starters', title: 'Motor Starters', icon: '\u25B6', category: 'Motors' },
+  { to: '/motors/vfd', title: 'VFD Reference', icon: '\u223F', category: 'Motors' },
+  // Safety
+  { to: '/safety/arc-flash', title: 'Arc Flash', icon: '\u26A1', category: 'Safety' },
+  { to: '/safety/loto', title: 'Lockout / Tagout', icon: '\uD83D\uDD12', category: 'Safety' },
   // Mining
   { to: '/mining/safety', title: 'Mining Electrical Safety', icon: '\u26A0\uFE0F', category: 'Mining' },
   { to: '/mining/hazardous-areas', title: 'Hazardous Areas', icon: '\uD83D\uDCA8', category: 'Mining' },
@@ -55,6 +60,8 @@ const allCalculators: Calculator[] = [
   { to: '/reference/multimeter', title: 'Multimeter Guide', icon: '\uD83D\uDCCF', category: 'Reference' },
   { to: '/reference/control-circuits', title: 'Control Circuits', icon: '\u2B61', category: 'Reference' },
   { to: '/reference/plc-basics', title: 'PLC Basics', icon: '\uD83E\uDDE0', category: 'Reference' },
+  { to: '/reference/grounding-systems', title: 'Grounding Systems', icon: '\u23DA', category: 'Reference' },
+  { to: '/reference/fire-alarm', title: 'Fire Alarm', icon: '\uD83D\uDD14', category: 'Reference' },
   // Tools
   { to: '/materials', title: 'Material Lists', icon: '\uD83D\uDCCB', category: 'Tools' },
   { to: '/tools/panel-schedule', title: 'Panel Schedule', icon: '\uD83D\uDCCA', category: 'Tools' },
@@ -64,11 +71,11 @@ const allCalculators: Calculator[] = [
 
 const quickAccessRoutes = [
   '/wire/teck-cable',
+  '/safety/loto',
+  '/safety/arc-flash',
   '/reference/troubleshooting',
+  '/motors/vfd',
   '/reference/control-circuits',
-  '/electrical/disconnect',
-  '/reference/multimeter',
-  '/reference/plc-basics',
   '/wire/ampacity',
   '/mining/safety',
   '/materials',

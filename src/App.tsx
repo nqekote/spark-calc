@@ -59,6 +59,14 @@ const TroubleshootingPage = React.lazy(() => import('./features/troubleshooting/
 const MultimeterPage = React.lazy(() => import('./features/multimeter/MultimeterPage'))
 const ControlCircuitsPage = React.lazy(() => import('./features/control-circuits/ControlCircuitsPage'))
 
+// Batch 4: Safety, VFD, Grounding, Motor Starters, Fire Alarm
+const ArcFlashPage = React.lazy(() => import('./features/arc-flash/ArcFlashPage'))
+const LOTOPage = React.lazy(() => import('./features/loto/LOTOPage'))
+const VFDReferencePage = React.lazy(() => import('./features/vfd-reference/VFDReferencePage'))
+const GroundingSystemsPage = React.lazy(() => import('./features/grounding-systems/GroundingSystemsPage'))
+const MotorStartersPage = React.lazy(() => import('./features/motor-starters/MotorStartersPage'))
+const FireAlarmPage = React.lazy(() => import('./features/fire-alarm/FireAlarmPage'))
+
 // Category items
 const electricalItems: CalcItem[] = [
   { to: '/electrical/ohms-law', title: "Ohm's Law", subtitle: 'Voltage, current & resistance', icon: '\u03A9' },
@@ -96,6 +104,8 @@ const motorItems: CalcItem[] = [
   { to: '/motors/flc', title: 'Motor FLC Tables', subtitle: 'Full load current reference', icon: '\u2699' },
   { to: '/motors/branch', title: 'Motor Branch Circuit', subtitle: 'Branch circuit sizing', icon: '\u2442' },
   { to: '/motors/ocp', title: 'Motor OCP', subtitle: 'Motor overcurrent protection', icon: '\u26D4' },
+  { to: '/motors/starters', title: 'Motor Starters', subtitle: 'DOL, star-delta, soft start, VFD', icon: '\u25B6' },
+  { to: '/motors/vfd', title: 'VFD Reference', subtitle: 'Parameters, faults, sizing', icon: '\u223F' },
 ]
 
 const referenceItems: CalcItem[] = [
@@ -108,6 +118,14 @@ const referenceItems: CalcItem[] = [
   { to: '/reference/multimeter', title: 'Multimeter Guide', subtitle: 'Voltage, current, resistance, safety', icon: '\uD83D\uDCCF' },
   { to: '/reference/control-circuits', title: 'Control Circuits', subtitle: 'Schematics, symbols, disconnects', icon: '\u2B61' },
   { to: '/reference/plc-basics', title: 'PLC Basics', subtitle: 'I/O, ladder logic, protocols', icon: '\uD83E\uDDE0' },
+  { to: '/reference/grounding-systems', title: 'Grounding Systems', subtitle: 'HRG, solidly grounded, testing', icon: '\u23DA' },
+  { to: '/reference/fire-alarm', title: 'Fire Alarm', subtitle: 'Systems, devices, wiring, inspection', icon: '\uD83D\uDD14' },
+]
+
+const safetyItems: CalcItem[] = [
+  { to: '/safety/arc-flash', title: 'Arc Flash', subtitle: 'PPE categories, boundaries, labels', icon: '\u26A1' },
+  { to: '/safety/loto', title: 'Lockout / Tagout', subtitle: 'Procedures, energy sources, mining', icon: '\uD83D\uDD12' },
+  { to: '/mining/safety', title: 'Mining Electrical Safety', subtitle: 'Lockout, grounding, PPE, arc flash', icon: '\u26A0\uFE0F' },
 ]
 
 const miningItems: CalcItem[] = [
@@ -187,6 +205,8 @@ export default function App() {
             <Route path="/motors/flc" element={<MotorFLCPage />} />
             <Route path="/motors/branch" element={<MotorBranchPage />} />
             <Route path="/motors/ocp" element={<MotorOCPPage />} />
+            <Route path="/motors/starters" element={<MotorStartersPage />} />
+            <Route path="/motors/vfd" element={<VFDReferencePage />} />
 
             {/* Reference */}
             <Route path="/reference" element={<CategoryPage title="Reference" items={referenceItems} />} />
@@ -199,6 +219,13 @@ export default function App() {
             <Route path="/reference/multimeter" element={<MultimeterPage />} />
             <Route path="/reference/control-circuits" element={<ControlCircuitsPage />} />
             <Route path="/reference/plc-basics" element={<PLCBasicsPage />} />
+            <Route path="/reference/grounding-systems" element={<GroundingSystemsPage />} />
+            <Route path="/reference/fire-alarm" element={<FireAlarmPage />} />
+
+            {/* Safety */}
+            <Route path="/safety" element={<CategoryPage title="Safety" items={safetyItems} />} />
+            <Route path="/safety/arc-flash" element={<ArcFlashPage />} />
+            <Route path="/safety/loto" element={<LOTOPage />} />
 
             {/* Mining */}
             <Route path="/mining" element={<CategoryPage title="Mining" items={miningItems} />} />
