@@ -15,6 +15,7 @@ type TabKey =
   | 'grounding'
   | 'hazardous'
   | 'temporary'
+  | 'transformer'
 
 interface TabDef {
   key: TabKey
@@ -31,6 +32,7 @@ const tabs: TabDef[] = [
   { key: 'grounding', label: 'Grounding & Bonding', shortLabel: 'Grounding' },
   { key: 'hazardous', label: 'Hazardous Locations', shortLabel: 'Haz. Loc.' },
   { key: 'temporary', label: 'Temporary Installations', shortLabel: 'Temp Power' },
+  { key: 'transformer', label: 'Transformer Installations', shortLabel: 'Transformers' },
 ]
 
 /* ------------------------------------------------------------------ */
@@ -1232,6 +1234,233 @@ const temporaryQuickRef: QuickRef[] = [
 ]
 
 /* ------------------------------------------------------------------ */
+/*  TAB 9 — TRANSFORMER INSTALLATIONS                                  */
+/* ------------------------------------------------------------------ */
+
+const transformerSections: CodeSection[] = [
+  {
+    heading: 'Transformer Selection & Rating',
+    description: 'Choosing the correct transformer type, kVA rating, and overcurrent protection for the installation.',
+    rules: [
+      {
+        rule: 'Rule 26-240',
+        title: 'Transformer Overcurrent Protection Requirements',
+        detail: 'Every transformer shall be protected by an overcurrent device on the primary side rated or set at not more than the percentages specified in Table 50. This protection must guard against faults within the transformer and is independent of the branch circuit or feeder overcurrent protection.',
+        critical: true,
+      },
+      {
+        rule: 'Rule 26-242',
+        title: 'Primary-Side Overcurrent Protection Sizing',
+        detail: 'Primary overcurrent protection shall not exceed the maximum percentages from Table 50 based on transformer primary current and installation conditions. For transformers rated over 9A primary, max 125%. For transformers rated 9A or less primary, max 167%. For supervised locations, max 150%. If 125% does not correspond to a standard fuse or breaker size, the next larger standard size is permitted.',
+        critical: true,
+        miningNote: 'Open pit mines use portable and mobile substations (pad-mount, skid-mount) that feed shovels, drills, and conveyors. Rating must account for altitude derating above 1000 m, ambient temperature extremes, and load diversity of mining equipment. Always verify nameplate kVA against actual connected load.',
+      },
+      {
+        rule: 'Rule 26-244',
+        title: 'Secondary-Side Overcurrent Protection',
+        detail: 'Secondary overcurrent protection is required unless the primary device provides adequate protection per Table 50. Where secondary conductors are not longer than 3 m and terminate at a single overcurrent device, secondary protection at the transformer is not required.',
+      },
+      {
+        rule: 'Rule 26-250',
+        title: 'Transformer Impedance & Fault Current',
+        detail: 'The transformer impedance (%Z) determines the maximum available fault current on the secondary. The available fault current at the transformer secondary must be calculated and all downstream equipment must be rated to withstand and interrupt this fault level. Typical distribution transformers have 4-6% impedance.',
+        miningNote: 'Portable substations in open pit mines may be relocated, changing the available fault current at downstream equipment. Recalculate available fault current whenever a transformer is moved or the upstream configuration changes.',
+      },
+    ],
+  },
+  {
+    heading: 'Transformer Overcurrent Protection — Table 50',
+    description: 'Detailed overcurrent protection requirements from CEC Table 50 for primary and secondary devices.',
+    rules: [
+      {
+        rule: 'Rule 26-242 (Table 50)',
+        title: 'Primary Protection — Detailed Sizing',
+        detail: 'For transformers with primary current greater than 9A: max 125% of primary FLC. For transformers with primary current 9A or less: max 167% of primary FLC. For supervised locations (qualified personnel only): max 150% of primary FLC. If 125% does not correspond to a standard fuse or breaker rating, the next larger standard size is permitted. Standard fuse sizes: 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100A etc.',
+        critical: true,
+      },
+      {
+        rule: 'Rule 26-244 (Table 50)',
+        title: 'Secondary Protection — Conductor Length Exception',
+        detail: 'When secondary conductors are 3 m or less in length and terminate at a single overcurrent device, secondary-side transformer protection is not required. For secondary conductors longer than 3 m, an overcurrent device rated at not more than 125% of the transformer secondary full-load current must be installed at the transformer.',
+      },
+      {
+        rule: 'Rule 26-252',
+        title: 'Voltage and Frequency Requirements',
+        detail: 'Transformers shall be operated at the voltage and frequency specified on the nameplate. Operation at voltages exceeding 105% of nameplate voltage increases core losses, heating, and may cause saturation. Operation below 95% reduces available output power proportionally.',
+      },
+      {
+        rule: 'Practical Note',
+        title: 'Coordination with Upstream and Downstream Devices',
+        detail: 'The primary overcurrent device must coordinate with upstream feeder protection and downstream branch circuit protection. Time-current curves (TCC) should be reviewed to ensure the transformer primary fuse clears a secondary fault before the upstream device trips, maintaining selective coordination.',
+        miningNote: 'In open pit operations, portable transformers feeding shovels and drills often have integral primary protection (fused disconnects or breakers). Verify that this integral protection coordinates with the upstream line protection and downstream motor branch circuit devices. Miscoordination can cause nuisance tripping of main feeders.',
+      },
+    ],
+  },
+  {
+    heading: 'Wiring & Connections',
+    description: 'Conductor sizing, transformer winding configurations, and connection requirements.',
+    rules: [
+      {
+        rule: 'Rule 26-200',
+        title: 'Transformer Connections — Conductor Sizing',
+        detail: 'Primary and secondary conductors shall be sized to carry the transformer full-load current. Primary conductors are sized based on the transformer kVA rating divided by primary voltage. Secondary conductors are sized based on transformer kVA divided by secondary voltage. Conductor ampacity must be at least 125% of rated transformer current per Rule 8-104.',
+      },
+      {
+        rule: 'Rule 26-210',
+        title: 'Delta and Wye Configurations — Grounding',
+        detail: 'Delta-connected secondaries have no neutral point — a grounding conductor must be derived from a corner ground or mid-tap ground if needed. Wye-connected secondaries provide a neutral point that must be grounded when the voltage to ground is 150V or less, or when serving a 4-wire system. The configuration must match the load requirements.',
+        critical: true,
+      },
+      {
+        rule: 'Rule 26-212',
+        title: 'Corner-Grounded Delta Systems',
+        detail: 'Where a corner-grounded delta system is used, the grounded phase conductor must be identified and the grounded phase must be connected to the grounding system. Special bonding requirements apply — the grounded phase conductor serves as both the system ground and the equipment grounding path. Equipment must be rated for the system voltage.',
+      },
+      {
+        rule: 'Rule 4-006',
+        title: 'Conductor Ampacity for Transformer Circuits',
+        detail: 'Conductor ampacity for transformer primary and secondary circuits shall be determined from CEC Table 2 (copper) or Table 4 (aluminum) based on 125% of the transformer rated full-load current. Temperature correction factors and bundling derating factors apply. For transformers with multiple secondaries, each secondary circuit is sized independently.',
+      },
+      {
+        rule: 'Rule 26-256',
+        title: 'Parallel Operation of Transformers',
+        detail: 'Transformers connected in parallel must have the same voltage ratio, the same impedance percentage, the same polarity, and compatible winding configurations (both delta-wye, or both wye-wye, etc.). Unequal impedances cause circulating currents and uneven load sharing. Phase rotation must be verified before paralleling.',
+        miningNote: 'Open pit mine portable substations typically use delta-wye (delta primary, wye secondary) configuration to provide a solidly grounded neutral for 347/600V three-phase four-wire distribution. The wye secondary neutral MUST be solidly grounded per Rule 10-204. This configuration is standard for mining power distribution to shovels, drills, and plant equipment.',
+      },
+    ],
+  },
+  {
+    heading: 'Grounding & Bonding',
+    description: 'System grounding, grounding electrode requirements, and bonding for transformer installations.',
+    rules: [
+      {
+        rule: 'Rule 10-204',
+        title: 'System Grounding — Transformer Secondary',
+        detail: 'The transformer secondary must be grounded when the voltage to ground does not exceed 150V, or when the transformer supplies a 4-wire system (e.g., 347/600V wye). The grounding connection shall be made at the transformer secondary terminals or at the first disconnect on the secondary side. The grounding conductor connects the neutral to the grounding electrode.',
+        critical: true,
+      },
+      {
+        rule: 'Rule 10-206',
+        title: 'Grounding Electrode for Transformer',
+        detail: 'A transformer installed in a separate building or structure (including a portable substation) must have its own grounding electrode. The electrode may be a driven ground rod (min. 3 m / 10 ft copper-clad steel), a ground plate, or a concrete-encased electrode. Multiple electrodes may be required to achieve acceptable ground resistance.',
+      },
+      {
+        rule: 'Rule 10-210',
+        title: 'Grounding Conductor Sizing — Table 43',
+        detail: 'The system grounding conductor from the transformer secondary neutral to the grounding electrode shall be sized per CEC Table 43 based on the ampere rating of the transformer secondary overcurrent device or the transformer rated secondary current. This conductor must be copper and installed without splice unless using approved connectors.',
+        critical: true,
+      },
+      {
+        rule: 'Rule 10-500',
+        title: 'Bonding of Transformer Enclosure',
+        detail: 'The transformer enclosure, case, core, and all associated metal parts must be bonded to the equipment grounding system. The bonding conductor must provide a low-impedance fault current path back to the source. For pad-mount transformers, the bonding conductor is typically connected to the enclosure grounding pad or lug.',
+      },
+      {
+        rule: 'Rule 10-114',
+        title: 'Ground Fault Protection for Transformer Secondary',
+        detail: 'Ground fault protection may be required on the transformer secondary depending on the system voltage, ampere rating, and application. For solidly grounded wye systems over 150V to ground, ground fault protection of equipment (GFPE) is required for disconnects rated 1000A or more.',
+        miningNote: 'Open pit mine portable substations require independent grounding electrodes (driven ground rods) at each transformer location. O. Reg. 854 s. 153 requires ground fault protection on all mine distribution systems — this is more stringent than the CEC. Ground resistance must be tested and documented: max 25 ohms per individual rod, total system ground resistance must be 5 ohms or less. Ground rods must be inspected annually.',
+      },
+    ],
+  },
+  {
+    heading: 'Installation & Clearances',
+    description: 'Physical installation requirements, ventilation, clearances from combustibles, and vault requirements.',
+    rules: [
+      {
+        rule: 'Rule 26-200',
+        title: 'Transformer Location — Ventilation & Access',
+        detail: 'Transformers shall be installed in locations with adequate ventilation to dissipate heat losses. Natural ventilation must provide sufficient airflow for the transformer rating. Access for inspection, maintenance, and replacement must be maintained. Transformers must not block egress paths.',
+      },
+      {
+        rule: 'Rule 26-204',
+        title: 'Indoor Dry-Type — Clearances from Combustibles',
+        detail: 'Dry-type transformers installed indoors shall have a minimum clearance of 300 mm (12 in) from combustible materials, unless separated by a fire-rated barrier. Transformers rated over 112.5 kVA shall be installed in fire-resistant rooms or vaults unless they are of the sealed/non-ventilated type with 220 degrees C or higher insulation.',
+      },
+      {
+        rule: 'Rule 26-206',
+        title: 'Outdoor Oil-Filled — Building Clearances',
+        detail: 'Oil-filled transformers installed outdoors must maintain minimum clearances from buildings, doors, windows, and fire escapes as specified in Table 50B. These clearances depend on the transformer oil volume and kVA rating. Typical minimum clearance is 1.8 m from building openings for transformers containing over 230 L of oil.',
+      },
+      {
+        rule: 'Rule 26-220',
+        title: 'Vault Requirements for Indoor Oil-Filled',
+        detail: 'Oil-filled transformers installed indoors must be located in a fire-resistant vault with a minimum 3-hour fire rating on walls, floor, and ceiling. The vault must have adequate ventilation, a sill or drain to contain oil spills, and self-closing fire-rated doors. Vault openings must not face means of egress.',
+      },
+      {
+        rule: 'Rule 26-224',
+        title: 'Fire Protection for Oil-Filled Transformers',
+        detail: 'Oil-filled transformers containing more than 230 L (60 US gal) of oil require fire protection provisions including containment for the total oil volume, automatic fire suppression where required by the AHJ, and oil spill prevention. Less-flammable liquids (silicone, FR3) may reduce vault and clearance requirements.',
+      },
+      {
+        rule: 'Rule 26-230',
+        title: 'Transformer Accessibility for Maintenance',
+        detail: 'Transformers must be accessible for inspection, testing, and maintenance. A clear working space of at least 1.0 m must be provided around the transformer where access is required. Nameplate data must be visible and legible. Lifting provisions must be maintained for replaceable units.',
+        miningNote: 'Open pit mine pad-mount transformers must be located clear of haul roads, blast zones, and areas subject to flyrock. Oil containment is mandatory — secondary containment berm or double-wall design required per provincial environmental regulations. Lockable enclosures are required per O. Reg. 854. Transformer locations must be shown on the mine electrical single-line diagram and updated when units are relocated.',
+      },
+    ],
+  },
+  {
+    heading: 'Tap Changers & Voltage Regulation',
+    description: 'Voltage regulation, tap changer types, and practical guidance for mining feeder voltage management.',
+    rules: [
+      {
+        rule: 'Rule 26-252',
+        title: 'Voltage Regulation Requirements',
+        detail: 'The voltage at utilization equipment must be maintained within acceptable limits (typically +/- 5% of nameplate). Transformers with tap changers allow adjustment of the turns ratio to compensate for source voltage variations and line voltage drop. Proper tap selection is essential for equipment performance and longevity.',
+      },
+      {
+        rule: 'Rule 26-254',
+        title: 'No-Load Tap Changers (NLTC) vs Load Tap Changers (LTC)',
+        detail: 'No-load tap changers (NLTC) must be adjusted only when the transformer is de-energized. They are used for semi-permanent voltage adjustment. Load tap changers (LTC) can adjust under load and are used for dynamic voltage regulation. Most distribution transformers have NLTC with a typical range of +/- 5% in 2.5% steps (5 positions).',
+      },
+      {
+        rule: 'Practical Guidance',
+        title: 'Tap Settings for Mining Feeder Voltage Drop',
+        detail: 'Long feeder runs cause voltage drop that reduces voltage at the transformer primary. Calculate voltage drop using conductor resistance, cable length, and load current. If primary voltage is consistently low, adjust the NLTC tap to a lower ratio (boost position) to maintain secondary voltage. Always verify secondary voltage under load after any tap change.',
+        miningNote: 'Open pit mines often have long overhead or underground feeder runs to portable substations — distances of 2-5 km are common. Primary voltage is typically 4.16 kV, 13.8 kV, or 25 kV. Tap adjustments compensate for voltage drop on these long runs. Typical adjustment range is +/- 5% in 2.5% steps. Measure secondary voltage under load at the transformer and at the most remote load to verify adequate regulation.',
+      },
+    ],
+  },
+  {
+    heading: 'Testing & Commissioning',
+    description: 'Required tests before energizing a new or relocated transformer.',
+    rules: [
+      {
+        rule: 'Rule 2-024',
+        title: 'Inspection Before Energizing',
+        detail: 'No electrical equipment shall be energized until it has been inspected and approved by the inspection authority. For transformer installations, this includes verification of grounding, overcurrent protection, conductor sizing, clearances, labeling, and overall conformance with the CEC and the installation drawings.',
+      },
+      {
+        rule: 'CSA C88',
+        title: 'Testing Standards for Power Transformers',
+        detail: 'CSA C88 (Power Transformers) specifies factory and field tests for power transformers. Field tests include: insulation resistance (megger test), turns ratio test, winding resistance measurement, polarity verification, and oil dielectric breakdown test (for oil-filled units). All tests must be documented and records retained.',
+      },
+      {
+        rule: 'Field Testing',
+        title: 'Required Field Tests',
+        detail: 'Before energizing: (1) Insulation resistance — megger at rated voltage plus 1 kV, minimum 1 minute. (2) Turns ratio — verify nameplate ratio on all taps. (3) Winding resistance — DC resistance of each winding, compare phases for balance. (4) Oil dielectric (oil-filled) — breakdown voltage per ASTM D1816, minimum 30 kV for new oil. (5) Visual inspection — check for shipping damage, oil leaks, loose connections, proper grounding.',
+        miningNote: 'O. Reg. 854 requires transformer testing before initial energization and after any maintenance or relocation. Insulation resistance records must be maintained as a baseline for trending. Minimum insulation resistance for a new transformer: 1 megohm per kV of rated voltage plus 1 megohm (e.g., a 600V transformer needs minimum 1.6 megohms). Oil-filled units require dissolved gas analysis (DGA) oil sampling annually to detect incipient faults.',
+      },
+    ],
+  },
+]
+
+const transformerQuickRef: QuickRef[] = [
+  { label: 'Primary OCP max (>9A primary)', value: '125%', note: 'Rule 26-242 / Table 50' },
+  { label: 'Primary OCP max (<=9A primary)', value: '167%', note: 'Rule 26-242 / Table 50' },
+  { label: 'Primary OCP supervised location', value: '150%', note: 'Rule 26-242 / Table 50' },
+  { label: 'Secondary OCP max', value: '125% of secondary FLC', note: 'Rule 26-244' },
+  { label: 'Min clearance from combustible (dry type)', value: '300 mm (12")', note: 'Rule 26-204' },
+  { label: 'Grounding conductor sizing', value: 'Per CEC Table 43', note: 'Rule 10-210' },
+  { label: 'Max ground resistance (mine, per rod)', value: '25 ohms', note: 'O. Reg. 854' },
+  { label: 'Max ground resistance (system)', value: '5 ohms', note: 'O. Reg. 854' },
+  { label: 'Insulation resistance (new, min)', value: '1 M-ohm/kV + 1 M-ohm', note: 'CSA C88' },
+  { label: 'Common mine primary voltages', value: '4.16 kV, 13.8 kV, 25 kV', note: 'Mining standard' },
+  { label: 'Typical secondary voltages (mining)', value: '600V, 347/600V, 480V', note: 'Mining standard' },
+]
+
+/* ------------------------------------------------------------------ */
 /*  STYLES                                                             */
 /* ------------------------------------------------------------------ */
 
@@ -1640,6 +1869,41 @@ function TemporaryTab() {
   )
 }
 
+function TransformerTab() {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+      <div style={{
+        fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.5,
+        background: 'var(--surface)', border: '1px solid var(--divider)',
+        borderRadius: 'var(--radius)', padding: 14,
+      }}>
+        CEC Section 26 transformer installation rules. Covers overcurrent protection (Table 50),
+        winding configurations (delta-wye), grounding and bonding, conductor sizing, clearances,
+        vault requirements, tap changers, and commissioning tests. Includes Ontario mining
+        portable substation requirements and O. Reg. 854 ground fault protection mandates.
+      </div>
+      <div style={{
+        background: 'rgba(255, 179, 0, 0.08)',
+        border: '1px solid rgba(255, 179, 0, 0.25)',
+        borderRadius: 'var(--radius)',
+        padding: 14,
+        fontSize: 14,
+        fontWeight: 700,
+        color: 'var(--primary)',
+        textAlign: 'center' as const,
+      }}>
+        Primary OCP: Table 50 — 125% (&gt;9A) / 167% (&le;9A) / 150% (supervised)
+        <br />
+        Grounding Conductor: Size per Table 43
+      </div>
+      <QuickRefTable items={transformerQuickRef} title="Transformer Installation Quick Reference" />
+      {transformerSections.map((s, i) => (
+        <SectionBlock key={i} section={s} />
+      ))}
+    </div>
+  )
+}
+
 /* ------------------------------------------------------------------ */
 /*  MAIN COMPONENT                                                     */
 /* ------------------------------------------------------------------ */
@@ -1665,6 +1929,8 @@ export default function CodeRequirementsPage() {
         return <HazardousTab />
       case 'temporary':
         return <TemporaryTab />
+      case 'transformer':
+        return <TransformerTab />
       default:
         return <DisconnectTab />
     }
