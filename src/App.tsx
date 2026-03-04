@@ -74,6 +74,11 @@ const MediumVoltagePage = React.lazy(() => import('./features/medium-voltage/Med
 const PowerQualityPage = React.lazy(() => import('./features/power-quality/PowerQualityPage'))
 const CodeRequirementsPage = React.lazy(() => import('./features/code-requirements/CodeRequirementsPage'))
 
+// Batch 6: Conductor Properties, Wiring Methods, Industrial Comms
+const ConductorPropertiesPage = React.lazy(() => import('./features/conductor-properties/ConductorPropertiesPage'))
+const WiringMethodsPage = React.lazy(() => import('./features/wiring-methods/WiringMethodsPage'))
+const IndustrialCommsPage = React.lazy(() => import('./features/industrial-comms/IndustrialCommsPage'))
+
 // Category items
 const electricalItems: CalcItem[] = [
   { to: '/electrical/ohms-law', title: "Ohm's Law", subtitle: 'Voltage, current & resistance', icon: '\u03A9' },
@@ -132,6 +137,9 @@ const referenceItems: CalcItem[] = [
   { to: '/reference/instrumentation', title: 'Instrumentation', subtitle: '4-20mA, RTDs, P&ID, HART', icon: '\uD83D\uDCE1' },
   { to: '/reference/power-quality', title: 'Power Quality', subtitle: 'Harmonics, THD, K-factor calculator', icon: '\uD83D\uDCC8' },
   { to: '/reference/code-requirements', title: 'CEC Code by Task', subtitle: 'Rules for disconnects, TECK, motors', icon: '\uD83D\uDCDC' },
+  { to: '/reference/conductor-properties', title: 'Conductor Properties', subtitle: 'AWG, resistance, derating, selection', icon: '\uD83E\uDDF5' },
+  { to: '/reference/wiring-methods', title: 'Wiring Methods', subtitle: 'EMT, TECK, cable tray, burial', icon: '\uD83D\uDD27' },
+  { to: '/reference/industrial-comms', title: 'Industrial Comms', subtitle: 'RS-485, Ethernet, fiber, Modbus', icon: '\uD83D\uDCE1' },
 ]
 
 const safetyItems: CalcItem[] = [
@@ -238,6 +246,9 @@ export default function App() {
             <Route path="/reference/instrumentation" element={<InstrumentationPage />} />
             <Route path="/reference/power-quality" element={<PowerQualityPage />} />
             <Route path="/reference/code-requirements" element={<CodeRequirementsPage />} />
+            <Route path="/reference/conductor-properties" element={<ConductorPropertiesPage />} />
+            <Route path="/reference/wiring-methods" element={<WiringMethodsPage />} />
+            <Route path="/reference/industrial-comms" element={<IndustrialCommsPage />} />
 
             {/* Safety */}
             <Route path="/safety" element={<CategoryPage title="Safety" items={safetyItems} />} />
