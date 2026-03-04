@@ -11,29 +11,56 @@ const tabs = [
 
 export default function BottomNav() {
   return (
-    <nav style={{
-      position: 'fixed', bottom: 0, left: 0, right: 0,
-      background: 'var(--nav-bg)',
-      borderTop: '1px solid var(--divider)',
-      display: 'flex', justifyContent: 'space-around',
-      paddingBottom: 'env(safe-area-inset-bottom, 8px)',
-      paddingTop: 6, zIndex: 100,
-    }}>
-      {tabs.map(t => (
-        <NavLink key={t.to} to={t.to} end={t.to === '/'} style={({ isActive }) => ({
-          display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2,
-          minWidth: 50, minHeight: 56, justifyContent: 'center',
-          color: isActive ? 'var(--primary)' : 'var(--text-secondary)',
-          fontSize: 10, fontWeight: isActive ? 700 : 500,
-          textDecoration: 'none', transition: 'color .15s',
-        })}>
-          <svg width={22} height={22} viewBox="0 0 24 24" fill="currentColor"
-            style={{ opacity: 0.85 }}>
-            <path d={t.icon} />
-          </svg>
-          {t.label}
-        </NavLink>
-      ))}
-    </nav>
+    <>
+      <style>{`
+        .nav-tab { position: relative; }
+        .nav-tab::after {
+          content: '';
+          position: absolute;
+          bottom: 0; left: 50%; transform: translateX(-50%);
+          width: 0; height: 2px;
+          background: var(--primary);
+          border-radius: 2px;
+          transition: width 200ms ease, box-shadow 200ms ease;
+        }
+        .nav-tab.active::after {
+          width: 20px;
+          box-shadow: 0 0 8px rgba(255, 215, 0, 0.35);
+        }
+      `}</style>
+      <nav style={{
+        position: 'fixed', bottom: 0, left: 0, right: 0,
+        background: 'var(--nav-bg)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        borderTop: '1px solid var(--divider)',
+        display: 'flex', justifyContent: 'space-around',
+        paddingBottom: 'env(safe-area-inset-bottom, 8px)',
+        paddingTop: 8, zIndex: 100,
+      }}>
+        {tabs.map(t => (
+          <NavLink key={t.to} to={t.to} end={t.to === '/'}
+            className={({ isActive }) => `nav-tab ${isActive ? 'active' : ''}`}
+            style={({ isActive }) => ({
+              display: 'flex', flexDirection: 'column' as const,
+              alignItems: 'center', gap: 3,
+              minWidth: 52, minHeight: 52,
+              paddingBottom: 6,
+              justifyContent: 'center',
+              color: isActive ? 'var(--primary)' : 'var(--text-tertiary)',
+              fontSize: 10, fontWeight: isActive ? 600 : 400,
+              fontFamily: 'var(--font-display)',
+              textDecoration: 'none',
+              letterSpacing: '0.2px',
+              transition: 'color 200ms ease',
+            })}>
+            <svg width={22} height={22} viewBox="0 0 24 24" fill="currentColor">
+              <path d={t.icon} />
+            </svg>
+            {t.label}
+          </NavLink>
+        ))}
+      </nav>
+    </>
   )
 }

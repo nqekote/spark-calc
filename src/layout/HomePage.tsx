@@ -2,26 +2,24 @@ import { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import Header from './Header'
 
-/* ── colour accents per category ── */
+/* ═══════════════════════════════════════════
+   Design tokens per category
+   ═══════════════════════════════════════════ */
 const catMeta: Record<string, { accent: string; bg: string; icon: string }> = {
-  Calculators: { accent: '#ffd700', bg: 'rgba(255,215,0,0.08)', icon: '⚡' },
-  'Wire & Cable': { accent: '#4fc3f7', bg: 'rgba(79,195,247,0.08)', icon: '🔌' },
-  'Motors & Drives': { accent: '#66bb6a', bg: 'rgba(102,187,106,0.08)', icon: '⚙' },
-  Safety: { accent: '#ef5350', bg: 'rgba(239,83,80,0.08)', icon: '🛡' },
-  Reference: { accent: '#ab47bc', bg: 'rgba(171,71,188,0.08)', icon: '📖' },
-  Mining: { accent: '#ff9800', bg: 'rgba(255,152,0,0.08)', icon: '⛏' },
-  'Installation Guides': { accent: '#26c6da', bg: 'rgba(38,198,218,0.08)', icon: '🔧' },
-  Tools: { accent: '#78909c', bg: 'rgba(120,144,156,0.08)', icon: '🧰' },
+  Calculators:          { accent: 'var(--accent-calc)',    bg: 'rgba(255,215,0,0.06)',   icon: '⚡' },
+  'Wire & Cable':       { accent: 'var(--accent-wire)',    bg: 'rgba(79,195,247,0.06)',  icon: '🔌' },
+  'Motors & Drives':    { accent: 'var(--accent-motor)',   bg: 'rgba(102,187,106,0.06)', icon: '⚙' },
+  Safety:               { accent: 'var(--accent-safety)',  bg: 'rgba(239,83,80,0.06)',   icon: '🛡' },
+  Reference:            { accent: 'var(--accent-ref)',     bg: 'rgba(171,71,188,0.06)',  icon: '📖' },
+  Mining:               { accent: 'var(--accent-mining)',  bg: 'rgba(255,152,0,0.06)',   icon: '⛏' },
+  'Installation Guides':{ accent: 'var(--accent-install)', bg: 'rgba(38,198,218,0.06)',  icon: '🔧' },
+  Tools:                { accent: 'var(--accent-tools)',   bg: 'rgba(120,144,156,0.06)', icon: '🧰' },
 }
 
-/* ── all features ── */
-interface Feature {
-  to: string
-  title: string
-  icon: string
-  category: string
-  subtitle?: string
-}
+/* ═══════════════════════════════════════════
+   Feature catalogue
+   ═══════════════════════════════════════════ */
+interface Feature { to: string; title: string; icon: string; category: string; subtitle?: string }
 
 const allFeatures: Feature[] = [
   // ── Calculators ──
@@ -50,7 +48,7 @@ const allFeatures: Feature[] = [
   { to: '/conduit/raceway-spacing', title: 'Raceway Spacing', icon: '⎓', category: 'Wire & Cable', subtitle: 'Support dist.' },
   { to: '/conduit/burial-depths', title: 'Burial Depths', icon: '⬇', category: 'Wire & Cable', subtitle: 'Min. cover' },
   { to: '/conduit/cable-tray', title: 'Cable Tray', icon: '▤', category: 'Wire & Cable', subtitle: 'Tray fill' },
-  { to: '/conduit/fill', title: 'Conduit Fill', icon: '◎', category: 'Wire & Cable', subtitle: 'Fill calculations' },
+  { to: '/conduit/fill', title: 'Conduit Fill', icon: '◎', category: 'Wire & Cable', subtitle: 'Fill calcs' },
   { to: '/conduit/bending', title: 'EMT Bending', icon: '⌒', category: 'Wire & Cable', subtitle: 'Offsets & saddles' },
 
   // ── Motors & Drives ──
@@ -103,7 +101,7 @@ const allFeatures: Feature[] = [
   { to: '/tools/exam-prep', title: 'Exam Prep', icon: '🎓', category: 'Tools', subtitle: 'CEC flashcards' },
 ]
 
-/* ── "favourites" shown prominently ── */
+/* Quick access pinned routes */
 const spotlightRoutes = [
   '/wire/teck-cable',
   '/safety/loto',
@@ -113,16 +111,9 @@ const spotlightRoutes = [
   '/safety/arc-flash',
 ]
 
-/* ── category order for the browse grid ── */
 const categoryOrder = [
-  'Calculators',
-  'Wire & Cable',
-  'Motors & Drives',
-  'Safety',
-  'Reference',
-  'Installation Guides',
-  'Mining',
-  'Tools',
+  'Calculators', 'Wire & Cable', 'Motors & Drives', 'Safety',
+  'Reference', 'Installation Guides', 'Mining', 'Tools',
 ]
 
 /* ═══════════════════════════════════════════ */
@@ -134,8 +125,7 @@ export default function HomePage() {
     if (!search.trim()) return allFeatures
     const q = search.toLowerCase()
     return allFeatures.filter(
-      c =>
-        c.title.toLowerCase().includes(q) ||
+      c => c.title.toLowerCase().includes(q) ||
         c.category.toLowerCase().includes(q) ||
         (c.subtitle && c.subtitle.toLowerCase().includes(q))
     )
@@ -162,97 +152,115 @@ export default function HomePage() {
     <>
       <Header />
       <style>{`
-        @keyframes pulse-glow {
-          0%, 100% { box-shadow: 0 0 12px rgba(255,215,0,0.15); }
-          50% { box-shadow: 0 0 24px rgba(255,215,0,0.35); }
-        }
-        @keyframes shimmer {
-          0% { background-position: -200% 0; }
-          100% { background-position: 200% 0; }
-        }
-        .cat-card:active { transform: scale(0.97); }
-        .feat-row:active { background: var(--surface-hover) !important; }
+        .home-card { transition: transform 80ms ease, background 150ms ease; }
+        .home-card:active { transform: scale(0.97); }
+        .feat-row { transition: background 120ms ease, transform 60ms ease; }
+        .feat-row:active { background: var(--surface-hover) !important; transform: scale(0.985); }
+        .cat-btn { transition: transform 80ms ease, border-color 200ms ease, background 200ms ease; }
+        .cat-btn:active { transform: scale(0.97); }
       `}</style>
 
       <div style={{ padding: '0 16px 32px' }}>
 
-        {/* ─── Hero Banner ─── */}
+        {/* ─── Hero ─── */}
         {!isSearching && (
-          <div style={{
-            background: 'linear-gradient(135deg, rgba(255,215,0,0.12) 0%, rgba(255,215,0,0.03) 100%)',
-            borderRadius: 16,
-            padding: '24px 20px',
-            marginTop: 12,
-            marginBottom: 20,
-            border: '1px solid rgba(255,215,0,0.15)',
+          <div className="animate-in" style={{
             position: 'relative',
+            borderRadius: 'var(--radius-lg)',
+            padding: '28px 24px 20px',
+            marginTop: 12, marginBottom: 24,
+            background: 'var(--surface)',
+            border: '1px solid var(--divider)',
             overflow: 'hidden',
           }}>
-            {/* Decorative bolt */}
-            <svg width={80} height={80} viewBox="0 0 24 24" fill="rgba(255,215,0,0.06)"
-              style={{ position: 'absolute', right: -8, top: -8 }}>
-              <path d="M13 2L4 14h7l-2 8 11-14h-7l4-6z" />
+            {/* Circuit board pattern bg */}
+            <svg width="100%" height="100%" style={{
+              position: 'absolute', inset: 0, opacity: 0.03,
+            }} viewBox="0 0 200 200">
+              <defs>
+                <pattern id="circuit" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M0 20h15M25 20h15M20 0v15M20 25v15" stroke="currentColor" strokeWidth="0.5" fill="none"/>
+                  <circle cx="20" cy="20" r="2" fill="currentColor"/>
+                </pattern>
+              </defs>
+              <rect width="200" height="200" fill="url(#circuit)" />
             </svg>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: 14, position: 'relative' }}>
+            <div style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: 16 }}>
+              {/* Logo */}
               <div style={{
-                width: 52, height: 52, borderRadius: 14,
-                background: 'linear-gradient(135deg, #ffd700, #ffaa00)',
+                width: 48, height: 48, borderRadius: 14,
+                background: 'linear-gradient(135deg, #ffd700, #f0a500)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                boxShadow: '0 4px 16px rgba(255,215,0,0.3)',
+                boxShadow: '0 4px 20px rgba(255, 215, 0, 0.25)',
                 flexShrink: 0,
               }}>
-                <svg width={28} height={28} viewBox="0 0 24 24" fill="#000">
+                <svg width={24} height={24} viewBox="0 0 24 24" fill="#000">
                   <path d="M13 2L4 14h7l-2 8 11-14h-7l4-6z" />
                 </svg>
               </div>
               <div>
                 <div style={{
-                  fontSize: 24, fontWeight: 800, color: 'var(--primary)',
-                  letterSpacing: -0.5, lineHeight: 1.1,
+                  fontSize: 22, fontWeight: 700,
+                  fontFamily: 'var(--font-display)',
+                  color: 'var(--primary)',
+                  letterSpacing: '-0.5px', lineHeight: 1.1,
                 }}>
                   SparkCalc
                 </div>
                 <div style={{
-                  fontSize: 13, color: 'var(--text-secondary)', marginTop: 3,
-                  lineHeight: 1.3,
+                  fontSize: 13, color: 'var(--text-secondary)',
+                  fontFamily: 'var(--font-display)',
+                  fontWeight: 400, marginTop: 2,
                 }}>
-                  Ontario Electrical & Mining Reference
+                  Ontario Electrical &amp; Mining Reference
                 </div>
               </div>
             </div>
 
-            {/* Stats strip */}
+            {/* Stats */}
             <div style={{
-              display: 'flex', gap: 0, marginTop: 16,
-              borderRadius: 10, overflow: 'hidden',
+              display: 'flex', gap: 1, marginTop: 20,
+              borderRadius: 'var(--radius)', overflow: 'hidden',
               border: '1px solid var(--divider)',
             }}>
               {[
-                { n: allFeatures.length.toString(), l: 'Features' },
-                { n: '8', l: 'Categories' },
+                { n: allFeatures.length.toString(), l: 'Tools' },
+                { n: categoryOrder.length.toString(), l: 'Categories' },
                 { n: '2024', l: 'CEC' },
               ].map((s, i) => (
                 <div key={i} style={{
-                  flex: 1, textAlign: 'center', padding: '10px 0',
-                  background: 'var(--surface)',
-                  borderRight: i < 2 ? '1px solid var(--divider)' : 'none',
+                  flex: 1, textAlign: 'center', padding: '12px 0',
+                  background: 'var(--surface-elevated)',
                 }}>
-                  <div style={{ fontSize: 18, fontWeight: 800, color: 'var(--primary)' }}>{s.n}</div>
-                  <div style={{ fontSize: 10, color: 'var(--text-secondary)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: 0.5 }}>{s.l}</div>
+                  <div style={{
+                    fontSize: 18, fontWeight: 700,
+                    fontFamily: 'var(--font-mono)',
+                    color: 'var(--primary)',
+                    letterSpacing: '-0.5px',
+                  }}>{s.n}</div>
+                  <div style={{
+                    fontSize: 10, color: 'var(--text-tertiary)',
+                    fontFamily: 'var(--font-display)',
+                    fontWeight: 600, textTransform: 'uppercase',
+                    letterSpacing: '0.8px', marginTop: 2,
+                  }}>{s.l}</div>
                 </div>
               ))}
             </div>
           </div>
         )}
 
-        {/* ─── Search Bar ─── */}
-        <div style={{ position: 'relative', marginBottom: isSearching ? 16 : 20 }}>
+        {/* ─── Search ─── */}
+        <div style={{
+          position: 'relative',
+          marginBottom: isSearching ? 16 : 24,
+        }}>
           <svg
             width={18} height={18} viewBox="0 0 24 24"
-            fill="none" stroke="var(--text-secondary)" strokeWidth={2.5}
+            fill="none" stroke="var(--text-tertiary)" strokeWidth={2.5}
             strokeLinecap="round" strokeLinejoin="round"
-            style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', zIndex: 1 }}
+            style={{ position: 'absolute', left: 16, top: '50%', transform: 'translateY(-50%)', zIndex: 1 }}
           >
             <circle cx={11} cy={11} r={8} />
             <line x1={21} y1={21} x2={16.65} y2={16.65} />
@@ -264,25 +272,31 @@ export default function HomePage() {
             onChange={e => setSearch(e.target.value)}
             style={{
               width: '100%', boxSizing: 'border-box',
-              padding: '14px 40px 14px 44px',
-              fontSize: 16, borderRadius: 14,
-              border: '1px solid var(--input-border)',
-              background: 'var(--input-bg)',
+              padding: '14px 44px 14px 48px',
+              fontSize: 15, borderRadius: 'var(--radius)',
+              border: '1px solid var(--divider)',
+              background: 'var(--surface)',
               color: 'var(--text)',
+              fontFamily: 'var(--font-display)',
               outline: 'none',
-              minHeight: 56,
-              fontFamily: 'var(--font-sans)',
-              transition: 'border-color 0.2s',
+              minHeight: 52,
+              transition: 'border-color 200ms ease, box-shadow 200ms ease',
             }}
-            onFocus={e => { e.target.style.borderColor = 'var(--primary)' }}
-            onBlur={e => { e.target.style.borderColor = 'var(--input-border)' }}
+            onFocus={e => {
+              e.target.style.borderColor = 'var(--primary)'
+              e.target.style.boxShadow = '0 0 0 3px var(--primary-glow)'
+            }}
+            onBlur={e => {
+              e.target.style.borderColor = 'var(--divider)'
+              e.target.style.boxShadow = 'none'
+            }}
           />
           {search && (
             <button onClick={() => setSearch('')} style={{
               position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)',
-              width: 28, height: 28, borderRadius: '50%',
-              background: 'var(--divider)', display: 'flex',
-              alignItems: 'center', justifyContent: 'center',
+              width: 28, height: 28, borderRadius: 'var(--radius-full)',
+              background: 'var(--surface-hover)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
             }}>
               <svg width={14} height={14} viewBox="0 0 24 24" fill="none"
                 stroke="var(--text-secondary)" strokeWidth={3} strokeLinecap="round">
@@ -297,48 +311,60 @@ export default function HomePage() {
         {isSearching && (
           <section>
             <div style={{
-              fontSize: 13, fontWeight: 600, color: 'var(--text-secondary)',
-              marginBottom: 10, paddingLeft: 2,
+              fontSize: 12, fontWeight: 500, color: 'var(--text-tertiary)',
+              fontFamily: 'var(--font-display)',
+              marginBottom: 12, paddingLeft: 2,
             }}>
               {filtered.length} result{filtered.length !== 1 ? 's' : ''}
             </div>
 
             {filtered.length === 0 && (
               <div style={{
-                padding: '40px 16px', textAlign: 'center',
-                color: 'var(--text-secondary)', fontSize: 15,
+                padding: '48px 16px', textAlign: 'center',
+                color: 'var(--text-tertiary)', fontSize: 15,
+                fontFamily: 'var(--font-display)',
               }}>
                 No tools match &ldquo;{search}&rdquo;
               </div>
             )}
 
             <div style={{ display: 'grid', gap: 6 }}>
-              {filtered.map(f => (
-                <Link key={f.to} to={f.to} className="feat-row" style={{
+              {filtered.map((f, i) => (
+                <Link key={f.to} to={f.to} className="feat-row animate-in" style={{
                   display: 'flex', alignItems: 'center', gap: 12,
                   padding: '12px 14px',
                   background: 'var(--surface)',
-                  borderRadius: 10,
+                  borderRadius: 'var(--radius)',
                   border: '1px solid var(--divider)',
                   textDecoration: 'none', minHeight: 56,
-                  transition: 'background .15s, transform .1s',
+                  animationDelay: `${Math.min(i, 8) * 25}ms`,
                 }}>
                   <span style={{
-                    fontSize: 22, width: 36, height: 36, textAlign: 'center',
+                    fontSize: 20, width: 36, height: 36, textAlign: 'center',
                     lineHeight: '36px', flexShrink: 0,
-                    background: catMeta[f.category]?.bg || 'rgba(255,215,0,0.08)',
-                    borderRadius: 8,
+                    background: catMeta[f.category]?.bg || 'var(--primary-subtle)',
+                    borderRadius: 'var(--radius-sm)',
                   }}>
                     {f.icon}
                   </span>
                   <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ fontSize: 15, fontWeight: 600, color: 'var(--text)' }}>{f.title}</div>
-                    <div style={{ fontSize: 12, color: 'var(--text-secondary)' }}>{f.subtitle}</div>
+                    <div style={{
+                      fontSize: 15, fontWeight: 600, color: 'var(--text)',
+                      fontFamily: 'var(--font-display)',
+                    }}>{f.title}</div>
+                    <div style={{
+                      fontSize: 12, color: 'var(--text-secondary)',
+                      fontFamily: 'var(--font-display)',
+                    }}>{f.subtitle}</div>
                   </div>
                   <span style={{
-                    fontSize: 10, fontWeight: 600, color: catMeta[f.category]?.accent || 'var(--primary)',
-                    background: catMeta[f.category]?.bg || 'rgba(255,215,0,0.08)',
-                    padding: '3px 8px', borderRadius: 6, whiteSpace: 'nowrap',
+                    fontSize: 10, fontWeight: 600,
+                    color: catMeta[f.category]?.accent || 'var(--primary)',
+                    background: catMeta[f.category]?.bg || 'var(--primary-subtle)',
+                    padding: '3px 8px', borderRadius: 'var(--radius-full)',
+                    whiteSpace: 'nowrap',
+                    fontFamily: 'var(--font-display)',
+                    letterSpacing: '0.2px',
                   }}>
                     {f.category}
                   </span>
@@ -348,52 +374,44 @@ export default function HomePage() {
           </section>
         )}
 
-        {/* ─── Spotlight (quick access) ─── */}
+        {/* ─── Quick Access ─── */}
         {!isSearching && (
-          <section style={{ marginBottom: 24 }}>
+          <section style={{ marginBottom: 28 }}>
+            <SectionLabel>Quick Access</SectionLabel>
             <div style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-              marginBottom: 12,
+              display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10,
             }}>
-              <h2 style={{
-                fontSize: 14, fontWeight: 700, color: 'var(--text-secondary)',
-                textTransform: 'uppercase', letterSpacing: 0.8,
-              }}>
-                ⚡ Quick Access
-              </h2>
-            </div>
-            <div style={{
-              display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: 10,
-            }}>
-              {spotlight.map(f => {
+              {spotlight.map((f, i) => {
                 const meta = catMeta[f.category] || catMeta.Calculators
                 return (
-                  <Link key={f.to} to={f.to} className="cat-card" style={{
+                  <Link key={f.to} to={f.to} className="home-card animate-in" style={{
                     display: 'flex', flexDirection: 'column',
                     alignItems: 'center', justifyContent: 'center',
-                    gap: 6, padding: '16px 6px 14px',
+                    gap: 8, padding: '18px 8px 16px',
                     background: 'var(--surface)',
-                    borderRadius: 14,
+                    borderRadius: 'var(--radius)',
                     border: '1px solid var(--divider)',
-                    textDecoration: 'none', minHeight: 80,
-                    transition: 'transform .15s, box-shadow .15s',
+                    textDecoration: 'none', minHeight: 88,
                     position: 'relative', overflow: 'hidden',
+                    animationDelay: `${i * 40}ms`,
                   }}>
+                    {/* Top accent line */}
                     <div style={{
                       position: 'absolute', top: 0, left: 0, right: 0,
-                      height: 3, background: `linear-gradient(90deg, transparent, ${meta.accent}, transparent)`,
-                      opacity: 0.6,
+                      height: 2,
+                      background: `linear-gradient(90deg, transparent, ${meta.accent}, transparent)`,
+                      opacity: 0.5,
                     }} />
                     <span style={{
-                      fontSize: 26, width: 42, height: 42,
+                      fontSize: 24, width: 40, height: 40,
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       background: meta.bg, borderRadius: 10,
                     }}>
                       {f.icon}
                     </span>
                     <span style={{
-                      fontSize: 11, fontWeight: 700,
+                      fontSize: 11, fontWeight: 600,
+                      fontFamily: 'var(--font-display)',
                       color: 'var(--text)', textAlign: 'center',
                       lineHeight: 1.2,
                     }}>
@@ -409,61 +427,63 @@ export default function HomePage() {
         {/* ─── Browse by Category ─── */}
         {!isSearching && (
           <section>
-            <h2 style={{
-              fontSize: 14, fontWeight: 700, color: 'var(--text-secondary)',
-              textTransform: 'uppercase', letterSpacing: 0.8,
-              marginBottom: 12,
+            <SectionLabel>Browse by Category</SectionLabel>
+            <div style={{
+              display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10,
+              marginBottom: 24,
             }}>
-              Browse by Category
-            </h2>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 24 }}>
-              {categoryOrder.map(cat => {
+              {categoryOrder.map((cat, i) => {
                 const meta = catMeta[cat] || catMeta.Calculators
                 const count = allFeatures.filter(f => f.category === cat).length
+                const isExpanded = expandedCat === cat
                 return (
-                  <button key={cat} className="cat-card" onClick={() =>
-                    setExpandedCat(expandedCat === cat ? null : cat)
+                  <button key={cat} className="cat-btn animate-in" onClick={() =>
+                    setExpandedCat(isExpanded ? null : cat)
                   } style={{
                     display: 'flex', flexDirection: 'column',
                     alignItems: 'flex-start',
-                    padding: '16px 14px 14px',
-                    background: expandedCat === cat ? meta.bg : 'var(--surface)',
-                    borderRadius: 14,
-                    border: `1px solid ${expandedCat === cat ? meta.accent + '40' : 'var(--divider)'}`,
-                    textDecoration: 'none', minHeight: 80,
-                    transition: 'transform .15s, border-color .2s, background .2s',
+                    padding: '14px 14px 12px',
+                    background: isExpanded ? meta.bg : 'var(--surface)',
+                    borderRadius: 'var(--radius)',
+                    border: `1px solid ${isExpanded ? meta.accent + '30' : 'var(--divider)'}`,
+                    textDecoration: 'none', minHeight: 76,
                     textAlign: 'left', width: '100%',
                     position: 'relative', overflow: 'hidden',
+                    animationDelay: `${i * 30}ms`,
                   }}>
+                    {/* Top accent bar */}
                     <div style={{
                       position: 'absolute', top: 0, left: 0, right: 0,
-                      height: 3, background: meta.accent,
-                      opacity: expandedCat === cat ? 0.8 : 0.3,
-                      transition: 'opacity .2s',
+                      height: 2, background: meta.accent,
+                      opacity: isExpanded ? 0.8 : 0.2,
+                      transition: 'opacity 200ms ease',
                     }} />
                     <div style={{
                       display: 'flex', alignItems: 'center', gap: 10,
                       width: '100%',
                     }}>
-                      <span style={{ fontSize: 22 }}>{meta.icon}</span>
+                      <span style={{ fontSize: 20 }}>{meta.icon}</span>
                       <div style={{ flex: 1 }}>
                         <div style={{
-                          fontSize: 14, fontWeight: 700, color: 'var(--text)',
-                          lineHeight: 1.2,
+                          fontSize: 13, fontWeight: 700,
+                          fontFamily: 'var(--font-display)',
+                          color: 'var(--text)', lineHeight: 1.2,
                         }}>
                           {cat}
                         </div>
                         <div style={{
-                          fontSize: 11, color: meta.accent, fontWeight: 600, marginTop: 2,
+                          fontSize: 11, fontWeight: 500,
+                          fontFamily: 'var(--font-mono)',
+                          color: meta.accent, marginTop: 2,
                         }}>
-                          {count} tool{count !== 1 ? 's' : ''}
+                          {count}
                         </div>
                       </div>
-                      <svg width={16} height={16} viewBox="0 0 24 24" fill="none"
-                        stroke="var(--text-secondary)" strokeWidth={2.5} strokeLinecap="round"
+                      <svg width={14} height={14} viewBox="0 0 24 24" fill="none"
+                        stroke="var(--text-tertiary)" strokeWidth={2.5} strokeLinecap="round"
                         style={{
-                          transition: 'transform .2s',
-                          transform: expandedCat === cat ? 'rotate(90deg)' : 'rotate(0)',
+                          transition: 'transform 200ms ease',
+                          transform: isExpanded ? 'rotate(90deg)' : 'rotate(0)',
                         }}>
                         <path d="M9 18l6-6-6-6" />
                       </svg>
@@ -473,15 +493,12 @@ export default function HomePage() {
               })}
             </div>
 
-            {/* ─── Expanded Category Items ─── */}
+            {/* ─── Expanded Items ─── */}
             {expandedCat && grouped.has(expandedCat) && (
-              <div style={{
-                marginTop: -14, marginBottom: 20,
-                animation: 'fadeIn .2s ease',
-              }}>
-                <style>{`@keyframes fadeIn { from { opacity:0; transform:translateY(-8px) } to { opacity:1; transform:translateY(0) } }`}</style>
+              <div style={{ marginTop: -16, marginBottom: 24 }}>
                 <div style={{
-                  fontSize: 13, fontWeight: 700,
+                  fontSize: 12, fontWeight: 600,
+                  fontFamily: 'var(--font-display)',
                   color: catMeta[expandedCat]?.accent || 'var(--primary)',
                   marginBottom: 10, paddingLeft: 2,
                   display: 'flex', alignItems: 'center', gap: 6,
@@ -490,34 +507,42 @@ export default function HomePage() {
                   {expandedCat}
                 </div>
                 <div style={{ display: 'grid', gap: 6 }}>
-                  {(grouped.get(expandedCat) || []).map(f => {
+                  {(grouped.get(expandedCat) || []).map((f, i) => {
                     const meta = catMeta[f.category] || catMeta.Calculators
                     return (
-                      <Link key={f.to} to={f.to} className="feat-row" style={{
+                      <Link key={f.to} to={f.to} className="feat-row animate-in" style={{
                         display: 'flex', alignItems: 'center', gap: 12,
                         padding: '12px 14px',
                         background: 'var(--surface)',
-                        borderRadius: 10,
+                        borderRadius: 'var(--radius)',
                         border: '1px solid var(--divider)',
                         borderLeft: `3px solid ${meta.accent}`,
                         textDecoration: 'none', minHeight: 56,
-                        transition: 'background .15s',
+                        animationDelay: `${Math.min(i, 10) * 30}ms`,
                       }}>
                         <span style={{
-                          fontSize: 20, width: 34, height: 34,
+                          fontSize: 18, width: 34, height: 34,
                           display: 'flex', alignItems: 'center', justifyContent: 'center',
-                          background: meta.bg, borderRadius: 8, flexShrink: 0,
+                          background: meta.bg, borderRadius: 'var(--radius-sm)',
+                          flexShrink: 0,
                         }}>
                           {f.icon}
                         </span>
                         <div style={{ flex: 1, minWidth: 0 }}>
-                          <div style={{ fontSize: 15, fontWeight: 600, color: 'var(--text)' }}>{f.title}</div>
+                          <div style={{
+                            fontSize: 14, fontWeight: 600, color: 'var(--text)',
+                            fontFamily: 'var(--font-display)',
+                          }}>{f.title}</div>
                           {f.subtitle && (
-                            <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 1 }}>{f.subtitle}</div>
+                            <div style={{
+                              fontSize: 12, color: 'var(--text-secondary)',
+                              fontFamily: 'var(--font-display)',
+                              marginTop: 1,
+                            }}>{f.subtitle}</div>
                           )}
                         </div>
-                        <svg width={18} height={18} viewBox="0 0 24 24" fill="none"
-                          stroke="var(--text-secondary)" strokeWidth={2} strokeLinecap="round">
+                        <svg width={16} height={16} viewBox="0 0 24 24" fill="none"
+                          stroke="var(--text-tertiary)" strokeWidth={2} strokeLinecap="round">
                           <path d="M9 18l6-6-6-6" />
                         </svg>
                       </Link>
@@ -527,60 +552,60 @@ export default function HomePage() {
               </div>
             )}
 
-            {/* ─── All Tools flat list ─── */}
-            <h2 style={{
-              fontSize: 14, fontWeight: 700, color: 'var(--text-secondary)',
-              textTransform: 'uppercase', letterSpacing: 0.8,
-              marginBottom: 12, marginTop: 8,
-            }}>
-              All {allFeatures.length} Tools
-            </h2>
+            {/* ─── All Tools ─── */}
+            <SectionLabel>All {allFeatures.length} Tools</SectionLabel>
             {categoryOrder.map(cat => {
               const items = allFeatures.filter(f => f.category === cat)
               if (items.length === 0) return null
               const meta = catMeta[cat] || catMeta.Calculators
               return (
-                <div key={cat} style={{ marginBottom: 16 }}>
-                  <h3 style={{
-                    fontSize: 12, fontWeight: 700,
+                <div key={cat} style={{ marginBottom: 20 }}>
+                  <div style={{
+                    fontSize: 11, fontWeight: 700,
+                    fontFamily: 'var(--font-display)',
                     color: meta.accent,
-                    marginBottom: 6, paddingLeft: 4,
-                    display: 'flex', alignItems: 'center', gap: 6,
-                    textTransform: 'uppercase', letterSpacing: 0.5,
+                    marginBottom: 8, paddingLeft: 4,
+                    display: 'flex', alignItems: 'center', gap: 8,
+                    textTransform: 'uppercase', letterSpacing: '0.8px',
                   }}>
-                    <span style={{ fontSize: 14 }}>{meta.icon}</span>
+                    <span style={{ fontSize: 13 }}>{meta.icon}</span>
                     {cat}
                     <span style={{
-                      fontSize: 10, fontWeight: 600, color: 'var(--text-secondary)',
-                      background: 'var(--surface)', padding: '1px 6px', borderRadius: 4,
-                      marginLeft: 4,
+                      fontSize: 10, fontWeight: 500,
+                      fontFamily: 'var(--font-mono)',
+                      color: 'var(--text-tertiary)',
+                      background: 'var(--surface)',
+                      padding: '2px 8px', borderRadius: 'var(--radius-full)',
                     }}>
                       {items.length}
                     </span>
-                  </h3>
+                  </div>
                   <div style={{ display: 'grid', gap: 4 }}>
                     {items.map(f => (
                       <Link key={f.to} to={f.to} className="feat-row" style={{
                         display: 'flex', alignItems: 'center', gap: 10,
                         padding: '10px 12px',
                         background: 'var(--surface)',
-                        borderRadius: 8,
+                        borderRadius: 'var(--radius-sm)',
                         border: '1px solid var(--divider)',
                         textDecoration: 'none', minHeight: 48,
-                        transition: 'background .15s',
                       }}>
                         <span style={{
-                          fontSize: 16, width: 28, textAlign: 'center', flexShrink: 0,
+                          fontSize: 15, width: 28, textAlign: 'center', flexShrink: 0,
                         }}>
                           {f.icon}
                         </span>
                         <span style={{
-                          fontSize: 14, fontWeight: 500, color: 'var(--text)', flex: 1,
+                          fontSize: 14, fontWeight: 500, color: 'var(--text)',
+                          fontFamily: 'var(--font-display)',
+                          flex: 1,
                         }}>
                           {f.title}
                         </span>
                         <span style={{
-                          fontSize: 11, color: 'var(--text-secondary)', flexShrink: 0,
+                          fontSize: 11, color: 'var(--text-tertiary)',
+                          fontFamily: 'var(--font-display)',
+                          flexShrink: 0,
                         }}>
                           {f.subtitle}
                         </span>
@@ -594,5 +619,21 @@ export default function HomePage() {
         )}
       </div>
     </>
+  )
+}
+
+/* ── Reusable section label ── */
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <h2 style={{
+      fontSize: 11, fontWeight: 700,
+      fontFamily: 'var(--font-display)',
+      color: 'var(--text-tertiary)',
+      textTransform: 'uppercase', letterSpacing: '1px',
+      marginBottom: 12,
+      paddingLeft: 2,
+    }}>
+      {children}
+    </h2>
   )
 }
