@@ -1,19 +1,43 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import Header from './Header'
 
 /* ═══════════════════════════════════════════
    Design tokens per category
    ═══════════════════════════════════════════ */
-const catMeta: Record<string, { accent: string; bg: string; icon: string }> = {
-  Calculators:          { accent: 'var(--accent-calc)',    bg: 'rgba(255,215,0,0.06)',   icon: '⚡' },
-  'Wire & Cable':       { accent: 'var(--accent-wire)',    bg: 'rgba(79,195,247,0.06)',  icon: '🔌' },
-  'Motors & Drives':    { accent: 'var(--accent-motor)',   bg: 'rgba(102,187,106,0.06)', icon: '⚙' },
-  Safety:               { accent: 'var(--accent-safety)',  bg: 'rgba(239,83,80,0.06)',   icon: '🛡' },
-  Reference:            { accent: 'var(--accent-ref)',     bg: 'rgba(171,71,188,0.06)',  icon: '📖' },
-  Mining:               { accent: 'var(--accent-mining)',  bg: 'rgba(255,152,0,0.06)',   icon: '⛏' },
-  'Installation Guides':{ accent: 'var(--accent-install)', bg: 'rgba(38,198,218,0.06)',  icon: '🔧' },
-  Tools:                { accent: 'var(--accent-tools)',   bg: 'rgba(120,144,156,0.06)', icon: '🧰' },
+const catMeta: Record<string, { accent: string; bg: string; icon: ReactNode }> = {
+  Calculators: {
+    accent: 'var(--accent-calc)', bg: 'rgba(255,107,44,0.06)',
+    icon: <svg viewBox="0 0 24 24" fill="currentColor" width="100%" height="100%"><path d="M13 2L4 14h7l-2 8 11-14h-7z"/></svg>,
+  },
+  'Wire & Cable': {
+    accent: 'var(--accent-wire)', bg: 'rgba(59,130,246,0.06)',
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" width="100%" height="100%"><circle cx="12" cy="12" r="9.5"/><circle cx="9" cy="10" r="2.5" fill="currentColor" opacity="0.25"/><circle cx="15" cy="10" r="2.5" fill="currentColor" opacity="0.25"/><circle cx="12" cy="15.5" r="2.5" fill="currentColor" opacity="0.25"/></svg>,
+  },
+  'Motors & Drives': {
+    accent: 'var(--accent-motor)', bg: 'rgba(16,185,129,0.06)',
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" width="100%" height="100%"><circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="4"/><path d="M12 2.5v5M12 16.5v5M2.5 12h5M16.5 12h5"/></svg>,
+  },
+  Safety: {
+    accent: 'var(--accent-safety)', bg: 'rgba(244,63,94,0.06)',
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" width="100%" height="100%"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="currentColor" opacity="0.1"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>,
+  },
+  Reference: {
+    accent: 'var(--accent-ref)', bg: 'rgba(168,85,247,0.06)',
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" width="100%" height="100%"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>,
+  },
+  Mining: {
+    accent: 'var(--accent-mining)', bg: 'rgba(245,158,11,0.06)',
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" width="100%" height="100%"><path d="M3 20l6-12 4 6 4-8 4 14" fill="currentColor" opacity="0.1"/><path d="M3 20l6-12 4 6 4-8 4 14"/></svg>,
+  },
+  'Installation Guides': {
+    accent: 'var(--accent-install)', bg: 'rgba(6,182,212,0.06)',
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" width="100%" height="100%"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 00-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 007.94-7.94l-3.76 3.76z"/></svg>,
+  },
+  Tools: {
+    accent: 'var(--accent-tools)', bg: 'rgba(99,102,241,0.06)',
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" width="100%" height="100%"><rect x="5" y="2" width="14" height="20" rx="2"/><rect x="8" y="5" width="8" height="5" rx="1"/><circle cx="12" cy="16" r="2.5"/></svg>,
+  },
 }
 
 /* ═══════════════════════════════════════════
@@ -190,9 +214,9 @@ export default function HomePage() {
               {/* Logo */}
               <div style={{
                 width: 48, height: 48, borderRadius: 14,
-                background: 'linear-gradient(135deg, #ffd700, #f0a500)',
+                background: 'linear-gradient(135deg, #FF6B2C, #D4510F)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                boxShadow: '0 4px 20px rgba(255, 215, 0, 0.25)',
+                boxShadow: '0 4px 20px rgba(255, 107, 44, 0.3)',
                 flexShrink: 0,
               }}>
                 <svg width={24} height={24} viewBox="0 0 24 24" fill="#000">
@@ -462,7 +486,7 @@ export default function HomePage() {
                       display: 'flex', alignItems: 'center', gap: 10,
                       width: '100%',
                     }}>
-                      <span style={{ fontSize: 20 }}>{meta.icon}</span>
+                      <div style={{ width: 22, height: 22, color: meta.accent, flexShrink: 0, display: 'inline-flex' }}>{meta.icon}</div>
                       <div style={{ flex: 1 }}>
                         <div style={{
                           fontSize: 13, fontWeight: 700,
@@ -503,7 +527,7 @@ export default function HomePage() {
                   marginBottom: 10, paddingLeft: 2,
                   display: 'flex', alignItems: 'center', gap: 6,
                 }}>
-                  <span>{catMeta[expandedCat]?.icon}</span>
+                  <div style={{ width: 16, height: 16, flexShrink: 0, display: 'inline-flex' }}>{catMeta[expandedCat]?.icon}</div>
                   {expandedCat}
                 </div>
                 <div style={{ display: 'grid', gap: 6 }}>
@@ -568,7 +592,7 @@ export default function HomePage() {
                     display: 'flex', alignItems: 'center', gap: 8,
                     textTransform: 'uppercase', letterSpacing: '0.8px',
                   }}>
-                    <span style={{ fontSize: 13 }}>{meta.icon}</span>
+                    <div style={{ width: 16, height: 16, color: meta.accent, flexShrink: 0, display: 'inline-flex' }}>{meta.icon}</div>
                     {cat}
                     <span style={{
                       fontSize: 10, fontWeight: 500,

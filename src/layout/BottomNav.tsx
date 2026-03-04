@@ -25,7 +25,7 @@ export default function BottomNav() {
         }
         .nav-tab.active::after {
           width: 20px;
-          box-shadow: 0 0 8px rgba(255, 215, 0, 0.35);
+          box-shadow: 0 0 8px rgba(255, 107, 44, 0.4);
         }
       `}</style>
       <nav style={{
