@@ -59,6 +59,8 @@ const allFeatures: Feature[] = [
   { to: '/reference/box-fill', title: 'Box Fill', icon: '▣', category: 'Calculators', subtitle: 'Junction box' },
   { to: '/reference/residential', title: 'Residential', icon: '⌂', category: 'Calculators', subtitle: 'Demand load' },
   { to: '/electrical/oc-coordination', title: 'OC Coordination', icon: '📊', category: 'Calculators', subtitle: 'Selectivity' },
+  { to: '/electrical/transformer-loading', title: 'Xfmr Loading', icon: '🔥', category: 'Calculators', subtitle: 'Loading & life' },
+  { to: '/electrical/ground-fault', title: 'Ground Fault', icon: '⏚', category: 'Calculators', subtitle: 'GF & NGR calc' },
 
   // ── Wire & Cable ──
   { to: '/wire/ampacity', title: 'Ampacity', icon: 'ᴬ', category: 'Wire & Cable', subtitle: 'Wire tables' },
@@ -106,6 +108,9 @@ const allFeatures: Feature[] = [
   { to: '/reference/battery-ups', title: 'Battery & UPS', icon: '🔋', category: 'Reference', subtitle: 'UPS systems' },
   { to: '/reference/solar-renewable', title: 'Solar & PV', icon: '☀', category: 'Reference', subtitle: 'PV systems' },
   { to: '/reference/emergency-power', title: 'Emergency Power', icon: '🚨', category: 'Reference', subtitle: 'ATS & gensets' },
+  { to: '/reference/protective-relays', title: 'Protective Relays', icon: '⚡', category: 'Reference', subtitle: 'ANSI & settings' },
+  { to: '/reference/switchgear', title: 'Switchgear', icon: '🔧', category: 'Reference', subtitle: 'MV/LV types' },
+  { to: '/reference/portable-substation', title: 'Portable Subs', icon: '⎔', category: 'Reference', subtitle: 'Install & maint.' },
 
   // ── Installation Guides ──
   { to: '/reference/grounding-systems', title: 'Grounding Systems', icon: '⏚', category: 'Installation Guides', subtitle: 'HRG, testing' },
@@ -113,6 +118,7 @@ const allFeatures: Feature[] = [
   { to: '/reference/wiring-methods', title: 'Wiring Methods', icon: '🔧', category: 'Installation Guides', subtitle: 'EMT, TECK, burial' },
   { to: '/reference/conductor-properties', title: 'Conductors', icon: '🧵', category: 'Installation Guides', subtitle: 'AWG, derating' },
   { to: '/reference/industrial-comms', title: 'Industrial Comms', icon: '📡', category: 'Installation Guides', subtitle: 'Modbus, Ethernet' },
+  { to: '/reference/testing-guide', title: 'Hi-Pot & Megger', icon: '📏', category: 'Installation Guides', subtitle: 'IR, PI, hi-pot' },
 
   // ── Mining ──
   { to: '/mining/power', title: 'Mine Power', icon: '⛏', category: 'Mining', subtitle: 'Equipment & volts' },
@@ -123,6 +129,7 @@ const allFeatures: Feature[] = [
   { to: '/tools/panel-schedule', title: 'Panel Schedule', icon: '📊', category: 'Tools', subtitle: 'Panel builder' },
   { to: '/tools/hour-tracker', title: 'Hour Tracker', icon: '⏱', category: 'Tools', subtitle: 'Apprentice hrs' },
   { to: '/tools/exam-prep', title: 'Exam Prep', icon: '🎓', category: 'Tools', subtitle: 'CEC flashcards' },
+  { to: '/tools/single-line', title: 'Single-Line', icon: '─', category: 'Tools', subtitle: 'Diagram builder' },
 ]
 
 /* Quick access pinned routes */

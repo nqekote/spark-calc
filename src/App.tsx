@@ -86,6 +86,15 @@ const EmergencyPowerPage = React.lazy(() => import('./features/emergency-power/E
 const OCCoordinationPage = React.lazy(() => import('./features/oc-coordination/OCCoordinationPage'))
 const SafetyTrainingPage = React.lazy(() => import('./features/safety-training/SafetyTrainingPage'))
 
+// Batch 8: Transformer Loading, Ground Fault, Portable Sub, Testing, Relays, Single-Line, Switchgear
+const TransformerLoadingPage = React.lazy(() => import('./features/transformer-loading/TransformerLoadingPage'))
+const GroundFaultPage = React.lazy(() => import('./features/ground-fault/GroundFaultPage'))
+const PortableSubstationPage = React.lazy(() => import('./features/portable-substation/PortableSubstationPage'))
+const TestingGuidePage = React.lazy(() => import('./features/testing-guide/TestingGuidePage'))
+const ProtectiveRelaysPage = React.lazy(() => import('./features/protective-relays/ProtectiveRelaysPage'))
+const SingleLinePage = React.lazy(() => import('./features/single-line/SingleLinePage'))
+const SwitchgearPage = React.lazy(() => import('./features/switchgear/SwitchgearPage'))
+
 // Category items
 const electricalItems: CalcItem[] = [
   { to: '/electrical/ohms-law', title: "Ohm's Law", subtitle: 'Voltage, current & resistance', icon: '\u03A9' },
@@ -99,6 +108,8 @@ const electricalItems: CalcItem[] = [
   { to: '/electrical/disconnect', title: 'Disconnect Sizing', subtitle: 'HP-rated switch selection', icon: '\u2393' },
   { to: '/electrical/generator', title: 'Generator Sizing', subtitle: 'Backup power calculator', icon: '\u26A1' },
   { to: '/electrical/oc-coordination', title: 'OC Coordination', subtitle: 'Breaker & fuse selectivity', icon: '\uD83D\uDCCA' },
+  { to: '/electrical/transformer-loading', title: 'Transformer Loading', subtitle: 'Loading, derating & life calc', icon: '\uD83D\uDD25' },
+  { to: '/electrical/ground-fault', title: 'Ground Fault', subtitle: 'GF current & NGR sizing', icon: '\u23DA' },
 ]
 
 const wireItems: CalcItem[] = [
@@ -148,6 +159,9 @@ const referenceItems: CalcItem[] = [
   { to: '/reference/battery-ups', title: 'Battery & UPS', subtitle: 'UPS types, sizing, CEC Sec 64', icon: '\uD83D\uDD0B' },
   { to: '/reference/solar-renewable', title: 'Solar & Renewable', subtitle: 'PV, inverters, ESS, CEC', icon: '\u2600' },
   { to: '/reference/emergency-power', title: 'Emergency Power', subtitle: 'ATS, generators, CEC Sec 46', icon: '\uD83D\uDEA8' },
+  { to: '/reference/protective-relays', title: 'Protective Relays', subtitle: 'ANSI devices, 50/51, settings', icon: '\u26A1' },
+  { to: '/reference/switchgear', title: 'Switchgear', subtitle: 'MV/LV types, racking, testing', icon: '\uD83D\uDD27' },
+  { to: '/reference/portable-substation', title: 'Portable Substations', subtitle: 'Install, relocate, maintain', icon: '\u2394' },
 ]
 
 const safetyItems: CalcItem[] = [
@@ -162,6 +176,7 @@ const miningItems: CalcItem[] = [
   { to: '/mining/hazardous-areas', title: 'Hazardous Areas', subtitle: 'Zone & Class classification', icon: '\uD83D\uDCA8' },
   { to: '/mining/power', title: 'Mine Power Systems', subtitle: 'Equipment, voltages, troubleshooting', icon: '\u26CF' },
   { to: '/mining/cable-tray', title: 'Cable Tray Sizing', subtitle: 'Tray fill calculator (TECK90)', icon: '\u25A4' },
+  { to: '/reference/portable-substation', title: 'Portable Substations', subtitle: 'Install, relocate, maintain', icon: '\u2394' },
 ]
 
 const toolsItems: CalcItem[] = [
@@ -169,6 +184,7 @@ const toolsItems: CalcItem[] = [
   { to: '/tools/panel-schedule', title: 'Panel Schedule', subtitle: 'Digital panel schedule builder', icon: '\uD83D\uDCCA' },
   { to: '/tools/hour-tracker', title: 'Hour Tracker', subtitle: 'Apprentice hour logging', icon: '\u23F1' },
   { to: '/tools/exam-prep', title: 'Exam Prep', subtitle: 'CEC flashcards & practice', icon: '\uD83C\uDF93' },
+  { to: '/tools/single-line', title: 'Single-Line Builder', subtitle: 'Diagram builder & symbols', icon: '\u2500' },
 ]
 
 function LoadingSpinner() {
@@ -210,6 +226,8 @@ export default function App() {
             <Route path="/electrical/disconnect" element={<DisconnectSizingPage />} />
             <Route path="/electrical/generator" element={<GeneratorSizingPage />} />
             <Route path="/electrical/oc-coordination" element={<OCCoordinationPage />} />
+            <Route path="/electrical/transformer-loading" element={<TransformerLoadingPage />} />
+            <Route path="/electrical/ground-fault" element={<GroundFaultPage />} />
 
             {/* Wire & Cable (includes conduit) */}
             <Route path="/wire" element={<CategoryPage title="Wire & Cable" items={wireItems} />} />
@@ -260,6 +278,10 @@ export default function App() {
             <Route path="/reference/battery-ups" element={<BatteryUPSPage />} />
             <Route path="/reference/solar-renewable" element={<SolarRenewablePage />} />
             <Route path="/reference/emergency-power" element={<EmergencyPowerPage />} />
+            <Route path="/reference/protective-relays" element={<ProtectiveRelaysPage />} />
+            <Route path="/reference/switchgear" element={<SwitchgearPage />} />
+            <Route path="/reference/portable-substation" element={<PortableSubstationPage />} />
+            <Route path="/reference/testing-guide" element={<TestingGuidePage />} />
 
             {/* Safety */}
             <Route path="/safety" element={<CategoryPage title="Safety" items={safetyItems} />} />
@@ -280,6 +302,7 @@ export default function App() {
             <Route path="/tools/hour-tracker" element={<HourTrackerPage />} />
             <Route path="/tools/exam-prep" element={<ExamPrepPage />} />
             <Route path="/materials" element={<MaterialListPage />} />
+            <Route path="/tools/single-line" element={<SingleLinePage />} />
           </Routes>
         </Suspense>
       </AppShell>
