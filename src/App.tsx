@@ -93,15 +93,8 @@ const electricalItems: CalcItem[] = [
   { to: '/electrical/generator', title: 'Generator Sizing', subtitle: 'Backup power calculator', icon: '\u26A1' },
 ]
 
-const conduitItems: CalcItem[] = [
-  { to: '/conduit/bending', title: 'EMT Bending', subtitle: 'Offsets, saddles & kicks', icon: '\u2312' },
-  { to: '/conduit/fill', title: 'Conduit Fill', subtitle: 'CEC conduit fill calculations', icon: '\u25CE' },
-  { to: '/conduit/raceway-spacing', title: 'Raceway Spacing', subtitle: 'Support distances & clamps', icon: '\u2393' },
-  { to: '/conduit/burial-depths', title: 'Burial Depths', subtitle: 'Minimum cover requirements', icon: '\u2B07' },
-  { to: '/conduit/cable-tray', title: 'Cable Tray Sizing', subtitle: 'Tray fill calculator', icon: '\u25A4' },
-]
-
 const wireItems: CalcItem[] = [
+  { to: '/wire/teck-cable', title: 'TECK90 Cable Guide', subtitle: 'Specs, glands, installation', icon: '\uD83D\uDD29' },
   { to: '/wire/ampacity', title: 'Ampacity Lookup', subtitle: 'Wire ampacity tables', icon: '\u1D2C' },
   { to: '/wire/sizing', title: 'Wire Sizing', subtitle: 'Conductor sizing tool', icon: '\u2338' },
   { to: '/wire/grounding', title: 'Grounding Conductor', subtitle: 'CEC Table 17 sizing', icon: '\u23DA' },
@@ -109,7 +102,11 @@ const wireItems: CalcItem[] = [
   { to: '/wire/ocp-transformer', title: 'Transformer OCP', subtitle: 'Transformer overcurrent protection', icon: '\u2397' },
   { to: '/wire/ocp-feeder', title: 'Feeder OCP', subtitle: 'Feeder overcurrent protection', icon: '\u2393' },
   { to: '/wire/torque-specs', title: 'Torque Specs', subtitle: 'Termination torque values', icon: '\uD83D\uDD27' },
-  { to: '/wire/teck-cable', title: 'TECK90 Cable Guide', subtitle: 'Specs, glands, installation', icon: '\uD83D\uDD29' },
+  { to: '/conduit/fill', title: 'Conduit Fill', subtitle: 'CEC conduit fill calculations', icon: '\u25CE' },
+  { to: '/conduit/bending', title: 'EMT Bending', subtitle: 'Offsets, saddles & kicks', icon: '\u2312' },
+  { to: '/conduit/raceway-spacing', title: 'Raceway Spacing', subtitle: 'Support distances & clamps', icon: '\u2393' },
+  { to: '/conduit/burial-depths', title: 'Burial Depths', subtitle: 'Minimum cover requirements', icon: '\u2B07' },
+  { to: '/conduit/cable-tray', title: 'Cable Tray Sizing', subtitle: 'Tray fill calculator', icon: '\u25A4' },
 ]
 
 const motorItems: CalcItem[] = [
@@ -201,16 +198,9 @@ export default function App() {
             <Route path="/electrical/disconnect" element={<DisconnectSizingPage />} />
             <Route path="/electrical/generator" element={<GeneratorSizingPage />} />
 
-            {/* Conduit */}
-            <Route path="/conduit" element={<CategoryPage title="Conduit" items={conduitItems} />} />
-            <Route path="/conduit/bending" element={<BendingPage />} />
-            <Route path="/conduit/fill" element={<ConduitFillPage />} />
-            <Route path="/conduit/raceway-spacing" element={<RacewaySpacingPage />} />
-            <Route path="/conduit/burial-depths" element={<BurialDepthsPage />} />
-            <Route path="/conduit/cable-tray" element={<CableTrayPage />} />
-
-            {/* Wire & Protection */}
-            <Route path="/wire" element={<CategoryPage title="Wire & Protection" items={wireItems} />} />
+            {/* Wire & Cable (includes conduit) */}
+            <Route path="/wire" element={<CategoryPage title="Wire & Cable" items={wireItems} />} />
+            <Route path="/conduit" element={<CategoryPage title="Wire & Cable" items={wireItems} />} />
             <Route path="/wire/ampacity" element={<AmpacityPage />} />
             <Route path="/wire/sizing" element={<WireSizingPage />} />
             <Route path="/wire/grounding" element={<GroundingConductorPage />} />
@@ -219,6 +209,11 @@ export default function App() {
             <Route path="/wire/ocp-feeder" element={<FeederOCPPage />} />
             <Route path="/wire/torque-specs" element={<TorqueSpecsPage />} />
             <Route path="/wire/teck-cable" element={<TECKCablePage />} />
+            <Route path="/conduit/bending" element={<BendingPage />} />
+            <Route path="/conduit/fill" element={<ConduitFillPage />} />
+            <Route path="/conduit/raceway-spacing" element={<RacewaySpacingPage />} />
+            <Route path="/conduit/burial-depths" element={<BurialDepthsPage />} />
+            <Route path="/conduit/cable-tray" element={<CableTrayPage />} />
 
             {/* Motors */}
             <Route path="/motors" element={<CategoryPage title="Motors" items={motorItems} />} />

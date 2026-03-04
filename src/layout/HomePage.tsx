@@ -34,8 +34,6 @@ const allFeatures: Feature[] = [
   { to: '/electrical/transformer-sizing', title: 'Transformer', icon: '⎔', category: 'Calculators', subtitle: 'kVA sizing' },
   { to: '/electrical/disconnect', title: 'Disconnect', icon: '⎓', category: 'Calculators', subtitle: 'HP-rated switch' },
   { to: '/electrical/generator', title: 'Generator', icon: '⚡', category: 'Calculators', subtitle: 'Backup power' },
-  { to: '/conduit/bending', title: 'EMT Bending', icon: '⌒', category: 'Calculators', subtitle: 'Offsets & saddles' },
-  { to: '/conduit/fill', title: 'Conduit Fill', icon: '◎', category: 'Calculators', subtitle: 'Fill calculations' },
   { to: '/reference/box-fill', title: 'Box Fill', icon: '▣', category: 'Calculators', subtitle: 'Junction box' },
   { to: '/reference/residential', title: 'Residential', icon: '⌂', category: 'Calculators', subtitle: 'Demand load' },
 
@@ -51,6 +49,8 @@ const allFeatures: Feature[] = [
   { to: '/conduit/raceway-spacing', title: 'Raceway Spacing', icon: '⎓', category: 'Wire & Cable', subtitle: 'Support dist.' },
   { to: '/conduit/burial-depths', title: 'Burial Depths', icon: '⬇', category: 'Wire & Cable', subtitle: 'Min. cover' },
   { to: '/conduit/cable-tray', title: 'Cable Tray', icon: '▤', category: 'Wire & Cable', subtitle: 'Tray fill' },
+  { to: '/conduit/fill', title: 'Conduit Fill', icon: '◎', category: 'Wire & Cable', subtitle: 'Fill calculations' },
+  { to: '/conduit/bending', title: 'EMT Bending', icon: '⌒', category: 'Wire & Cable', subtitle: 'Offsets & saddles' },
 
   // ── Motors & Drives ──
   { to: '/motors/flc', title: 'Motor FLC', icon: '⚙', category: 'Motors & Drives', subtitle: 'Current tables' },
