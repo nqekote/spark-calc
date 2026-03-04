@@ -17,9 +17,9 @@ const solveOptions: { value: SolveFor; label: string }[] = [
 function getInputLabels(solveFor: SolveFor): { label1: string; unit1: string; label2: string; unit2: string } {
   switch (solveFor) {
     case 'V':
-      return { label1: 'Current (I)', unit1: 'A', label2: 'Resistance (R)', unit2: '\u03A9' }
+      return { label1: 'Current (I)', unit1: 'A', label2: 'Resistance (R)', unit2: '\Ω' }
     case 'I':
-      return { label1: 'Voltage (V)', unit1: 'V', label2: 'Resistance (R)', unit2: '\u03A9' }
+      return { label1: 'Voltage (V)', unit1: 'V', label2: 'Resistance (R)', unit2: '\Ω' }
     case 'R':
       return { label1: 'Voltage (V)', unit1: 'V', label2: 'Current (I)', unit2: 'A' }
     case 'P':
@@ -42,7 +42,7 @@ function calculate(solveFor: SolveFor, val1: number, val2: number) {
       current = I
       resistance = R
       power = I * I * R
-      formula = `V = I \u00D7 R = ${fmt(I)} \u00D7 ${fmt(R)} = ${fmt(voltage)} V`
+      formula = `V = I \× R = ${fmt(I)} \× ${fmt(R)} = ${fmt(voltage)} V`
       break
     }
     case 'I': {
@@ -64,7 +64,7 @@ function calculate(solveFor: SolveFor, val1: number, val2: number) {
       current = I
       resistance = V / I
       power = V * I
-      formula = `R = V / I = ${fmt(V)} / ${fmt(I)} = ${fmt(resistance)} \u03A9`
+      formula = `R = V / I = ${fmt(V)} / ${fmt(I)} = ${fmt(resistance)} \Ω`
       break
     }
     case 'P': {
@@ -74,7 +74,7 @@ function calculate(solveFor: SolveFor, val1: number, val2: number) {
       current = I
       resistance = I !== 0 ? V / I : null
       power = V * I
-      formula = `P = V \u00D7 I = ${fmt(V)} \u00D7 ${fmt(I)} = ${fmt(power)} W`
+      formula = `P = V \× I = ${fmt(V)} \× ${fmt(I)} = ${fmt(power)} W`
       break
     }
   }
@@ -97,34 +97,34 @@ export default function OhmsLawPage() {
     ? [
         {
           label: 'Voltage',
-          value: result.voltage != null ? fmt(result.voltage) : '\u2014',
+          value: result.voltage != null ? fmt(result.voltage) : '\—',
           unit: 'V',
           highlight: solveFor === 'V',
         },
         {
           label: 'Current',
-          value: result.current != null ? fmt(result.current) : '\u2014',
+          value: result.current != null ? fmt(result.current) : '\—',
           unit: 'A',
           highlight: solveFor === 'I',
         },
         {
           label: 'Resistance',
-          value: result.resistance != null ? fmt(result.resistance) : '\u2014',
-          unit: '\u03A9',
+          value: result.resistance != null ? fmt(result.resistance) : '\—',
+          unit: '\Ω',
           highlight: solveFor === 'R',
         },
         {
           label: 'Power',
-          value: result.power != null ? fmt(result.power) : '\u2014',
+          value: result.power != null ? fmt(result.power) : '\—',
           unit: 'W',
           highlight: solveFor === 'P',
         },
       ]
     : [
-        { label: 'Voltage', value: '\u2014', unit: 'V' },
-        { label: 'Current', value: '\u2014', unit: 'A' },
-        { label: 'Resistance', value: '\u2014', unit: '\u03A9' },
-        { label: 'Power', value: '\u2014', unit: 'W' },
+        { label: 'Voltage', value: '\—', unit: 'V' },
+        { label: 'Current', value: '\—', unit: 'A' },
+        { label: 'Resistance', value: '\—', unit: '\Ω' },
+        { label: 'Power', value: '\—', unit: 'W' },
       ]
 
   const handleSolveChange = (v: string) => {

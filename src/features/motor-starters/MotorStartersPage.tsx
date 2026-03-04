@@ -47,8 +47,8 @@ const starterTypes: StarterType[] = [
   },
   {
     name: 'Star-Delta (Wye-Delta)',
-    abbr: 'Y-\u0394',
-    description: 'Reduced voltage starting method. Motor starts in Star (Y) configuration at 1/\u221A3 (58%) of line voltage, reducing starting current to 1/3 of DOL value. After a timed period (5-15 seconds), transitions to Delta (\u0394) for full voltage run. Requires a 6-lead motor (T1-T6).',
+    abbr: 'Y-\Δ',
+    description: 'Reduced voltage starting method. Motor starts in Star (Y) configuration at 1/\√3 (58%) of line voltage, reducing starting current to 1/3 of DOL value. After a timed period (5-15 seconds), transitions to Delta (\Δ) for full voltage run. Requires a 6-lead motor (T1-T6).',
     inrush: '200-270% FLA (33% of DOL)',
     torque: '33% FLT',
     pros: ['Reduces starting current to 33% of DOL', 'No auto-transformer needed', 'Relatively simple compared to other RVS methods', 'Good for applications with low starting torque requirements'],
@@ -798,7 +798,7 @@ const maintenanceSections: MaintenanceSection[] = [
     frequency: 'Quarterly in mining (annually in clean environments)',
     items: [
       'Scan under normal load conditions (not at startup or no-load)',
-      'Compare all three phases — temperature difference >10\u00B0C between phases indicates problem',
+      'Compare all three phases — temperature difference >10\°C between phases indicates problem',
       'Hot lugs/connections: loose connection or undersized conductor — immediate attention needed',
       'Hot contacts: worn contacts, pitted surfaces, or overloaded contactor',
       'Hot coil: shorted turns, wrong voltage, or mechanical binding preventing full pull-in',

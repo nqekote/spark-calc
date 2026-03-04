@@ -1246,7 +1246,7 @@ export default function SingleLinePage() {
                       transform: isExpanded ? 'rotate(180deg)' : 'none',
                       transition: 'transform .2s', marginLeft: 10, flexShrink: 0,
                     }}>
-                      {'\u25BC'}
+                      {'\▼'}
                     </span>
                   </button>
 
@@ -1294,7 +1294,7 @@ export default function SingleLinePage() {
                             fontSize: 12, color: 'var(--text-secondary)', padding: '3px 0 3px 16px',
                             position: 'relative', lineHeight: 1.4,
                           }}>
-                            <span style={{ position: 'absolute', left: 0, color: '#ff8c00' }}>{'\u2022'}</span>
+                            <span style={{ position: 'absolute', left: 0, color: '#ff8c00' }}>{'\•'}</span>
                             {note}
                           </div>
                         ))}

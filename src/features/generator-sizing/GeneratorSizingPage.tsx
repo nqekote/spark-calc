@@ -125,9 +125,9 @@ export default function GeneratorSizingPage() {
         { label: 'Average Power Factor', value: fmt(avgPf, 2) },
       ]
     : [
-        { label: 'Total Running', value: '\u2014', unit: 'kW' },
-        { label: 'Peak Starting', value: '\u2014', unit: 'kW' },
-        { label: 'Recommended Size', value: '\u2014', unit: 'kW' },
+        { label: 'Total Running', value: '\—', unit: 'kW' },
+        { label: 'Peak Starting', value: '\—', unit: 'kW' },
+        { label: 'Recommended Size', value: '\—', unit: 'kW' },
       ]
 
   // Quick calc
@@ -145,9 +145,9 @@ export default function GeneratorSizingPage() {
         { label: 'Next Standard Gen', value: `${quickGenSize}`, unit: 'kW' },
       ]
     : [
-        { label: 'Load', value: '\u2014', unit: 'kW' },
-        { label: 'With 25% Margin', value: '\u2014', unit: 'kW' },
-        { label: 'Next Standard Gen', value: '\u2014', unit: 'kW' },
+        { label: 'Load', value: '\—', unit: 'kW' },
+        { label: 'With 25% Margin', value: '\—', unit: 'kW' },
+        { label: 'Next Standard Gen', value: '\—', unit: 'kW' },
       ]
 
   const inputStyle: React.CSSProperties = {
@@ -217,7 +217,7 @@ export default function GeneratorSizingPage() {
                         }}
                         aria-label="Remove load"
                       >
-                        \u00D7
+                        \×
                       </button>
                     )}
                   </div>
@@ -405,7 +405,7 @@ export default function GeneratorSizingPage() {
                 <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
               </svg>
               <span style={{ fontSize: 14, fontWeight: 600, color: 'var(--text)' }}>
-                Mine Emergency Power \u2014 O.Reg.854
+                Mine Emergency Power \— O.Reg.854
               </span>
             </div>
             <div style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.6 }}>
@@ -418,17 +418,17 @@ export default function GeneratorSizingPage() {
               color: 'var(--text-secondary)',
               lineHeight: 1.8,
             }}>
-              <li><strong style={{ color: 'var(--text)' }}>Ventilation</strong> \u2014 Main fans or auxiliary ventilation to maintain safe atmosphere</li>
-              <li><strong style={{ color: 'var(--text)' }}>Pumps</strong> \u2014 Dewatering pumps to prevent flooding of workings</li>
-              <li><strong style={{ color: 'var(--text)' }}>Hoists</strong> \u2014 Main shaft hoist for personnel evacuation</li>
-              <li><strong style={{ color: 'var(--text)' }}>Communications</strong> \u2014 Mine telephone system and surface-to-underground radio</li>
-              <li><strong style={{ color: 'var(--text)' }}>Lighting</strong> \u2014 Emergency lighting at shaft stations, refuge stations, and travel ways</li>
+              <li><strong style={{ color: 'var(--text)' }}>Ventilation</strong> \— Main fans or auxiliary ventilation to maintain safe atmosphere</li>
+              <li><strong style={{ color: 'var(--text)' }}>Pumps</strong> \— Dewatering pumps to prevent flooding of workings</li>
+              <li><strong style={{ color: 'var(--text)' }}>Hoists</strong> \— Main shaft hoist for personnel evacuation</li>
+              <li><strong style={{ color: 'var(--text)' }}>Communications</strong> \— Mine telephone system and surface-to-underground radio</li>
+              <li><strong style={{ color: 'var(--text)' }}>Lighting</strong> \— Emergency lighting at shaft stations, refuge stations, and travel ways</li>
             </ul>
           </div>
 
           <InfoBox title="Generator Sizing Guidelines">
             Generator sizing must account for both continuous running loads and transient starting
-            loads. Motor starting current (LRA) is typically 3\u20136 times the full load current,
+            loads. Motor starting current (LRA) is typically 3\–6 times the full load current,
             causing a significant momentary power demand. The generator must be sized to handle
             the largest motor starting while all other loads are running. A minimum 25% safety
             margin above calculated load is recommended for future expansion and load growth.

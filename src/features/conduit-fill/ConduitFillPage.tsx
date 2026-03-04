@@ -92,7 +92,7 @@ function getFillPercent(totalConductors: number): number {
 }
 
 function getFillRuleLabel(totalConductors: number): string {
-  if (totalConductors <= 0) return '\u2014'
+  if (totalConductors <= 0) return '\—'
   if (totalConductors === 1) return '53% (1 conductor)'
   if (totalConductors === 2) return '31% (2 conductors)'
   return '40% (3+ conductors)'
@@ -182,7 +182,7 @@ export default function ConduitFillPage() {
           color: 'var(--text-secondary)',
           fontFamily: 'var(--font-mono)',
         }}>
-          Internal area: {fmt(conduitArea, 0)} mm\u00B2
+          Internal area: {fmt(conduitArea, 0)} mm\²
         </div>
 
         {/* Wire entries */}
@@ -226,7 +226,7 @@ export default function ConduitFillPage() {
                   }}
                   aria-label="Remove wire entry"
                 >
-                  \u2212
+                  \−
                 </button>
               )}
             </div>
@@ -253,35 +253,35 @@ export default function ConduitFillPage() {
           results={[
             {
               label: 'Fill Status',
-              value: hasResults ? (pass ? 'PASS' : 'FAIL') : '\u2014',
+              value: hasResults ? (pass ? 'PASS' : 'FAIL') : '\—',
               highlight: true,
             },
             {
               label: 'Total Wire Area',
-              value: hasResults ? fmt(totalWireArea, 1) : '\u2014',
-              unit: 'mm\u00B2',
+              value: hasResults ? fmt(totalWireArea, 1) : '\—',
+              unit: 'mm\²',
             },
             {
               label: 'Allowable Fill Area',
-              value: hasResults ? fmt(allowableArea, 1) : '\u2014',
-              unit: 'mm\u00B2',
+              value: hasResults ? fmt(allowableArea, 1) : '\—',
+              unit: 'mm\²',
             },
             {
               label: 'Fill Percentage',
-              value: hasResults ? fmt(fillUsed, 1) : '\u2014',
+              value: hasResults ? fmt(fillUsed, 1) : '\—',
               unit: '%',
             },
             {
               label: 'Fill Rule',
-              value: hasResults ? getFillRuleLabel(totalConductors) : '\u2014',
+              value: hasResults ? getFillRuleLabel(totalConductors) : '\—',
             },
             {
               label: `Max ${wireSizeOptions.find(w => w.value === wireEntries[0]?.wireSize)?.label ?? ''} wires (40% fill)`,
-              value: maxWires > 0 ? String(maxWires) : '\u2014',
+              value: maxWires > 0 ? String(maxWires) : '\—',
             },
           ]}
           formula={hasResults
-            ? `${fmt(totalWireArea, 1)} mm\u00B2 / ${fmt(conduitArea, 0)} mm\u00B2 = ${fmt(fillUsed, 1)}%`
+            ? `${fmt(totalWireArea, 1)} mm\² / ${fmt(conduitArea, 0)} mm\² = ${fmt(fillUsed, 1)}%`
             : undefined
           }
         />
@@ -300,7 +300,7 @@ export default function ConduitFillPage() {
           }}>
             {pass
               ? `Conduit fill is within the ${fmt(fillPercent * 100, 0)}% limit`
-              : `Exceeds ${fmt(fillPercent * 100, 0)}% fill limit \u2014 use a larger conduit`
+              : `Exceeds ${fmt(fillPercent * 100, 0)}% fill limit \— use a larger conduit`
             }
           </div>
         )}

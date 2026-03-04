@@ -12,19 +12,19 @@ const bendTabs: { value: BendType; label: string }[] = [
   { value: 'offset', label: 'Offset' },
   { value: '3pt', label: '3pt Saddle' },
   { value: '4pt', label: '4pt Saddle' },
-  { value: 'stub', label: '90\u00B0 Stub' },
+  { value: 'stub', label: '90\° Stub' },
   { value: 'back', label: 'Back-to-Back' },
   { value: 'kick', label: 'Kick' },
   { value: 'rolling', label: 'Rolling Offset' },
 ]
 
 const angleOptions = [
-  { value: '10', label: '10\u00B0' },
-  { value: '15', label: '15\u00B0' },
-  { value: '22.5', label: '22.5\u00B0' },
-  { value: '30', label: '30\u00B0' },
-  { value: '45', label: '45\u00B0' },
-  { value: '60', label: '60\u00B0' },
+  { value: '10', label: '10\°' },
+  { value: '15', label: '15\°' },
+  { value: '22.5', label: '22.5\°' },
+  { value: '30', label: '30\°' },
+  { value: '45', label: '45\°' },
+  { value: '60', label: '60\°' },
 ]
 
 const multipliers: Record<string, number> = {
@@ -87,9 +87,9 @@ function ThreePointSVG({ height }: { height: string }) {
       <line x1={45} y1={100} x2={55} y2={100} stroke="#fff" strokeWidth={1.5} />
       <text x={35} y={75} fill="#fff" fontSize={10} textAnchor="end">{height || '?'}"</text>
       {/* labels */}
-      <text x={110} y={30} fill="#ff4444" fontSize={9} textAnchor="middle">45\u00B0 center</text>
-      <text x={68} y={118} fill="#ff4444" fontSize={9} textAnchor="middle">22.5\u00B0</text>
-      <text x={162} y={118} fill="#ff4444" fontSize={9} textAnchor="middle">22.5\u00B0</text>
+      <text x={110} y={30} fill="#ff4444" fontSize={9} textAnchor="middle">45\° center</text>
+      <text x={68} y={118} fill="#ff4444" fontSize={9} textAnchor="middle">22.5\°</text>
+      <text x={162} y={118} fill="#ff4444" fontSize={9} textAnchor="middle">22.5\°</text>
     </svg>
   )
 }
@@ -222,11 +222,11 @@ function OffsetCalc() {
       <SelectField label="Bend Angle" value={angle} onChange={setAngle} options={angleOptions} />
       <ResultDisplay
         results={[
-          { label: 'Distance Between Marks', value: !isNaN(dist) ? fmt(dist) : '\u2014', unit: 'in', highlight: true },
-          { label: 'Shrinkage', value: !isNaN(shrink) ? fmt(shrink, 3) : '\u2014', unit: 'in' },
-          { label: 'Travel (Conduit Used)', value: !isNaN(travel) ? fmt(travel) : '\u2014', unit: 'in' },
+          { label: 'Distance Between Marks', value: !isNaN(dist) ? fmt(dist) : '\—', unit: 'in', highlight: true },
+          { label: 'Shrinkage', value: !isNaN(shrink) ? fmt(shrink, 3) : '\—', unit: 'in' },
+          { label: 'Travel (Conduit Used)', value: !isNaN(travel) ? fmt(travel) : '\—', unit: 'in' },
         ]}
-        formula={!isNaN(dist) ? `${height}" \u00D7 ${m} = ${fmt(dist)}"` : undefined}
+        formula={!isNaN(dist) ? `${height}" \× ${m} = ${fmt(dist)}"` : undefined}
       />
       <InfoBox title="Offset Bending">
         <p>An offset bend moves the conduit to a different plane while keeping it parallel. The multiplier converts the offset height to the distance between bend marks on the conduit.</p>
@@ -251,15 +251,15 @@ function ThreePointSaddleCalc() {
       <SelectField label="Pipe Size" value={pipeSize} onChange={setPipeSize} options={pipeSizeOptions} />
       <ResultDisplay
         results={[
-          { label: 'Mark Spacing from Center', value: !isNaN(markSpacing) ? fmt(markSpacing) : '\u2014', unit: 'in', highlight: true },
-          { label: 'Total Shrinkage', value: !isNaN(shrink) ? fmt(shrink, 3) : '\u2014', unit: 'in' },
-          { label: 'Center Bend', value: '45\u00B0', unit: '' },
-          { label: 'Outer Bends', value: '22.5\u00B0', unit: '' },
+          { label: 'Mark Spacing from Center', value: !isNaN(markSpacing) ? fmt(markSpacing) : '\—', unit: 'in', highlight: true },
+          { label: 'Total Shrinkage', value: !isNaN(shrink) ? fmt(shrink, 3) : '\—', unit: 'in' },
+          { label: 'Center Bend', value: '45\°', unit: '' },
+          { label: 'Outer Bends', value: '22.5\°', unit: '' },
         ]}
-        formula={!isNaN(markSpacing) ? `${height}" \u00D7 2.613 = ${fmt(markSpacing)}"` : undefined}
+        formula={!isNaN(markSpacing) ? `${height}" \× 2.613 = ${fmt(markSpacing)}"` : undefined}
       />
       <InfoBox title="3-Point Saddle">
-        <p>A 3-point saddle bends the conduit over an obstacle. The center bend is 45\u00B0 and the two outer bends are 22.5\u00B0 each. Mark the center of the obstacle on the conduit, then measure outward in both directions by the calculated mark spacing.</p>
+        <p>A 3-point saddle bends the conduit over an obstacle. The center bend is 45\° and the two outer bends are 22.5\° each. Mark the center of the obstacle on the conduit, then measure outward in both directions by the calculated mark spacing.</p>
       </InfoBox>
     </div>
   )
@@ -285,17 +285,17 @@ function FourPointSaddleCalc() {
         value={angle}
         onChange={setAngle}
         options={[
-          { value: '22.5', label: '22.5\u00B0' },
-          { value: '30', label: '30\u00B0' },
+          { value: '22.5', label: '22.5\°' },
+          { value: '30', label: '30\°' },
         ]}
       />
       <ResultDisplay
         results={[
-          { label: 'Outer Mark Spacing', value: !isNaN(outerSpacing) ? fmt(outerSpacing) : '\u2014', unit: 'in', highlight: true },
-          { label: 'Inner Mark Spacing', value: !isNaN(innerSpacing) ? fmt(innerSpacing) : '\u2014', unit: 'in' },
-          { label: 'Total Shrinkage', value: !isNaN(shrink) ? fmt(shrink, 3) : '\u2014', unit: 'in' },
+          { label: 'Outer Mark Spacing', value: !isNaN(outerSpacing) ? fmt(outerSpacing) : '\—', unit: 'in', highlight: true },
+          { label: 'Inner Mark Spacing', value: !isNaN(innerSpacing) ? fmt(innerSpacing) : '\—', unit: 'in' },
+          { label: 'Total Shrinkage', value: !isNaN(shrink) ? fmt(shrink, 3) : '\—', unit: 'in' },
         ]}
-        formula={!isNaN(outerSpacing) ? `${height}" \u00D7 ${m} = ${fmt(outerSpacing)}"` : undefined}
+        formula={!isNaN(outerSpacing) ? `${height}" \× ${m} = ${fmt(outerSpacing)}"` : undefined}
       />
       <InfoBox title="4-Point Saddle">
         <p>A 4-point saddle uses four equal bends to raise the conduit over a wide obstacle and bring it back down. All four bends are at the same angle. Mark the center of the obstacle, then measure outward for the inner and outer marks using the calculated spacing.</p>
@@ -319,13 +319,13 @@ function StubUpCalc() {
       <SelectField label="Pipe Size" value={pipeSize} onChange={setPipeSize} options={pipeSizeOptions} />
       <ResultDisplay
         results={[
-          { label: 'Mark Position from End', value: !isNaN(markPos) && markPos > 0 ? fmt(markPos) : markPos <= 0 ? 'Too short' : '\u2014', unit: markPos > 0 ? 'in' : '', highlight: true },
+          { label: 'Mark Position from End', value: !isNaN(markPos) && markPos > 0 ? fmt(markPos) : markPos <= 0 ? 'Too short' : '\—', unit: markPos > 0 ? 'in' : '', highlight: true },
           { label: 'Deduct', value: fmt(deduct), unit: 'in' },
         ]}
-        formula={!isNaN(markPos) && markPos > 0 ? `${stubHeight}" \u2212 ${deduct}" = ${fmt(markPos)}"` : undefined}
+        formula={!isNaN(markPos) && markPos > 0 ? `${stubHeight}" \− ${deduct}" = ${fmt(markPos)}"` : undefined}
       />
-      <InfoBox title="90\u00B0 Stub-Up">
-        <p>A stub-up is a 90\u00B0 bend where the conduit goes from horizontal to vertical. The deduct accounts for the bend radius which adds to the stub height. Subtract the deduct from your desired stub height to find where to place your bender's mark.</p>
+      <InfoBox title="90\° Stub-Up">
+        <p>A stub-up is a 90\° bend where the conduit goes from horizontal to vertical. The deduct accounts for the bend radius which adds to the stub height. Subtract the deduct from your desired stub height to find where to place your bender's mark.</p>
         <p style={{ marginTop: 8 }}>Deducts: 1/2"=5", 3/4"=6", 1"=8", 1-1/4"=11"</p>
       </InfoBox>
     </div>
@@ -347,13 +347,13 @@ function BackToBackCalc() {
       <SelectField label="Pipe Size" value={pipeSize} onChange={setPipeSize} options={pipeSizeOptions} />
       <ResultDisplay
         results={[
-          { label: 'Second Bend Mark', value: !isNaN(secondMark) && secondMark > 0 ? fmt(secondMark) : secondMark <= 0 ? 'Too short' : '\u2014', unit: secondMark > 0 ? 'in' : '', highlight: true },
+          { label: 'Second Bend Mark', value: !isNaN(secondMark) && secondMark > 0 ? fmt(secondMark) : secondMark <= 0 ? 'Too short' : '\—', unit: secondMark > 0 ? 'in' : '', highlight: true },
           { label: 'Deduct per Bend', value: fmt(deduct), unit: 'in' },
         ]}
-        formula={!isNaN(secondMark) && secondMark > 0 ? `${distance}" \u2212 ${deduct}" = ${fmt(secondMark)}"` : undefined}
+        formula={!isNaN(secondMark) && secondMark > 0 ? `${distance}" \− ${deduct}" = ${fmt(secondMark)}"` : undefined}
       />
-      <InfoBox title="Back-to-Back 90\u00B0">
-        <p>A back-to-back bend creates a U-shape with two 90\u00B0 bends. Make the first stub-up normally. For the second bend, measure from the end of the first stub and subtract the deduct to place the second mark.</p>
+      <InfoBox title="Back-to-Back 90\°">
+        <p>A back-to-back bend creates a U-shape with two 90\° bends. Make the first stub-up normally. For the second bend, measure from the end of the first stub and subtract the deduct to place the second mark.</p>
       </InfoBox>
     </div>
   )
@@ -382,15 +382,15 @@ function KickCalc() {
       <SelectField label="Pipe Size" value={pipeSize} onChange={setPipeSize} options={pipeSizeOptions} />
       <ResultDisplay
         results={[
-          { label: 'Kick Angle', value: !isNaN(kickAngle) ? fmt(kickAngle, 1) : '\u2014', unit: '\u00B0', highlight: true },
-          { label: 'Stub Mark from End', value: !isNaN(stubMark) && stubMark > 0 ? fmt(stubMark) : '\u2014', unit: 'in' },
-          { label: 'Travel Length', value: !isNaN(travel) ? fmt(travel) : '\u2014', unit: 'in' },
+          { label: 'Kick Angle', value: !isNaN(kickAngle) ? fmt(kickAngle, 1) : '\—', unit: '\°', highlight: true },
+          { label: 'Stub Mark from End', value: !isNaN(stubMark) && stubMark > 0 ? fmt(stubMark) : '\—', unit: 'in' },
+          { label: 'Travel Length', value: !isNaN(travel) ? fmt(travel) : '\—', unit: 'in' },
           { label: 'Deduct', value: fmt(deduct), unit: 'in' },
         ]}
-        formula={hasInputs ? `Kick angle = atan(${kickHeight}" / ${stubHeight}") = ${fmt(kickAngle, 1)}\u00B0` : undefined}
+        formula={hasInputs ? `Kick angle = atan(${kickHeight}" / ${stubHeight}") = ${fmt(kickAngle, 1)}\°` : undefined}
       />
-      <InfoBox title="Kick 90\u00B0">
-        <p>A kick bend combines an offset with a 90\u00B0 stub-up. This lets you stub up and simultaneously shift the conduit over horizontally. The kick angle is calculated from the desired horizontal offset (kick height) and the stub height.</p>
+      <InfoBox title="Kick 90\°">
+        <p>A kick bend combines an offset with a 90\° stub-up. This lets you stub up and simultaneously shift the conduit over horizontally. The kick angle is calculated from the desired horizontal offset (kick height) and the stub height.</p>
       </InfoBox>
     </div>
   )
@@ -418,11 +418,11 @@ function RollingOffsetCalc() {
       <SelectField label="Bend Angle" value={angle} onChange={setAngle} options={angleOptions} />
       <ResultDisplay
         results={[
-          { label: 'True Offset (Hypotenuse)', value: !isNaN(rollingOffset) ? fmt(rollingOffset) : '\u2014', unit: 'in', highlight: true },
-          { label: 'Distance Between Marks', value: !isNaN(dist) ? fmt(dist) : '\u2014', unit: 'in' },
-          { label: 'Shrinkage', value: !isNaN(shrink) ? fmt(shrink, 3) : '\u2014', unit: 'in' },
+          { label: 'True Offset (Hypotenuse)', value: !isNaN(rollingOffset) ? fmt(rollingOffset) : '\—', unit: 'in', highlight: true },
+          { label: 'Distance Between Marks', value: !isNaN(dist) ? fmt(dist) : '\—', unit: 'in' },
+          { label: 'Shrinkage', value: !isNaN(shrink) ? fmt(shrink, 3) : '\—', unit: 'in' },
         ]}
-        formula={!isNaN(rollingOffset) ? `\u221A(${horizontal}\u00B2 + ${vertical}\u00B2) = ${fmt(rollingOffset)}" \u00D7 ${m} = ${fmt(dist)}"` : undefined}
+        formula={!isNaN(rollingOffset) ? `\√(${horizontal}\² + ${vertical}\²) = ${fmt(rollingOffset)}" \× ${m} = ${fmt(dist)}"` : undefined}
       />
       <InfoBox title="Rolling Offset">
         <p>A rolling offset moves the conduit both horizontally and vertically at the same time. First calculate the true offset (hypotenuse) from the horizontal and vertical offsets, then apply the standard offset multiplier for your chosen bend angle.</p>

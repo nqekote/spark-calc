@@ -219,7 +219,7 @@ interface EnergySource {
 const energySources: EnergySource[] = [
   {
     type: 'Electrical',
-    icon: '\u26A1',
+    icon: '\⚡',
     color: '#ffd700',
     sources: [
       {
@@ -262,7 +262,7 @@ const energySources: EnergySource[] = [
   },
   {
     type: 'Mechanical',
-    icon: '\u2699\uFE0F',
+    icon: '\⚙\uFE0F',
     color: '#a0a0a0',
     sources: [
       {
@@ -362,7 +362,7 @@ const energySources: EnergySource[] = [
   },
   {
     type: 'Chemical',
-    icon: '\u2623\uFE0F',
+    icon: '\☣\uFE0F',
     color: '#a855f7',
     sources: [
       {
@@ -381,7 +381,7 @@ const energySources: EnergySource[] = [
   },
   {
     type: 'Gravitational',
-    icon: '\u2B07\uFE0F',
+    icon: '\⬇\uFE0F',
     color: '#f97316',
     sources: [
       {
@@ -1140,7 +1140,7 @@ export default function LOTOPage() {
                       transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
                       transition: 'transform 0.2s',
                     }}>
-                      {'\u25BC'}
+                      {'\▼'}
                     </span>
                   </div>
 
@@ -1161,7 +1161,7 @@ export default function LOTOPage() {
                           lineHeight: 1.5,
                         }}>
                           <span style={{ color: 'var(--primary)', fontWeight: 700, marginRight: 6 }}>
-                            {'\u2022'}
+                            {'\•'}
                           </span>
                           {d}
                         </div>
@@ -1182,7 +1182,7 @@ export default function LOTOPage() {
                               borderRadius: 'var(--radius-sm)',
                               paddingLeft: 8, marginBottom: 2, lineHeight: 1.5,
                             }}>
-                              <span style={{ marginRight: 6 }}>{'\u26CF'}</span>
+                              <span style={{ marginRight: 6 }}>{'\⛏'}</span>
                               {n}
                             </div>
                           ))}
@@ -1244,7 +1244,7 @@ export default function LOTOPage() {
                       transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
                       transition: 'transform 0.2s',
                     }}>
-                      {'\u25BC'}
+                      {'\▼'}
                     </span>
                   </button>
 
@@ -1337,7 +1337,7 @@ export default function LOTOPage() {
                         fontSize: 13, color: 'var(--text-secondary)', padding: '3px 0',
                         lineHeight: 1.5,
                       }}>
-                        <span style={{ color: 'var(--primary)', marginRight: 6 }}>{'\u2022'}</span>
+                        <span style={{ color: 'var(--primary)', marginRight: 6 }}>{'\•'}</span>
                         {item}
                       </div>
                     ))}
@@ -1394,23 +1394,23 @@ export default function LOTOPage() {
                   Trailing Cable Disconnect
                 </div>
                 <div style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: 12 }}>
-                  {'\u2022'} Shut down equipment using normal controls.{'\n'}
-                  {'\u2022'} Unplug trailing cable from the receptacle.{'\n'}
-                  {'\u2022'} Lock the receptacle in the OFF/disconnected position.{'\n'}
-                  {'\u2022'} Lock out the power centre breaker feeding the receptacle.{'\n'}
-                  {'\u2022'} For medium voltage cables: follow HV switching orders.{'\n'}
-                  {'\u2022'} Test at the equipment disconnect for zero voltage.
+                  {'\•'} Shut down equipment using normal controls.{'\n'}
+                  {'\•'} Unplug trailing cable from the receptacle.{'\n'}
+                  {'\•'} Lock the receptacle in the OFF/disconnected position.{'\n'}
+                  {'\•'} Lock out the power centre breaker feeding the receptacle.{'\n'}
+                  {'\•'} For medium voltage cables: follow HV switching orders.{'\n'}
+                  {'\•'} Test at the equipment disconnect for zero voltage.
                 </div>
                 <div style={{ fontSize: 14, fontWeight: 700, color: '#ff3c3c', marginBottom: 8 }}>
                   High Voltage Switching Orders
                 </div>
                 <div style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-                  {'\u2022'} Required for all switching above 750V in Ontario mines.{'\n'}
-                  {'\u2022'} Must be written, step-by-step, and authorized by a competent supervisor.{'\n'}
-                  {'\u2022'} Each step must be checked off as completed, in sequence.{'\n'}
-                  {'\u2022'} Grounding of HV circuits is required after isolation.{'\n'}
-                  {'\u2022'} Live-line tools and rated HV PPE are required during switching.{'\n'}
-                  {'\u2022'} Two-person rule: HV switching always requires a second person present.
+                  {'\•'} Required for all switching above 750V in Ontario mines.{'\n'}
+                  {'\•'} Must be written, step-by-step, and authorized by a competent supervisor.{'\n'}
+                  {'\•'} Each step must be checked off as completed, in sequence.{'\n'}
+                  {'\•'} Grounding of HV circuits is required after isolation.{'\n'}
+                  {'\•'} Live-line tools and rated HV PPE are required during switching.{'\n'}
+                  {'\•'} Two-person rule: HV switching always requires a second person present.
                 </div>
               </div>
             </div>
@@ -1457,7 +1457,7 @@ export default function LOTOPage() {
                           transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
                           transition: 'transform 0.2s',
                         }}>
-                          {'\u25BC'}
+                          {'\▼'}
                         </span>
                       </div>
                       {isOpen && (
@@ -1550,7 +1550,7 @@ export default function LOTOPage() {
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         flexShrink: 0, fontSize: 16, color: '#fff', fontWeight: 700,
                       }}>
-                        {checked ? '\u2713' : ''}
+                        {checked ? '\✓' : ''}
                       </div>
                       <span style={{
                         fontSize: 13,
@@ -1626,7 +1626,7 @@ export default function LOTOPage() {
                       transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
                       transition: 'transform 0.2s',
                     }}>
-                      {'\u25BC'}
+                      {'\▼'}
                     </span>
                   </button>
 
@@ -1703,7 +1703,7 @@ export default function LOTOPage() {
                         fontSize: 13, color: 'var(--text-secondary)',
                         padding: '3px 0', lineHeight: 1.5,
                       }}>
-                        <span style={{ color: 'var(--primary)', marginRight: 6 }}>{'\u2022'}</span>
+                        <span style={{ color: 'var(--primary)', marginRight: 6 }}>{'\•'}</span>
                         {pt}
                       </div>
                     ))}
@@ -1735,7 +1735,7 @@ export default function LOTOPage() {
                         fontSize: 13, color: 'var(--text-secondary)',
                         padding: '3px 0', lineHeight: 1.5,
                       }}>
-                        <span style={{ color: 'var(--primary)', marginRight: 6 }}>{'\u2022'}</span>
+                        <span style={{ color: 'var(--primary)', marginRight: 6 }}>{'\•'}</span>
                         {req}
                       </div>
                     ))}
@@ -1798,7 +1798,7 @@ export default function LOTOPage() {
                     'Criminal charges under C-45 (Westray Bill) possible for gross negligence causing harm.',
                   ].map((item, j) => (
                     <div key={j} style={{ padding: '3px 0' }}>
-                      <span style={{ color: '#ff3c3c', marginRight: 6 }}>{'\u2022'}</span>
+                      <span style={{ color: '#ff3c3c', marginRight: 6 }}>{'\•'}</span>
                       {item}
                     </div>
                   ))}

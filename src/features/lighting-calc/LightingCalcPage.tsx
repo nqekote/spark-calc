@@ -13,34 +13,34 @@ const modeOptions = [
 ]
 
 const luxPresets = [
-  { value: '50', label: '50 lux \u2014 Garage / Parking' },
-  { value: '100', label: '100 lux \u2014 Warehouse' },
-  { value: '150', label: '150 lux \u2014 Workshop' },
-  { value: '200', label: '200 lux \u2014 Office / Classroom' },
-  { value: '300', label: '300 lux \u2014 Detailed Work' },
-  { value: '500', label: '500 lux \u2014 Fine Detail' },
+  { value: '50', label: '50 lux \— Garage / Parking' },
+  { value: '100', label: '100 lux \— Warehouse' },
+  { value: '150', label: '150 lux \— Workshop' },
+  { value: '200', label: '200 lux \— Office / Classroom' },
+  { value: '300', label: '300 lux \— Detailed Work' },
+  { value: '500', label: '500 lux \— Fine Detail' },
 ]
 
 const cuOptions = [
-  { value: '0.40', label: '0.40 \u2014 Dark surfaces' },
+  { value: '0.40', label: '0.40 \— Dark surfaces' },
   { value: '0.45', label: '0.45' },
-  { value: '0.50', label: '0.50 \u2014 Average' },
+  { value: '0.50', label: '0.50 \— Average' },
   { value: '0.55', label: '0.55' },
-  { value: '0.60', label: '0.60 \u2014 Light surfaces' },
+  { value: '0.60', label: '0.60 \— Light surfaces' },
   { value: '0.65', label: '0.65' },
-  { value: '0.70', label: '0.70 \u2014 Very light' },
+  { value: '0.70', label: '0.70 \— Very light' },
   { value: '0.75', label: '0.75' },
-  { value: '0.80', label: '0.80 \u2014 White / reflective' },
+  { value: '0.80', label: '0.80 \— White / reflective' },
 ]
 
 const llfOptions = [
-  { value: '0.60', label: '0.60 \u2014 Very dirty / dusty' },
-  { value: '0.65', label: '0.65 \u2014 Dirty' },
-  { value: '0.70', label: '0.70 \u2014 Moderate dirt' },
-  { value: '0.75', label: '0.75 \u2014 Average' },
-  { value: '0.80', label: '0.80 \u2014 Clean' },
-  { value: '0.85', label: '0.85 \u2014 Very clean' },
-  { value: '0.90', label: '0.90 \u2014 Pristine' },
+  { value: '0.60', label: '0.60 \— Very dirty / dusty' },
+  { value: '0.65', label: '0.65 \— Dirty' },
+  { value: '0.70', label: '0.70 \— Moderate dirt' },
+  { value: '0.75', label: '0.75 \— Average' },
+  { value: '0.80', label: '0.80 \— Clean' },
+  { value: '0.85', label: '0.85 \— Very clean' },
+  { value: '0.90', label: '0.90 \— Pristine' },
 ]
 
 const miningLightingReqs: { area: string; lux: number; notes: string }[] = [
@@ -84,21 +84,21 @@ export default function LightingCalcPage() {
     // Number of fixtures = (Lux × Area) / (Lumens × CU × LLF)
     numFixtures = (lux * area) / (lumens * cuVal * llfVal)
     totalLumens = Math.ceil(numFixtures) * lumens
-    formula = `N = (${fmt(lux, 0)} lux \u00D7 ${fmt(area, 1)} m\u00B2) / (${fmt(lumens, 0)} lm \u00D7 ${fmt(cuVal, 2)} \u00D7 ${fmt(llfVal, 2)}) = ${fmt(numFixtures, 1)}`
+    formula = `N = (${fmt(lux, 0)} lux \× ${fmt(area, 1)} m\²) / (${fmt(lumens, 0)} lm \× ${fmt(cuVal, 2)} \× ${fmt(llfVal, 2)}) = ${fmt(numFixtures, 1)}`
   }
 
   const roomResults = hasInputs
     ? [
         { label: 'Fixtures Required', value: `${Math.ceil(numFixtures)}`, highlight: true },
         { label: 'Calculated (exact)', value: fmt(numFixtures, 1), unit: 'fixtures' },
-        { label: 'Room Area', value: fmt(area, 1), unit: 'm\u00B2' },
+        { label: 'Room Area', value: fmt(area, 1), unit: 'm\²' },
         { label: 'Total Lumens Delivered', value: fmt(totalLumens, 0), unit: 'lm' },
         ...((!isNaN(H) && H > 0) ? [{ label: 'Room Cavity Ratio', value: fmt((5 * H * (L + W)) / (L * W), 2) }] : []),
       ]
     : [
-        { label: 'Fixtures Required', value: '\u2014' },
-        { label: 'Room Area', value: '\u2014', unit: 'm\u00B2' },
-        { label: 'Total Lumens', value: '\u2014', unit: 'lm' },
+        { label: 'Fixtures Required', value: '\—' },
+        { label: 'Room Area', value: '\—', unit: 'm\²' },
+        { label: 'Total Lumens', value: '\—', unit: 'lm' },
       ]
 
   const thStyle: React.CSSProperties = {
@@ -192,7 +192,7 @@ export default function LightingCalcPage() {
                 achieve a desired illumination level. The Coefficient of Utilization (CU) accounts for
                 room geometry and surface reflectances. The Light Loss Factor (LLF) accounts for lamp
                 depreciation, luminaire dirt, and other maintenance factors. For mining environments,
-                use lower LLF values (0.6\u20130.7) due to dust and harsh conditions. Always verify
+                use lower LLF values (0.6\–0.7) due to dust and harsh conditions. Always verify
                 emergency lighting meets minimum code requirements.
               </InfoBox>
             </>

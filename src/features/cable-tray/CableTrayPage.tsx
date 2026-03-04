@@ -277,7 +277,7 @@ export default function CableTrayPage() {
                       color: '#ff3c3c', fontSize: 18, cursor: 'pointer',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                     }}>
-                      {'\u00D7'}
+                      {'\×'}
                     </button>
                   </div>
                 ))}

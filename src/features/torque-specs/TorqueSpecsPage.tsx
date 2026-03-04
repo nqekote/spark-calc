@@ -20,7 +20,7 @@ interface TorqueGroup {
 const torqueData: TorqueGroup[] = [
   {
     title: 'Wire Terminations',
-    columns: ['Wire Size', 'Screw Type', 'Torque (in-lb)', 'Torque (N\u00B7m)'],
+    columns: ['Wire Size', 'Screw Type', 'Torque (in-lb)', 'Torque (N\·m)'],
     entries: [
       { item: '14 AWG', detail: '#6 screw', torqueInLb: '7', torqueNm: '0.8' },
       { item: '12 AWG', detail: '#6 screw', torqueInLb: '7', torqueNm: '0.8' },
@@ -41,7 +41,7 @@ const torqueData: TorqueGroup[] = [
   },
   {
     title: 'Panel/Breaker Connections',
-    columns: ['Device', '', 'Torque (in-lb)', 'Torque (N\u00B7m)'],
+    columns: ['Device', '', 'Torque (in-lb)', 'Torque (N\·m)'],
     entries: [
       { item: '15/20A breaker', detail: '', torqueInLb: '20-25', torqueNm: '2.3-2.8' },
       { item: '30A breaker', detail: '', torqueInLb: '25-30', torqueNm: '2.8-3.4' },
@@ -56,7 +56,7 @@ const torqueData: TorqueGroup[] = [
   },
   {
     title: 'Receptacles & Switches',
-    columns: ['Device', '', 'Torque (in-lb)', 'Torque (N\u00B7m)'],
+    columns: ['Device', '', 'Torque (in-lb)', 'Torque (N\·m)'],
     entries: [
       { item: 'Receptacle terminal screws', detail: '', torqueInLb: '12', torqueNm: '1.4' },
       { item: 'Switch terminal screws', detail: '', torqueInLb: '12', torqueNm: '1.4' },

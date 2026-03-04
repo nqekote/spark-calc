@@ -35,7 +35,7 @@ const ppeCategories: PPECategory[] = [
     arcRating: 4,
     color: '#4ade80',
     ppeItems: [
-      'Arc-rated long-sleeve shirt and pants (min 4 cal/cm\u00B2)',
+      'Arc-rated long-sleeve shirt and pants (min 4 cal/cm\²)',
       'Arc-rated face shield OR arc-rated balaclava',
       'Safety glasses or safety goggles',
       'Hard hat (non-melting)',
@@ -56,7 +56,7 @@ const ppeCategories: PPECategory[] = [
     arcRating: 8,
     color: '#ffd700',
     ppeItems: [
-      'Arc-rated long-sleeve shirt and pants (min 8 cal/cm\u00B2)',
+      'Arc-rated long-sleeve shirt and pants (min 8 cal/cm\²)',
       'Arc-rated flash suit hood OR arc-rated face shield AND arc-rated balaclava',
       'Arc-rated hard hat liner',
       'Safety glasses or safety goggles (under face shield)',
@@ -78,7 +78,7 @@ const ppeCategories: PPECategory[] = [
     arcRating: 25,
     color: '#ff8c00',
     ppeItems: [
-      'Arc-rated flash suit jacket and pants (min 25 cal/cm\u00B2)',
+      'Arc-rated flash suit jacket and pants (min 25 cal/cm\²)',
       'Arc-rated flash suit hood with viewing window',
       'Arc-rated hard hat liner',
       'Safety glasses or goggles (under hood)',
@@ -100,7 +100,7 @@ const ppeCategories: PPECategory[] = [
     arcRating: 40,
     color: '#ff3c3c',
     ppeItems: [
-      'Arc-rated flash suit jacket and pants (min 40 cal/cm\u00B2)',
+      'Arc-rated flash suit jacket and pants (min 40 cal/cm\²)',
       'Arc-rated flash suit hood with viewing window',
       'Arc-rated hard hat liner',
       'Safety glasses or goggles (under hood)',
@@ -132,16 +132,16 @@ const taskCategories: TaskCategory[] = [
   { task: 'Reading panel meters / indicators', typicalCat: '1', catColor: '#4ade80', notes: 'Doors closed, normal operation' },
   { task: 'Operating a circuit breaker (closed door)', typicalCat: '1', catColor: '#4ade80', notes: 'Using standard operating handle' },
   { task: 'Opening hinged cover (voltage testing)', typicalCat: '2', catColor: '#ffd700', notes: 'Exposing live bus or components' },
-  { task: 'Removing bolted covers', typicalCat: '2\u20133', catColor: '#ff8c00', notes: 'Depends on available fault current' },
-  { task: 'Voltage testing (exposed conductors)', typicalCat: '2\u20133', catColor: '#ff8c00', notes: 'Contact with test probes near live parts' },
-  { task: 'Racking breaker in/out', typicalCat: '3\u20134', catColor: '#ff3c3c', notes: 'High energy during racking operation' },
-  { task: 'Inserting/removing MCC bucket', typicalCat: '3\u20134', catColor: '#ff3c3c', notes: 'Potential for arc during insertion' },
-  { task: 'Cable termination work (energized)', typicalCat: '3\u20134', catColor: '#ff3c3c', notes: 'Working distance typically close' },
+  { task: 'Removing bolted covers', typicalCat: '2\–3', catColor: '#ff8c00', notes: 'Depends on available fault current' },
+  { task: 'Voltage testing (exposed conductors)', typicalCat: '2\–3', catColor: '#ff8c00', notes: 'Contact with test probes near live parts' },
+  { task: 'Racking breaker in/out', typicalCat: '3\–4', catColor: '#ff3c3c', notes: 'High energy during racking operation' },
+  { task: 'Inserting/removing MCC bucket', typicalCat: '3\–4', catColor: '#ff3c3c', notes: 'Potential for arc during insertion' },
+  { task: 'Cable termination work (energized)', typicalCat: '3\–4', catColor: '#ff3c3c', notes: 'Working distance typically close' },
   { task: 'Applying safety grounds (after de-energizing)', typicalCat: '2', catColor: '#ffd700', notes: 'Risk from stored energy or backfeed' },
   { task: 'Operating disconnect (open-air, 600V)', typicalCat: '2', catColor: '#ffd700', notes: 'Visible break, potential arc on operation' },
   { task: 'IR scanning (closed doors)', typicalCat: '1', catColor: '#4ade80', notes: 'Through IR window, no exposed parts' },
   { task: 'Underground switchgear operation (4160V)', typicalCat: '4', catColor: '#ff3c3c', notes: 'Mining: high fault current, confined space' },
-  { task: 'Surface substation MV switching', typicalCat: '3\u20134', catColor: '#ff3c3c', notes: 'Mining: depends on protection settings' },
+  { task: 'Surface substation MV switching', typicalCat: '3\–4', catColor: '#ff3c3c', notes: 'Mining: depends on protection settings' },
   { task: 'Portable power center maintenance', typicalCat: '3', catColor: '#ff8c00', notes: 'Mining: 600V typical, verify label' },
 ]
 
@@ -178,8 +178,8 @@ interface LabelField {
 }
 
 const labelFields: LabelField[] = [
-  { field: 'Incident Energy', description: 'Arc flash energy at working distance in cal/cm\u00B2. This determines the PPE category required.', example: '8.5 cal/cm\u00B2 at 18 inches', critical: true },
-  { field: 'Flash Protection Boundary', description: 'Distance where incident energy drops to 1.2 cal/cm\u00B2 (onset of second-degree burns). All personnel inside this boundary must wear PPE.', example: '1.5 m (5 ft)', critical: true },
+  { field: 'Incident Energy', description: 'Arc flash energy at working distance in cal/cm\². This determines the PPE category required.', example: '8.5 cal/cm\² at 18 inches', critical: true },
+  { field: 'Flash Protection Boundary', description: 'Distance where incident energy drops to 1.2 cal/cm\² (onset of second-degree burns). All personnel inside this boundary must wear PPE.', example: '1.5 m (5 ft)', critical: true },
   { field: 'PPE Required', description: 'Minimum PPE category or specific PPE items required for work inside the flash protection boundary.', example: 'PPE Category 2', critical: true },
   { field: 'Nominal Voltage', description: 'Operating voltage of the equipment. Required for selecting proper voltage-rated PPE.', example: '600V 3-Phase', critical: false },
   { field: 'Limited Approach Boundary', description: 'Only qualified persons may cross this boundary. Applies to shock hazard.', example: '1.1 m (3.5 ft)', critical: false },
@@ -225,8 +225,8 @@ const riskSteps: RiskStep[] = [
     step: 3,
     title: 'Determine PPE Category',
     details: [
-      'Match incident energy to PPE category (Cat 1: \u22644, Cat 2: \u22648, Cat 3: \u226425, Cat 4: \u226440 cal/cm\u00B2)',
-      'If incident energy exceeds 40 cal/cm\u00B2: DO NOT WORK ENERGIZED \u2014 no PPE is rated above 40 cal/cm\u00B2',
+      'Match incident energy to PPE category (Cat 1: \≤4, Cat 2: \≤8, Cat 3: \≤25, Cat 4: \≤40 cal/cm\²)',
+      'If incident energy exceeds 40 cal/cm\²: DO NOT WORK ENERGIZED \— no PPE is rated above 40 cal/cm\²',
       'Select all required PPE items for the category',
       'Verify PPE arc ratings meet or exceed the incident energy',
     ],
@@ -236,9 +236,9 @@ const riskSteps: RiskStep[] = [
     step: 4,
     title: 'Establish Boundaries',
     details: [
-      'Mark the Flash Protection Boundary \u2014 all persons inside must wear arc-rated PPE',
-      'Mark the Limited Approach Boundary \u2014 only qualified persons may enter',
-      'Mark the Restricted Approach Boundary \u2014 requires energized work permit',
+      'Mark the Flash Protection Boundary \— all persons inside must wear arc-rated PPE',
+      'Mark the Limited Approach Boundary \— only qualified persons may enter',
+      'Mark the Restricted Approach Boundary \— requires energized work permit',
       'Use barricades, tape, or cones to clearly identify boundaries',
     ],
   },
@@ -275,15 +275,15 @@ interface EquipmentTypicalEnergy {
 }
 
 const equipmentEnergy: EquipmentTypicalEnergy[] = [
-  { equipment: '120V panelboard', typicalEnergy: '0.5\u20132 cal/cm\u00B2', typicalCategory: '1', catColor: '#4ade80', notes: 'Low risk but still verify' },
-  { equipment: '208V panelboard', typicalEnergy: '1\u20134 cal/cm\u00B2', typicalCategory: '1\u20132', catColor: '#ffd700', notes: 'Depends on transformer size' },
-  { equipment: '480V panelboard', typicalEnergy: '4\u201312 cal/cm\u00B2', typicalCategory: '2\u20133', catColor: '#ff8c00', notes: 'Higher with large transformers' },
-  { equipment: '600V MCC (bucket)', typicalEnergy: '5\u201325 cal/cm\u00B2', typicalCategory: '2\u20133', catColor: '#ff8c00', notes: 'Varies by bus configuration' },
-  { equipment: '600V switchgear', typicalEnergy: '8\u201340 cal/cm\u00B2', typicalCategory: '3\u20134', catColor: '#ff3c3c', notes: 'Verify with study' },
-  { equipment: '4160V switchgear', typicalEnergy: '15\u201340+ cal/cm\u00B2', typicalCategory: '3\u20134', catColor: '#ff3c3c', notes: 'Often exceeds Cat 4' },
-  { equipment: '13.8kV switchgear', typicalEnergy: '20\u201365+ cal/cm\u00B2', typicalCategory: '4+', catColor: '#ff3c3c', notes: 'Detailed study required' },
-  { equipment: 'Mine portable power center (600V)', typicalEnergy: '8\u201330 cal/cm\u00B2', typicalCategory: '3\u20134', catColor: '#ff3c3c', notes: 'Mining: check label on unit' },
-  { equipment: 'Underground main switchgear (4160V)', typicalEnergy: '20\u201340+ cal/cm\u00B2', typicalCategory: '4+', catColor: '#ff3c3c', notes: 'Mining: highest risk area' },
+  { equipment: '120V panelboard', typicalEnergy: '0.5\–2 cal/cm\²', typicalCategory: '1', catColor: '#4ade80', notes: 'Low risk but still verify' },
+  { equipment: '208V panelboard', typicalEnergy: '1\–4 cal/cm\²', typicalCategory: '1\–2', catColor: '#ffd700', notes: 'Depends on transformer size' },
+  { equipment: '480V panelboard', typicalEnergy: '4\–12 cal/cm\²', typicalCategory: '2\–3', catColor: '#ff8c00', notes: 'Higher with large transformers' },
+  { equipment: '600V MCC (bucket)', typicalEnergy: '5\–25 cal/cm\²', typicalCategory: '2\–3', catColor: '#ff8c00', notes: 'Varies by bus configuration' },
+  { equipment: '600V switchgear', typicalEnergy: '8\–40 cal/cm\²', typicalCategory: '3\–4', catColor: '#ff3c3c', notes: 'Verify with study' },
+  { equipment: '4160V switchgear', typicalEnergy: '15\–40+ cal/cm\²', typicalCategory: '3\–4', catColor: '#ff3c3c', notes: 'Often exceeds Cat 4' },
+  { equipment: '13.8kV switchgear', typicalEnergy: '20\–65+ cal/cm\²', typicalCategory: '4+', catColor: '#ff3c3c', notes: 'Detailed study required' },
+  { equipment: 'Mine portable power center (600V)', typicalEnergy: '8\–30 cal/cm\²', typicalCategory: '3\–4', catColor: '#ff3c3c', notes: 'Mining: check label on unit' },
+  { equipment: 'Underground main switchgear (4160V)', typicalEnergy: '20\–40+ cal/cm\²', typicalCategory: '4+', catColor: '#ff3c3c', notes: 'Mining: highest risk area' },
 ]
 
 /* ------------------------------------------------------------------ */
@@ -298,11 +298,11 @@ interface PreventionItem {
 
 const preventionItems: PreventionItem[] = [
   // Engineering Controls
-  { title: 'Current-Limiting Fuses', details: 'Class RK1, Class J, or Class L fuses can reduce let-through energy by 50\u201380%. They clear in less than half a cycle (\u22640.004 sec) for high fault currents, dramatically reducing incident energy. Retrofit existing MCC with CL fuses where possible.', category: 'engineering' },
+  { title: 'Current-Limiting Fuses', details: 'Class RK1, Class J, or Class L fuses can reduce let-through energy by 50\–80%. They clear in less than half a cycle (\≤0.004 sec) for high fault currents, dramatically reducing incident energy. Retrofit existing MCC with CL fuses where possible.', category: 'engineering' },
   { title: 'Faster Breaker Clearing Times', details: 'Use instantaneous trip settings where selective coordination allows. Reducing clearing time from 30 cycles to 6 cycles cuts incident energy by ~80%. Zone-selective interlocking can enable faster tripping.', category: 'engineering' },
   { title: 'Zone-Selective Interlocking (ZSI)', details: 'Communication between upstream and downstream breakers allows the breaker closest to the fault to trip instantly while upstream breakers wait. Reduces arc duration without sacrificing coordination.', category: 'engineering' },
   { title: 'Arc-Resistant Switchgear', details: 'Equipment designed and tested per IEEE C37.20.7 to contain and redirect arc energy through exhaust plenums. Rated for specific fault current and duration. Standard for new mine switchgear installations.', category: 'engineering' },
-  { title: 'Bus Differential Relays', details: 'Detect current imbalance between incoming and outgoing feeders. Trip in 1\u20133 cycles for internal bus faults. Most effective protection for large switchgear and motor control centers.', category: 'engineering' },
+  { title: 'Bus Differential Relays', details: 'Detect current imbalance between incoming and outgoing feeders. Trip in 1\–3 cycles for internal bus faults. Most effective protection for large switchgear and motor control centers.', category: 'engineering' },
   { title: 'Optical Arc Flash Detection', details: 'Light sensors combined with overcurrent detection trigger breaker trip in <1 cycle. Fastest arc flash mitigation technology available. Common in modern mining substations.', category: 'engineering' },
   { title: 'Arc Reduction Maintenance Switch', details: 'A switch on the breaker that changes trip settings to instantaneous for maintenance mode. Reduces arc flash energy during maintenance. Must be returned to normal after work is complete.', category: 'engineering' },
   // Administrative Controls
@@ -319,10 +319,10 @@ const preventionItems: PreventionItem[] = [
   { title: 'Verify Test Equipment', details: 'Test your voltage tester on a known live source BEFORE and AFTER testing the circuit. This confirms the tester is functioning. Use properly rated CAT III or CAT IV test equipment.', category: 'practice' },
   // Mining-Specific
   { title: 'Mine Power Center Arc Flash Mitigation', details: 'Portable mine power centers typically have ground fault relay protection that limits arc duration. Ensure GFR is set to trip within 12 cycles maximum. Monthly testing of GFR trip time per O. Reg. 854 is mandatory.', category: 'mining' },
-  { title: 'Ground Fault Protection Limiting Arc Duration', details: 'Underground mine systems >300V must have ground fault protection tripping at \u2264100mA (O. Reg. 854 s.153). This fast-acting protection can significantly reduce arc flash duration for ground faults, the most common fault type.', category: 'mining' },
+  { title: 'Ground Fault Protection Limiting Arc Duration', details: 'Underground mine systems >300V must have ground fault protection tripping at \≤100mA (O. Reg. 854 s.153). This fast-acting protection can significantly reduce arc flash duration for ground faults, the most common fault type.', category: 'mining' },
   { title: 'Underground Confined Space Considerations', details: 'Underground switchgear rooms have limited egress. Arc blast pressure in confined spaces is amplified. Ensure ventilation is adequate for arc byproducts (toxic gases including ozone, nitrogen oxides, and vaporized copper). Position escape route away from equipment front.', category: 'mining' },
   { title: 'Authorization for Energized Work Underground', details: 'Per O. Reg. 854, the supervisor in charge of the mine (or their designate) must authorize energized electrical work underground. A competent person (licensed electrician) must be assigned. Documentation must be maintained.', category: 'mining' },
-  { title: 'Surface Substation Procedures', details: 'Surface substations feeding the mine often operate at 13.8kV\u201344kV. Arc flash incidents at these voltages can be fatal even with Cat 4 PPE. Remote operation is strongly recommended. Coordinate with utility for switching operations.', category: 'mining' },
+  { title: 'Surface Substation Procedures', details: 'Surface substations feeding the mine often operate at 13.8kV\–44kV. Arc flash incidents at these voltages can be fatal even with Cat 4 PPE. Remote operation is strongly recommended. Coordinate with utility for switching operations.', category: 'mining' },
 ]
 
 /* ------------------------------------------------------------------ */
@@ -474,28 +474,28 @@ function calcIncidentEnergy(
   let catNum: number
   let catColor: string
   if (energy <= 4) {
-    category = 'Category 1 (4 cal/cm\u00B2)'
+    category = 'Category 1 (4 cal/cm\²)'
     catNum = 1
     catColor = '#4ade80'
   } else if (energy <= 8) {
-    category = 'Category 2 (8 cal/cm\u00B2)'
+    category = 'Category 2 (8 cal/cm\²)'
     catNum = 2
     catColor = '#ffd700'
   } else if (energy <= 25) {
-    category = 'Category 3 (25 cal/cm\u00B2)'
+    category = 'Category 3 (25 cal/cm\²)'
     catNum = 3
     catColor = '#ff8c00'
   } else if (energy <= 40) {
-    category = 'Category 4 (40 cal/cm\u00B2)'
+    category = 'Category 4 (40 cal/cm\²)'
     catNum = 4
     catColor = '#ff3c3c'
   } else {
-    category = 'EXCEEDS CAT 4 \u2014 DO NOT WORK ENERGIZED'
+    category = 'EXCEEDS CAT 4 \— DO NOT WORK ENERGIZED'
     catNum = 5
     catColor = '#ff3c3c'
   }
 
-  // Flash protection boundary: distance where energy = 1.2 cal/cm\u00B2
+  // Flash protection boundary: distance where energy = 1.2 cal/cm\²
   // Approximate by scaling: FPB = D * (E / 1.2)^(1/x)
   const x = voltage <= 600 ? (voltage <= 240 ? 1.641 : 1.473) : 2
   const boundary = workingDistance * 25.4 * Math.pow(energy / 1.2, 1 / x) // in mm
@@ -542,7 +542,7 @@ export default function ArcFlashPage() {
           gap: 10,
           alignItems: 'flex-start',
         }}>
-          <span style={{ fontSize: 22, flexShrink: 0, lineHeight: 1 }}>{'\u26A1'}</span>
+          <span style={{ fontSize: 22, flexShrink: 0, lineHeight: 1 }}>{'\⚡'}</span>
           <div style={{ fontSize: 13, color: 'var(--text)', lineHeight: 1.6 }}>
             <strong style={{ color: '#ff3c3c' }}>ARC FLASH CAN KILL.</strong> This is a reference tool only.
             Always use your site-specific arc flash study, equipment labels, and follow CSA Z462 / your company's
@@ -608,7 +608,7 @@ export default function ArcFlashPage() {
                       color: cat.color,
                       fontFamily: 'var(--font-mono)',
                     }}>
-                      {'\u2264'} {cat.arcRating} cal/cm{'\u00B2'}
+                      {'\≤'} {cat.arcRating} cal/cm{'\²'}
                     </div>
                   </div>
                 </div>
@@ -644,7 +644,7 @@ export default function ArcFlashPage() {
                         left: 0,
                         color: cat.color,
                         fontWeight: 700,
-                      }}>{'\u2713'}</span>
+                      }}>{'\✓'}</span>
                       {item}
                     </div>
                   ))}
@@ -671,7 +671,7 @@ export default function ArcFlashPage() {
                       paddingLeft: 16,
                       position: 'relative',
                     }}>
-                      <span style={{ position: 'absolute', left: 0, color: 'var(--text-secondary)' }}>{'\u2022'}</span>
+                      <span style={{ position: 'absolute', left: 0, color: 'var(--text-secondary)' }}>{'\•'}</span>
                       {loc}
                     </div>
                   ))}
@@ -687,7 +687,7 @@ export default function ArcFlashPage() {
                   color: 'var(--text)',
                   lineHeight: 1.5,
                 }}>
-                  <strong style={{ color: '#ff8c00' }}>{'\u26CF'} Mining:</strong> {cat.miningNotes}
+                  <strong style={{ color: '#ff8c00' }}>{'\⛏'} Mining:</strong> {cat.miningNotes}
                 </div>
               </div>
             ))}
@@ -764,7 +764,7 @@ export default function ArcFlashPage() {
                 Flash Protection Boundary
               </div>
               <div style={{ fontSize: 14, color: 'var(--text)', lineHeight: 1.6 }}>
-                The distance from energized equipment where incident energy equals <strong>1.2 cal/cm{'\u00B2'}</strong> (onset
+                The distance from energized equipment where incident energy equals <strong>1.2 cal/cm{'\²'}</strong> (onset
                 of second-degree burns on unprotected skin). All persons inside this boundary must wear appropriate
                 arc-rated PPE. This is the outermost boundary for arc flash protection.
               </div>
@@ -972,7 +972,7 @@ export default function ArcFlashPage() {
                     textAlign: 'center',
                     lineHeight: 1.5,
                   }}>
-                    {'\u26D4'} DANGER: Exceeds 40 cal/cm{'\u00B2'} {'\u2014'} DO NOT WORK ENERGIZED
+                    {'\⛔'} DANGER: Exceeds 40 cal/cm{'\²'} {'\—'} DO NOT WORK ENERGIZED
                   </div>
                 )}
 
@@ -987,7 +987,7 @@ export default function ArcFlashPage() {
                       color: calcResult.catColor,
                       fontFamily: 'var(--font-mono)',
                     }}>
-                      {calcResult.energy} <span style={{ fontSize: 14 }}>cal/cm{'\u00B2'}</span>
+                      {calcResult.energy} <span style={{ fontSize: 14 }}>cal/cm{'\²'}</span>
                     </div>
                   </div>
                   <div style={{
@@ -1030,7 +1030,7 @@ export default function ArcFlashPage() {
                       Flash Protection Boundary
                     </div>
                     <div style={{ fontSize: 13, color: 'var(--text)', fontWeight: 600, fontFamily: 'var(--font-mono)' }}>
-                      {'\u2248'} {calcResult.boundary} m ({(calcResult.boundary * 3.281).toFixed(1)} ft)
+                      {'\≈'} {calcResult.boundary} m ({(calcResult.boundary * 3.281).toFixed(1)} ft)
                     </div>
                   </div>
                 </div>
@@ -1049,15 +1049,15 @@ export default function ArcFlashPage() {
                 IEEE 1584 Simplified Formulas
               </div>
               <div style={{ overflowX: 'auto' }}>
-                <div>{'log(En) = K1 + K2 + 1.081\u00B7log(Ia) + 0.0011\u00B7G'}</div>
-                <div>{'E = 4.184 \u00B7 Cf \u00B7 En \u00B7 (t/0.2) \u00B7 (610^x / D^x)'}</div>
+                <div>{'log(En) = K1 + K2 + 1.081\·log(Ia) + 0.0011\·G'}</div>
+                <div>{'E = 4.184 \· Cf \· En \· (t/0.2) \· (610^x / D^x)'}</div>
                 <div style={{ marginTop: 8, fontSize: 11, color: 'var(--text-secondary)', fontFamily: 'var(--font-sans)' }}>
                   Where: En = normalized energy, Ia = arcing current (kA), G = conductor gap (mm),
-                  Cf = calculation factor (1.5 for {'\u2264'}1kV, 1.0 for {'>'}1kV), t = clearing time (s),
+                  Cf = calculation factor (1.5 for {'\≤'}1kV, 1.0 for {'>'}1kV), t = clearing time (s),
                   D = working distance (mm), x = distance exponent
                 </div>
                 <div style={{ marginTop: 6, fontSize: 11, fontFamily: 'var(--font-sans)' }}>
-                  Lee Method ({'>'}600V): E = 5.12{'\u00D7'}10{'\u2075'} {'\u00B7'} V {'\u00B7'} Ibf {'\u00B7'} t / D{'\u00B2'}
+                  Lee Method ({'>'}600V): E = 5.12{'\×'}10{'\⁵'} {'\·'} V {'\·'} Ibf {'\·'} t / D{'\²'}
                 </div>
               </div>
             </div>
@@ -1084,7 +1084,7 @@ export default function ArcFlashPage() {
                 textAlign: 'center',
               }}>
                 <div style={{ fontWeight: 800, fontSize: 14, color: '#fff', letterSpacing: 1 }}>
-                  {'\u26A1'} WARNING {'\u26A1'}
+                  {'\⚡'} WARNING {'\⚡'}
                 </div>
                 <div style={{ fontWeight: 700, fontSize: 12, color: '#fff' }}>
                   ARC FLASH AND SHOCK HAZARD
@@ -1101,7 +1101,7 @@ export default function ArcFlashPage() {
               }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <span style={{ fontWeight: 700 }}>Incident Energy:</span>
-                  <span style={{ fontWeight: 700, color: '#cc0000' }}>8.5 cal/cm{'\u00B2'} @ 18 in.</span>
+                  <span style={{ fontWeight: 700, color: '#cc0000' }}>8.5 cal/cm{'\²'} @ 18 in.</span>
                 </div>
                 <div style={{ borderBottom: '1px solid #ddd' }} />
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -1162,7 +1162,7 @@ export default function ArcFlashPage() {
                   gap: 8,
                   marginBottom: 6,
                 }}>
-                  {lf.critical && <span style={{ color: '#ff3c3c', fontWeight: 700 }}>{'\u25CF'}</span>}
+                  {lf.critical && <span style={{ color: '#ff3c3c', fontWeight: 700 }}>{'\●'}</span>}
                   <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--text)' }}>
                     {lf.field}
                   </div>
@@ -1183,11 +1183,11 @@ export default function ArcFlashPage() {
               borderLeft: '4px solid #ff3c3c',
             }}>
               <div style={{ fontSize: 15, fontWeight: 700, color: '#ff3c3c', marginBottom: 8 }}>
-                {'\u26A0'} Unlabeled Equipment Procedure
+                {'\⚠'} Unlabeled Equipment Procedure
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                 {[
-                  'STOP \u2014 Do not assume the equipment is safe.',
+                  'STOP \— Do not assume the equipment is safe.',
                   'Treat as potentially hazardous. Use the CSA Z462 table-based method to estimate the PPE category based on equipment type and voltage.',
                   'Report the missing label to your supervisor immediately.',
                   'Request an arc flash study be performed on the equipment.',
@@ -1255,7 +1255,7 @@ export default function ArcFlashPage() {
                   conditions may change.
                 </div>
                 <div>
-                  <strong style={{ color: '#ff3c3c' }}>Danger Labels ({'>'}40 cal/cm{'\u00B2'}):</strong> Red header with
+                  <strong style={{ color: '#ff3c3c' }}>Danger Labels ({'>'}40 cal/cm{'\²'}):</strong> Red header with
                   "DANGER" text. Indicates equipment must be de-energized before any work. No PPE is rated for this level.
                 </div>
               </div>
@@ -1294,7 +1294,7 @@ export default function ArcFlashPage() {
                     paddingLeft: 16,
                     position: 'relative',
                   }}>
-                    <span style={{ position: 'absolute', left: 0, color: 'var(--primary)' }}>{'\u2713'}</span>
+                    <span style={{ position: 'absolute', left: 0, color: 'var(--primary)' }}>{'\✓'}</span>
                     {item}
                   </div>
                 ))}
@@ -1315,7 +1315,7 @@ export default function ArcFlashPage() {
                   'Non-standard configurations or multiple source feeds',
                   'Equipment with modified protection settings',
                   'New installations or major system modifications',
-                  'When incident energy is suspected to exceed 40 cal/cm\u00B2',
+                  'When incident energy is suspected to exceed 40 cal/cm\²',
                   'Mining: portable power centers relocated to different feeders',
                 ].map((item, i) => (
                   <div key={i} style={{
@@ -1325,7 +1325,7 @@ export default function ArcFlashPage() {
                     paddingLeft: 16,
                     position: 'relative',
                   }}>
-                    <span style={{ position: 'absolute', left: 0, color: '#ff3c3c' }}>{'\u2022'}</span>
+                    <span style={{ position: 'absolute', left: 0, color: '#ff3c3c' }}>{'\•'}</span>
                     {item}
                   </div>
                 ))}
@@ -1431,7 +1431,7 @@ export default function ArcFlashPage() {
                         position: 'absolute',
                         left: 0,
                         color: d.startsWith('Mining:') ? '#ff8c00' : 'var(--text-secondary)',
-                      }}>{d.startsWith('Mining:') ? '\u26CF' : '\u2022'}</span>
+                      }}>{d.startsWith('Mining:') ? '\⛏' : '\•'}</span>
                       {d}
                     </div>
                   ))}
@@ -1488,7 +1488,7 @@ export default function ArcFlashPage() {
                     paddingLeft: 16,
                     position: 'relative',
                   }}>
-                    <span style={{ position: 'absolute', left: 0, color: '#ff8c00' }}>{'\u2713'}</span>
+                    <span style={{ position: 'absolute', left: 0, color: '#ff8c00' }}>{'\✓'}</span>
                     {item}
                   </div>
                 ))}
@@ -1502,7 +1502,7 @@ export default function ArcFlashPage() {
                 padding: '10px 12px',
               }}>
                 <div style={{ fontSize: 13, fontWeight: 700, color: '#ff8c00', marginBottom: 4 }}>
-                  {'\u26CF'} Mining: Who Can Authorize Energized Work Underground
+                  {'\⛏'} Mining: Who Can Authorize Energized Work Underground
                 </div>
                 <div style={{ fontSize: 13, color: 'var(--text)', lineHeight: 1.6 }}>
                   Per O. Reg. 854, the <strong>supervisor in charge of the mine</strong> (or their designated competent

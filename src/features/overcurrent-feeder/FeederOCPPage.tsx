@@ -15,9 +15,9 @@ const materialOptions = [
 ]
 
 const tempRatingOptions = [
-  { value: '60', label: '60\u00B0C' },
-  { value: '75', label: '75\u00B0C' },
-  { value: '90', label: '90\u00B0C' },
+  { value: '60', label: '60\°C' },
+  { value: '75', label: '75\°C' },
+  { value: '90', label: '90\°C' },
 ]
 
 const loadTypeOptions = [
@@ -192,7 +192,7 @@ export default function FeederOCPPage() {
     }
 
     if (loadType === 'continuous') {
-      formula = `Design Current = ${fmt(loadA)} A \u00D7 125% = ${fmt(designCurrent)} A`
+      formula = `Design Current = ${fmt(loadA)} A \× 125% = ${fmt(designCurrent)} A`
     } else {
       formula = `Design Current = ${fmt(loadA)} A (non-continuous)`
     }
@@ -212,27 +212,27 @@ export default function FeederOCPPage() {
         },
         {
           label: 'Wire Ampacity',
-          value: wireAmpacity !== null ? fmt(wireAmpacity) : '\u2014',
+          value: wireAmpacity !== null ? fmt(wireAmpacity) : '\—',
           unit: 'A',
         },
         {
           label: 'Recommended OCP Size',
-          value: recommendedOCP !== null ? fmt(recommendedOCP) : '\u2014',
+          value: recommendedOCP !== null ? fmt(recommendedOCP) : '\—',
           unit: 'A',
           highlight: true,
         },
         {
           label: 'Next Size Down OCP',
-          value: nextSizeDown !== null ? fmt(nextSizeDown) : '\u2014',
+          value: nextSizeDown !== null ? fmt(nextSizeDown) : '\—',
           unit: 'A',
         },
       ]
     : [
-        { label: 'Design Current', value: '\u2014', unit: 'A' },
-        { label: 'Minimum Wire Size', value: '\u2014' },
-        { label: 'Wire Ampacity', value: '\u2014', unit: 'A' },
-        { label: 'Recommended OCP Size', value: '\u2014', unit: 'A' },
-        { label: 'Next Size Down OCP', value: '\u2014', unit: 'A' },
+        { label: 'Design Current', value: '\—', unit: 'A' },
+        { label: 'Minimum Wire Size', value: '\—' },
+        { label: 'Wire Ampacity', value: '\—', unit: 'A' },
+        { label: 'Recommended OCP Size', value: '\—', unit: 'A' },
+        { label: 'Next Size Down OCP', value: '\—', unit: 'A' },
       ]
 
   return (
@@ -255,7 +255,7 @@ export default function FeederOCPPage() {
         />
         <InputField
           label="Ambient Temperature"
-          unit={'\u00B0C'}
+          unit={'\°C'}
           value={ambientTemp}
           onChange={setAmbientTemp}
           placeholder="30"

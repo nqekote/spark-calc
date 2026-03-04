@@ -170,8 +170,8 @@ export default function DisconnectSizingPage() {
         { label: 'Fuse Type', value: 'Time-Delay (Dual Element)' },
       ]
     : [
-        { label: 'Motor FLC', value: '\u2014', unit: 'A' },
-        { label: 'Min. Disconnect Size', value: '\u2014', unit: 'A' },
+        { label: 'Motor FLC', value: '\—', unit: 'A' },
+        { label: 'Min. Disconnect Size', value: '\—', unit: 'A' },
       ]
 
   const nonMotorResults = hasNonMotorInputs
@@ -184,8 +184,8 @@ export default function DisconnectSizingPage() {
           : []),
       ]
     : [
-        { label: 'Load Current', value: '\u2014', unit: 'A' },
-        { label: 'Min. Disconnect Size', value: '\u2014', unit: 'A' },
+        { label: 'Load Current', value: '\—', unit: 'A' },
+        { label: 'Min. Disconnect Size', value: '\—', unit: 'A' },
       ]
 
   const thStyle: React.CSSProperties = {

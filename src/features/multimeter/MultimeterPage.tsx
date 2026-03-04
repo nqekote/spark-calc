@@ -29,13 +29,13 @@ interface VoltageRow {
 }
 
 const canadianVoltages: VoltageRow[] = [
-  { system: '1\u03C6 Residential', nominal: '120V', min: '114V', max: '126V', notes: 'L-N, standard outlets' },
-  { system: '1\u03C6 Residential', nominal: '240V', min: '228V', max: '252V', notes: 'L-L, ranges/dryers' },
-  { system: '3\u03C6 Wye 120/208V', nominal: '208V', min: '197V', max: '218V', notes: 'L-L, commercial' },
-  { system: '3\u03C6 Delta', nominal: '240V', min: '228V', max: '252V', notes: 'L-L, older industrial' },
-  { system: '3\u03C6 Wye 347/600V', nominal: '347V', min: '330V', max: '364V', notes: 'L-N, lighting in commercial/industrial' },
-  { system: '3\u03C6 Wye 347/600V', nominal: '480V', min: '456V', max: '504V', notes: 'L-L, US industrial (seen in some Canadian mines)' },
-  { system: '3\u03C6 Wye 347/600V', nominal: '600V', min: '570V', max: '630V', notes: 'L-L, Canadian industrial/mining standard' },
+  { system: '1\φ Residential', nominal: '120V', min: '114V', max: '126V', notes: 'L-N, standard outlets' },
+  { system: '1\φ Residential', nominal: '240V', min: '228V', max: '252V', notes: 'L-L, ranges/dryers' },
+  { system: '3\φ Wye 120/208V', nominal: '208V', min: '197V', max: '218V', notes: 'L-L, commercial' },
+  { system: '3\φ Delta', nominal: '240V', min: '228V', max: '252V', notes: 'L-L, older industrial' },
+  { system: '3\φ Wye 347/600V', nominal: '347V', min: '330V', max: '364V', notes: 'L-N, lighting in commercial/industrial' },
+  { system: '3\φ Wye 347/600V', nominal: '480V', min: '456V', max: '504V', notes: 'L-L, US industrial (seen in some Canadian mines)' },
+  { system: '3\φ Wye 347/600V', nominal: '600V', min: '570V', max: '630V', notes: 'L-L, Canadian industrial/mining standard' },
   { system: 'DC Control', nominal: '24VDC', min: '20V', max: '28V', notes: 'PLC I/O, sensors, solenoids' },
   { system: 'DC Control', nominal: '48VDC', min: '42V', max: '54V', notes: 'Telecom, some mine controls' },
   { system: 'DC Control', nominal: '125VDC', min: '105V', max: '140V', notes: 'Substation battery banks, trip coils' },
@@ -85,15 +85,15 @@ interface MeggerRow {
 }
 
 const meggerValues: MeggerRow[] = [
-  { voltageClass: '120V', testVoltage: '500V DC', minInsulation: '1 M\u03A9', notes: 'Residential/control wiring' },
-  { voltageClass: '240V', testVoltage: '500V DC', minInsulation: '1 M\u03A9', notes: 'Single phase power' },
-  { voltageClass: '600V', testVoltage: '1000V DC', minInsulation: '2 M\u03A9', notes: 'Standard mine power — 1 M\u03A9/kV + 1 M\u03A9' },
-  { voltageClass: '1000V', testVoltage: '1000V DC', minInsulation: '2 M\u03A9', notes: 'Low voltage switchgear' },
-  { voltageClass: '2400V', testVoltage: '2500V DC', minInsulation: '3.4 M\u03A9', notes: 'Medium voltage distribution' },
-  { voltageClass: '4160V', testVoltage: '2500V DC', minInsulation: '5.16 M\u03A9', notes: 'Medium voltage mine feeders' },
-  { voltageClass: '5000V', testVoltage: '2500V DC', minInsulation: '6 M\u03A9', notes: 'Common trailing cable voltage' },
-  { voltageClass: '13.8kV', testVoltage: '5000V DC', minInsulation: '14.8 M\u03A9', notes: 'Primary distribution' },
-  { voltageClass: '25kV', testVoltage: '5000V DC', minInsulation: '26 M\u03A9', notes: 'Utility supply' },
+  { voltageClass: '120V', testVoltage: '500V DC', minInsulation: '1 M\Ω', notes: 'Residential/control wiring' },
+  { voltageClass: '240V', testVoltage: '500V DC', minInsulation: '1 M\Ω', notes: 'Single phase power' },
+  { voltageClass: '600V', testVoltage: '1000V DC', minInsulation: '2 M\Ω', notes: 'Standard mine power — 1 M\Ω/kV + 1 M\Ω' },
+  { voltageClass: '1000V', testVoltage: '1000V DC', minInsulation: '2 M\Ω', notes: 'Low voltage switchgear' },
+  { voltageClass: '2400V', testVoltage: '2500V DC', minInsulation: '3.4 M\Ω', notes: 'Medium voltage distribution' },
+  { voltageClass: '4160V', testVoltage: '2500V DC', minInsulation: '5.16 M\Ω', notes: 'Medium voltage mine feeders' },
+  { voltageClass: '5000V', testVoltage: '2500V DC', minInsulation: '6 M\Ω', notes: 'Common trailing cable voltage' },
+  { voltageClass: '13.8kV', testVoltage: '5000V DC', minInsulation: '14.8 M\Ω', notes: 'Primary distribution' },
+  { voltageClass: '25kV', testVoltage: '5000V DC', minInsulation: '26 M\Ω', notes: 'Utility supply' },
 ]
 
 /* ------------------------------------------------------------------ */
@@ -234,8 +234,8 @@ export default function MultimeterPage() {
                   <tr>
                     <th style={th}>System</th>
                     <th style={th}>Nominal</th>
-                    <th style={th}>Min ({'\u00B1'}5%)</th>
-                    <th style={th}>Max ({'\u00B1'}5%)</th>
+                    <th style={th}>Min ({'\±'}5%)</th>
+                    <th style={th}>Max ({'\±'}5%)</th>
                     <th style={th}>Notes</th>
                   </tr>
                 </thead>
@@ -259,7 +259,7 @@ export default function MultimeterPage() {
               <div style={heading}>How to Measure AC Voltage</div>
               <div style={body14}>
                 1. Set meter to AC Voltage (V~) and select appropriate range{'\n'}
-                2. Insert black lead into COM jack, red lead into V/{'\u03A9'} jack{'\n'}
+                2. Insert black lead into COM jack, red lead into V/{'\Ω'} jack{'\n'}
                 3. Touch probes to the two points to measure across (L-L, L-N, or L-G){'\n'}
                 4. Read the RMS voltage on the display
               </div>
@@ -301,11 +301,11 @@ export default function MultimeterPage() {
               <div style={heading}>What Is Ghost Voltage?</div>
               <div style={body14}>
                 Ghost voltage (phantom voltage) occurs when a high-impedance digital multimeter reads voltage on a circuit that is supposed to be de-energized. The meter picks up induced voltage from nearby energized conductors through capacitive coupling.{'\n\n'}
-                <strong style={{ color: 'var(--text)' }}>Why it happens:</strong> High-impedance meters (10 M{'\u03A9'} input) draw almost no current. Long wire runs in the same conduit as energized conductors act as capacitors, coupling voltage onto the supposedly dead wire. The meter displays this as a real voltage (often 30-80V or more).{'\n\n'}
+                <strong style={{ color: 'var(--text)' }}>Why it happens:</strong> High-impedance meters (10 M{'\Ω'} input) draw almost no current. Long wire runs in the same conduit as energized conductors act as capacitors, coupling voltage onto the supposedly dead wire. The meter displays this as a real voltage (often 30-80V or more).{'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>How to verify:</strong>{'\n'}
-                {'\u2022'} Use a low-impedance meter (LoZ mode) or a solenoid tester (wiggy). These draw enough current to collapse a ghost voltage but will still read a real voltage.{'\n'}
-                {'\u2022'} Most quality meters have a LoZ or Low-Z function — use it any time you are verifying de-energization.{'\n'}
-                {'\u2022'} A ghost voltage will drop to near zero on a LoZ meter. A real voltage will hold steady.
+                {'\•'} Use a low-impedance meter (LoZ mode) or a solenoid tester (wiggy). These draw enough current to collapse a ghost voltage but will still read a real voltage.{'\n'}
+                {'\•'} Most quality meters have a LoZ or Low-Z function — use it any time you are verifying de-energization.{'\n'}
+                {'\•'} A ghost voltage will drop to near zero on a LoZ meter. A real voltage will hold steady.
               </div>
               <div style={miningTip}>
                 <strong>Mining Tip:</strong> In mines, cable runs of 300+ metres in the same tray or conduit are common. Ghost voltage is a frequent issue. Always use LoZ or a wiggy when verifying lockout/tagout. Never rely on a standard digital reading alone to confirm de-energization.
@@ -324,10 +324,10 @@ export default function MultimeterPage() {
                 3. If rotation is wrong, swap any two phases at the disconnect or starter{'\n'}
                 4. Re-test to confirm correct rotation before starting the motor{'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>When to check:</strong>{'\n'}
-                {'\u2022'} After any new installation or reconnection{'\n'}
-                {'\u2022'} After utility work on the supply{'\n'}
-                {'\u2022'} After replacing a transformer{'\n'}
-                {'\u2022'} After swapping any cables or bus connections
+                {'\•'} After any new installation or reconnection{'\n'}
+                {'\•'} After utility work on the supply{'\n'}
+                {'\•'} After replacing a transformer{'\n'}
+                {'\•'} After swapping any cables or bus connections
               </div>
               <div style={miningTip}>
                 <strong>Mining Tip:</strong> Some mine VFDs and soft starters will fault on incorrect phase rotation. Check rotation at the supply before powering the drive. On trailing cables that get disconnected and reconnected, always verify rotation.
@@ -372,10 +372,10 @@ export default function MultimeterPage() {
               <div style={body14}>
                 DC current requires a Hall effect clamp meter. Standard CT clamps cannot measure DC.{'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>Common DC applications in mines:</strong>{'\n'}
-                {'\u2022'} Battery charger output current{'\n'}
-                {'\u2022'} DC drive motor current (older mine hoists, trolley systems){'\n'}
-                {'\u2022'} Solar/battery bank monitoring{'\n'}
-                {'\u2022'} DC welding circuits{'\n\n'}
+                {'\•'} Battery charger output current{'\n'}
+                {'\•'} DC drive motor current (older mine hoists, trolley systems){'\n'}
+                {'\•'} Solar/battery bank monitoring{'\n'}
+                {'\•'} DC welding circuits{'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>Zero the meter:</strong> With jaws closed and no conductor, press the zero/null button before measuring. DC clamp meters are sensitive to drift.
               </div>
             </div>
@@ -386,10 +386,10 @@ export default function MultimeterPage() {
               <div style={heading}>3-Phase Motor Current Check</div>
               <div style={body14}>
                 <strong style={{ color: 'var(--text)' }}>Always measure all 3 phases.</strong> Compare each reading to the motor nameplate FLA (Full Load Amps).{'\n\n'}
-                {'\u2022'} All three phases should be within 5% of each other{'\n'}
-                {'\u2022'} Current above FLA = motor is overloaded{'\n'}
-                {'\u2022'} Current well below FLA = motor is lightly loaded (check for mechanical issues like uncoupled load){'\n'}
-                {'\u2022'} One phase significantly different = possible winding fault, connection issue, or supply voltage imbalance
+                {'\•'} All three phases should be within 5% of each other{'\n'}
+                {'\•'} Current above FLA = motor is overloaded{'\n'}
+                {'\•'} Current well below FLA = motor is lightly loaded (check for mechanical issues like uncoupled load){'\n'}
+                {'\•'} One phase significantly different = possible winding fault, connection issue, or supply voltage imbalance
               </div>
             </div>
 
@@ -400,10 +400,10 @@ export default function MultimeterPage() {
               <div style={body14}>
                 Single-phasing occurs when one phase of a 3-phase supply is lost. The motor continues to run on two phases but draws excessive current, rapidly overheating.{'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>How to detect:</strong>{'\n'}
-                {'\u2022'} One phase reads zero or near-zero amps{'\n'}
-                {'\u2022'} The other two phases read significantly above FLA (up to 1.73x){'\n'}
-                {'\u2022'} Motor runs rough, hums loudly, or runs hot{'\n'}
-                {'\u2022'} Motor will not start (stalls and draws locked rotor amps on 2 phases){'\n\n'}
+                {'\•'} One phase reads zero or near-zero amps{'\n'}
+                {'\•'} The other two phases read significantly above FLA (up to 1.73x){'\n'}
+                {'\•'} Motor runs rough, hums loudly, or runs hot{'\n'}
+                {'\•'} Motor will not start (stalls and draws locked rotor amps on 2 phases){'\n\n'}
                 <strong style={{ color: '#ff3c3c' }}>Action: </strong>
                 Shut down immediately. Check fuses, breakers, contactors, and cable connections for the lost phase.
               </div>
@@ -418,10 +418,10 @@ export default function MultimeterPage() {
               <div style={heading}>Capturing In-Rush (Starting) Current</div>
               <div style={body14}>
                 <strong style={{ color: 'var(--text)' }}>Typical starting current values:</strong>{'\n'}
-                {'\u2022'} Direct On-Line (DOL): 6-8x FLA{'\n'}
-                {'\u2022'} Star-Delta: 2-3x FLA (during star){'\n'}
-                {'\u2022'} Soft Starter: 2-4x FLA (adjustable){'\n'}
-                {'\u2022'} VFD: 1.0-1.5x FLA (current-limited){'\n\n'}
+                {'\•'} Direct On-Line (DOL): 6-8x FLA{'\n'}
+                {'\•'} Star-Delta: 2-3x FLA (during star){'\n'}
+                {'\•'} Soft Starter: 2-4x FLA (adjustable){'\n'}
+                {'\•'} VFD: 1.0-1.5x FLA (current-limited){'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>How to capture:</strong> Use the MIN/MAX or INRUSH function on your clamp meter. Clamp on before starting the motor, enable inrush capture, then start the motor. The meter records the peak current.
               </div>
               <div style={miningTip}>
@@ -437,10 +437,10 @@ export default function MultimeterPage() {
               <div style={body14}>
                 Wrap ALL phase conductors AND the neutral (if present) through the clamp meter jaw together. Under normal conditions, the currents cancel out and the reading is zero.{'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>Any reading above zero = ground fault current.</strong>{'\n\n'}
-                {'\u2022'} 0 mA: No ground fault{'\n'}
-                {'\u2022'} 1-5 mA: Normal leakage on long runs or with VFDs{'\n'}
-                {'\u2022'} 5-30 mA: Investigate — degraded insulation likely{'\n'}
-                {'\u2022'} {'>'}30 mA: Significant fault — locate and repair{'\n\n'}
+                {'\•'} 0 mA: No ground fault{'\n'}
+                {'\•'} 1-5 mA: Normal leakage on long runs or with VFDs{'\n'}
+                {'\•'} 5-30 mA: Investigate — degraded insulation likely{'\n'}
+                {'\•'} {'>'}30 mA: Significant fault — locate and repair{'\n\n'}
                 Do NOT include the equipment grounding conductor in the clamp — only the current-carrying conductors.
               </div>
               <div style={miningTip}>
@@ -492,23 +492,23 @@ export default function MultimeterPage() {
             <div style={card}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                 <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-                  <span style={{ color: '#4ade80', fontSize: 18, flexShrink: 0 }}>{'\u25CF'}</span>
+                  <span style={{ color: '#4ade80', fontSize: 18, flexShrink: 0 }}>{'\●'}</span>
                   <div style={body14}><strong style={{ color: 'var(--text)' }}>Below FLA:</strong> Normal operation, motor not fully loaded</div>
                 </div>
                 <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-                  <span style={{ color: 'var(--primary)', fontSize: 18, flexShrink: 0 }}>{'\u25CF'}</span>
+                  <span style={{ color: 'var(--primary)', fontSize: 18, flexShrink: 0 }}>{'\●'}</span>
                   <div style={body14}><strong style={{ color: 'var(--text)' }}>At FLA:</strong> Motor fully loaded — verify this is expected</div>
                 </div>
                 <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-                  <span style={{ color: '#ff8c00', fontSize: 18, flexShrink: 0 }}>{'\u25CF'}</span>
+                  <span style={{ color: '#ff8c00', fontSize: 18, flexShrink: 0 }}>{'\●'}</span>
                   <div style={body14}><strong style={{ color: 'var(--text)' }}>1-1.15x FLA:</strong> Overloaded — check mechanical load, low voltage</div>
                 </div>
                 <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-                  <span style={{ color: '#ff3c3c', fontSize: 18, flexShrink: 0 }}>{'\u25CF'}</span>
+                  <span style={{ color: '#ff3c3c', fontSize: 18, flexShrink: 0 }}>{'\●'}</span>
                   <div style={body14}><strong style={{ color: 'var(--text)' }}>Above 1.15x FLA:</strong> Serious overload — investigate immediately. Check for mechanical binding, bearing failure, misalignment, or electrical fault</div>
                 </div>
                 <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-                  <span style={{ color: '#ff3c3c', fontSize: 18, flexShrink: 0 }}>{'\u25CF'}</span>
+                  <span style={{ color: '#ff3c3c', fontSize: 18, flexShrink: 0 }}>{'\●'}</span>
                   <div style={body14}><strong style={{ color: 'var(--text)' }}>Unbalanced phases ({'>'}5% difference):</strong> Winding fault, bad connection, or supply voltage imbalance</div>
                 </div>
               </div>
@@ -539,12 +539,12 @@ export default function MultimeterPage() {
                 1. Verify circuit is de-energized and locked out{'\n'}
                 2. Set meter to continuity mode (audible beep){'\n'}
                 3. Touch probes to both ends of the conductor or connection{'\n'}
-                4. A good connection reads near 0 {'\u03A9'} with a continuous beep{'\n\n'}
+                4. A good connection reads near 0 {'\Ω'} with a continuous beep{'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>Expected readings:</strong>{'\n'}
-                {'\u2022'} Good wire connection: {'\u003C'} 0.5 {'\u03A9'}{'\n'}
-                {'\u2022'} Good splice or terminal: {'\u003C'} 1.0 {'\u03A9'}{'\n'}
-                {'\u2022'} Long cable run (300m): up to 2-5 {'\u03A9'} depending on wire size{'\n'}
-                {'\u2022'} Open circuit: OL (overload) — no continuity
+                {'\•'} Good wire connection: {'\u003C'} 0.5 {'\Ω'}{'\n'}
+                {'\•'} Good splice or terminal: {'\u003C'} 1.0 {'\Ω'}{'\n'}
+                {'\•'} Long cable run (300m): up to 2-5 {'\Ω'} depending on wire size{'\n'}
+                {'\•'} Open circuit: OL (overload) — no continuity
               </div>
             </div>
 
@@ -554,12 +554,12 @@ export default function MultimeterPage() {
               <div style={heading}>Phase-to-Phase Winding Check</div>
               <div style={body14}>
                 Measure resistance between motor terminals:{'\n'}
-                {'\u2022'} T1-T2, T2-T3, T1-T3{'\n\n'}
+                {'\•'} T1-T2, T2-T3, T1-T3{'\n\n'}
                 All three readings should be within 5% of each other. A significant difference indicates a winding fault (shorted turns, open winding, or bad connection).{'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>Typical winding resistance values:</strong>{'\n'}
-                {'\u2022'} Small motors (1-10 HP): 1-20 {'\u03A9'}{'\n'}
-                {'\u2022'} Medium motors (15-50 HP): 0.1-5 {'\u03A9'}{'\n'}
-                {'\u2022'} Large motors (75-200 HP): 0.01-1 {'\u03A9'}{'\n\n'}
+                {'\•'} Small motors (1-10 HP): 1-20 {'\Ω'}{'\n'}
+                {'\•'} Medium motors (15-50 HP): 0.1-5 {'\Ω'}{'\n'}
+                {'\•'} Large motors (75-200 HP): 0.01-1 {'\Ω'}{'\n\n'}
                 Use a quality meter with milliohm resolution for large motors. Temperature affects readings — ensure motor is at ambient temperature, or apply temperature correction.
               </div>
               <div style={miningTip}>
@@ -578,13 +578,13 @@ export default function MultimeterPage() {
                 3. Discharge any stored capacitance (short phases to ground briefly){'\n'}
                 4. Connect megger leads: LINE to conductor under test, EARTH to ground{'\n'}
                 5. Apply test voltage for 1 minute (standard test duration){'\n'}
-                6. Read insulation resistance in megohms (M{'\u03A9'}){'\n'}
+                6. Read insulation resistance in megohms (M{'\Ω'}){'\n'}
                 7. After test, discharge the cable/winding to ground before handling{'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>Minimum Acceptable Value (Rule of Thumb):</strong>{'\n'}
                 <strong style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)' }}>
-                  R(min) = (kV rating {'\u00D7'} 1 M{'\u03A9'}) + 1 M{'\u03A9'}
+                  R(min) = (kV rating {'\×'} 1 M{'\Ω'}) + 1 M{'\Ω'}
                 </strong>{'\n\n'}
-                <strong style={{ color: 'var(--text)' }}>Temperature effect:</strong> Insulation resistance halves for every 10{'\u00B0'}C rise. Always record ambient temperature. Correct readings to a common reference (usually 40{'\u00B0'}C) for trending.{'\n\n'}
+                <strong style={{ color: 'var(--text)' }}>Temperature effect:</strong> Insulation resistance halves for every 10{'\°'}C rise. Always record ambient temperature. Correct readings to a common reference (usually 40{'\°'}C) for trending.{'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>Moisture effect:</strong> Wet insulation reads dramatically lower. If readings are low, try drying out the winding/cable with a space heater or by running a small current through it, then re-test.
               </div>
               <div style={miningTip}>
@@ -617,7 +617,7 @@ export default function MultimeterPage() {
               </table>
             </div>
             <div style={{ fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.5, padding: '0 4px' }}>
-              Values are minimum acceptable at 40{'\u00B0'}C. New equipment should read 100x these minimums or higher. Readings just above minimum warrant monitoring and trending.
+              Values are minimum acceptable at 40{'\°'}C. New equipment should read 100x these minimums or higher. Readings just above minimum warrant monitoring and trending.
             </div>
 
             {/* Ground Resistance */}
@@ -631,10 +631,10 @@ export default function MultimeterPage() {
                 3. The tester injects current through C and measures voltage at P{'\n'}
                 4. R = V/I (the tester calculates and displays this){'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>Acceptable values:</strong>{'\n'}
-                {'\u2022'} CEC Rule 10-700: Maximum 25 {'\u03A9'} for grounding electrodes{'\n'}
-                {'\u2022'} Preferred: Below 5 {'\u03A9'} for commercial/industrial{'\n'}
-                {'\u2022'} Mining best practice: Below 5 {'\u03A9'} for mine ground beds{'\n'}
-                {'\u2022'} Sensitive equipment (data centres, PLC rooms): Below 1 {'\u03A9'}
+                {'\•'} CEC Rule 10-700: Maximum 25 {'\Ω'} for grounding electrodes{'\n'}
+                {'\•'} Preferred: Below 5 {'\Ω'} for commercial/industrial{'\n'}
+                {'\•'} Mining best practice: Below 5 {'\Ω'} for mine ground beds{'\n'}
+                {'\•'} Sensitive equipment (data centres, PLC rooms): Below 1 {'\Ω'}
               </div>
               <div style={miningTip}>
                 <strong>Mining Tip:</strong> Rock has very high resistivity. Achieving low ground resistance in Canadian Shield rock can be challenging. Mine ground beds often use multiple driven rods, buried ring conductors, or ground enhancement materials (GEM). Test annually and after any ground fault event.
@@ -649,9 +649,9 @@ export default function MultimeterPage() {
                 <strong style={{ color: 'var(--text)' }}>Forward bias:</strong> Red lead to anode, black to cathode. Good silicon diode reads 0.5-0.7V. Germanium diode reads 0.2-0.3V.{'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>Reverse bias:</strong> Swap leads. Should read OL (no conduction).{'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>Fault indicators:</strong>{'\n'}
-                {'\u2022'} Reads 0V in both directions = shorted diode{'\n'}
-                {'\u2022'} Reads OL in both directions = open diode{'\n'}
-                {'\u2022'} Reads a voltage in both directions = leaky diode{'\n\n'}
+                {'\•'} Reads 0V in both directions = shorted diode{'\n'}
+                {'\•'} Reads OL in both directions = open diode{'\n'}
+                {'\•'} Reads a voltage in both directions = leaky diode{'\n\n'}
                 Use this mode for testing SCRs (gate-cathode junction), relay suppression diodes, and rectifier bridges in battery chargers or DC drives.
               </div>
             </div>
@@ -672,9 +672,9 @@ export default function MultimeterPage() {
               <div style={heading}>High Voltage Test Equipment</div>
               <div style={body14}>
                 Meggers apply dangerous DC voltage to the circuit under test. Treat the test leads as energized during and after the test (stored charge).{'\n\n'}
-                {'\u2022'} <strong style={{ color: 'var(--text)' }}>Always discharge</strong> cables and motor windings to ground after testing{'\n'}
-                {'\u2022'} Never megger while anyone else is working on the circuit{'\n'}
-                {'\u2022'} Post warning signs: "Insulation Testing in Progress"
+                {'\•'} <strong style={{ color: 'var(--text)' }}>Always discharge</strong> cables and motor windings to ground after testing{'\n'}
+                {'\•'} Never megger while anyone else is working on the circuit{'\n'}
+                {'\•'} Post warning signs: "Insulation Testing in Progress"
               </div>
             </div>
 
@@ -712,7 +712,7 @@ export default function MultimeterPage() {
             <div style={cardGold}>
               <div style={heading}>Electrical Issues Visible on Thermal</div>
               <div style={body14}>
-                <strong style={{ color: 'var(--text)' }}>Loose connections:</strong> Hot spots at terminals, bus bars, lugs. A loose connection has higher resistance, generating heat. Often 20-80{'\u00B0'}C above ambient.{'\n\n'}
+                <strong style={{ color: 'var(--text)' }}>Loose connections:</strong> Hot spots at terminals, bus bars, lugs. A loose connection has higher resistance, generating heat. Often 20-80{'\°'}C above ambient.{'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>Overloaded conductors:</strong> Entire cable length shows elevated temperature. Compare to adjacent cables on the same load.{'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>Failed breakers/contactors:</strong> One pole hotter than the others indicates pitted contacts or internal failure.{'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>Unbalanced loads:</strong> One phase conductor noticeably hotter than the others. Investigate load distribution.{'\n\n'}
@@ -724,12 +724,12 @@ export default function MultimeterPage() {
               <div style={tipTag}>EMISSIVITY REFERENCE</div>
               <div style={heading}>Emissivity Settings for Common Materials</div>
               <div style={body14}>
-                {'\u2022'} Oxidized copper bus bar: 0.65-0.80{'\n'}
-                {'\u2022'} Polished/clean copper: 0.05 (very reflective — readings unreliable){'\n'}
-                {'\u2022'} Painted surfaces: 0.90-0.95 (best for thermal imaging){'\n'}
-                {'\u2022'} Oxidized steel: 0.80-0.90{'\n'}
-                {'\u2022'} Rubber/plastic insulation: 0.90-0.95{'\n'}
-                {'\u2022'} Aluminum (oxidized): 0.20-0.40 (unreliable — use electrical tape target){'\n\n'}
+                {'\•'} Oxidized copper bus bar: 0.65-0.80{'\n'}
+                {'\•'} Polished/clean copper: 0.05 (very reflective — readings unreliable){'\n'}
+                {'\•'} Painted surfaces: 0.90-0.95 (best for thermal imaging){'\n'}
+                {'\•'} Oxidized steel: 0.80-0.90{'\n'}
+                {'\•'} Rubber/plastic insulation: 0.90-0.95{'\n'}
+                {'\•'} Aluminum (oxidized): 0.20-0.40 (unreliable — use electrical tape target){'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>Pro tip:</strong> For shiny or low-emissivity surfaces, apply a small patch of black electrical tape and measure the tape surface. This gives a consistent emissivity of ~0.95.
               </div>
             </div>
@@ -757,7 +757,7 @@ export default function MultimeterPage() {
                 <strong style={{ color: 'var(--text)' }}>Clamp-on Method:</strong> Does not require disconnecting the electrode. Measures the loop impedance of the grounding system. Limited accuracy compared to fall-of-potential but useful for quick checks and for electrodes that cannot be easily disconnected.
               </div>
               <div style={miningTip}>
-                <strong>Mining Tip:</strong> Use the 4-point Wenner method when designing new mine ground beds on the Canadian Shield. Precambrian rock has extremely high resistivity (10,000+ {'\u03A9'}{'\u00B7'}m). You may need deep-driven rods, multiple electrodes in parallel, or ground enhancement material to achieve acceptable resistance.
+                <strong>Mining Tip:</strong> Use the 4-point Wenner method when designing new mine ground beds on the Canadian Shield. Precambrian rock has extremely high resistivity (10,000+ {'\Ω'}{'\·'}m). You may need deep-driven rods, multiple electrodes in parallel, or ground enhancement material to achieve acceptable resistance.
               </div>
             </div>
 
@@ -771,7 +771,7 @@ export default function MultimeterPage() {
                 <strong style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)' }}>
                   PFC = Supply Voltage / Loop Impedance
                 </strong>{'\n\n'}
-                Example: 600V system, loop impedance 0.5{'\u03A9'}: PFC = 600 / 0.5 = 1200A. Verify this exceeds the overcurrent device trip threshold.
+                Example: 600V system, loop impedance 0.5{'\Ω'}: PFC = 600 / 0.5 = 1200A. Verify this exceeds the overcurrent device trip threshold.
               </div>
             </div>
 
@@ -781,17 +781,17 @@ export default function MultimeterPage() {
               <div style={heading}>Capacitor & Inductor Testing</div>
               <div style={body14}>
                 <strong style={{ color: 'var(--text)' }}>Power Factor Correction Capacitors:</strong>{'\n'}
-                {'\u2022'} Measure capacitance — should be within 5% of nameplate{'\n'}
-                {'\u2022'} Check dissipation factor (DF) — high DF indicates deteriorating dielectric{'\n'}
-                {'\u2022'} Capacitors swell or leak oil when failing — visual inspection first{'\n\n'}
+                {'\•'} Measure capacitance — should be within 5% of nameplate{'\n'}
+                {'\•'} Check dissipation factor (DF) — high DF indicates deteriorating dielectric{'\n'}
+                {'\•'} Capacitors swell or leak oil when failing — visual inspection first{'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>Motor Start Capacitors:</strong>{'\n'}
-                {'\u2022'} Measure capacitance and compare to label value{'\n'}
-                {'\u2022'} Start caps are electrolytic — they dry out over time{'\n'}
-                {'\u2022'} A weak start cap causes slow starts, humming, or failure to start{'\n\n'}
+                {'\•'} Measure capacitance and compare to label value{'\n'}
+                {'\•'} Start caps are electrolytic — they dry out over time{'\n'}
+                {'\•'} A weak start cap causes slow starts, humming, or failure to start{'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>Inductors/Reactors:</strong>{'\n'}
-                {'\u2022'} Measure inductance to verify correct value{'\n'}
-                {'\u2022'} Check for shorted turns (lower than expected inductance){'\n'}
-                {'\u2022'} Common in harmonic filters and line reactors for VFDs
+                {'\•'} Measure inductance to verify correct value{'\n'}
+                {'\•'} Check for shorted turns (lower than expected inductance){'\n'}
+                {'\•'} Common in harmonic filters and line reactors for VFDs
               </div>
               <div style={miningTip}>
                 <strong>Mining Tip:</strong> Power factor correction capacitor banks are common at mine substations to avoid utility demand charges. Failed caps reduce PF correction and can cause harmonic resonance. Check cap banks annually with an LCR meter.
@@ -842,9 +842,9 @@ export default function MultimeterPage() {
               <div style={cautionTag}>MINING REQUIREMENT</div>
               <div style={heading}>Minimum Meter Rating for Mining</div>
               <div style={body14}>
-                {'\u2022'} Working in MCCs, power centres, distribution panels: <strong style={{ color: 'var(--text)' }}>CAT III 600V minimum</strong>{'\n'}
-                {'\u2022'} Main service entrance, utility supply: <strong style={{ color: 'var(--text)' }}>CAT IV 600V</strong>{'\n'}
-                {'\u2022'} Medium voltage (above 600V): <strong style={{ color: 'var(--text)' }}>CAT III 1000V</strong> or as rated{'\n\n'}
+                {'\•'} Working in MCCs, power centres, distribution panels: <strong style={{ color: 'var(--text)' }}>CAT III 600V minimum</strong>{'\n'}
+                {'\•'} Main service entrance, utility supply: <strong style={{ color: 'var(--text)' }}>CAT IV 600V</strong>{'\n'}
+                {'\•'} Medium voltage (above 600V): <strong style={{ color: 'var(--text)' }}>CAT III 1000V</strong> or as rated{'\n\n'}
                 Always check BOTH the voltage AND the CAT rating. A CAT II 1000V meter is NOT safer than a CAT III 600V meter at a 600V distribution panel — the CAT rating matters more than the voltage rating for transient protection.
               </div>
             </div>
@@ -854,11 +854,11 @@ export default function MultimeterPage() {
             <div style={cardGold}>
               <div style={heading}>What to Inspect Before Every Use</div>
               <div style={body14}>
-                {'\u2022'} <strong style={{ color: 'var(--text)' }}>Insulation:</strong> No cracks, cuts, or melted spots. Replace if damaged — do not tape over damage{'\n'}
-                {'\u2022'} <strong style={{ color: 'var(--text)' }}>Probe tips:</strong> Shrouded/finger guards in place. Exposed metal should be minimal (recessed tips preferred){'\n'}
-                {'\u2022'} <strong style={{ color: 'var(--text)' }}>Connections:</strong> Probe plugs fully seated in meter jacks, no loose or intermittent connections{'\n'}
-                {'\u2022'} <strong style={{ color: 'var(--text)' }}>CAT rating:</strong> Leads must be rated at least as high as the meter itself. Using CAT II leads on a CAT III meter defeats the protection{'\n'}
-                {'\u2022'} <strong style={{ color: 'var(--text)' }}>Fuse check:</strong> Verify the meter's input fuses are correct rating and type (ceramic, high-rupture-capacity). Never substitute with lower-rated fuses
+                {'\•'} <strong style={{ color: 'var(--text)' }}>Insulation:</strong> No cracks, cuts, or melted spots. Replace if damaged — do not tape over damage{'\n'}
+                {'\•'} <strong style={{ color: 'var(--text)' }}>Probe tips:</strong> Shrouded/finger guards in place. Exposed metal should be minimal (recessed tips preferred){'\n'}
+                {'\•'} <strong style={{ color: 'var(--text)' }}>Connections:</strong> Probe plugs fully seated in meter jacks, no loose or intermittent connections{'\n'}
+                {'\•'} <strong style={{ color: 'var(--text)' }}>CAT rating:</strong> Leads must be rated at least as high as the meter itself. Using CAT II leads on a CAT III meter defeats the protection{'\n'}
+                {'\•'} <strong style={{ color: 'var(--text)' }}>Fuse check:</strong> Verify the meter's input fuses are correct rating and type (ceramic, high-rupture-capacity). Never substitute with lower-rated fuses
               </div>
             </div>
 
@@ -886,12 +886,12 @@ export default function MultimeterPage() {
               <div style={heading}>Taking Readings on Energized Equipment</div>
               <div style={body14}>
                 Opening a panel cover to take voltage or current readings on energized equipment exposes you to arc flash hazard. Before proceeding:{'\n\n'}
-                {'\u2022'} Check the arc flash label on the equipment — note the incident energy (cal/cm{'\u00B2'}) and the arc flash boundary{'\n'}
-                {'\u2022'} Wear appropriate PPE for the rated incident energy category{'\n'}
-                {'\u2022'} Use remote reading equipment where possible (CTs, external monitoring){'\n'}
-                {'\u2022'} Stand to the side of the panel, not directly in front{'\n'}
-                {'\u2022'} Use one hand where possible — keep the other hand away from the equipment{'\n'}
-                {'\u2022'} Ensure probe tips are properly shrouded to minimize arc initiation
+                {'\•'} Check the arc flash label on the equipment — note the incident energy (cal/cm{'\²'}) and the arc flash boundary{'\n'}
+                {'\•'} Wear appropriate PPE for the rated incident energy category{'\n'}
+                {'\•'} Use remote reading equipment where possible (CTs, external monitoring){'\n'}
+                {'\•'} Stand to the side of the panel, not directly in front{'\n'}
+                {'\•'} Use one hand where possible — keep the other hand away from the equipment{'\n'}
+                {'\•'} Ensure probe tips are properly shrouded to minimize arc initiation
               </div>
             </div>
 
@@ -902,17 +902,17 @@ export default function MultimeterPage() {
               <div style={heading}>Minimum PPE for Voltage Testing</div>
               <div style={body14}>
                 <strong style={{ color: 'var(--text)' }}>Voltage testing on energized equipment requires:</strong>{'\n\n'}
-                {'\u2022'} Arc-rated clothing appropriate to the incident energy level{'\n'}
-                {'\u2022'} Safety glasses or arc-rated face shield (depends on incident energy){'\n'}
-                {'\u2022'} Voltage-rated gloves with leather protectors (for the voltage being tested){'\n'}
-                {'\u2022'} Leather work boots (CSA approved for mining){'\n'}
-                {'\u2022'} Hard hat with arc-rated liner (required in mines){'\n'}
-                {'\u2022'} Hearing protection (arc blast can exceed 140 dB){'\n\n'}
+                {'\•'} Arc-rated clothing appropriate to the incident energy level{'\n'}
+                {'\•'} Safety glasses or arc-rated face shield (depends on incident energy){'\n'}
+                {'\•'} Voltage-rated gloves with leather protectors (for the voltage being tested){'\n'}
+                {'\•'} Leather work boots (CSA approved for mining){'\n'}
+                {'\•'} Hard hat with arc-rated liner (required in mines){'\n'}
+                {'\•'} Hearing protection (arc blast can exceed 140 dB){'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>CSA Z462 PPE Categories:</strong>{'\n'}
-                Cat 1 (4 cal/cm{'\u00B2'}): Arc-rated shirt and pants, safety glasses, leather gloves{'\n'}
-                Cat 2 (8 cal/cm{'\u00B2'}): Add arc-rated face shield and balaclava{'\n'}
-                Cat 3 (25 cal/cm{'\u00B2'}): Full arc flash suit with hood{'\n'}
-                Cat 4 (40 cal/cm{'\u00B2'}): Full arc flash suit with hood, double-layer
+                Cat 1 (4 cal/cm{'\²'}): Arc-rated shirt and pants, safety glasses, leather gloves{'\n'}
+                Cat 2 (8 cal/cm{'\²'}): Add arc-rated face shield and balaclava{'\n'}
+                Cat 3 (25 cal/cm{'\²'}): Full arc flash suit with hood{'\n'}
+                Cat 4 (40 cal/cm{'\²'}): Full arc flash suit with hood, double-layer
               </div>
             </div>
 
@@ -922,12 +922,12 @@ export default function MultimeterPage() {
               <div style={heading}>When Connecting Test Leads to De-Energized Equipment</div>
               <div style={body14}>
                 When you need to connect test equipment (megger, micro-ohmmeter, or other instruments) to de-energized equipment:{'\n\n'}
-                {'\u2022'} The circuit must be locked out and tagged by YOU before connecting any leads{'\n'}
-                {'\u2022'} Verify de-energization using the test-verify-test method{'\n'}
-                {'\u2022'} Connect your test leads AFTER confirming zero energy{'\n'}
-                {'\u2022'} Post additional warning signs if applying test voltage (megger){'\n'}
-                {'\u2022'} Notify all other workers in the area before applying test voltage{'\n'}
-                {'\u2022'} Never leave test leads connected and unattended
+                {'\•'} The circuit must be locked out and tagged by YOU before connecting any leads{'\n'}
+                {'\•'} Verify de-energization using the test-verify-test method{'\n'}
+                {'\•'} Connect your test leads AFTER confirming zero energy{'\n'}
+                {'\•'} Post additional warning signs if applying test voltage (megger){'\n'}
+                {'\•'} Notify all other workers in the area before applying test voltage{'\n'}
+                {'\•'} Never leave test leads connected and unattended
               </div>
             </div>
 
@@ -937,13 +937,13 @@ export default function MultimeterPage() {
               <div style={dangerTag}>DO NOT</div>
               <div style={heading}>Dangerous Meter Mistakes That Can Kill</div>
               <div style={body14}>
-                <strong style={{ color: '#ff3c3c' }}>{'\u2717'} Wrong mode:</strong> Measuring voltage while the meter is set to current (amps) mode creates a dead short through the meter's low-impedance current shunt. This causes an arc flash/explosion.{'\n\n'}
-                <strong style={{ color: '#ff3c3c' }}>{'\u2717'} Wrong CAT rating:</strong> Using a CAT II meter on a 600V distribution panel. A transient spike can blow through the meter's protection, causing an explosion in your hands.{'\n\n'}
-                <strong style={{ color: '#ff3c3c' }}>{'\u2717'} Leads in amp jacks:</strong> Leaving test leads in the 10A or mA jacks and then measuring voltage. Same result as wrong mode — dead short.{'\n\n'}
-                <strong style={{ color: '#ff3c3c' }}>{'\u2717'} Worn/damaged leads:</strong> Cracked insulation can arc to your hand. Exposed conductor at the probe tip can contact adjacent bus bars.{'\n\n'}
-                <strong style={{ color: '#ff3c3c' }}>{'\u2717'} Wrong fuses:</strong> Replacing blown HRC ceramic fuses with standard glass fuses. The glass fuse cannot interrupt the available fault current and will explode.{'\n\n'}
-                <strong style={{ color: '#ff3c3c' }}>{'\u2717'} No PPE:</strong> Taking readings on an open energized panel without arc-rated PPE, safety glasses, and voltage-rated gloves.{'\n\n'}
-                <strong style={{ color: '#ff3c3c' }}>{'\u2717'} Assuming dead:</strong> Not verifying de-energization with a meter. "Someone said they turned it off" is not verification. Test it yourself, every time.
+                <strong style={{ color: '#ff3c3c' }}>{'\✗'} Wrong mode:</strong> Measuring voltage while the meter is set to current (amps) mode creates a dead short through the meter's low-impedance current shunt. This causes an arc flash/explosion.{'\n\n'}
+                <strong style={{ color: '#ff3c3c' }}>{'\✗'} Wrong CAT rating:</strong> Using a CAT II meter on a 600V distribution panel. A transient spike can blow through the meter's protection, causing an explosion in your hands.{'\n\n'}
+                <strong style={{ color: '#ff3c3c' }}>{'\✗'} Leads in amp jacks:</strong> Leaving test leads in the 10A or mA jacks and then measuring voltage. Same result as wrong mode — dead short.{'\n\n'}
+                <strong style={{ color: '#ff3c3c' }}>{'\✗'} Worn/damaged leads:</strong> Cracked insulation can arc to your hand. Exposed conductor at the probe tip can contact adjacent bus bars.{'\n\n'}
+                <strong style={{ color: '#ff3c3c' }}>{'\✗'} Wrong fuses:</strong> Replacing blown HRC ceramic fuses with standard glass fuses. The glass fuse cannot interrupt the available fault current and will explode.{'\n\n'}
+                <strong style={{ color: '#ff3c3c' }}>{'\✗'} No PPE:</strong> Taking readings on an open energized panel without arc-rated PPE, safety glasses, and voltage-rated gloves.{'\n\n'}
+                <strong style={{ color: '#ff3c3c' }}>{'\✗'} Assuming dead:</strong> Not verifying de-energization with a meter. "Someone said they turned it off" is not verification. Test it yourself, every time.
               </div>
             </div>
 

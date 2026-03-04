@@ -106,7 +106,7 @@ const ansiDevices: ANSIDevice[] = [
     number: '49',
     name: 'Thermal Overload',
     description: 'Functions when equipment temperature exceeds a set value. Uses thermal model based on current magnitude and duration.',
-    miningApplication: 'Motor thermal model protection for dragline hoist/swing motors, crusher motors, conveyor drives. Uses I\u00B2t curve to track cumulative heating. Prevents insulation breakdown.',
+    miningApplication: 'Motor thermal model protection for dragline hoist/swing motors, crusher motors, conveyor drives. Uses I\²t curve to track cumulative heating. Prevents insulation breakdown.',
     category: 'motor',
     common: true,
   },
@@ -345,7 +345,7 @@ const gfMethods: GFMethod[] = [
       'Not suitable for sensitive ground fault detection below 1A',
     ],
     miningNotes: 'Acceptable for solidly grounded systems but NOT recommended as the primary GF method for mine HRG systems. CT mismatch errors can mask small ground fault currents typical of HRG systems.',
-    diagram: 'A + B + C = 3I\u2080 (residual)',
+    diagram: 'A + B + C = 3I\₀ (residual)',
   },
   {
     method: 'Zero-Sequence CT (Core Balance CT)',
@@ -409,8 +409,8 @@ interface HRGSetting {
 
 const hrgSettings: HRGSetting[] = [
   { parameter: 'NGR Current Rating', typicalValue: '5A, 10A, or 25A', notes: 'Sized to limit ground fault current. 5A common for mine 4160V systems. 25A common for 600V systems.' },
-  { parameter: 'NGR Resistance (4160V)', typicalValue: '480\u03A9 (for 5A)', notes: 'R = V_L-N / I_gf = 2400V / 5A = 480\u03A9' },
-  { parameter: 'NGR Resistance (600V)', typicalValue: '14\u03A9 (for 25A)', notes: 'R = V_L-N / I_gf = 347V / 25A = 13.9\u03A9' },
+  { parameter: 'NGR Resistance (4160V)', typicalValue: '480\Ω (for 5A)', notes: 'R = V_L-N / I_gf = 2400V / 5A = 480\Ω' },
+  { parameter: 'NGR Resistance (600V)', typicalValue: '14\Ω (for 25A)', notes: 'R = V_L-N / I_gf = 347V / 25A = 13.9\Ω' },
   { parameter: '50G Pickup', typicalValue: '0.5 - 2.5A primary', notes: 'Set at 5-10% of NGR rating. Must be above normal unbalance. Instantaneous trip.' },
   { parameter: '51G Pickup', typicalValue: '0.25 - 1.0A primary', notes: 'More sensitive than 50G. Time-delayed for coordination with downstream devices.' },
   { parameter: '51G Time Dial', typicalValue: '0.5 - 2.0s', notes: 'Coordinate with downstream GF relays. Shortest time that provides selectivity.' },
@@ -483,7 +483,7 @@ const vfRelaySettings: VFRelaySetting[] = [
     miningApplication: 'Indicates generator overspeed or load rejection. Alarm first, trip at 61.0-62.0 Hz. Critical when mine generators run in parallel with utility.',
   },
   {
-    device: '46 (I\u2082)',
+    device: '46 (I\₂)',
     function: 'Negative Sequence OC',
     pickupRange: '0.05 - 0.30 pu',
     typicalSetting: '0.10 - 0.20 pu',
@@ -495,7 +495,7 @@ const vfRelaySettings: VFRelaySetting[] = [
     function: 'Motor Thermal Model',
     pickupRange: '1.0 - 1.2x FLA',
     typicalSetting: 'Service Factor based',
-    timeDelay: 'I\u00B2t curve',
+    timeDelay: 'I\²t curve',
     miningApplication: 'Tracks cumulative motor heating using thermal model. Accounts for ambient temperature, prior loading. Critical for cyclic loads like shovel hoist motors.',
   },
 ]
@@ -530,24 +530,24 @@ interface TroubleshootIssue {
 
 const troubleshootIssues: TroubleshootIssue[] = [
   {
-    issue: 'Nuisance Tripping \u2014 50 Element',
+    issue: 'Nuisance Tripping \— 50 Element',
     symptoms: ['Relay trips on instantaneous overcurrent with no visible fault', 'Trip occurs during motor starting or load switching', 'Event record shows current spike but no sustained fault'],
     possibleCauses: ['50 pickup set too low (below motor inrush)', 'CT saturation during asymmetric inrush', 'Pickup set below maximum through-fault current for downstream faults', 'Load cold-start inrush exceeding pickup'],
-    diagnosticSteps: ['Review event record: check peak current vs pickup setting', 'Verify 50 pickup is set above motor locked-rotor current (typically 6-10x FLA)', 'Check CT ratio \u2014 may need higher ratio to avoid saturation', 'Review coordination study: 50 should be set above max through-fault at next downstream device', 'Consider adding short time delay (3-5 cycles) if transient inrush is the cause'],
+    diagnosticSteps: ['Review event record: check peak current vs pickup setting', 'Verify 50 pickup is set above motor locked-rotor current (typically 6-10x FLA)', 'Check CT ratio \— may need higher ratio to avoid saturation', 'Review coordination study: 50 should be set above max through-fault at next downstream device', 'Consider adding short time delay (3-5 cycles) if transient inrush is the cause'],
     category: 'nuisance',
   },
   {
-    issue: 'Nuisance Tripping \u2014 51 Element',
+    issue: 'Nuisance Tripping \— 51 Element',
     symptoms: ['Time-overcurrent relay trips during normal operation', 'Trip after sustained high load but no fault', 'Multiple trips at same time of day or production cycle'],
     possibleCauses: ['51 pickup set below normal operating current', 'Time dial too fast (low TD setting)', 'Incorrect CT ratio entered in relay', 'Actual load has increased beyond original design', 'Harmonic currents inflating RMS measurement'],
-    diagnosticSteps: ['Check relay metering: compare relay amps reading to actual load current with clamp meter', 'Verify CT ratio setting in relay matches physical CTs', 'Review 51 pickup: should be 1.2-1.5x actual FLA, not nameplate FLA', 'Check load profile: has production increased since settings were applied?', 'Measure THD \u2014 if >10%, consider harmonic-rated relay or filtering'],
+    diagnosticSteps: ['Check relay metering: compare relay amps reading to actual load current with clamp meter', 'Verify CT ratio setting in relay matches physical CTs', 'Review 51 pickup: should be 1.2-1.5x actual FLA, not nameplate FLA', 'Check load profile: has production increased since settings were applied?', 'Measure THD \— if >10%, consider harmonic-rated relay or filtering'],
     category: 'nuisance',
   },
   {
-    issue: 'Nuisance Tripping \u2014 Ground Fault',
+    issue: 'Nuisance Tripping \— Ground Fault',
     symptoms: ['50G/51G trips with no confirmed ground fault', 'Ground fault trips during wet weather or after washdown', 'Intermittent ground fault alarms that self-clear'],
     possibleCauses: ['Degraded cable insulation (tracking fault)', 'Moisture in junction boxes, terminations, or connectors', 'Zero-sequence CT installed incorrectly (shield passing through window)', 'CT secondary wiring picking up noise', 'Capacitive coupling on long cable runs causing residual current'],
-    diagnosticSteps: ['Check 50G event record for fault current magnitude and duration', 'Inspect cable terminations and connectors for moisture/contamination', 'Verify zero-sequence CT installation: shields must NOT pass through CT window', 'Megger all feeder cables \u2014 look for low insulation resistance', 'Check for noise: disconnect CT secondary and check for stray voltage', 'On trailing cables: inspect plug faces, pilot pins, and ground conductor connections'],
+    diagnosticSteps: ['Check 50G event record for fault current magnitude and duration', 'Inspect cable terminations and connectors for moisture/contamination', 'Verify zero-sequence CT installation: shields must NOT pass through CT window', 'Megger all feeder cables \— look for low insulation resistance', 'Check for noise: disconnect CT secondary and check for stray voltage', 'On trailing cables: inspect plug faces, pilot pins, and ground conductor connections'],
     category: 'nuisance',
   },
   {
@@ -561,14 +561,14 @@ const troubleshootIssues: TroubleshootIssue[] = [
     issue: 'Incorrect Relay Settings',
     symptoms: ['Coordination study shows overlap between upstream and downstream devices', 'Relay trips for faults that should be cleared by downstream device', 'Relay does not trip for faults it should detect'],
     possibleCauses: ['Settings not updated after system changes (new transformer, changed cable, added load)', 'Wrong CT ratio entered in relay', 'Settings applied to wrong relay (copy/paste error)', 'Curves not appropriate for application (e.g., MI curve where EI needed)'],
-    diagnosticSteps: ['Request current coordination study from engineering', 'Verify relay settings against approved settings document', 'Confirm CT ratio, PT ratio, and all scaling factors', 'Check relay firmware version \u2014 some settings change format between versions', 'Compare running settings to settings database/master file'],
+    diagnosticSteps: ['Request current coordination study from engineering', 'Verify relay settings against approved settings document', 'Confirm CT ratio, PT ratio, and all scaling factors', 'Check relay firmware version \— some settings change format between versions', 'Compare running settings to settings database/master file'],
     category: 'settings',
   },
   {
     issue: 'Communication Failure (Modbus/DNP3)',
     symptoms: ['SCADA shows relay data as stale or zero', 'Communication loss alarm on relay or RTU', 'Intermittent data dropouts', 'All relays on same comm loop affected'],
     possibleCauses: ['RS-485 termination resistor missing or incorrect', 'Baud rate or parity mismatch between relay and master', 'Relay address conflict (two devices with same address)', 'Cable damage: broken conductor, water ingress, shield grounding issue', 'Protocol mismatch (Modbus RTU vs ASCII, DNP3 serial vs TCP)'],
-    diagnosticSteps: ['Check relay front panel for comm activity LED (RX/TX blinking)', 'Verify baud rate, parity, stop bits, and device address match the SCADA polling list', 'Check RS-485 wiring: A to A, B to B, common ground connected', 'Verify 120\u03A9 termination resistor at both ends of RS-485 bus (and only at both ends)', 'Use a serial protocol analyzer to check for responses from the relay', 'For DNP3 TCP: verify IP address, subnet, gateway, and port settings'],
+    diagnosticSteps: ['Check relay front panel for comm activity LED (RX/TX blinking)', 'Verify baud rate, parity, stop bits, and device address match the SCADA polling list', 'Check RS-485 wiring: A to A, B to B, common ground connected', 'Verify 120\Ω termination resistor at both ends of RS-485 bus (and only at both ends)', 'Use a serial protocol analyzer to check for responses from the relay', 'For DNP3 TCP: verify IP address, subnet, gateway, and port settings'],
     category: 'communication',
   },
   {
@@ -931,7 +931,7 @@ export default function ProtectiveRelaysPage() {
           gap: 10,
           alignItems: 'flex-start',
         }}>
-          <span style={{ fontSize: 22, flexShrink: 0, lineHeight: 1 }}>{'\u26A0\uFE0F'}</span>
+          <span style={{ fontSize: 22, flexShrink: 0, lineHeight: 1 }}>{'\⚠\uFE0F'}</span>
           <div style={{ fontSize: 13, color: 'var(--text)', lineHeight: 1.6 }}>
             <strong style={{ color: '#ff8c00' }}>RELAY SETTINGS ARE CRITICAL.</strong>{' '}
             Incorrect settings can cause nuisance trips (production loss) or failure to trip (equipment damage, arc flash, injury).
@@ -1284,7 +1284,7 @@ export default function ProtectiveRelaysPage() {
               gap: 10,
               alignItems: 'flex-start',
             }}>
-              <span style={{ fontSize: 20, flexShrink: 0, lineHeight: 1 }}>{'\u26A0\uFE0F'}</span>
+              <span style={{ fontSize: 20, flexShrink: 0, lineHeight: 1 }}>{'\⚠\uFE0F'}</span>
               <div style={{ fontSize: 13, color: 'var(--text)', lineHeight: 1.6 }}>
                 <strong style={{ color: '#ff3c3c' }}>O.Reg 854 REQUIREMENT:</strong>{' '}
                 Ground fault protection is mandatory on all mine distribution systems in Ontario.
@@ -1399,7 +1399,7 @@ export default function ProtectiveRelaysPage() {
                     </div>
                     <div style={resultBox}>
                       <div style={{ fontSize: 11, color: 'var(--text-tertiary)' }}>NGR Resistance</div>
-                      <div style={monoValue}>{gfResult.ngrResistance} {'\u03A9'}</div>
+                      <div style={monoValue}>{gfResult.ngrResistance} {'\Ω'}</div>
                     </div>
                     <div style={resultBox}>
                       <div style={{ fontSize: 11, color: 'var(--text-tertiary)' }}>Max GF Current (NGR)</div>
@@ -1558,7 +1558,7 @@ export default function ProtectiveRelaysPage() {
             <div style={card}>
               <div style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: 12 }}>
                 Modern microprocessor relays use a thermal model to simulate motor temperature. The model tracks
-                cumulative I{'\u00B2'}t heating and cooling over time, providing a more accurate representation of motor
+                cumulative I{'\²'}t heating and cooling over time, providing a more accurate representation of motor
                 thermal state than simple overload relays. This is critical for cyclic loads common in mining.
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
@@ -1905,7 +1905,7 @@ export default function ProtectiveRelaysPage() {
             <div style={{ ...warningCard, borderLeft: '4px solid #ff8c00' }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                 {[
-                  'Test relays per the approved maintenance schedule. Ground fault relays must be tested regularly \u2014 do not skip.',
+                  'Test relays per the approved maintenance schedule. Ground fault relays must be tested regularly \— do not skip.',
                   'Download and archive relay event records after every trip event. These are essential for root cause analysis.',
                   'Keep relay settings records on-site, current, and accessible. O.Reg 854 requires this documentation.',
                   'When mine power system changes (new transformer, additional load, new feeder), update the coordination study and relay settings.',

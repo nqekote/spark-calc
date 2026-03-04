@@ -21,9 +21,9 @@ const wireSizes = [
 ]
 
 const tempRatingOptions = [
-  { value: '60', label: '60\u00B0C' },
-  { value: '75', label: '75\u00B0C' },
-  { value: '90', label: '90\u00B0C' },
+  { value: '60', label: '60\°C' },
+  { value: '75', label: '75\°C' },
+  { value: '90', label: '90\°C' },
 ]
 
 // CEC Table 2 - Copper ampacities [60, 75, 90]
@@ -133,26 +133,26 @@ export default function AmpacityPage() {
     : null
 
   const formula = correctedAmpacity !== null && baseAmpacity !== null && tempFactor !== null && bundleFactor !== null
-    ? `Corrected = ${baseAmpacity} A \u00D7 ${fmt(tempFactor)} \u00D7 ${fmt(bundleFactor)} = ${fmt(correctedAmpacity)} A`
+    ? `Corrected = ${baseAmpacity} A \× ${fmt(tempFactor)} \× ${fmt(bundleFactor)} = ${fmt(correctedAmpacity)} A`
     : undefined
 
   const results = baseAmpacity !== null
     ? [
         { label: 'Base Ampacity', value: fmt(baseAmpacity), unit: 'A' },
-        { label: 'Temp Correction Factor', value: tempFactor !== null ? fmt(tempFactor) : '\u2014' },
-        { label: 'Bundling Derating Factor', value: bundleFactor !== null ? fmt(bundleFactor) : '\u2014' },
+        { label: 'Temp Correction Factor', value: tempFactor !== null ? fmt(tempFactor) : '\—' },
+        { label: 'Bundling Derating Factor', value: bundleFactor !== null ? fmt(bundleFactor) : '\—' },
         {
           label: 'Corrected Ampacity',
-          value: correctedAmpacity !== null ? fmt(correctedAmpacity) : '\u2014',
+          value: correctedAmpacity !== null ? fmt(correctedAmpacity) : '\—',
           unit: 'A',
           highlight: true,
         },
       ]
     : [
-        { label: 'Base Ampacity', value: '\u2014', unit: 'A' },
-        { label: 'Temp Correction Factor', value: '\u2014' },
-        { label: 'Bundling Derating Factor', value: '\u2014' },
-        { label: 'Corrected Ampacity', value: '\u2014', unit: 'A' },
+        { label: 'Base Ampacity', value: '\—', unit: 'A' },
+        { label: 'Temp Correction Factor', value: '\—' },
+        { label: 'Bundling Derating Factor', value: '\—' },
+        { label: 'Corrected Ampacity', value: '\—', unit: 'A' },
       ]
 
   return (
@@ -174,7 +174,7 @@ export default function AmpacityPage() {
         />
         <InputField
           label="Ambient Temperature"
-          unit="\u00B0C"
+          unit="\°C"
           value={ambientTemp}
           onChange={setAmbientTemp}
           placeholder="30"
@@ -188,7 +188,7 @@ export default function AmpacityPage() {
         />
         <ResultDisplay results={results} formula={formula} />
         <InfoBox title="CEC Tables 2/4, 5A, 5C">
-          Ampacity is based on a 30\u00B0C ambient temperature with not more than 3 current-carrying
+          Ampacity is based on a 30\°C ambient temperature with not more than 3 current-carrying
           conductors in a raceway. When conditions differ, correction factors from Table 5A
           (temperature) and Table 5C (bundling/grouping) must be applied. The corrected ampacity
           is the base value multiplied by both factors.

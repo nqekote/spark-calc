@@ -309,19 +309,19 @@ interface InsulationType {
 }
 
 const insulationTypes: InsulationType[] = [
-  { name: 'TW', tempRating: '60\u00B0C', voltageRating: '600V', jacket: 'PVC (thermoplastic)', wetDry: 'Wet & Dry', cecRef: 'CEC Table 19', typicalUse: 'General building wire in conduit; older installations', notes: 'Lowest temperature rating. Being phased out in favor of higher-rated insulations. Ampacity limited by 60\u00B0C column.' },
-  { name: 'TWU', tempRating: '60\u00B0C (wet)', voltageRating: '600V', jacket: 'PVC with moisture-resistant compounds', wetDry: 'Wet & Dry, Underground', cecRef: 'CEC Table 19', typicalUse: 'Underground residential services, direct burial', notes: 'Moisture-resistant version of TW. Suitable for direct burial. Must use 60\u00B0C ampacity column.' },
-  { name: 'RW90', tempRating: '90\u00B0C', voltageRating: '600V', jacket: 'XLPE (cross-linked polyethylene)', wetDry: 'Wet & Dry', cecRef: 'CEC Table 19, Rule 4-004', typicalUse: 'Primary single-conductor building wire for conduit/raceway in commercial and industrial', notes: 'Most common single-conductor wire for new installations. XLPE provides excellent moisture and thermal resistance. 90\u00B0C rating in both wet and dry locations.' },
-  { name: 'RWU90', tempRating: '90\u00B0C', voltageRating: '600V', jacket: 'XLPE with UV-resistant jacket', wetDry: 'Wet, Dry, Underground', cecRef: 'CEC Table 19', typicalUse: 'Underground single-conductor runs, direct burial', notes: 'Underground-rated version of RW90. Suitable for direct burial without conduit. XLPE insulation resists soil chemicals and moisture.' },
-  { name: 'T90 Nylon', tempRating: '90\u00B0C (dry)', voltageRating: '600V', jacket: 'PVC with nylon outer sheath', wetDry: 'Dry only (75\u00B0C wet as TWN75)', cecRef: 'CEC Table 19, Rule 4-004', typicalUse: 'Building wire in conduit, dry commercial/industrial applications', notes: 'The nylon jacket adds mechanical protection and allows easier pulling through conduit. 90\u00B0C in dry, derated to 75\u00B0C in wet as TWN75. Lower cost than XLPE.' },
-  { name: 'NMD90', tempRating: '90\u00B0C (dry)', voltageRating: '300V', jacket: 'PVC outer jacket', wetDry: 'Dry only', cecRef: 'CEC Rule 4-004, 12-100 to 12-120', typicalUse: 'Residential branch circuits, lighting, receptacles. Only in concealed locations in frame construction.', notes: 'Must be concealed (walls, ceilings). Not for exposed runs, wet locations, or commercial/industrial. Ampacity limited by 90\u00B0C column but derated for bundling in studs.' },
-  { name: 'TECK90', tempRating: '90\u00B0C', voltageRating: '600V / 1000V', jacket: 'PVC over interlocking aluminum armour', wetDry: 'Wet & Dry', cecRef: 'CEC Rule 12-600 to 12-618, CSA C22.2 No. 131', typicalUse: 'Ontario mines, industrial plants, cable tray, direct burial, exposed runs', notes: 'Workhorse cable for mining and heavy industrial. Armour provides mechanical protection and serves as bonding conductor with proper TECK connectors. Available 2C, 3C, 4C+G.' },
-  { name: 'AC90', tempRating: '90\u00B0C', voltageRating: '600V', jacket: 'Interlocking aluminum armour (no outer jacket)', wetDry: 'Dry only', cecRef: 'CEC Rule 12-400 to 12-414', typicalUse: 'Commercial branch circuits and feeders in dry locations', notes: 'No PVC outer jacket, so not suitable for wet locations. Armour is bonding conductor. Commonly called BX. Lower cost than TECK90 for dry installations.' },
-  { name: 'ACWU90', tempRating: '90\u00B0C', voltageRating: '600V', jacket: 'Interlocking aluminum armour with PVC outer jacket', wetDry: 'Wet & Dry', cecRef: 'CEC Rule 12-400 to 12-414', typicalUse: 'Outdoor and wet commercial/industrial installations, direct burial', notes: 'AC90 plus moisture barrier and PVC jacket for wet locations. Good alternative to TECK90 where 1000V rating is not needed.' },
-  { name: 'SHD-GC', tempRating: '90\u00B0C', voltageRating: '5kV to 25kV', jacket: 'Heavy-duty rubber (CPE or EPDM)', wetDry: 'Mining trailing cable', cecRef: 'CSA C22.2 No. 96, O.Reg 854, CEC s.76', typicalUse: 'Trailing cable for large mobile mining equipment (draglines, shovels, continuous miners)', notes: 'Each conductor individually shielded. Ground check conductor monitors grounding integrity. Heavy rubber jacket for flexibility and abrasion resistance.' },
-  { name: 'DLO', tempRating: '90\u00B0C (wet), 125\u00B0C (dry)', voltageRating: '600V / 2000V', jacket: 'EPR/EPDM rubber insulation with CPE jacket', wetDry: 'Wet & Dry', cecRef: 'CSA C22.2 No. 96', typicalUse: 'Mining power connections, locomotive cables, welding leads, high-temp environments', notes: 'Diesel Locomotive cable. Extra-flexible tinned copper. Excellent for high-temperature applications. Common in mine substations and switchgear connections.' },
-  { name: 'XHHW', tempRating: '90\u00B0C (dry), 75\u00B0C (wet)', voltageRating: '600V', jacket: 'XLPE (cross-linked polyethylene)', wetDry: 'Wet & Dry (at different ratings)', cecRef: 'CEC Table 19', typicalUse: 'Building wire alternative to RW90 in commercial/industrial', notes: 'Similar to RW90 but rated 75\u00B0C in wet locations vs 90\u00B0C. May be slightly less expensive. Check ampacity column for wet vs dry.' },
-  { name: 'RPV90', tempRating: '90\u00B0C', voltageRating: '600V / 1000V / 2000V', jacket: 'XLPE with UV-resistant jacket, sunlight resistant', wetDry: 'Wet & Dry, Outdoor exposed', cecRef: 'CEC Rule 64-060, CSA C22.2 No. 271', typicalUse: 'Solar photovoltaic installations; DC and AC circuits in solar arrays', notes: 'Specifically designed for solar PV systems. UV resistant, sunlight resistant. Available in 1000V and 2000V DC ratings. Must be used with PV-rated connectors (MC4 etc).' },
+  { name: 'TW', tempRating: '60\°C', voltageRating: '600V', jacket: 'PVC (thermoplastic)', wetDry: 'Wet & Dry', cecRef: 'CEC Table 19', typicalUse: 'General building wire in conduit; older installations', notes: 'Lowest temperature rating. Being phased out in favor of higher-rated insulations. Ampacity limited by 60\°C column.' },
+  { name: 'TWU', tempRating: '60\°C (wet)', voltageRating: '600V', jacket: 'PVC with moisture-resistant compounds', wetDry: 'Wet & Dry, Underground', cecRef: 'CEC Table 19', typicalUse: 'Underground residential services, direct burial', notes: 'Moisture-resistant version of TW. Suitable for direct burial. Must use 60\°C ampacity column.' },
+  { name: 'RW90', tempRating: '90\°C', voltageRating: '600V', jacket: 'XLPE (cross-linked polyethylene)', wetDry: 'Wet & Dry', cecRef: 'CEC Table 19, Rule 4-004', typicalUse: 'Primary single-conductor building wire for conduit/raceway in commercial and industrial', notes: 'Most common single-conductor wire for new installations. XLPE provides excellent moisture and thermal resistance. 90\°C rating in both wet and dry locations.' },
+  { name: 'RWU90', tempRating: '90\°C', voltageRating: '600V', jacket: 'XLPE with UV-resistant jacket', wetDry: 'Wet, Dry, Underground', cecRef: 'CEC Table 19', typicalUse: 'Underground single-conductor runs, direct burial', notes: 'Underground-rated version of RW90. Suitable for direct burial without conduit. XLPE insulation resists soil chemicals and moisture.' },
+  { name: 'T90 Nylon', tempRating: '90\°C (dry)', voltageRating: '600V', jacket: 'PVC with nylon outer sheath', wetDry: 'Dry only (75\°C wet as TWN75)', cecRef: 'CEC Table 19, Rule 4-004', typicalUse: 'Building wire in conduit, dry commercial/industrial applications', notes: 'The nylon jacket adds mechanical protection and allows easier pulling through conduit. 90\°C in dry, derated to 75\°C in wet as TWN75. Lower cost than XLPE.' },
+  { name: 'NMD90', tempRating: '90\°C (dry)', voltageRating: '300V', jacket: 'PVC outer jacket', wetDry: 'Dry only', cecRef: 'CEC Rule 4-004, 12-100 to 12-120', typicalUse: 'Residential branch circuits, lighting, receptacles. Only in concealed locations in frame construction.', notes: 'Must be concealed (walls, ceilings). Not for exposed runs, wet locations, or commercial/industrial. Ampacity limited by 90\°C column but derated for bundling in studs.' },
+  { name: 'TECK90', tempRating: '90\°C', voltageRating: '600V / 1000V', jacket: 'PVC over interlocking aluminum armour', wetDry: 'Wet & Dry', cecRef: 'CEC Rule 12-600 to 12-618, CSA C22.2 No. 131', typicalUse: 'Ontario mines, industrial plants, cable tray, direct burial, exposed runs', notes: 'Workhorse cable for mining and heavy industrial. Armour provides mechanical protection and serves as bonding conductor with proper TECK connectors. Available 2C, 3C, 4C+G.' },
+  { name: 'AC90', tempRating: '90\°C', voltageRating: '600V', jacket: 'Interlocking aluminum armour (no outer jacket)', wetDry: 'Dry only', cecRef: 'CEC Rule 12-400 to 12-414', typicalUse: 'Commercial branch circuits and feeders in dry locations', notes: 'No PVC outer jacket, so not suitable for wet locations. Armour is bonding conductor. Commonly called BX. Lower cost than TECK90 for dry installations.' },
+  { name: 'ACWU90', tempRating: '90\°C', voltageRating: '600V', jacket: 'Interlocking aluminum armour with PVC outer jacket', wetDry: 'Wet & Dry', cecRef: 'CEC Rule 12-400 to 12-414', typicalUse: 'Outdoor and wet commercial/industrial installations, direct burial', notes: 'AC90 plus moisture barrier and PVC jacket for wet locations. Good alternative to TECK90 where 1000V rating is not needed.' },
+  { name: 'SHD-GC', tempRating: '90\°C', voltageRating: '5kV to 25kV', jacket: 'Heavy-duty rubber (CPE or EPDM)', wetDry: 'Mining trailing cable', cecRef: 'CSA C22.2 No. 96, O.Reg 854, CEC s.76', typicalUse: 'Trailing cable for large mobile mining equipment (draglines, shovels, continuous miners)', notes: 'Each conductor individually shielded. Ground check conductor monitors grounding integrity. Heavy rubber jacket for flexibility and abrasion resistance.' },
+  { name: 'DLO', tempRating: '90\°C (wet), 125\°C (dry)', voltageRating: '600V / 2000V', jacket: 'EPR/EPDM rubber insulation with CPE jacket', wetDry: 'Wet & Dry', cecRef: 'CSA C22.2 No. 96', typicalUse: 'Mining power connections, locomotive cables, welding leads, high-temp environments', notes: 'Diesel Locomotive cable. Extra-flexible tinned copper. Excellent for high-temperature applications. Common in mine substations and switchgear connections.' },
+  { name: 'XHHW', tempRating: '90\°C (dry), 75\°C (wet)', voltageRating: '600V', jacket: 'XLPE (cross-linked polyethylene)', wetDry: 'Wet & Dry (at different ratings)', cecRef: 'CEC Table 19', typicalUse: 'Building wire alternative to RW90 in commercial/industrial', notes: 'Similar to RW90 but rated 75\°C in wet locations vs 90\°C. May be slightly less expensive. Check ampacity column for wet vs dry.' },
+  { name: 'RPV90', tempRating: '90\°C', voltageRating: '600V / 1000V / 2000V', jacket: 'XLPE with UV-resistant jacket, sunlight resistant', wetDry: 'Wet & Dry, Outdoor exposed', cecRef: 'CEC Rule 64-060, CSA C22.2 No. 271', typicalUse: 'Solar photovoltaic installations; DC and AC circuits in solar arrays', notes: 'Specifically designed for solar PV systems. UV resistant, sunlight resistant. Available in 1000V and 2000V DC ratings. Must be used with PV-rated connectors (MC4 etc).' },
 ]
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -338,15 +338,15 @@ interface TempCorrRow {
 }
 
 const tempCorrData: TempCorrRow[] = [
-  { ambientRange: '10\u00B0C or less', ambientMin: -40, ambientMax: 10, factor60: 1.29, factor75: 1.20, factor90: 1.15 },
-  { ambientRange: '11\u201320\u00B0C', ambientMin: 11, ambientMax: 20, factor60: 1.22, factor75: 1.15, factor90: 1.12 },
-  { ambientRange: '21\u201325\u00B0C', ambientMin: 21, ambientMax: 25, factor60: 1.15, factor75: 1.11, factor90: 1.08 },
-  { ambientRange: '26\u201330\u00B0C', ambientMin: 26, ambientMax: 30, factor60: 1.00, factor75: 1.00, factor90: 1.00 },
-  { ambientRange: '31\u201335\u00B0C', ambientMin: 31, ambientMax: 35, factor60: 0.82, factor75: 0.87, factor90: 0.90 },
-  { ambientRange: '36\u201340\u00B0C', ambientMin: 36, ambientMax: 40, factor60: 0.71, factor75: 0.75, factor90: 0.82 },
-  { ambientRange: '41\u201345\u00B0C', ambientMin: 41, ambientMax: 45, factor60: 0.58, factor75: 0.62, factor90: 0.71 },
-  { ambientRange: '46\u201350\u00B0C', ambientMin: 46, ambientMax: 50, factor60: null, factor75: 0.46, factor90: 0.58 },
-  { ambientRange: '51\u201355\u00B0C', ambientMin: 51, ambientMax: 55, factor60: null, factor75: null, factor90: 0.41 },
+  { ambientRange: '10\°C or less', ambientMin: -40, ambientMax: 10, factor60: 1.29, factor75: 1.20, factor90: 1.15 },
+  { ambientRange: '11\–20\°C', ambientMin: 11, ambientMax: 20, factor60: 1.22, factor75: 1.15, factor90: 1.12 },
+  { ambientRange: '21\–25\°C', ambientMin: 21, ambientMax: 25, factor60: 1.15, factor75: 1.11, factor90: 1.08 },
+  { ambientRange: '26\–30\°C', ambientMin: 26, ambientMax: 30, factor60: 1.00, factor75: 1.00, factor90: 1.00 },
+  { ambientRange: '31\–35\°C', ambientMin: 31, ambientMax: 35, factor60: 0.82, factor75: 0.87, factor90: 0.90 },
+  { ambientRange: '36\–40\°C', ambientMin: 36, ambientMax: 40, factor60: 0.71, factor75: 0.75, factor90: 0.82 },
+  { ambientRange: '41\–45\°C', ambientMin: 41, ambientMax: 45, factor60: 0.58, factor75: 0.62, factor90: 0.71 },
+  { ambientRange: '46\–50\°C', ambientMin: 46, ambientMax: 50, factor60: null, factor75: 0.46, factor90: 0.58 },
+  { ambientRange: '51\–55\°C', ambientMin: 51, ambientMax: 55, factor60: null, factor75: null, factor90: 0.41 },
 ]
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -361,11 +361,11 @@ interface BundleRow {
 }
 
 const bundleData: BundleRow[] = [
-  { range: '1\u20133 conductors', min: 1, max: 3, factor: 1.00 },
-  { range: '4\u20136 conductors', min: 4, max: 6, factor: 0.80 },
-  { range: '7\u20139 conductors', min: 7, max: 9, factor: 0.70 },
-  { range: '10\u201324 conductors', min: 10, max: 24, factor: 0.70 },
-  { range: '25\u201342 conductors', min: 25, max: 42, factor: 0.60 },
+  { range: '1\–3 conductors', min: 1, max: 3, factor: 1.00 },
+  { range: '4\–6 conductors', min: 4, max: 6, factor: 0.80 },
+  { range: '7\–9 conductors', min: 7, max: 9, factor: 0.70 },
+  { range: '10\–24 conductors', min: 10, max: 24, factor: 0.70 },
+  { range: '25\–42 conductors', min: 25, max: 42, factor: 0.60 },
   { range: '43 and above', min: 43, max: Infinity, factor: 0.50 },
 ]
 
@@ -381,16 +381,16 @@ interface MaterialProp {
 }
 
 const materialProps: MaterialProp[] = [
-  { property: 'Conductivity (% IACS)', copper: '100%', aluminum: '61%', copperClad: '80\u201385%' },
-  { property: 'Resistivity (\u03A9\u00B7mm\u00B2/m at 20\u00B0C)', copper: '0.01724', aluminum: '0.02828', copperClad: '0.0206' },
-  { property: 'Density (g/cm\u00B3)', copper: '8.89', aluminum: '2.70', copperClad: '6.30' },
+  { property: 'Conductivity (% IACS)', copper: '100%', aluminum: '61%', copperClad: '80\–85%' },
+  { property: 'Resistivity (\Ω\·mm\²/m at 20\°C)', copper: '0.01724', aluminum: '0.02828', copperClad: '0.0206' },
+  { property: 'Density (g/cm\³)', copper: '8.89', aluminum: '2.70', copperClad: '6.30' },
   { property: 'Weight (relative to copper)', copper: '1.00', aluminum: '0.30', copperClad: '0.71' },
-  { property: 'Tensile Strength (MPa)', copper: '220\u2013400', aluminum: '75\u2013200', copperClad: '280\u2013350' },
-  { property: 'Melting Point (\u00B0C)', copper: '1083', aluminum: '660', copperClad: '~1000' },
-  { property: 'Thermal Expansion (per \u00B0C)', copper: '17 \u00D7 10\u207B\u2076', aluminum: '23 \u00D7 10\u207B\u2076', copperClad: '18 \u00D7 10\u207B\u2076' },
-  { property: 'Temp Coefficient (\u03B1 at 20\u00B0C)', copper: '0.00393', aluminum: '0.00403', copperClad: '~0.0039' },
+  { property: 'Tensile Strength (MPa)', copper: '220\–400', aluminum: '75\–200', copperClad: '280\–350' },
+  { property: 'Melting Point (\°C)', copper: '1083', aluminum: '660', copperClad: '~1000' },
+  { property: 'Thermal Expansion (per \°C)', copper: '17 \× 10\⁻\⁶', aluminum: '23 \× 10\⁻\⁶', copperClad: '18 \× 10\⁻\⁶' },
+  { property: 'Temp Coefficient (\α at 20\°C)', copper: '0.00393', aluminum: '0.00403', copperClad: '~0.0039' },
   { property: 'Relative Cost (approx.)', copper: 'High', aluminum: 'Low (~35% of Cu)', copperClad: 'Medium' },
-  { property: 'Size for Same Ampacity', copper: '1\u00D7', aluminum: '~1.6\u00D7 larger', copperClad: '~1.2\u00D7 larger' },
+  { property: 'Size for Same Ampacity', copper: '1\×', aluminum: '~1.6\× larger', copperClad: '~1.2\× larger' },
 ]
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -415,8 +415,8 @@ function WireGaugeTab() {
       <div style={sectionCard}>
         <div style={sectionTitle}>AWG / kcmil Wire Gauge Table</div>
         <p style={bodyText}>
-          Complete reference from 18 AWG to 750 kcmil. DC resistance at 20{'\u00B0'}C, weight per kilometer,
-          and free-air ampacity at 75{'\u00B0'}C and 90{'\u00B0'}C insulation ratings. Values based on solid
+          Complete reference from 18 AWG to 750 kcmil. DC resistance at 20{'\°'}C, weight per kilometer,
+          and free-air ampacity at 75{'\°'}C and 90{'\°'}C insulation ratings. Values based on solid
           copper and aluminum conductors per CEC and NEC standards.
         </p>
       </div>
@@ -426,13 +426,13 @@ function WireGaugeTab() {
           <tr>
             <th style={thStyle}>Size</th>
             <th style={thStyle}>Dia (mm)</th>
-            <th style={thStyle}>Area (mm{'\u00B2'})</th>
-            <th style={{ ...thStyle, color: '#ff9800' }}>R<sub>DC</sub> Cu ({'\u03A9'}/km)</th>
-            <th style={{ ...thStyle, color: '#90caf9' }}>R<sub>DC</sub> Al ({'\u03A9'}/km)</th>
+            <th style={thStyle}>Area (mm{'\²'})</th>
+            <th style={{ ...thStyle, color: '#ff9800' }}>R<sub>DC</sub> Cu ({'\Ω'}/km)</th>
+            <th style={{ ...thStyle, color: '#90caf9' }}>R<sub>DC</sub> Al ({'\Ω'}/km)</th>
             <th style={thStyle}>Wt Cu (kg/km)</th>
             <th style={thStyle}>Wt Al (kg/km)</th>
-            <th style={{ ...thStyle, color: 'var(--primary)' }}>Amps 75{'\u00B0'}C</th>
-            <th style={{ ...thStyle, color: '#4caf50' }}>Amps 90{'\u00B0'}C</th>
+            <th style={{ ...thStyle, color: 'var(--primary)' }}>Amps 75{'\°'}C</th>
+            <th style={{ ...thStyle, color: '#4caf50' }}>Amps 90{'\°'}C</th>
           </tr>
         </thead>
         <tbody>
@@ -469,16 +469,16 @@ function WireGaugeTab() {
           fontFamily: 'var(--font-sans)',
         }}
       >
-        {showMetric ? '\u25BC' : '\u25B6'} Metric mm{'\u00B2'} to AWG Conversion Table
+        {showMetric ? '\▼' : '\▶'} Metric mm{'\²'} to AWG Conversion Table
       </button>
 
       {showMetric && (
         <ScrollTable minWidth={550}>
           <thead>
             <tr>
-              <th style={thStyle}>Metric (mm{'\u00B2'})</th>
+              <th style={thStyle}>Metric (mm{'\²'})</th>
               <th style={thStyle}>Nearest AWG/kcmil</th>
-              <th style={thStyle}>AWG Area (mm{'\u00B2'})</th>
+              <th style={thStyle}>AWG Area (mm{'\²'})</th>
               <th style={thStyle}>Notes</th>
             </tr>
           </thead>
@@ -503,8 +503,8 @@ function WireGaugeTab() {
           <li>Each 3 AWG sizes doubles the cross-sectional area (e.g. 10 AWG is roughly 2x the area of 14 AWG).</li>
           <li>Each 6 AWG sizes halves the DC resistance.</li>
           <li>Free-air ampacities are higher than in-conduit because convection cooling is not restricted.</li>
-          <li>kcmil = thousand circular mils. 1 kcmil = 0.5067 mm{'\u00B2'}.</li>
-          <li>In Ontario mining, TECK90 cables typically use 90{'\u00B0'}C ampacity column per CEC Table 2 (copper).</li>
+          <li>kcmil = thousand circular mils. 1 kcmil = 0.5067 mm{'\²'}.</li>
+          <li>In Ontario mining, TECK90 cables typically use 90{'\°'}C ampacity column per CEC Table 2 (copper).</li>
         </ul>
       </div>
     </div>
@@ -553,7 +553,7 @@ function ResistanceReactanceTab() {
 
       {/* AC Resistance Table */}
       <div style={sectionCard}>
-        <div style={sectionTitle}>AC Resistance and Reactance at 60 Hz (Copper, {'\u03A9'}/km at 75{'\u00B0'}C)</div>
+        <div style={sectionTitle}>AC Resistance and Reactance at 60 Hz (Copper, {'\Ω'}/km at 75{'\°'}C)</div>
         <p style={bodyText}>
           Based on CEC Table 9 data. R<sub>AC</sub> includes skin effect. Reactance (X<sub>L</sub>) shown for
           PVC conduit and steel conduit at standard spacings.
@@ -564,11 +564,11 @@ function ResistanceReactanceTab() {
         <thead>
           <tr>
             <th style={thStyle}>Size</th>
-            <th style={thStyle}>R<sub>DC</sub> ({'\u03A9'}/km)</th>
-            <th style={thStyle}>R<sub>AC</sub> ({'\u03A9'}/km)</th>
+            <th style={thStyle}>R<sub>DC</sub> ({'\Ω'}/km)</th>
+            <th style={thStyle}>R<sub>AC</sub> ({'\Ω'}/km)</th>
             <th style={thStyle}>Skin Factor</th>
-            <th style={thStyle}>X<sub>L</sub> PVC ({'\u03A9'}/km)</th>
-            <th style={thStyle}>X<sub>L</sub> Steel ({'\u03A9'}/km)</th>
+            <th style={thStyle}>X<sub>L</sub> PVC ({'\Ω'}/km)</th>
+            <th style={thStyle}>X<sub>L</sub> Steel ({'\Ω'}/km)</th>
           </tr>
         </thead>
         <tbody>
@@ -593,29 +593,29 @@ function ResistanceReactanceTab() {
           temperature to a different operating temperature.
         </p>
         <div style={formulaBox}>
-          R<sub>T</sub> = R<sub>base</sub> {'\u00D7'} [1 + {'\u03B1'} {'\u00D7'} (T<sub>target</sub> - T<sub>base</sub>)]
+          R<sub>T</sub> = R<sub>base</sub> {'\×'} [1 + {'\α'} {'\×'} (T<sub>target</sub> - T<sub>base</sub>)]
           <br />
-          Where {'\u03B1'}<sub>Cu</sub> = 0.00393/{'\u00B0'}C, {'\u03B1'}<sub>Al</sub> = 0.00403/{'\u00B0'}C (at 20{'\u00B0'}C)
+          Where {'\α'}<sub>Cu</sub> = 0.00393/{'\°'}C, {'\α'}<sub>Al</sub> = 0.00403/{'\°'}C (at 20{'\°'}C)
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
           <div>
             <div style={labelStyle}>Material</div>
             <select style={selectStyle} value={material} onChange={e => setMaterial(e.target.value as 'copper' | 'aluminum')}>
-              <option value="copper">Copper ({'\u03B1'}=0.00393)</option>
-              <option value="aluminum">Aluminum ({'\u03B1'}=0.00403)</option>
+              <option value="copper">Copper ({'\α'}=0.00393)</option>
+              <option value="aluminum">Aluminum ({'\α'}=0.00403)</option>
             </select>
           </div>
           <div>
-            <div style={labelStyle}>Base Resistance ({'\u03A9'}/km)</div>
+            <div style={labelStyle}>Base Resistance ({'\Ω'}/km)</div>
             <input style={inputStyle} type="number" step="any" value={baseRes} onChange={e => setBaseRes(e.target.value)} placeholder="1.32" />
           </div>
           <div>
-            <div style={labelStyle}>Base Temperature ({'\u00B0'}C)</div>
+            <div style={labelStyle}>Base Temperature ({'\°'}C)</div>
             <input style={inputStyle} type="number" step="any" value={baseTemp} onChange={e => setBaseTemp(e.target.value)} placeholder="20" />
           </div>
           <div>
-            <div style={labelStyle}>Target Temperature ({'\u00B0'}C)</div>
+            <div style={labelStyle}>Target Temperature ({'\°'}C)</div>
             <input style={inputStyle} type="number" step="any" value={targetTemp} onChange={e => setTargetTemp(e.target.value)} placeholder="75" />
           </div>
         </div>
@@ -623,13 +623,13 @@ function ResistanceReactanceTab() {
         {correctedRes !== null && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             <div style={resultBox}>
-              <div style={resultValue}>{fmt(correctedRes, 4)} {'\u03A9'}/km</div>
-              <div style={resultLabel}>Corrected Resistance at {Ttarget}{'\u00B0'}C</div>
+              <div style={resultValue}>{fmt(correctedRes, 4)} {'\Ω'}/km</div>
+              <div style={resultLabel}>Corrected Resistance at {Ttarget}{'\°'}C</div>
             </div>
             <div style={formulaBox}>
-              R = {fmt(Rbase, 4)} {'\u00D7'} [1 + {alpha} {'\u00D7'} ({Ttarget} - {Tbase})]
-              {' = '}{fmt(Rbase, 4)} {'\u00D7'} {fmt(1 + alpha * (Ttarget - Tbase), 4)}
-              {' = '}{fmt(correctedRes, 4)} {'\u03A9'}/km
+              R = {fmt(Rbase, 4)} {'\×'} [1 + {alpha} {'\×'} ({Ttarget} - {Tbase})]
+              {' = '}{fmt(Rbase, 4)} {'\×'} {fmt(1 + alpha * (Ttarget - Tbase), 4)}
+              {' = '}{fmt(correctedRes, 4)} {'\Ω'}/km
             </div>
           </div>
         )}
@@ -641,7 +641,7 @@ function ResistanceReactanceTab() {
         <ul style={{ ...bodyText, margin: 0, paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: 6 }}>
           <li>Reactance (X<sub>L</sub>) is inductive and depends on conductor spacing, not conductor material.</li>
           <li>Steel conduit has higher reactance than PVC because the magnetic steel increases inductance.</li>
-          <li>For voltage drop calculations: V<sub>drop</sub> = I {'\u00D7'} L {'\u00D7'} (R{'\u00B7'}cos{'\u03B8'} + X<sub>L</sub>{'\u00B7'}sin{'\u03B8'})</li>
+          <li>For voltage drop calculations: V<sub>drop</sub> = I {'\×'} L {'\×'} (R{'\·'}cos{'\θ'} + X<sub>L</sub>{'\·'}sin{'\θ'})</li>
           <li>At unity power factor, reactance has zero contribution to voltage drop.</li>
           <li>CEC Table 9 provides impedance values for both copper and aluminum in various conduit types.</li>
           <li>For larger conductors (above 4/0), reactance becomes a more significant portion of total impedance.</li>
@@ -715,7 +715,7 @@ function ConductorMaterialsTab() {
             'Irreversible compression (crimped) connections are preferred for aluminum in industrial applications.',
             'Split-bolt connectors: Only if specifically rated CU/AL. Apply anti-oxidant compound first.',
             'Wire nuts (Marettes): Must be rated for aluminum. Purple Marettes are AL-rated; standard ones are not.',
-            'Lugs on breakers and equipment: Check rating stamp on the lug. Many are rated 75\u00B0C CU/AL.',
+            'Lugs on breakers and equipment: Check rating stamp on the lug. Many are rated 75\°C CU/AL.',
             'Mining: TECK cable connectors (e.g., Thomas & Betts, Appleton) are typically CU-only. Verify before using AL TECK.',
           ],
         },
@@ -782,7 +782,7 @@ function ConductorMaterialsTab() {
                 color: 'var(--text)',
               }}
             >
-              <span style={{ fontSize: 14, color: 'var(--text-secondary)', width: 20 }}>{isOpen ? '\u25BC' : '\u25B6'}</span>
+              <span style={{ fontSize: 14, color: 'var(--text-secondary)', width: 20 }}>{isOpen ? '\▼' : '\▶'}</span>
               <span style={{ ...sectionTitle, margin: 0, flex: 1 }}>{card.title}</span>
             </button>
             {isOpen && (
@@ -837,7 +837,7 @@ function InsulationTypesTab() {
           fontFamily: 'var(--font-sans)',
         }}
       >
-        {filterMining ? '\u2713 Showing Mining Types Only' : 'Show Mining Types Only'}
+        {filterMining ? '\✓ Showing Mining Types Only' : 'Show Mining Types Only'}
       </button>
 
       {/* Quick Comparison Table */}
@@ -899,7 +899,7 @@ function InsulationTypesTab() {
                 color: 'var(--text)',
               }}
             >
-              <span style={{ fontSize: 14, color: 'var(--text-secondary)', width: 20 }}>{isOpen ? '\u25BC' : '\u25B6'}</span>
+              <span style={{ fontSize: 14, color: 'var(--text-secondary)', width: 20 }}>{isOpen ? '\▼' : '\▶'}</span>
               <div style={{ flex: 1 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
                   <span style={{ fontSize: 15, fontWeight: 700, fontFamily: 'var(--font-mono)', color: isMining ? 'var(--primary)' : 'var(--text)' }}>
@@ -1017,25 +1017,25 @@ function TemperatureDeratingTab() {
       <div style={sectionCard}>
         <div style={sectionTitle}>Ampacity Derating Calculator</div>
         <p style={bodyText}>
-          Enter the base ampacity at 30{'\u00B0'}C (from CEC Table 2 or 4), insulation temperature rating,
+          Enter the base ampacity at 30{'\°'}C (from CEC Table 2 or 4), insulation temperature rating,
           actual ambient temperature, and number of current-carrying conductors in the raceway.
         </p>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
           <div>
-            <div style={labelStyle}>Base Ampacity at 30{'\u00B0'}C (A)</div>
+            <div style={labelStyle}>Base Ampacity at 30{'\°'}C (A)</div>
             <input style={inputStyle} type="number" step="any" value={baseAmpacity} onChange={e => setBaseAmpacity(e.target.value)} placeholder="115" />
           </div>
           <div>
             <div style={labelStyle}>Insulation Rating</div>
             <select style={selectStyle} value={insRating} onChange={e => setInsRating(e.target.value as '60' | '75' | '90')}>
-              <option value="60">60{'\u00B0'}C (TW)</option>
-              <option value="75">75{'\u00B0'}C (RW75, TWN75)</option>
-              <option value="90">90{'\u00B0'}C (RW90, TECK90)</option>
+              <option value="60">60{'\°'}C (TW)</option>
+              <option value="75">75{'\°'}C (RW75, TWN75)</option>
+              <option value="90">90{'\°'}C (RW90, TECK90)</option>
             </select>
           </div>
           <div>
-            <div style={labelStyle}>Ambient Temp ({'\u00B0'}C)</div>
+            <div style={labelStyle}>Ambient Temp ({'\°'}C)</div>
             <input style={inputStyle} type="number" step="any" value={ambientTemp} onChange={e => setAmbientTemp(e.target.value)} placeholder="40" />
           </div>
           <div>
@@ -1061,14 +1061,14 @@ function TemperatureDeratingTab() {
               </div>
             </div>
             <div style={formulaBox}>
-              Corrected = {fmt(ampBase)} A {'\u00D7'} {fmt(tempFactor)} {'\u00D7'} {fmt(bundleFactor)} = {fmt(correctedAmp)} A
+              Corrected = {fmt(ampBase)} A {'\×'} {fmt(tempFactor)} {'\×'} {fmt(bundleFactor)} = {fmt(correctedAmp)} A
             </div>
           </div>
         ) : tempFactor === null && !isNaN(ambTemp) ? (
           <div style={{ ...resultBox, border: '1px solid var(--error)' }}>
             <div style={{ color: 'var(--error)', fontSize: 14, fontWeight: 600 }}>
-              {insRating === '60' && ambTemp > 45 ? 'Conductor cannot be used above 45\u00B0C at 60\u00B0C rating' :
-               insRating === '75' && ambTemp > 50 ? 'Conductor cannot be used above 50\u00B0C at 75\u00B0C rating' :
+              {insRating === '60' && ambTemp > 45 ? 'Conductor cannot be used above 45\°C at 60\°C rating' :
+               insRating === '75' && ambTemp > 50 ? 'Conductor cannot be used above 50\°C at 75\°C rating' :
                'Temperature out of range for this insulation rating'}
             </div>
           </div>
@@ -1079,7 +1079,7 @@ function TemperatureDeratingTab() {
       <div style={sectionCard}>
         <div style={sectionTitle}>CEC Table 5A -- Ambient Temperature Correction Factors</div>
         <p style={bodyText}>
-          Multiply the base ampacity (from Tables 2 or 4 at 30{'\u00B0'}C) by the correction factor for the actual
+          Multiply the base ampacity (from Tables 2 or 4 at 30{'\°'}C) by the correction factor for the actual
           ambient temperature. A dash indicates the conductor cannot be used at that temperature.
         </p>
       </div>
@@ -1088,9 +1088,9 @@ function TemperatureDeratingTab() {
         <thead>
           <tr>
             <th style={thStyle}>Ambient Temp Range</th>
-            <th style={{ ...thStyle, color: '#ff6b6b' }}>60{'\u00B0'}C Insulation</th>
-            <th style={{ ...thStyle, color: '#ff9800' }}>75{'\u00B0'}C Insulation</th>
-            <th style={{ ...thStyle, color: '#4caf50' }}>90{'\u00B0'}C Insulation</th>
+            <th style={{ ...thStyle, color: '#ff6b6b' }}>60{'\°'}C Insulation</th>
+            <th style={{ ...thStyle, color: '#ff9800' }}>75{'\°'}C Insulation</th>
+            <th style={{ ...thStyle, color: '#4caf50' }}>90{'\°'}C Insulation</th>
           </tr>
         </thead>
         <tbody>
@@ -1104,13 +1104,13 @@ function TemperatureDeratingTab() {
                   {r.ambientRange} {isBase ? '(base)' : ''}
                 </td>
                 <td style={{ ...tdStyle, color: r.factor60 === null ? 'var(--error)' : r.factor60 < 1 ? '#ff6b6b' : '#4caf50' }}>
-                  {r.factor60 !== null ? fmt(r.factor60) : '\u2014'}
+                  {r.factor60 !== null ? fmt(r.factor60) : '\—'}
                 </td>
                 <td style={{ ...tdStyle, color: r.factor75 === null ? 'var(--error)' : r.factor75 < 1 ? '#ff9800' : '#4caf50' }}>
-                  {r.factor75 !== null ? fmt(r.factor75) : '\u2014'}
+                  {r.factor75 !== null ? fmt(r.factor75) : '\—'}
                 </td>
                 <td style={{ ...tdStyle, color: r.factor90 === null ? 'var(--error)' : r.factor90 < 1 ? '#ff9800' : '#4caf50' }}>
-                  {r.factor90 !== null ? fmt(r.factor90) : '\u2014'}
+                  {r.factor90 !== null ? fmt(r.factor90) : '\—'}
                 </td>
               </tr>
             )
@@ -1151,12 +1151,12 @@ function TemperatureDeratingTab() {
       <div style={{ ...sectionCard, borderColor: 'var(--primary)' }}>
         <div style={sectionTitle}>Mining Considerations</div>
         <ul style={{ ...bodyText, margin: 0, paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: 6 }}>
-          <li>Underground mines in Ontario can have ambient temperatures of 30{'\u00B0'}C to 45{'\u00B0'}C or higher at depth.</li>
-          <li>Use 90{'\u00B0'}C rated cables (TECK90) to maximize ampacity in elevated temperatures.</li>
+          <li>Underground mines in Ontario can have ambient temperatures of 30{'\°'}C to 45{'\°'}C or higher at depth.</li>
+          <li>Use 90{'\°'}C rated cables (TECK90) to maximize ampacity in elevated temperatures.</li>
           <li>Multi-conductor TECK90 cables already account for internal conductor grouping in their ampacity ratings.</li>
           <li>When multiple TECK cables are bundled in cable tray, additional derating per Table 5C is required.</li>
           <li>Trailing cables (SHD-GC, Type W) have their own ampacity tables in CSA C22.2 No. 96; do not use Table 5A/5C.</li>
-          <li>Always verify ambient temperature with the mine ventilation department. Deep levels can exceed 40{'\u00B0'}C.</li>
+          <li>Always verify ambient temperature with the mine ventilation department. Deep levels can exceed 40{'\°'}C.</li>
         </ul>
       </div>
     </div>
@@ -1218,25 +1218,25 @@ function ConductorSelectionTab() {
       case 'building':
         if (location === 'wet') {
           wireType = 'RW90 in conduit'
-          insulation = 'RW90 (XLPE, 90\u00B0C wet/dry)'
+          insulation = 'RW90 (XLPE, 90\°C wet/dry)'
           useTable = ampacityTable90
           tempRating = '90'
           cecRules.push('CEC Rule 4-004, Table 2, Table 19')
-          notes.push('RW90 maintains 90\u00B0C rating in wet locations')
+          notes.push('RW90 maintains 90\°C rating in wet locations')
         } else {
           wireType = 'T90 Nylon or RW90 in conduit'
-          insulation = 'T90 Nylon (PVC/Nylon, 90\u00B0C dry)'
+          insulation = 'T90 Nylon (PVC/Nylon, 90\°C dry)'
           useTable = ampacityTable90
           tempRating = '90'
           cecRules.push('CEC Rule 4-004, Table 2, Table 19')
-          notes.push('T90 Nylon provides easy pulling and 90\u00B0C rating in dry locations')
+          notes.push('T90 Nylon provides easy pulling and 90\°C rating in dry locations')
         }
         notes.push('Standard building wire method for commercial/industrial')
         break
 
       case 'feeder':
         wireType = 'RW90 in conduit or TECK90'
-        insulation = 'RW90 (XLPE) or TECK90 (90\u00B0C)'
+        insulation = 'RW90 (XLPE) or TECK90 (90\°C)'
         useTable = ampacityTable90
         tempRating = '90'
         cecRules.push('CEC Rule 4-004, 14-100, Table 2')
@@ -1249,7 +1249,7 @@ function ConductorSelectionTab() {
 
       case 'motor':
         wireType = 'RW90 in conduit or TECK90'
-        insulation = 'RW90 (90\u00B0C) or TECK90 (90\u00B0C)'
+        insulation = 'RW90 (90\°C) or TECK90 (90\°C)'
         useTable = ampacityTable90
         tempRating = '90'
         cecRules.push('CEC Rule 28-104, 28-106, Table 2')
@@ -1260,7 +1260,7 @@ function ConductorSelectionTab() {
 
       case 'teck':
         wireType = 'TECK90'
-        insulation = 'TECK90 (interlocking AL armour, PVC jacket, 90\u00B0C)'
+        insulation = 'TECK90 (interlocking AL armour, PVC jacket, 90\°C)'
         useTable = ampacityTable90
         tempRating = '90'
         cecRules.push('CEC Rule 12-600 to 12-618, CSA C22.2 No. 131')
@@ -1274,7 +1274,7 @@ function ConductorSelectionTab() {
 
       case 'mining':
         wireType = 'TECK90 (permanent) or SHD-GC/Type W (trailing)'
-        insulation = 'TECK90 (90\u00B0C, 1000V) for permanent; SHD-GC for HV trailing'
+        insulation = 'TECK90 (90\°C, 1000V) for permanent; SHD-GC for HV trailing'
         useTable = ampacityTable90
         tempRating = '90'
         cecRules.push('CEC Section 76, O.Reg 854 (Mines & Mining Plants)')
@@ -1285,7 +1285,7 @@ function ConductorSelectionTab() {
         notes.push('Ground check conductor mandatory on all trailing cables in Ontario mines')
         notes.push('All mine electrical installations require ESA approval per O.Reg 854')
         if (amb === 30) {
-          notes.push('Verify actual ambient temperature at depth. Deep mines can exceed 40\u00B0C.')
+          notes.push('Verify actual ambient temperature at depth. Deep mines can exceed 40\°C.')
         }
         break
 
@@ -1334,7 +1334,7 @@ function ConductorSelectionTab() {
     }
 
     if (tempFactor !== 1.0) {
-      notes.push(`Temperature correction factor: ${fmt(tempFactor)} (Table 5A at ${amb}\u00B0C)`)
+      notes.push(`Temperature correction factor: ${fmt(tempFactor)} (Table 5A at ${amb}\°C)`)
     }
     if (bundleFactor !== 1.0) {
       notes.push(`Bundling derating factor: ${fmt(bundleFactor)} (Table 5C for ${nCond} conductors)`)
@@ -1392,7 +1392,7 @@ function ConductorSelectionTab() {
             <input style={inputStyle} type="number" step="any" value={current} onChange={e => setCurrent(e.target.value)} placeholder="80" />
           </div>
           <div>
-            <div style={labelStyle}>Ambient Temperature ({'\u00B0'}C)</div>
+            <div style={labelStyle}>Ambient Temperature ({'\°'}C)</div>
             <input style={inputStyle} type="number" step="any" value={ambTemp} onChange={e => setAmbTemp(e.target.value)} placeholder="30" />
           </div>
           <div>
@@ -1472,7 +1472,7 @@ function ConductorSelectionTab() {
           fontFamily: 'var(--font-sans)',
         }}
       >
-        {showDecisionTree ? '\u25BC' : '\u25B6'} Conductor Selection Decision Tree
+        {showDecisionTree ? '\▼' : '\▶'} Conductor Selection Decision Tree
       </button>
 
       {showDecisionTree && (
@@ -1525,9 +1525,9 @@ function ConductorSelectionTab() {
               <span style={sectionTitle}>Apply Derating Factors</span>
             </div>
             <ul style={{ ...bodyText, margin: 0, paddingLeft: 44, display: 'flex', flexDirection: 'column', gap: 4 }}>
-              <li>Table 5A: Ambient temperature correction (base is 30{'\u00B0'}C)</li>
+              <li>Table 5A: Ambient temperature correction (base is 30{'\°'}C)</li>
               <li>Table 5C: Bundling derating (more than 3 current-carrying conductors)</li>
-              <li>Required ampacity = Load current {'\u00F7'} (temp factor {'\u00D7'} bundle factor)</li>
+              <li>Required ampacity = Load current {'\÷'} (temp factor {'\×'} bundle factor)</li>
             </ul>
           </div>
 
@@ -1543,9 +1543,9 @@ function ConductorSelectionTab() {
             </div>
             <ul style={{ ...bodyText, margin: 0, paddingLeft: 44, display: 'flex', flexDirection: 'column', gap: 4 }}>
               <li>CEC Table 2 (copper) or Table 4 (aluminum)</li>
-              <li>Use the column matching the termination temperature rating (usually 75{'\u00B0'}C)</li>
-              <li>Select the smallest conductor with ampacity {'\u2265'} required ampacity</li>
-              <li>If using 90{'\u00B0'}C column for derating, final ampacity must not exceed 75{'\u00B0'}C column value</li>
+              <li>Use the column matching the termination temperature rating (usually 75{'\°'}C)</li>
+              <li>Select the smallest conductor with ampacity {'\≥'} required ampacity</li>
+              <li>If using 90{'\°'}C column for derating, final ampacity must not exceed 75{'\°'}C column value</li>
             </ul>
           </div>
 
@@ -1561,7 +1561,7 @@ function ConductorSelectionTab() {
             </div>
             <ul style={{ ...bodyText, margin: 0, paddingLeft: 44, display: 'flex', flexDirection: 'column', gap: 4 }}>
               <li>CEC Rule 8-102: Max 5% total voltage drop (3% branch, 2% feeder recommended)</li>
-              <li>V<sub>drop</sub> = I {'\u00D7'} L {'\u00D7'} 2 {'\u00D7'} R / 1000 (single-phase)</li>
+              <li>V<sub>drop</sub> = I {'\×'} L {'\×'} 2 {'\×'} R / 1000 (single-phase)</li>
               <li>If voltage drop exceeds limits, upsize the conductor</li>
               <li>Long runs in mining often require oversizing for voltage drop</li>
             </ul>
@@ -1579,7 +1579,7 @@ function ConductorSelectionTab() {
             </div>
             <ul style={{ ...bodyText, margin: 0, paddingLeft: 44, display: 'flex', flexDirection: 'column', gap: 4 }}>
               <li>Overcurrent protection must not exceed conductor ampacity (CEC 14-104)</li>
-              <li>Verify termination temperature rating matches equipment (most equipment is 75{'\u00B0'}C)</li>
+              <li>Verify termination temperature rating matches equipment (most equipment is 75{'\°'}C)</li>
               <li>Check conduit fill does not exceed 40% (CEC Table 8)</li>
               <li>For mining: Verify compliance with O.Reg 854 and site-specific standards</li>
               <li>For aluminum: Ensure anti-oxidant, proper torque, and CU/AL rated connectors</li>
@@ -1611,7 +1611,7 @@ function ConductorSelectionTab() {
               ['14-100', 'Feeders', 'Feeder conductor sizing and overcurrent protection'],
               ['14-104', 'OCP vs conductor', 'OCP must not exceed conductor ampacity'],
               ['28-106', 'Motor conductors', '125% of motor FLC for conductor sizing'],
-              ['Table 2', 'Cu ampacity', 'Copper conductor ampacity (not more than 3 in raceway, 30\u00B0C)'],
+              ['Table 2', 'Cu ampacity', 'Copper conductor ampacity (not more than 3 in raceway, 30\°C)'],
               ['Table 4', 'Al ampacity', 'Aluminum conductor ampacity'],
               ['Table 5A', 'Temp correction', 'Ambient temperature correction factors'],
               ['Table 5C', 'Bundling', 'Conductor grouping/bundling derating factors'],

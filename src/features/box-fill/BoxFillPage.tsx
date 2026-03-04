@@ -15,21 +15,21 @@ const volumeAllowance: Record<string, number> = {
 }
 
 const conductorOptions = [
-  { value: '14', label: '14 AWG (32.8 cm\u00B3)' },
-  { value: '12', label: '12 AWG (36.1 cm\u00B3)' },
-  { value: '10', label: '10 AWG (40.7 cm\u00B3)' },
-  { value: '8', label: '8 AWG (49.2 cm\u00B3)' },
-  { value: '6', label: '6 AWG (81.9 cm\u00B3)' },
+  { value: '14', label: '14 AWG (32.8 cm\³)' },
+  { value: '12', label: '12 AWG (36.1 cm\³)' },
+  { value: '10', label: '10 AWG (40.7 cm\³)' },
+  { value: '8', label: '8 AWG (49.2 cm\³)' },
+  { value: '6', label: '6 AWG (81.9 cm\³)' },
 ]
 
 const standardBoxes: { value: string; label: string; volume: number }[] = [
-  { value: '295', label: '100mm \u00D7 54mm rectangular (single gang) \u2014 295 cm\u00B3', volume: 295 },
-  { value: '350', label: '100mm \u00D7 54mm deep rectangular \u2014 350 cm\u00B3', volume: 350 },
-  { value: '310', label: '100mm \u00D7 54mm device box \u2014 310 cm\u00B3', volume: 310 },
-  { value: '344', label: '4" square \u00D7 1-1/2" deep \u2014 344 cm\u00B3', volume: 344 },
-  { value: '497a', label: '4" square \u00D7 2-1/8" deep \u2014 497 cm\u00B3', volume: 497 },
-  { value: '497b', label: '4-11/16" square \u00D7 1-1/2" deep \u2014 497 cm\u00B3', volume: 497 },
-  { value: '720', label: '4-11/16" square \u00D7 2-1/8" deep \u2014 720 cm\u00B3', volume: 720 },
+  { value: '295', label: '100mm \× 54mm rectangular (single gang) \— 295 cm\³', volume: 295 },
+  { value: '350', label: '100mm \× 54mm deep rectangular \— 350 cm\³', volume: 350 },
+  { value: '310', label: '100mm \× 54mm device box \— 310 cm\³', volume: 310 },
+  { value: '344', label: '4" square \× 1-1/2" deep \— 344 cm\³', volume: 344 },
+  { value: '497a', label: '4" square \× 2-1/8" deep \— 497 cm\³', volume: 497 },
+  { value: '497b', label: '4-11/16" square \× 1-1/2" deep \— 497 cm\³', volume: 497 },
+  { value: '720', label: '4-11/16" square \× 2-1/8" deep \— 720 cm\³', volume: 720 },
   { value: 'custom', label: 'Custom', volume: 0 },
 ]
 
@@ -65,29 +65,29 @@ export default function BoxFillPage() {
   const pass = hasInputs && remaining >= 0
 
   const formula = hasInputs
-    ? `Total = ${fmt(conductorVol)} + ${fmt(clampVol)} + ${fmt(groundVol)} + ${fmt(deviceVol)} = ${fmt(totalRequired)} cm\u00B3`
+    ? `Total = ${fmt(conductorVol)} + ${fmt(clampVol)} + ${fmt(groundVol)} + ${fmt(deviceVol)} = ${fmt(totalRequired)} cm\³`
     : undefined
 
   const results = hasInputs
     ? [
-        { label: 'Conductor volume', value: fmt(conductorVol), unit: 'cm\u00B3' },
-        { label: 'Clamp volume', value: fmt(clampVol), unit: 'cm\u00B3' },
-        { label: 'Ground volume', value: fmt(groundVol), unit: 'cm\u00B3' },
-        { label: 'Device volume', value: fmt(deviceVol), unit: 'cm\u00B3' },
-        { label: 'Total required', value: fmt(totalRequired), unit: 'cm\u00B3', highlight: true },
-        { label: 'Box volume', value: fmt(boxVolume), unit: 'cm\u00B3' },
-        { label: remaining >= 0 ? 'Remaining' : 'Deficit', value: fmt(Math.abs(remaining)), unit: 'cm\u00B3' },
+        { label: 'Conductor volume', value: fmt(conductorVol), unit: 'cm\³' },
+        { label: 'Clamp volume', value: fmt(clampVol), unit: 'cm\³' },
+        { label: 'Ground volume', value: fmt(groundVol), unit: 'cm\³' },
+        { label: 'Device volume', value: fmt(deviceVol), unit: 'cm\³' },
+        { label: 'Total required', value: fmt(totalRequired), unit: 'cm\³', highlight: true },
+        { label: 'Box volume', value: fmt(boxVolume), unit: 'cm\³' },
+        { label: remaining >= 0 ? 'Remaining' : 'Deficit', value: fmt(Math.abs(remaining)), unit: 'cm\³' },
         { label: 'Result', value: pass ? 'PASS' : 'FAIL', highlight: true },
       ]
     : [
-        { label: 'Conductor volume', value: '\u2014', unit: 'cm\u00B3' },
-        { label: 'Clamp volume', value: '\u2014', unit: 'cm\u00B3' },
-        { label: 'Ground volume', value: '\u2014', unit: 'cm\u00B3' },
-        { label: 'Device volume', value: '\u2014', unit: 'cm\u00B3' },
-        { label: 'Total required', value: '\u2014', unit: 'cm\u00B3' },
-        { label: 'Box volume', value: '\u2014', unit: 'cm\u00B3' },
-        { label: 'Remaining', value: '\u2014', unit: 'cm\u00B3' },
-        { label: 'Result', value: '\u2014' },
+        { label: 'Conductor volume', value: '\—', unit: 'cm\³' },
+        { label: 'Clamp volume', value: '\—', unit: 'cm\³' },
+        { label: 'Ground volume', value: '\—', unit: 'cm\³' },
+        { label: 'Device volume', value: '\—', unit: 'cm\³' },
+        { label: 'Total required', value: '\—', unit: 'cm\³' },
+        { label: 'Box volume', value: '\—', unit: 'cm\³' },
+        { label: 'Remaining', value: '\—', unit: 'cm\³' },
+        { label: 'Result', value: '\—' },
       ]
 
   return (
@@ -104,7 +104,7 @@ export default function BoxFillPage() {
         {isCustom && (
           <InputField
             label="Custom box volume"
-            unit="cm\u00B3"
+            unit="cm\³"
             value={customVolume}
             onChange={setCustomVolume}
             placeholder="Enter volume"
@@ -164,12 +164,12 @@ export default function BoxFillPage() {
             justifyContent: 'center',
           }}>
             {pass
-              ? `PASS \u2014 ${fmt(remaining)} cm\u00B3 remaining`
-              : `FAIL \u2014 ${fmt(Math.abs(remaining))} cm\u00B3 over capacity`}
+              ? `PASS \— ${fmt(remaining)} cm\³ remaining`
+              : `FAIL \— ${fmt(Math.abs(remaining))} cm\³ over capacity`}
           </div>
         )}
 
-        <InfoBox title="CEC Rule 12-3034 \u2014 Box Fill Counting Rules">
+        <InfoBox title="CEC Rule 12-3034 \— Box Fill Counting Rules">
           <p>Per CEC Rule 12-3034 and Table 22, the volume of a box must be sufficient for all conductors, clamps, grounds, and devices:</p>
           <ol style={{ paddingLeft: 20, margin: '8px 0' }}>
             <li style={{ marginBottom: 4 }}>Each current-carrying conductor counts as 1 volume allowance based on its size.</li>

@@ -480,7 +480,7 @@ export default function PanelSchedulePage() {
           </>
         ) : (
           <span style={{ fontSize: 11, color: 'var(--text-secondary)', flex: 1, textAlign: 'center', opacity: 0.4 }}>
-            \u2014
+            \—
           </span>
         )}
       </div>
@@ -620,7 +620,7 @@ export default function PanelSchedulePage() {
                   </div>
                   <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 2 }}>
                     {activePanel.mainBreaker}A Main &bull; {activePanel.voltage}V &bull;{' '}
-                    {activePanel.phases === 'three' ? '3\u03D5' : '1\u03D5'}
+                    {activePanel.phases === 'three' ? '3\ϕ' : '1\ϕ'}
                   </div>
                 </div>
                 <button
@@ -744,7 +744,7 @@ export default function PanelSchedulePage() {
                   background: 'var(--input-bg)',
                 }}
               >
-                Bus Layout \u2014 Left (Odd) | Right (Even)
+                Bus Layout \— Left (Odd) | Right (Even)
               </div>
               <div style={{ display: 'flex' }}>
                 {/* Left bus */}
@@ -864,7 +864,7 @@ export default function PanelSchedulePage() {
                       }}
                       aria-label="Edit circuit"
                     >
-                      \u270E
+                      \✎
                     </button>
 
                     <button
@@ -885,7 +885,7 @@ export default function PanelSchedulePage() {
                       }}
                       aria-label="Delete circuit"
                     >
-                      \u00D7
+                      \×
                     </button>
                   </div>
                 )

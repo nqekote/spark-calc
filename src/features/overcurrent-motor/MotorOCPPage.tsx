@@ -151,19 +151,19 @@ export default function MotorOCPPage() {
         { label: 'Motor FLC', value: fmt(flc, 1), unit: 'A', highlight: true },
         { label: `Max OCP (${percent})`, value: fmt(maxOCPCalculated, 1), unit: 'A' },
         { label: 'Standard OCP Size', value: fmt(standardOCP, 0), unit: 'A', highlight: true },
-        { label: 'Overload Relay (SF\u22651.15)', value: fmt(overload115, 1), unit: 'A' },
+        { label: 'Overload Relay (SF\≥1.15)', value: fmt(overload115, 1), unit: 'A' },
         { label: 'Overload Relay (SF<1.15)', value: fmt(overload125, 1), unit: 'A' },
       ]
     : [
-        { label: 'Motor FLC', value: '\u2014', unit: 'A' },
-        { label: 'Max OCP', value: '\u2014', unit: 'A' },
-        { label: 'Standard OCP Size', value: '\u2014', unit: 'A' },
-        { label: 'Overload Relay (SF\u22651.15)', value: '\u2014', unit: 'A' },
-        { label: 'Overload Relay (SF<1.15)', value: '\u2014', unit: 'A' },
+        { label: 'Motor FLC', value: '\—', unit: 'A' },
+        { label: 'Max OCP', value: '\—', unit: 'A' },
+        { label: 'Standard OCP Size', value: '\—', unit: 'A' },
+        { label: 'Overload Relay (SF\≥1.15)', value: '\—', unit: 'A' },
+        { label: 'Overload Relay (SF<1.15)', value: '\—', unit: 'A' },
       ]
 
   const formula = hasResult
-    ? `FLC = ${fmt(flc, 1)} A (${tableRef}) | Max OCP = ${fmt(flc, 1)} \u00D7 ${percent} = ${fmt(maxOCPCalculated, 1)} A \u2192 ${fmt(standardOCP, 0)} A std`
+    ? `FLC = ${fmt(flc, 1)} A (${tableRef}) | Max OCP = ${fmt(flc, 1)} \× ${percent} = ${fmt(maxOCPCalculated, 1)} A \→ ${fmt(standardOCP, 0)} A std`
     : undefined
 
   // Build comparison table of all OCP device types for current FLC
@@ -208,7 +208,7 @@ export default function MotorOCPPage() {
             padding: 16,
           }}>
             <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--text)', marginBottom: 12 }}>
-              OCP Comparison \u2014 All Device Types ({selectedHp} HP @ {selectedVoltage}V)
+              OCP Comparison \— All Device Types ({selectedHp} HP @ {selectedVoltage}V)
             </div>
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
               <thead>

@@ -331,7 +331,7 @@ function calcHotSpot(loadingPct: number, ambientC: number): number {
 
 /** Format number with fixed decimals */
 function fmt(n: number, decimals: number = 1): string {
-  if (!isFinite(n)) return '\u2014'
+  if (!isFinite(n)) return '\—'
   return n.toFixed(decimals)
 }
 
@@ -679,7 +679,7 @@ export default function TransformerLoadingPage() {
                   <span style={monoValue}>{fmt(secondaryFLA, 1)} A</span>
                 </div>
                 <div style={{ fontSize: 11, color: 'var(--text-tertiary)', marginTop: 4 }}>
-                  FLA = kVA / ({'\u221A'}3 {'\u00D7'} kV)
+                  FLA = kVA / ({'\√'}3 {'\×'} kV)
                 </div>
               </div>
             )}
@@ -752,7 +752,7 @@ export default function TransformerLoadingPage() {
                 {loadingPct > 100 && (
                   <div style={warningBox}>
                     <div style={{ fontWeight: 700, marginBottom: 4, color: '#ef4444' }}>
-                      {'\u26A0'} OVERLOAD WARNING
+                      {'\⚠'} OVERLOAD WARNING
                     </div>
                     <div style={{ fontSize: 13, lineHeight: 1.5 }}>
                       Transformer is loaded to {fmt(loadingPct, 1)}% of rated capacity.
@@ -820,15 +820,15 @@ export default function TransformerLoadingPage() {
                 {/* Formula Display */}
                 <div style={{ ...noteBox, fontFamily: 'var(--font-mono)', fontSize: 12 }}>
                   <div style={{ fontWeight: 700, color: 'var(--text)', marginBottom: 4 }}>Formulas Used:</div>
-                  <div>%Loading = (Actual kVA / Rated kVA) {'\u00D7'} 100</div>
+                  <div>%Loading = (Actual kVA / Rated kVA) {'\×'} 100</div>
                   <div>
-                    %Loading = ({fmt(actualLoadKva, 1)} / {fmt(kvaRating, 0)}) {'\u00D7'} 100 = {fmt(loadingPct, 1)}%
+                    %Loading = ({fmt(actualLoadKva, 1)} / {fmt(kvaRating, 0)}) {'\×'} 100 = {fmt(loadingPct, 1)}%
                   </div>
-                  <div style={{ marginTop: 4 }}>FLA = kVA / ({'\u221A'}3 {'\u00D7'} kV)</div>
+                  <div style={{ marginTop: 4 }}>FLA = kVA / ({'\√'}3 {'\×'} kV)</div>
                   {loadInputMode === 'amps' && (
                     <div>
-                      Load kVA = (A {'\u00D7'} V {'\u00D7'} {'\u221A'}3) / 1000
-                      = ({fmt(loadVal, 1)} {'\u00D7'} {secV} {'\u00D7'} 1.732) / 1000
+                      Load kVA = (A {'\×'} V {'\×'} {'\√'}3) / 1000
+                      = ({fmt(loadVal, 1)} {'\×'} {secV} {'\×'} 1.732) / 1000
                       = {fmt(actualLoadKva, 1)} kVA
                     </div>
                   )}
@@ -847,7 +847,7 @@ export default function TransformerLoadingPage() {
               }}>
                 <li>Portable substations on skids are common in open pit mines and get moved as the pit develops</li>
                 <li>Monitor loading closely during peak production shifts — shovel operators and haul trucks drive demand</li>
-                <li>Summer ambient temps reduce effective capacity — plan for worst-case 40{'\u00B0'}C conditions</li>
+                <li>Summer ambient temps reduce effective capacity — plan for worst-case 40{'\°'}C conditions</li>
                 <li>Keep loading below 80% for continuous duty to allow headroom for motor starting transients</li>
                 <li>Check loading with clamp meter at secondary mains during peak shift (typically day shift)</li>
                 <li>Record loading readings in substation log for trending and planning</li>
@@ -865,8 +865,8 @@ export default function TransformerLoadingPage() {
             <div style={sectionLabel}>Ambient Temperature & Altitude Derating</div>
 
             <div style={noteBox}>
-              Transformers are rated at 30{'\u00B0'}C ambient and up to 1000m altitude. Open pit mines
-              in summer can easily reach 35{'\u2013'}40{'\u00B0'}C at surface level, and even higher near engines
+              Transformers are rated at 30{'\°'}C ambient and up to 1000m altitude. Open pit mines
+              in summer can easily reach 35{'\–'}40{'\°'}C at surface level, and even higher near engines
               and enclosed substations. High-altitude mine sites must also derate for reduced air density.
             </div>
 
@@ -886,7 +886,7 @@ export default function TransformerLoadingPage() {
 
             <div style={gridRow}>
               <div>
-                <label style={labelStyle}>Ambient Temperature ({'\u00B0'}C)</label>
+                <label style={labelStyle}>Ambient Temperature ({'\°'}C)</label>
                 <input
                   type="number"
                   inputMode="decimal"
@@ -921,7 +921,7 @@ export default function TransformerLoadingPage() {
                 </div>
                 <div style={resultRow}>
                   <span style={{ fontSize: 13, color: 'var(--text-secondary)' }}>
-                    Temperature Factor ({fmt(ambientTempVal, 0)}{'\u00B0'}C)
+                    Temperature Factor ({fmt(ambientTempVal, 0)}{'\°'}C)
                   </span>
                   <span style={{ ...monoValue, color: ambientFactor < 1 ? '#fbbf24' : '#4ade80' }}>
                     {fmt(ambientFactor * 100, 1)}%
@@ -955,7 +955,7 @@ export default function TransformerLoadingPage() {
                   <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 600 }}>
                     {fmt(deratedFLA600, 1)} A
                   </span>
-                  {' \u2022 '}
+                  {' \• '}
                   Capacity lost:{' '}
                   <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 600, color: '#ef4444' }}>
                     {fmt(deratingKvaVal - deratedCapacity, 0)} kVA
@@ -968,11 +968,11 @@ export default function TransformerLoadingPage() {
             {ambientTempVal > 40 && (
               <div style={warningBox}>
                 <div style={{ fontWeight: 700, marginBottom: 4, color: '#ef4444' }}>
-                  {'\u26A0'} HIGH AMBIENT TEMPERATURE
+                  {'\⚠'} HIGH AMBIENT TEMPERATURE
                 </div>
                 <div style={{ fontSize: 13, lineHeight: 1.5 }}>
-                  Ambient temperature of {fmt(ambientTempVal, 0)}{'\u00B0'}C exceeds the typical open pit summer
-                  maximum of 40{'\u00B0'}C. Verify temperature measurement location is representative.
+                  Ambient temperature of {fmt(ambientTempVal, 0)}{'\°'}C exceeds the typical open pit summer
+                  maximum of 40{'\°'}C. Verify temperature measurement location is representative.
                   Consider forced-air cooling, shade structures, or load reduction.
                 </div>
               </div>
@@ -987,7 +987,7 @@ export default function TransformerLoadingPage() {
                 <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
                   <thead>
                     <tr>
-                      <th style={tableHeader}>Temp ({'\u00B0'}C)</th>
+                      <th style={tableHeader}>Temp ({'\°'}C)</th>
                       <th style={tableHeader}>Factor</th>
                       <th style={tableHeader}>Notes</th>
                     </tr>
@@ -998,7 +998,7 @@ export default function TransformerLoadingPage() {
                         background: r.tempC === Math.round(ambientTempVal)
                           ? 'rgba(99,102,241,0.12)' : 'transparent',
                       }}>
-                        <td style={tableCellMono}>{r.tempC}{'\u00B0'}C</td>
+                        <td style={tableCellMono}>{r.tempC}{'\°'}C</td>
                         <td style={{
                           ...tableCellMono,
                           color: r.factor < 0.95 ? '#fbbf24' : r.factor < 1 ? 'var(--text)' : '#4ade80',
@@ -1014,7 +1014,7 @@ export default function TransformerLoadingPage() {
                 </table>
               </div>
               <div style={{ fontSize: 11, color: 'var(--text-tertiary)', marginTop: 6 }}>
-                Derating: ~2.5% per 5{'\u00B0'}C above 30{'\u00B0'}C rated ambient
+                Derating: ~2.5% per 5{'\°'}C above 30{'\°'}C rated ambient
               </div>
             </div>
 
@@ -1061,10 +1061,10 @@ export default function TransformerLoadingPage() {
             {/* Formula Box */}
             <div style={{ ...noteBox, fontFamily: 'var(--font-mono)', fontSize: 12 }}>
               <div style={{ fontWeight: 700, color: 'var(--text)', marginBottom: 4 }}>Derating Formulas:</div>
-              <div>Temp Factor = 1.0 - ((T_ambient - 30) / 5) {'\u00D7'} 0.025</div>
-              <div>Alt Factor = 1.0 - ((Alt_m - 1000) / 100) {'\u00D7'} 0.004</div>
-              <div>{'\u00A0\u00A0'}(applies only above 1000m)</div>
-              <div>Derated kVA = Nameplate kVA {'\u00D7'} Temp Factor {'\u00D7'} Alt Factor</div>
+              <div>Temp Factor = 1.0 - ((T_ambient - 30) / 5) {'\×'} 0.025</div>
+              <div>Alt Factor = 1.0 - ((Alt_m - 1000) / 100) {'\×'} 0.004</div>
+              <div>{'\ \ '}(applies only above 1000m)</div>
+              <div>Derated kVA = Nameplate kVA {'\×'} Temp Factor {'\×'} Alt Factor</div>
             </div>
 
             {/* Mining Notes */}
@@ -1076,12 +1076,12 @@ export default function TransformerLoadingPage() {
                 margin: 0, paddingLeft: 18, fontSize: 13,
                 color: 'var(--text-secondary)', lineHeight: 1.7,
               }}>
-                <li>Measure ambient temperature at the transformer, not the weather station — pit bottom can be 5{'\u2013'}10{'\u00B0'}C warmer</li>
+                <li>Measure ambient temperature at the transformer, not the weather station — pit bottom can be 5{'\–'}10{'\°'}C warmer</li>
                 <li>Enclosed portable substations trap heat — check internal ambient with data logger</li>
                 <li>Oil-filled transformers need regular DGA (Dissolved Gas Analysis) testing — quarterly for critical units</li>
                 <li>Dust buildup on radiators reduces cooling capacity — schedule cleaning with pit wash trucks</li>
                 <li>Summer heat + peak production = worst-case loading scenario — plan capacity for this combination</li>
-                <li>Consider top-oil temperature indicator alarms: 85{'\u00B0'}C warning, 95{'\u00B0'}C trip</li>
+                <li>Consider top-oil temperature indicator alarms: 85{'\°'}C warning, 95{'\°'}C trip</li>
               </ul>
             </div>
           </div>
@@ -1097,8 +1097,8 @@ export default function TransformerLoadingPage() {
 
             <div style={noteBox}>
               Transformer insulation degrades exponentially with temperature. Per IEEE C57.91, the
-              per-unit aging rate doubles for approximately every 6{'\u00B0'}C rise above the rated hot spot
-              temperature of 110{'\u00B0'}C (for 65{'\u00B0'}C rise class). Sustained overloading dramatically reduces
+              per-unit aging rate doubles for approximately every 6{'\°'}C rise above the rated hot spot
+              temperature of 110{'\°'}C (for 65{'\°'}C rise class). Sustained overloading dramatically reduces
               transformer life.
             </div>
 
@@ -1116,7 +1116,7 @@ export default function TransformerLoadingPage() {
                 />
               </div>
               <div>
-                <label style={labelStyle}>Ambient Temp ({'\u00B0'}C)</label>
+                <label style={labelStyle}>Ambient Temp ({'\°'}C)</label>
                 <input
                   type="number"
                   inputMode="decimal"
@@ -1139,7 +1139,7 @@ export default function TransformerLoadingPage() {
                 onChange={e => setLifeDurationHrs(e.target.value)}
               />
               <div style={{ fontSize: 11, color: 'var(--text-tertiary)', marginTop: 2 }}>
-                8760 = 1 year {'\u2022'} 2190 = 3 months {'\u2022'} 720 = 1 month {'\u2022'} 168 = 1 week {'\u2022'} 12 = one shift
+                8760 = 1 year {'\•'} 2190 = 3 months {'\•'} 720 = 1 month {'\•'} 168 = 1 week {'\•'} 12 = one shift
               </div>
             </div>
 
@@ -1156,7 +1156,7 @@ export default function TransformerLoadingPage() {
               </div>
               <div style={resultRow}>
                 <span style={{ fontSize: 13, color: 'var(--text-secondary)' }}>Ambient Temperature</span>
-                <span style={monoValue}>{fmt(lifeAmbientVal, 0)}{'\u00B0'}C</span>
+                <span style={monoValue}>{fmt(lifeAmbientVal, 0)}{'\°'}C</span>
               </div>
               <div style={resultRow}>
                 <span style={{ fontSize: 13, color: 'var(--text-secondary)' }}>Calculated Hot Spot Temp</span>
@@ -1164,7 +1164,7 @@ export default function TransformerLoadingPage() {
                   ...monoValue,
                   color: hotSpotTemp > 140 ? '#ef4444' : hotSpotTemp > 110 ? '#fbbf24' : '#4ade80',
                 }}>
-                  {fmt(hotSpotTemp, 1)}{'\u00B0'}C
+                  {fmt(hotSpotTemp, 1)}{'\°'}C
                 </span>
               </div>
               <div style={resultRow}>
@@ -1216,12 +1216,12 @@ export default function TransformerLoadingPage() {
             {perUnitAging > 5 && (
               <div style={warningBox}>
                 <div style={{ fontWeight: 700, marginBottom: 4, color: '#ef4444' }}>
-                  {'\u26A0'} ACCELERATED AGING WARNING
+                  {'\⚠'} ACCELERATED AGING WARNING
                 </div>
                 <div style={{ fontSize: 13, lineHeight: 1.5 }}>
-                  At {fmt(lifeLoadVal, 0)}% loading with {fmt(lifeAmbientVal, 0)}{'\u00B0'}C ambient, the
+                  At {fmt(lifeLoadVal, 0)}% loading with {fmt(lifeAmbientVal, 0)}{'\°'}C ambient, the
                   transformer is aging at {fmt(perUnitAging, 1)}x the normal rate. Hot spot temperature
-                  of {fmt(hotSpotTemp, 1)}{'\u00B0'}C
+                  of {fmt(hotSpotTemp, 1)}{'\°'}C
                   {hotSpotTemp > 140
                     ? ' exceeds safe limits — risk of immediate insulation failure. Reduce load immediately.'
                     : hotSpotTemp > 120
@@ -1234,7 +1234,7 @@ export default function TransformerLoadingPage() {
             {/* Aging Reference Table */}
             <div style={card}>
               <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--primary)', marginBottom: 8 }}>
-                LOADING vs. AGING RATE — IEEE C57.91 (65{'\u00B0'}C Rise, 30{'\u00B0'}C Ambient)
+                LOADING vs. AGING RATE — IEEE C57.91 (65{'\°'}C Rise, 30{'\°'}C Ambient)
               </div>
               <div style={{ overflowX: 'auto' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
@@ -1260,7 +1260,7 @@ export default function TransformerLoadingPage() {
                             {r.loadPct}%
                           </td>
                           <td style={tableCellMono}>
-                            {r.hotSpotTotalC}{'\u00B0'}C
+                            {r.hotSpotTotalC}{'\°'}C
                           </td>
                           <td style={{ ...tableCellMono, color: rowColor }}>
                             {r.perUnitAging < 0.01
@@ -1338,15 +1338,15 @@ export default function TransformerLoadingPage() {
               <div style={{ fontWeight: 700, color: 'var(--text)', marginBottom: 4 }}>
                 IEEE C57.91 Aging Formula:
               </div>
-              <div>Per-unit aging = e^(({'\u03B8'}_HS - 110) / 6.328)</div>
+              <div>Per-unit aging = e^(({'\θ'}_HS - 110) / 6.328)</div>
               <div style={{ marginTop: 4 }}>Where:</div>
-              <div>{'\u00A0\u00A0'}{'\u03B8'}_HS = Hot spot temperature ({'\u00B0'}C)</div>
-              <div>{'\u00A0\u00A0'}110{'\u00B0'}C = Reference hot spot for 65{'\u00B0'}C rise class</div>
-              <div>{'\u00A0\u00A0'}6.328 = Aging constant (doubling every ~6.3{'\u00B0'}C)</div>
+              <div>{'\ \ '}{'\θ'}_HS = Hot spot temperature ({'\°'}C)</div>
+              <div>{'\ \ '}110{'\°'}C = Reference hot spot for 65{'\°'}C rise class</div>
+              <div>{'\ \ '}6.328 = Aging constant (doubling every ~6.3{'\°'}C)</div>
               <div style={{ marginTop: 4 }}>
-                Equivalent aging hours = Per-unit aging {'\u00D7'} Actual hours
+                Equivalent aging hours = Per-unit aging {'\×'} Actual hours
               </div>
-              <div>Loss of life % = Equivalent hours / 180,000 hrs {'\u00D7'} 100</div>
+              <div>Loss of life % = Equivalent hours / 180,000 hrs {'\×'} 100</div>
             </div>
 
             {/* Mining Life Notes */}
@@ -1362,7 +1362,7 @@ export default function TransformerLoadingPage() {
                 <li>Key DGA gases: Hydrogen (partial discharge), Acetylene (arcing), Ethylene (severe overheating)</li>
                 <li>Trending DGA results is more valuable than single readings — track quarterly at minimum</li>
                 <li>Portable substations in pit have shorter life due to vibration, dust, and thermal cycling</li>
-                <li>Budget for transformer replacement at 15{'\u2013'}20 years in mine environment vs 25{'\u2013'}30 for utility</li>
+                <li>Budget for transformer replacement at 15{'\–'}20 years in mine environment vs 25{'\–'}30 for utility</li>
                 <li>Emergency overloading is sometimes necessary — document duration and notify maintenance planning</li>
                 <li>Winding temperature indicators (WTI) are critical — calibrate annually and set alarm/trip points</li>
               </ul>
@@ -1471,7 +1471,7 @@ export default function TransformerLoadingPage() {
                     }}>
                       {vc.primary}
                     </span>
-                    <span style={{ color: 'var(--text-tertiary)', fontSize: 13 }}>{'\u2192'}</span>
+                    <span style={{ color: 'var(--text-tertiary)', fontSize: 13 }}>{'\→'}</span>
                     <span style={{
                       fontFamily: 'var(--font-mono)', fontWeight: 700,
                       color: 'var(--text)', fontSize: 14,
@@ -1584,18 +1584,18 @@ export default function TransformerLoadingPage() {
               </div>
               <div>1. Sum all connected loads (kVA or convert from HP/kW)</div>
               <div>2. Apply diversity factor for application type</div>
-              <div>3. Apply growth factor (typically 1.15{'\u2013'}1.25 for mine expansion)</div>
+              <div>3. Apply growth factor (typically 1.15{'\–'}1.25 for mine expansion)</div>
               <div>4. Select next standard size above calculated kVA</div>
               <div>5. Verify loading is below 80% for continuous duty</div>
               <div style={{ marginTop: 4 }}>
-                Required kVA = Connected Load {'\u00D7'} Diversity {'\u00D7'} Growth Factor
+                Required kVA = Connected Load {'\×'} Diversity {'\×'} Growth Factor
               </div>
               <div style={{ marginTop: 4 }}>
-                HP to kVA: kVA = (HP {'\u00D7'} 0.746) / (PF {'\u00D7'} Eff)
+                HP to kVA: kVA = (HP {'\×'} 0.746) / (PF {'\×'} Eff)
               </div>
               <div>Typical motor PF = 0.85, Eff = 0.90</div>
               <div>
-                kVA per HP {'\u2248'} 0.746 / (0.85 {'\u00D7'} 0.90) {'\u2248'} 0.975 kVA/HP
+                kVA per HP {'\≈'} 0.746 / (0.85 {'\×'} 0.90) {'\≈'} 0.975 kVA/HP
               </div>
             </div>
 
@@ -1611,9 +1611,9 @@ export default function TransformerLoadingPage() {
                 <li>Always size for the mine plan — pits expand, loads grow, new equipment arrives</li>
                 <li>500 kVA is the most versatile portable substation size for general pit use</li>
                 <li>Consider voltage drop on long trailing cables when sizing — may need larger transformer</li>
-                <li>Electric rope shovels often need dedicated substations (750{'\u2013'}2000 kVA depending on size)</li>
+                <li>Electric rope shovels often need dedicated substations (750{'\–'}2000 kVA depending on size)</li>
                 <li>Haul truck shops with multiple bays can use diversity — not all bays do heavy work at once</li>
-                <li>Allow 15{'\u2013'}25% growth factor for future mine expansion when sizing permanent substations</li>
+                <li>Allow 15{'\–'}25% growth factor for future mine expansion when sizing permanent substations</li>
                 <li>Oil containment (110% of oil volume) is required under environmental regulations</li>
                 <li>Portable substations should be on stable, level ground away from blast zones</li>
                 <li>For temporary installations, verify ground grid connectivity at the new location</li>

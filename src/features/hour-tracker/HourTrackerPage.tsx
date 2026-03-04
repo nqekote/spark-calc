@@ -207,7 +207,7 @@ export default function HourTrackerPage() {
 
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
             <div style={{ fontSize: 13, color: 'var(--text-secondary)' }}>
-              Level {currentLevel.level} ({currentLevel.start}\u2013{currentLevel.end}h)
+              Level {currentLevel.level} ({currentLevel.start}\–{currentLevel.end}h)
             </div>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: 15, fontWeight: 600, color: 'var(--text)' }}>
               {hoursInCurrentLevel.toFixed(1)} / {HOURS_PER_LEVEL}h
@@ -419,7 +419,7 @@ export default function HourTrackerPage() {
                     }}
                     aria-label="Delete entry"
                   >
-                    \u00D7
+                    \×
                   </button>
                 </div>
               ))}
@@ -570,7 +570,7 @@ export default function HourTrackerPage() {
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
                     <span style={{ fontSize: 12, color: 'var(--text-secondary)' }}>
-                      {l.start}\u2013{l.end}h
+                      {l.start}\–{l.end}h
                     </span>
                     <span
                       style={{

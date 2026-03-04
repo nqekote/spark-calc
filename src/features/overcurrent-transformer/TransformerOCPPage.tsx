@@ -13,8 +13,8 @@ const phaseOptions = [
 ]
 
 const impedanceOptions = [
-  { value: 'lte6', label: '\u22646%' },
-  { value: 'gt6', label: '>6% and \u226410%' },
+  { value: 'lte6', label: '\≤6%' },
+  { value: 'gt6', label: '>6% and \≤10%' },
 ]
 
 const standardSizes = [
@@ -110,9 +110,9 @@ export default function TransformerOCPPage() {
     }
 
     if (phase === 'single') {
-      formula = `FLA = kVA \u00D7 1000 / V = ${fmt(kvaVal)} \u00D7 1000 / ${fmt(vPri)} = ${fmt(primaryFLA)} A (primary)`
+      formula = `FLA = kVA \× 1000 / V = ${fmt(kvaVal)} \× 1000 / ${fmt(vPri)} = ${fmt(primaryFLA)} A (primary)`
     } else {
-      formula = `FLA = kVA \u00D7 1000 / (V \u00D7 \u221A3) = ${fmt(kvaVal)} \u00D7 1000 / (${fmt(vPri)} \u00D7 1.732) = ${fmt(primaryFLA)} A (primary)`
+      formula = `FLA = kVA \× 1000 / (V \× \√3) = ${fmt(kvaVal)} \× 1000 / (${fmt(vPri)} \× 1.732) = ${fmt(primaryFLA)} A (primary)`
     }
   }
 
@@ -144,12 +144,12 @@ export default function TransformerOCPPage() {
         },
       ]
     : [
-        { label: 'Primary FLA', value: '\u2014', unit: 'A' },
-        { label: 'Secondary FLA', value: '\u2014', unit: 'A' },
-        { label: 'Max Primary OCP', value: '\u2014', unit: 'A' },
-        { label: 'Standard Primary OCP', value: '\u2014', unit: 'A' },
-        { label: 'Max Secondary OCP', value: '\u2014', unit: 'A' },
-        { label: 'Standard Secondary OCP', value: '\u2014', unit: 'A' },
+        { label: 'Primary FLA', value: '\—', unit: 'A' },
+        { label: 'Secondary FLA', value: '\—', unit: 'A' },
+        { label: 'Max Primary OCP', value: '\—', unit: 'A' },
+        { label: 'Standard Primary OCP', value: '\—', unit: 'A' },
+        { label: 'Max Secondary OCP', value: '\—', unit: 'A' },
+        { label: 'Standard Secondary OCP', value: '\—', unit: 'A' },
       ]
 
   return (
@@ -189,9 +189,9 @@ export default function TransformerOCPPage() {
           For transformers rated 750V or less, primary overcurrent protection shall not exceed
           125% of the primary full-load current. If 125% does not correspond to a standard
           overcurrent device rating, the next higher standard rating is permitted. When secondary
-          protection is provided, primary protection may be increased to 250% (impedance {'\u2264'}6%)
+          protection is provided, primary protection may be increased to 250% (impedance {'\≤'}6%)
           or 225% (impedance {'>'}6%). Secondary protection shall not exceed 125% of secondary FLA,
-          or 167% for transformers with impedance {'\u2264'}6%.
+          or 167% for transformers with impedance {'\≤'}6%.
         </InfoBox>
       </div>
     </>

@@ -21,13 +21,13 @@ const cableTypes: CableType[] = [
     name: 'NMD90',
     nickname: 'Loomex',
     voltage: '300V max',
-    temp: '90\u00B0C',
+    temp: '90\°C',
     uses: 'Residential branch circuits, lighting, receptacles in houses',
     locations: 'Dry locations only. Must be concealed (inside walls, ceilings, attics). Not for exposed runs.',
     conductor: 'Copper',
-    armour: 'None \u2014 PVC outer jacket',
+    armour: 'None \— PVC outer jacket',
     cecRule: 'CEC Rule 4-004, 12-100 to 12-120',
-    sizes: '14\u20138 AWG (2 or 3 conductor with ground)',
+    sizes: '14\–8 AWG (2 or 3 conductor with ground)',
     miningUse: false,
     description:
       'Standard residential wiring cable. Two or three insulated conductors with a bare bonding conductor, all wrapped in a PVC jacket. Not permitted for exposed runs, wet locations, or commercial/industrial use. Never used in mining.',
@@ -36,7 +36,7 @@ const cableTypes: CableType[] = [
     name: 'TECK90',
     nickname: 'Mining workhorse',
     voltage: '1000V (600V and 1000V ratings available)',
-    temp: '90\u00B0C',
+    temp: '90\°C',
     uses: 'Primary power cable in Ontario mines, industrial plants, cable tray installations, direct burial, exposed runs on mine walls',
     locations: 'Wet and dry locations, cable trays, direct burial, exposed runs, hazardous locations (Class I Div 2 with appropriate glands)',
     conductor: 'Copper (standard) or Aluminum (larger sizes)',
@@ -51,7 +51,7 @@ const cableTypes: CableType[] = [
     name: 'AC90',
     nickname: 'BX',
     voltage: '600V',
-    temp: '90\u00B0C',
+    temp: '90\°C',
     uses: 'Commercial and industrial branch circuits, feeder runs in dry locations',
     locations: 'Dry locations only. Not for direct burial or wet areas.',
     conductor: 'Copper or Aluminum',
@@ -66,7 +66,7 @@ const cableTypes: CableType[] = [
     name: 'ACWU90',
     nickname: undefined,
     voltage: '600V',
-    temp: '90\u00B0C',
+    temp: '90\°C',
     uses: 'Underground feeders, outdoor installations, wet industrial areas',
     locations: 'Wet and dry locations, direct burial, exposed outdoor runs',
     conductor: 'Copper or Aluminum',
@@ -81,26 +81,26 @@ const cableTypes: CableType[] = [
     name: 'SHD-GC',
     nickname: 'Mining trailing cable (>5kV)',
     voltage: '5kV to 25kV',
-    temp: '90\u00B0C',
+    temp: '90\°C',
     uses: 'Trailing cable for large mobile mining equipment: draglines, shovels, continuous miners, highwall miners',
-    locations: 'Mining operations \u2014 surface and underground. Must be used with proper strain relief and cable handling equipment.',
+    locations: 'Mining operations \— surface and underground. Must be used with proper strain relief and cable handling equipment.',
     conductor: 'Copper (tinned or bare)',
-    armour: 'No metallic armour \u2014 heavy rubber outer jacket with individual conductor shielding',
+    armour: 'No metallic armour \— heavy rubber outer jacket with individual conductor shielding',
     cecRule: 'CSA C22.2 No. 96, Ontario Mining Regs (O. Reg 854), CEC Section 76',
     sizes: '6 AWG to 500 kcmil (various conductor counts)',
     miningUse: true,
     description:
-      'Shield, Heavy-Duty, Ground Check cable. Designed specifically for high-voltage trailing cables on mobile mining equipment. Each conductor is individually shielded with a semi-conducting layer and copper tape/wire shield. The ground check conductor is a critical safety feature that continuously monitors the integrity of the grounding circuit \u2014 if the ground check is broken, the system trips. The heavy rubber jacket provides excellent flexibility and mechanical protection for cables that are dragged across rough terrain.',
+      'Shield, Heavy-Duty, Ground Check cable. Designed specifically for high-voltage trailing cables on mobile mining equipment. Each conductor is individually shielded with a semi-conducting layer and copper tape/wire shield. The ground check conductor is a critical safety feature that continuously monitors the integrity of the grounding circuit \— if the ground check is broken, the system trips. The heavy rubber jacket provides excellent flexibility and mechanical protection for cables that are dragged across rough terrain.',
   },
   {
     name: 'Type W / G-GC',
     nickname: 'Mining trailing cable (<5kV)',
     voltage: '600V to 2000V',
-    temp: '90\u00B0C',
+    temp: '90\°C',
     uses: 'Trailing cable for mobile mining equipment under 5kV: shuttle cars, LHD (scoop trams), bolters, drills, roof bolters',
     locations: 'Mining operations. Portable power connections for mobile equipment.',
     conductor: 'Copper (finely stranded for flexibility)',
-    armour: 'No metallic armour \u2014 heavy rubber outer jacket',
+    armour: 'No metallic armour \— heavy rubber outer jacket',
     cecRule: 'CSA C22.2 No. 96, Ontario Mining Regs (O. Reg 854), CEC Section 76',
     sizes: '8 AWG to 4/0 AWG (various conductor counts)',
     miningUse: true,
@@ -111,43 +111,43 @@ const cableTypes: CableType[] = [
     name: 'RW90',
     nickname: undefined,
     voltage: '600V',
-    temp: '90\u00B0C wet and dry',
+    temp: '90\°C wet and dry',
     uses: 'Building wire in conduit, raceways, cable trays. Used for single-conductor runs.',
     locations: 'Wet and dry locations (in raceway or supported)',
     conductor: 'Copper',
-    armour: 'None \u2014 single conductor with XLPE or EPR insulation',
+    armour: 'None \— single conductor with XLPE or EPR insulation',
     cecRule: 'CEC Table 19, Rule 4-004',
     sizes: '14 AWG to 750 kcmil',
     miningUse: false,
     description:
-      'Single-conductor building wire rated for wet and dry locations at 90\u00B0C. The most common single-conductor wire for conduit runs in commercial and industrial installations. XLPE (cross-linked polyethylene) insulation provides excellent thermal and moisture resistance. Used where conduit is the wiring method of choice.',
+      'Single-conductor building wire rated for wet and dry locations at 90\°C. The most common single-conductor wire for conduit runs in commercial and industrial installations. XLPE (cross-linked polyethylene) insulation provides excellent thermal and moisture resistance. Used where conduit is the wiring method of choice.',
   },
   {
     name: 'T90 / TWN75',
     nickname: 'Building wire',
     voltage: '600V',
-    temp: 'T90: 90\u00B0C dry / TWN75: 75\u00B0C wet',
+    temp: 'T90: 90\°C dry / TWN75: 75\°C wet',
     uses: 'General building wire in conduit and raceways',
-    locations: 'T90: Dry locations only. TWN75: Wet or dry locations at 75\u00B0C rating.',
+    locations: 'T90: Dry locations only. TWN75: Wet or dry locations at 75\°C rating.',
     conductor: 'Copper',
-    armour: 'None \u2014 single conductor with thermoplastic (PVC) insulation',
+    armour: 'None \— single conductor with thermoplastic (PVC) insulation',
     cecRule: 'CEC Table 19, Rule 4-004',
     sizes: '14 AWG to 1000 kcmil',
     miningUse: false,
     description:
-      'Standard thermoplastic insulated building wire. T90 is rated 90\u00B0C in dry locations. TWN75 is the same wire but derated to 75\u00B0C when used in wet locations. Often used interchangeably with RW90 in conduit runs, though RW90 maintains its 90\u00B0C rating in wet locations. Less expensive than XLPE-insulated alternatives.',
+      'Standard thermoplastic insulated building wire. T90 is rated 90\°C in dry locations. TWN75 is the same wire but derated to 75\°C when used in wet locations. Often used interchangeably with RW90 in conduit runs, though RW90 maintains its 90\°C rating in wet locations. Less expensive than XLPE-insulated alternatives.',
   },
   {
     name: 'NMWU',
     nickname: 'Underground Loomex',
     voltage: '300V max',
-    temp: '60\u00B0C (wet)',
+    temp: '60\°C (wet)',
     uses: 'Residential underground feeders, outdoor lighting circuits, landscape wiring',
     locations: 'Wet locations, direct burial, underground residential',
     conductor: 'Copper',
-    armour: 'None \u2014 PVC outer jacket rated for direct burial',
+    armour: 'None \— PVC outer jacket rated for direct burial',
     cecRule: 'CEC Rule 12-012, 12-100',
-    sizes: '14\u20138 AWG',
+    sizes: '14\–8 AWG',
     miningUse: false,
     description:
       'Underground feeder cable for residential applications. Similar to NMD90 but with a moisture-resistant jacket suitable for direct burial. Used for runs from the house to a detached garage, outdoor receptacles, landscape lighting, and other residential underground applications. Not for commercial or industrial use. Must be buried to CEC-specified depths.',
@@ -187,7 +187,7 @@ export default function CableTypesPage() {
             fontFamily: 'var(--font-sans)',
           }}
         >
-          {showTable ? '\u25BC' : '\u25B6'} Comparison Table
+          {showTable ? '\▼' : '\▶'} Comparison Table
         </button>
 
         {/* Comparison table */}
@@ -298,7 +298,7 @@ export default function CableTypesPage() {
                         fontWeight: c.miningUse ? 700 : 400,
                       }}
                     >
-                      {c.miningUse ? '\u2713 Yes' : '\u2014'}
+                      {c.miningUse ? '\✓ Yes' : '\—'}
                     </td>
                   </tr>
                 ))}
@@ -339,7 +339,7 @@ export default function CableTypesPage() {
                   }}
                 >
                   <span style={{ fontSize: 14, color: 'var(--text-secondary)', width: 20 }}>
-                    {isOpen ? '\u25BC' : '\u25B6'}
+                    {isOpen ? '\▼' : '\▶'}
                   </span>
                   <div style={{ flex: 1 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>

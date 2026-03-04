@@ -44,17 +44,17 @@ const flashcards: Flashcard[] = [
   { id: 15, question: 'What is the minimum clearance for a 120/240V service entrance above a walkway?', answer: '3.0m minimum (CEC Rule 6-112).', category: 'CEC Rules' },
 
   // Electrical Theory (12 cards)
-  { id: 16, question: 'What is the formula for three-phase power?', answer: 'P = \u221A3 \u00D7 V_L \u00D7 I_L \u00D7 PF (where V_L is line voltage, I_L is line current, PF is power factor).', category: 'Electrical Theory' },
-  { id: 17, question: 'In a balanced wye system, what is the relationship between line and phase voltage?', answer: 'V_Line = \u221A3 \u00D7 V_Phase. For a 208V system, V_Phase = 120V.', category: 'Electrical Theory' },
+  { id: 16, question: 'What is the formula for three-phase power?', answer: 'P = \√3 \× V_L \× I_L \× PF (where V_L is line voltage, I_L is line current, PF is power factor).', category: 'Electrical Theory' },
+  { id: 17, question: 'In a balanced wye system, what is the relationship between line and phase voltage?', answer: 'V_Line = \√3 \× V_Phase. For a 208V system, V_Phase = 120V.', category: 'Electrical Theory' },
   { id: 18, question: 'What is the power factor of a purely resistive load?', answer: 'Power factor = 1.0 (unity). Voltage and current are in phase.', category: 'Electrical Theory' },
   { id: 19, question: 'How many watts are in one horsepower?', answer: '746 watts = 1 HP.', category: 'Electrical Theory' },
   { id: 20, question: 'What is the formula for transformer turns ratio?', answer: 'Np/Ns = Vp/Vs = Is/Ip (primary turns/secondary turns = primary voltage/secondary voltage).', category: 'Electrical Theory' },
-  { id: 21, question: 'What is the synchronous speed of a 4-pole motor at 60 Hz?', answer: 'Ns = 120f/P = 120 \u00D7 60/4 = 1800 RPM.', category: 'Electrical Theory' },
-  { id: 22, question: 'In a delta connection, what is the relationship between line current and phase current?', answer: 'I_Line = \u221A3 \u00D7 I_Phase. Line voltage equals phase voltage.', category: 'Electrical Theory' },
-  { id: 23, question: 'What is the formula for capacitive reactance?', answer: 'Xc = 1 / (2\u03C0fC) where f is frequency in Hz and C is capacitance in farads.', category: 'Electrical Theory' },
-  { id: 24, question: 'What is the formula for inductive reactance?', answer: 'XL = 2\u03C0fL where f is frequency in Hz and L is inductance in henries.', category: 'Electrical Theory' },
-  { id: 25, question: 'What is impedance in an AC circuit?', answer: 'Z = \u221A(R\u00B2 + (XL - Xc)\u00B2). Impedance is the total opposition to current flow in an AC circuit, measured in ohms.', category: 'Electrical Theory' },
-  { id: 26, question: 'What is the relationship between kW, kVA, and kVAR?', answer: 'kVA\u00B2 = kW\u00B2 + kVAR\u00B2 (power triangle). kW = kVA \u00D7 PF.', category: 'Electrical Theory' },
+  { id: 21, question: 'What is the synchronous speed of a 4-pole motor at 60 Hz?', answer: 'Ns = 120f/P = 120 \× 60/4 = 1800 RPM.', category: 'Electrical Theory' },
+  { id: 22, question: 'In a delta connection, what is the relationship between line current and phase current?', answer: 'I_Line = \√3 \× I_Phase. Line voltage equals phase voltage.', category: 'Electrical Theory' },
+  { id: 23, question: 'What is the formula for capacitive reactance?', answer: 'Xc = 1 / (2\πfC) where f is frequency in Hz and C is capacitance in farads.', category: 'Electrical Theory' },
+  { id: 24, question: 'What is the formula for inductive reactance?', answer: 'XL = 2\πfL where f is frequency in Hz and L is inductance in henries.', category: 'Electrical Theory' },
+  { id: 25, question: 'What is impedance in an AC circuit?', answer: 'Z = \√(R\² + (XL - Xc)\²). Impedance is the total opposition to current flow in an AC circuit, measured in ohms.', category: 'Electrical Theory' },
+  { id: 26, question: 'What is the relationship between kW, kVA, and kVAR?', answer: 'kVA\² = kW\² + kVAR\² (power triangle). kW = kVA \× PF.', category: 'Electrical Theory' },
   { id: 27, question: 'What happens to current when you double the voltage across a fixed resistance?', answer: 'Current doubles. I = V/R (Ohm\'s Law). Doubling V with constant R doubles I.', category: 'Electrical Theory' },
 
   // Motor Controls (10 cards)
@@ -66,21 +66,21 @@ const flashcards: Flashcard[] = [
   { id: 33, question: 'Why must you use CEC Table values for motor FLC instead of nameplate values?', answer: 'CEC Tables (44, 45, 46) provide standardized FLC values for sizing branch circuit conductors and overcurrent protection. Nameplate values may vary between manufacturers.', category: 'Motor Controls' },
   { id: 34, question: 'What is the purpose of a motor starter overload relay?', answer: 'Protects the motor from sustained overcurrent (overload) conditions. Trips the contactor to disconnect the motor before insulation damage occurs. Does NOT protect against short circuits.', category: 'Motor Controls' },
   { id: 35, question: 'In a star-delta (wye-delta) starter, what happens to the starting current?', answer: 'Starting current is reduced to 1/3 of the direct-on-line (DOL) value. Motor starts in wye (lower voltage per winding), then switches to delta for full speed.', category: 'Motor Controls' },
-  { id: 36, question: 'What is motor slip and what is a typical value?', answer: 'Slip is the difference between synchronous speed and actual rotor speed, expressed as a percentage. Typical slip for induction motors is 2-5%. Slip = (Ns - N) / Ns \u00D7 100.', category: 'Motor Controls' },
+  { id: 36, question: 'What is motor slip and what is a typical value?', answer: 'Slip is the difference between synchronous speed and actual rotor speed, expressed as a percentage. Typical slip for induction motors is 2-5%. Slip = (Ns - N) / Ns \× 100.', category: 'Motor Controls' },
   { id: 37, question: 'What is the purpose of a disconnect switch on a motor circuit?', answer: 'Provides a visible, lockable means of disconnecting the motor for maintenance. Must be within sight of the motor and controller, or be capable of being locked open (CEC Rule 28-602).', category: 'Motor Controls' },
 
   // Safety (CSA Z462) (8 cards)
-  { id: 38, question: 'What is the arc flash PPE Category 2 minimum rating?', answer: '8 cal/cm\u00B2 minimum arc rating for PPE Category 2 (CSA Z462 Table 4A).', category: 'Safety (CSA Z462)' },
+  { id: 38, question: 'What is the arc flash PPE Category 2 minimum rating?', answer: '8 cal/cm\² minimum arc rating for PPE Category 2 (CSA Z462 Table 4A).', category: 'Safety (CSA Z462)' },
   { id: 39, question: 'What voltage is the threshold for requiring arc flash PPE in CSA Z462?', answer: 'Greater than 50V AC or 100V DC. Below these thresholds, the shock hazard is considered minimal for normal conditions.', category: 'Safety (CSA Z462)' },
   { id: 40, question: 'What are the two main hazards of electrical work covered by CSA Z462?', answer: 'Shock hazard (contact with energized conductors) and arc flash hazard (release of thermal energy from an arc fault).', category: 'Safety (CSA Z462)' },
   { id: 41, question: 'What is the limited approach boundary?', answer: 'The distance from an exposed energized part within which a shock hazard exists. For 208-600V, it is typically 1.0m (CSA Z462 Table 2A).', category: 'Safety (CSA Z462)' },
   { id: 42, question: 'What is the restricted approach boundary?', answer: 'The distance from an exposed energized part within which an increased risk of shock exists due to electrical arc-over. Requires additional PPE and a qualified person.', category: 'Safety (CSA Z462)' },
-  { id: 43, question: 'What PPE Category applies to voltage testing on a 600V panelboard?', answer: 'PPE Category 1 (minimum 4 cal/cm\u00B2) for voltage testing on a panelboard up to 600V with one transformer in the supply (CSA Z462 Table 4A).', category: 'Safety (CSA Z462)' },
+  { id: 43, question: 'What PPE Category applies to voltage testing on a 600V panelboard?', answer: 'PPE Category 1 (minimum 4 cal/cm\²) for voltage testing on a panelboard up to 600V with one transformer in the supply (CSA Z462 Table 4A).', category: 'Safety (CSA Z462)' },
   { id: 44, question: 'What is an Energized Electrical Work Permit (EEWP)?', answer: 'A documented authorization to perform work on or near energized conductors when de-energizing is infeasible. Must include hazard analysis, PPE requirements, and justification for not de-energizing.', category: 'Safety (CSA Z462)' },
   { id: 45, question: 'What are the steps of Lockout/Tagout (LOTO)?', answer: '1. Notify affected personnel. 2. Identify energy sources. 3. Isolate energy sources. 4. Apply locks and tags. 5. Release stored energy. 6. Verify zero energy state (test for absence of voltage).', category: 'Safety (CSA Z462)' },
 
   // Ontario Regulations (10 cards)
-  { id: 46, question: 'What is the ground fault protection trip time required in Ontario mines?', answer: 'Ground fault protection must trip in \u2264200ms at \u2264100mA on all underground distribution systems (Ontario Mining Regs O. Reg 854).', category: 'Ontario Regulations' },
+  { id: 46, question: 'What is the ground fault protection trip time required in Ontario mines?', answer: 'Ground fault protection must trip in \≤200ms at \≤100mA on all underground distribution systems (Ontario Mining Regs O. Reg 854).', category: 'Ontario Regulations' },
   { id: 47, question: 'How many total hours are required for the Ontario 309A Construction & Maintenance Electrician certification?', answer: '9000 hours total over 5 levels (approximately 1800 hours per level), plus 720 hours of in-school training (3 sessions of 240 hours each).', category: 'Ontario Regulations' },
   { id: 48, question: 'What is the maximum voltage for portable tools in Ontario underground mines?', answer: '250V for portable hand-held tools underground. 750V maximum for portable or mobile equipment connected by trailing cable.', category: 'Ontario Regulations' },
   { id: 49, question: 'Who is responsible for issuing Electrical Safety Authority (ESA) permits in Ontario?', answer: 'The Electrical Safety Authority (ESA) is the regulator. Licensed Electrical Contractors (LECs) pull ESA permits. Only LECs and authorized persons can do electrical work.', category: 'Ontario Regulations' },
@@ -283,7 +283,7 @@ export default function ExamPrepPage() {
               fontFamily: 'var(--font-sans)',
             }}
           >
-            {shuffled ? '\u2713 Shuffled' : 'Shuffle'}
+            {shuffled ? '\✓ Shuffled' : 'Shuffle'}
           </button>
           <div style={{ flex: 1 }} />
           <span style={{ fontSize: 13, color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>
@@ -465,7 +465,7 @@ export default function ExamPrepPage() {
                 fontFamily: 'var(--font-sans)',
               }}
             >
-              \u2190 Previous
+              \← Previous
             </button>
             <button
               onClick={goNext}
@@ -485,7 +485,7 @@ export default function ExamPrepPage() {
                 fontFamily: 'var(--font-sans)',
               }}
             >
-              Next \u2192
+              Next \→
             </button>
           </div>
         )}

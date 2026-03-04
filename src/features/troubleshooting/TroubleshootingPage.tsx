@@ -33,28 +33,28 @@ const motorSections: TroubleshootingSection[] = [
         title: 'Decision Tree',
         severity: 'warning',
         steps: [
-          'Check power supply at disconnect \u2014 all 3 phases present? Measure L1-L2, L2-L3, L1-L3',
-          'Check overloads (thermal or electronic) \u2014 tripped? Reset and check amps. If trips again, do NOT keep resetting',
-          'Check contactor \u2014 coil pulling in? Listen for click. Check contacts for welding or pitting',
-          'Check control circuit \u2014 start/stop buttons, selector switches, interlocks, safety relays',
-          'Check motor windings \u2014 measure T1-T2, T2-T3, T1-T3 resistance (should be balanced within 5%)',
-          'Check mechanical binding \u2014 disconnect motor from load, attempt to rotate shaft by hand',
+          'Check power supply at disconnect \— all 3 phases present? Measure L1-L2, L2-L3, L1-L3',
+          'Check overloads (thermal or electronic) \— tripped? Reset and check amps. If trips again, do NOT keep resetting',
+          'Check contactor \— coil pulling in? Listen for click. Check contacts for welding or pitting',
+          'Check control circuit \— start/stop buttons, selector switches, interlocks, safety relays',
+          'Check motor windings \— measure T1-T2, T2-T3, T1-T3 resistance (should be balanced within 5%)',
+          'Check mechanical binding \— disconnect motor from load, attempt to rotate shaft by hand',
         ],
         notes: 'Always verify your tester works on a known live source before and after testing a dead circuit.',
       },
       {
         title: 'Expected Winding Resistance Readings',
         subItems: [
-          { label: 'Phase-to-Phase', detail: 'Should be balanced within 5%. Typical range: 0.3\u03A9 to 20\u03A9 depending on HP and voltage. Compare all three pairs \u2014 if one reads significantly different, suspect a winding fault.', color: 'var(--primary)' },
-          { label: 'Phase-to-Ground (Megger)', detail: 'Minimum acceptable: 1 M\u03A9 per kV of rated voltage + 1 M\u03A9 (e.g., 480V motor = 1.48 M\u03A9 min). New motor should read >100 M\u03A9. Below 5 M\u03A9 = investigate.', color: 'var(--primary)' },
+          { label: 'Phase-to-Phase', detail: 'Should be balanced within 5%. Typical range: 0.3\Ω to 20\Ω depending on HP and voltage. Compare all three pairs \— if one reads significantly different, suspect a winding fault.', color: 'var(--primary)' },
+          { label: 'Phase-to-Ground (Megger)', detail: 'Minimum acceptable: 1 M\Ω per kV of rated voltage + 1 M\Ω (e.g., 480V motor = 1.48 M\Ω min). New motor should read >100 M\Ω. Below 5 M\Ω = investigate.', color: 'var(--primary)' },
         ],
         table: {
           headers: ['Motor Voltage', 'Test Voltage', 'Min Insulation'],
           rows: [
-            ['<1000V', '500V DC', '1 M\u03A9/kV + 1 M\u03A9'],
-            ['1000\u20132500V', '1000V DC', '100 M\u03A9'],
-            ['2500\u20135000V', '2500V DC', '100 M\u03A9'],
-            ['5000\u201213800V', '5000V DC', '1000 M\u03A9'],
+            ['<1000V', '500V DC', '1 M\Ω/kV + 1 M\Ω'],
+            ['1000\–2500V', '1000V DC', '100 M\Ω'],
+            ['2500\–5000V', '2500V DC', '100 M\Ω'],
+            ['5000\‒13800V', '5000V DC', '1000 M\Ω'],
           ],
         },
       },
@@ -67,14 +67,14 @@ const motorSections: TroubleshootingSection[] = [
         title: 'Decision Tree',
         severity: 'warning',
         steps: [
-          'Check load \u2014 is the motor loaded beyond nameplate FLA? Measure amps on all 3 phases',
-          'Check ventilation \u2014 fan turning? Air passages clear? Fan cover not blocked with debris/dust',
-          'Check voltage unbalance \u2014 >2% unbalance causes significant heating (see Power tab calculator)',
-          'Check current per phase \u2014 unbalanced current indicates winding or connection issue',
-          'Check bearings \u2014 listen for noise, feel for excessive heat at bearing housings (>80\u00B0C = problem)',
-          'Check alignment \u2014 misalignment causes bearing load, vibration, and excess heat',
+          'Check load \— is the motor loaded beyond nameplate FLA? Measure amps on all 3 phases',
+          'Check ventilation \— fan turning? Air passages clear? Fan cover not blocked with debris/dust',
+          'Check voltage unbalance \— >2% unbalance causes significant heating (see Power tab calculator)',
+          'Check current per phase \— unbalanced current indicates winding or connection issue',
+          'Check bearings \— listen for noise, feel for excessive heat at bearing housings (>80\°C = problem)',
+          'Check alignment \— misalignment causes bearing load, vibration, and excess heat',
         ],
-        notes: 'A motor running at 10% above rated amps will experience a roughly 20% increase in winding temperature rise. Insulation life halves for every 10\u00B0C above rated temperature.',
+        notes: 'A motor running at 10% above rated amps will experience a roughly 20% increase in winding temperature rise. Insulation life halves for every 10\°C above rated temperature.',
       },
     ],
   },
@@ -85,11 +85,11 @@ const motorSections: TroubleshootingSection[] = [
         title: 'Decision Tree',
         severity: 'warning',
         steps: [
-          'Measure running amps vs nameplate FLA \u2014 if amps exceed nameplate, check mechanical load',
-          'Check for single-phasing \u2014 one phase lost means remaining phases carry \u221A3x current (~173%)',
-          'Check supply voltage \u2014 low voltage = high current. Every 10% voltage drop \u2248 10% current increase',
-          'Check mechanical load \u2014 binding, jammed, worn bearings, overloaded conveyor, frozen pump',
-          'Check starter heater/OL sizing \u2014 heaters must match motor FLA and service factor. Ambient temp affects trip point',
+          'Measure running amps vs nameplate FLA \— if amps exceed nameplate, check mechanical load',
+          'Check for single-phasing \— one phase lost means remaining phases carry \√3x current (~173%)',
+          'Check supply voltage \— low voltage = high current. Every 10% voltage drop \≈ 10% current increase',
+          'Check mechanical load \— binding, jammed, worn bearings, overloaded conveyor, frozen pump',
+          'Check starter heater/OL sizing \— heaters must match motor FLA and service factor. Ambient temp affects trip point',
         ],
         notes: 'For electronic overloads: verify the trip class setting (10, 20, or 30) matches the application. Class 10 for general purpose, Class 20 for harder starting loads, Class 30 for high-inertia loads.',
       },
@@ -101,12 +101,12 @@ const motorSections: TroubleshootingSection[] = [
       {
         title: 'Decision Tree',
         steps: [
-          'Check mounting bolts \u2014 loose mounting is the #1 cause. Torque all base bolts to spec',
-          'Check coupling alignment \u2014 use dial indicators or laser alignment. Parallel and angular',
-          'Check bearing condition \u2014 growling, grinding, or rumbling noise. Check bearing temperature',
-          'Check voltage balance \u2014 unbalanced voltage causes unbalanced magnetic pull in the air gap',
-          'Check for single-phasing \u2014 causes 2x line frequency vibration (120Hz on 60Hz system)',
-          'Check rotor bars \u2014 broken rotor bars cause pulsating current and vibration at slip frequency',
+          'Check mounting bolts \— loose mounting is the #1 cause. Torque all base bolts to spec',
+          'Check coupling alignment \— use dial indicators or laser alignment. Parallel and angular',
+          'Check bearing condition \— growling, grinding, or rumbling noise. Check bearing temperature',
+          'Check voltage balance \— unbalanced voltage causes unbalanced magnetic pull in the air gap',
+          'Check for single-phasing \— causes 2x line frequency vibration (120Hz on 60Hz system)',
+          'Check rotor bars \— broken rotor bars cause pulsating current and vibration at slip frequency',
         ],
         notes: 'Quick test: if vibration disappears instantly when power is removed, it is electrical. If vibration coasts down, it is mechanical.',
       },
@@ -143,12 +143,12 @@ const controlSections: TroubleshootingSection[] = [
         title: 'Control Circuit Troubleshooting Method',
         severity: 'info',
         steps: [
-          'Start at the power source \u2014 verify control transformer output voltage (120VAC, 24VDC, 24VAC)',
-          'Check fuse or breaker on control circuit \u2014 blown fuse is a symptom, find the cause before replacing',
+          'Start at the power source \— verify control transformer output voltage (120VAC, 24VDC, 24VAC)',
+          'Check fuse or breaker on control circuit \— blown fuse is a symptom, find the cause before replacing',
           'Follow the circuit from L1 (hot) through each device toward L2 (neutral/common)',
-          'Test voltage at each device \u2014 voltage present on both sides = good device. Voltage on one side only = open device found',
+          'Test voltage at each device \— voltage present on both sides = good device. Voltage on one side only = open device found',
           'For 24VDC circuits: check power supply output. LED indicator on supply should be green. Measure output with a meter, not just the LED',
-          'Check for intermittent connections \u2014 wiggle wires at terminals while monitoring the circuit',
+          'Check for intermittent connections \— wiggle wires at terminals while monitoring the circuit',
         ],
         notes: 'The device that has voltage on the supply side but NOT on the load side is your failed component. This is the fundamental rule of series circuit troubleshooting.',
       },
@@ -161,7 +161,7 @@ const controlSections: TroubleshootingSection[] = [
         title: 'Connection & Contact Problems',
         subItems: [
           { label: 'Loose Connections', detail: 'Number one cause of control circuit failures. Vibration in mining environments loosens terminals over time. Re-torque annually. Look for discolored wires at terminals (heat = loose).', color: '#ff8c00' },
-          { label: 'Failed Relay Coils', detail: 'Measure coil resistance \u2014 open reads infinite. A shorted coil reads very low. Check for correct coil voltage rating (120VAC coil on 24VDC = no pickup). Transient voltage can kill coils \u2014 add suppression.', color: 'var(--primary)' },
+          { label: 'Failed Relay Coils', detail: 'Measure coil resistance \— open reads infinite. A shorted coil reads very low. Check for correct coil voltage rating (120VAC coil on 24VDC = no pickup). Transient voltage can kill coils \— add suppression.', color: 'var(--primary)' },
           { label: 'Stuck Contacts', detail: 'Contacts can weld shut under high current or arc. NO contact stuck closed or NC contact stuck open. Physically check contact operation. Replace the entire relay, not just contacts.', color: '#ff8c00' },
           { label: 'Burnt Contact Tips', detail: 'Look for blackened, pitted, or deformed contact surfaces. Caused by arcing during open/close. High-inductive loads (coils, solenoids) without suppression are the usual culprit.', color: 'var(--primary)' },
           { label: 'Control Transformer Issues', detail: 'Check primary and secondary fuses. Measure secondary voltage under load. Overloaded transformers run hot and voltage drops. Size: total VA of all coils + 25% margin.', color: 'var(--primary)' },
@@ -177,10 +177,10 @@ const controlSections: TroubleshootingSection[] = [
         severity: 'warning',
         subItems: [
           { label: 'Chattering/Buzzing', detail: 'Low control voltage (measure at coil). Broken shading coil on AC contactor (causes AC buzz). Dirty/misaligned armature face. Foreign material in air gap. Mechanical binding.', color: '#ff3c3c' },
-          { label: 'Won\'t Pick Up', detail: 'No control power \u2192 check upstream fuse/breaker. Open coil \u2192 measure coil resistance. Wrong coil voltage \u2192 verify rating matches supply. Mechanical binding \u2192 check for debris or rust. Interlock preventing pickup.', color: '#ff8c00' },
-          { label: 'Won\'t Drop Out', detail: 'Welded main contacts \u2192 replace contactor. Stuck armature \u2192 clean contact faces, check spring. Voltage still applied to coil \u2192 trace control circuit. Residual magnetism in worn contactor \u2192 replace.', color: '#ff3c3c' },
+          { label: 'Won\'t Pick Up', detail: 'No control power \→ check upstream fuse/breaker. Open coil \→ measure coil resistance. Wrong coil voltage \→ verify rating matches supply. Mechanical binding \→ check for debris or rust. Interlock preventing pickup.', color: '#ff8c00' },
+          { label: 'Won\'t Drop Out', detail: 'Welded main contacts \→ replace contactor. Stuck armature \→ clean contact faces, check spring. Voltage still applied to coil \→ trace control circuit. Residual magnetism in worn contactor \→ replace.', color: '#ff3c3c' },
         ],
-        notes: 'Chattering contactors will rapidly destroy contacts and can weld shut. Do not leave chattering \u2014 remove from service immediately.',
+        notes: 'Chattering contactors will rapidly destroy contacts and can weld shut. Do not leave chattering \— remove from service immediately.',
       },
     ],
   },
@@ -190,8 +190,8 @@ const controlSections: TroubleshootingSection[] = [
       {
         title: 'Timer Issues',
         subItems: [
-          { label: 'Wrong Timing Mode', detail: 'ON-delay vs OFF-delay \u2014 most common wiring mistake. ON-delay: coil energizes, waits, then contacts change. OFF-delay: contacts change immediately, then revert after delay on de-energize.', color: 'var(--primary)' },
-          { label: 'Failed Output', detail: 'Timer display shows but contacts don\'t change \u2014 internal relay failed. No display \u2014 no power or timer is dead. Check for correct input signal (voltage vs dry contact).', color: 'var(--primary)' },
+          { label: 'Wrong Timing Mode', detail: 'ON-delay vs OFF-delay \— most common wiring mistake. ON-delay: coil energizes, waits, then contacts change. OFF-delay: contacts change immediately, then revert after delay on de-energize.', color: 'var(--primary)' },
+          { label: 'Failed Output', detail: 'Timer display shows but contacts don\'t change \— internal relay failed. No display \— no power or timer is dead. Check for correct input signal (voltage vs dry contact).', color: 'var(--primary)' },
           { label: 'Incorrect Wiring', detail: 'Check if using timed contacts or instantaneous contacts (most timers have both). Verify trigger input type: voltage trigger vs contact trigger. Check time base setting (sec, min, hr).', color: 'var(--primary)' },
         ],
       },
@@ -204,9 +204,9 @@ const controlSections: TroubleshootingSection[] = [
         title: 'Safety Relay Issues',
         severity: 'critical',
         subItems: [
-          { label: 'Won\'t Reset', detail: 'Feedback circuit open \u2014 check that monitoring contacts from external contactors are wired back to safety relay. E-stop still pressed or latched. Input device (light curtain, guard switch) still tripped. Check LED status indicators on relay.', color: '#ff3c3c' },
-          { label: 'Feedback Circuit Issues', detail: 'Safety relays monitor external contactor auxiliary contacts to verify contactors actually dropped out. If contactor welds, feedback opens, preventing reset. This is a SAFETY FEATURE \u2014 do not bypass.', color: '#ff3c3c' },
-          { label: 'Muting Problems', detail: 'Muting sensors out of alignment (common on conveyors). Muting sequence incorrect \u2014 sensors must activate in the correct order. Muting lamp burnt out \u2014 indicates muting is active, required by code.', color: '#ff8c00' },
+          { label: 'Won\'t Reset', detail: 'Feedback circuit open \— check that monitoring contacts from external contactors are wired back to safety relay. E-stop still pressed or latched. Input device (light curtain, guard switch) still tripped. Check LED status indicators on relay.', color: '#ff3c3c' },
+          { label: 'Feedback Circuit Issues', detail: 'Safety relays monitor external contactor auxiliary contacts to verify contactors actually dropped out. If contactor welds, feedback opens, preventing reset. This is a SAFETY FEATURE \— do not bypass.', color: '#ff3c3c' },
+          { label: 'Muting Problems', detail: 'Muting sensors out of alignment (common on conveyors). Muting sequence incorrect \— sensors must activate in the correct order. Muting lamp burnt out \— indicates muting is active, required by code.', color: '#ff8c00' },
         ],
         notes: 'NEVER bypass a safety relay. If the machine won\'t run because the safety circuit is open, FIND AND FIX THE PROBLEM. Bypassing safety circuits has killed electricians.',
       },
@@ -264,7 +264,7 @@ const powerSections: TroubleshootingSection[] = [
           'Calculate average: V_avg = (V_AB + V_BC + V_CA) / 3',
           'Find the voltage that deviates most from the average',
           'Calculate: % Unbalance = (Max Deviation / V_avg) x 100',
-          'Acceptable limit: < 2% \u2014 above 2%, investigate and correct',
+          'Acceptable limit: < 2% \— above 2%, investigate and correct',
         ],
         subItems: [
           { label: 'Effects of Unbalance', detail: '1% voltage unbalance = 6-10% current unbalance. 3.5% voltage unbalance = motor must be derated by ~25%. Causes hot spots in windings, reduces bearing life, increases vibration.', color: '#ff8c00' },
@@ -302,26 +302,26 @@ const powerSections: TroubleshootingSection[] = [
           'Identify affected circuit from ground fault relay indication or alarm panel',
           'De-energize and lock out the circuit',
           'Disconnect all loads (motors, heaters, etc.) from the circuit',
-          'Megger the cable from the distribution panel \u2014 if good, cable is OK',
-          'Reconnect loads one at a time, megger after each \u2014 fault returns when bad load is connected',
+          'Megger the cable from the distribution panel \— if good, cable is OK',
+          'Reconnect loads one at a time, megger after each \— fault returns when bad load is connected',
           'For the faulted load: megger phase-to-ground on each conductor. The low reading identifies the faulted phase',
           'For motor faults: check lead connections for moisture, check inside motor junction box, inspect cable entry',
         ],
-        notes: 'In mining HRG systems, the ground fault relay will alarm but not trip on the first fault. This is intentional \u2014 it allows continued operation while you locate the fault. A SECOND ground fault creates a phase-to-phase fault through ground. Find and fix the first fault urgently.',
+        notes: 'In mining HRG systems, the ground fault relay will alarm but not trip on the first fault. This is intentional \— it allows continued operation while you locate the fault. A SECOND ground fault creates a phase-to-phase fault through ground. Find and fix the first fault urgently.',
       },
       {
         title: 'Insulation Resistance Testing',
         table: {
           headers: ['Equipment Voltage', 'Test Voltage', 'Min. Acceptable'],
           rows: [
-            ['<250V', '500V DC', '0.5 M\u03A9'],
-            ['250\u2013600V', '1000V DC', '1.0 M\u03A9'],
-            ['600\u20131000V', '1000V DC', '2.0 M\u03A9'],
-            ['1000\u20132500V', '2500V DC', '5.0 M\u03A9'],
-            ['2500\u20135000V', '5000V DC', '20 M\u03A9'],
+            ['<250V', '500V DC', '0.5 M\Ω'],
+            ['250\–600V', '1000V DC', '1.0 M\Ω'],
+            ['600\–1000V', '1000V DC', '2.0 M\Ω'],
+            ['1000\–2500V', '2500V DC', '5.0 M\Ω'],
+            ['2500\–5000V', '5000V DC', '20 M\Ω'],
           ],
         },
-        notes: 'For mining trailing cables: O. Reg. 854 requires minimum 1 M\u03A9 per kV + 1 M\u03A9. Test after any repair or splice. Record all readings \u2014 trending is as important as absolute values.',
+        notes: 'For mining trailing cables: O. Reg. 854 requires minimum 1 M\Ω per kV + 1 M\Ω. Test after any repair or splice. Record all readings \— trending is as important as absolute values.',
       },
     ],
   },
@@ -347,8 +347,8 @@ const powerSections: TroubleshootingSection[] = [
         title: 'Transformer Tests & Checks',
         subItems: [
           { label: 'Turns Ratio Test', detail: 'Apply known voltage to primary (or use TTR test set), measure secondary. Ratio should match nameplate within 0.5%. Deviation indicates shorted turns. Test all phases.', color: 'var(--primary)' },
-          { label: 'Insulation Resistance', detail: 'Megger primary to secondary, primary to ground, secondary to ground. Min 1 M\u03A9 per kV + 1 M\u03A9 at 40\u00B0C. Correct readings for temperature: halves for every 10\u00B0C above 40\u00B0C.', color: 'var(--primary)' },
-          { label: 'Oil Analysis (liquid-filled)', detail: 'Dielectric breakdown voltage (should be >30 kV for mineral oil). Dissolved gas analysis (DGA) \u2014 detects internal faults before failure. Moisture content: <35 ppm for distribution transformers.', color: 'var(--primary)' },
+          { label: 'Insulation Resistance', detail: 'Megger primary to secondary, primary to ground, secondary to ground. Min 1 M\Ω per kV + 1 M\Ω at 40\°C. Correct readings for temperature: halves for every 10\°C above 40\°C.', color: 'var(--primary)' },
+          { label: 'Oil Analysis (liquid-filled)', detail: 'Dielectric breakdown voltage (should be >30 kV for mineral oil). Dissolved gas analysis (DGA) \— detects internal faults before failure. Moisture content: <35 ppm for distribution transformers.', color: 'var(--primary)' },
           { label: 'Common Issues', detail: 'Overheating: check load, cooling fans/radiators, oil level. Humming/buzzing: loose laminations, DC offset, overexcitation. Oil leaks: check gaskets, bushings, drain valve.', color: '#ff8c00' },
         ],
         notes: 'For mine substation transformers: DGA testing is the single best predictive maintenance tool. Key gases: C2H2 (acetylene) = arcing, C2H4 (ethylene) = severe overheating, H2 (hydrogen) = partial discharge.',
@@ -379,11 +379,11 @@ const groundingSections: TroubleshootingSection[] = [
         title: 'Pulsing Ground Fault Systems',
         steps: [
           'System pulses the ground fault current (on/off at ~1Hz)',
-          'Use a clamp meter with pulse-detection \u2014 the pulsing current is easy to identify',
+          'Use a clamp meter with pulse-detection \— the pulsing current is easy to identify',
           'Start at the main bus, clamp each feeder. The feeder with pulsing current has the fault',
           'Follow the feeder downstream, clamping at each junction/panel',
           'Continue narrowing down until the faulted branch circuit is identified',
-          'Lock out, disconnect load, megger to confirm \u2014 repair or replace the faulted component',
+          'Lock out, disconnect load, megger to confirm \— repair or replace the faulted component',
         ],
       },
     ],
@@ -396,20 +396,20 @@ const groundingSections: TroubleshootingSection[] = [
         table: {
           headers: ['Nominal Voltage', 'Megger Test V', 'New Equipment', 'In-Service Min'],
           rows: [
-            ['120\u2013240V', '500V DC', '>200 M\u03A9', '1 M\u03A9'],
-            ['240\u2013600V', '1000V DC', '>200 M\u03A9', '2 M\u03A9'],
-            ['600\u20131000V', '1000V DC', '>500 M\u03A9', '5 M\u03A9'],
-            ['1\u20135kV', '2500V DC', '>1000 M\u03A9', '25 M\u03A9'],
-            ['5\u201315kV', '5000V DC', '>5000 M\u03A9', '100 M\u03A9'],
+            ['120\–240V', '500V DC', '>200 M\Ω', '1 M\Ω'],
+            ['240\–600V', '1000V DC', '>200 M\Ω', '2 M\Ω'],
+            ['600\–1000V', '1000V DC', '>500 M\Ω', '5 M\Ω'],
+            ['1\–5kV', '2500V DC', '>1000 M\Ω', '25 M\Ω'],
+            ['5\–15kV', '5000V DC', '>5000 M\Ω', '100 M\Ω'],
           ],
         },
-        notes: 'The absolute value matters less than the TREND. If a motor reads 50 M\u03A9 this month and read 500 M\u03A9 last month, investigate even though 50 M\u03A9 is technically acceptable.',
+        notes: 'The absolute value matters less than the TREND. If a motor reads 50 M\Ω this month and read 500 M\Ω last month, investigate even though 50 M\Ω is technically acceptable.',
       },
       {
         title: 'Weather & Environmental Effects',
         subItems: [
           { label: 'Humidity', detail: 'High humidity lowers insulation resistance readings. Moisture condenses on insulation surfaces, creating conductive paths. If possible, test in similar conditions each time for consistent trending.', color: 'var(--primary)' },
-          { label: 'Temperature', detail: 'Insulation resistance approximately halves for every 10\u00B0C rise above reference (40\u00B0C). Correct readings to 40\u00B0C for comparison. Formula: R_40 = R_measured x 0.5^((40-T)/10).', color: 'var(--primary)' },
+          { label: 'Temperature', detail: 'Insulation resistance approximately halves for every 10\°C rise above reference (40\°C). Correct readings to 40\°C for comparison. Formula: R_40 = R_measured x 0.5^((40-T)/10).', color: 'var(--primary)' },
           { label: 'Mining Conditions', detail: 'Underground mines: consistently high humidity and temperature. Dust and mineral deposits reduce surface insulation. Water intrusion at cable glands and junction boxes is common. Check readings more frequently.', color: '#ff8c00' },
         ],
       },
@@ -437,9 +437,9 @@ const groundingSections: TroubleshootingSection[] = [
         title: 'EGC Verification',
         steps: [
           'Visual inspection: EGC is continuous, properly sized per CEC Table 16, connections tight',
-          'Continuity test: measure resistance from equipment frame to the grounding bus at the panel. Should be <1\u03A9 for short runs, <2\u03A9 for longer circuits',
+          'Continuity test: measure resistance from equipment frame to the grounding bus at the panel. Should be <1\Ω for short runs, <2\Ω for longer circuits',
           'Ground loop impedance test: measures total impedance of the fault path. Ensures enough fault current flows to trip the breaker in the required time',
-          'Bond test: measure resistance between bonded metallic parts. Should be <0.1\u03A9 for direct bonds',
+          'Bond test: measure resistance between bonded metallic parts. Should be <0.1\Ω for direct bonds',
           'For trailing cables: test ground continuity before each shift. Ground check monitors do this automatically on medium voltage cables',
         ],
         notes: 'CEC Rule 10-906: Equipment grounding conductors must be tested after installation and after any repair or modification to verify continuity and adequacy.',
@@ -453,7 +453,7 @@ const groundingSections: TroubleshootingSection[] = [
         title: 'Bonding Requirements & Tests',
         subItems: [
           { label: 'What to Bond', detail: 'All metallic raceways, cable trays, equipment frames, structural steel, piping systems, and any metallic object that could become energized. In mining: rail tracks, ventilation ducts, water/air pipes.', color: 'var(--primary)' },
-          { label: 'Test Method', detail: 'Use a low-resistance ohmmeter (DLRO) or a standard multimeter for basic checks. Measure from one bonded part to the next. Acceptable: <0.1\u03A9 for direct bonds. Check both ends of bonding jumpers.', color: 'var(--primary)' },
+          { label: 'Test Method', detail: 'Use a low-resistance ohmmeter (DLRO) or a standard multimeter for basic checks. Measure from one bonded part to the next. Acceptable: <0.1\Ω for direct bonds. Check both ends of bonding jumpers.', color: 'var(--primary)' },
           { label: 'Common Failures', detail: 'Corrosion at bond connections (especially in wet mine environments). Missing bonding jumpers across flexible connections. Paint or coating preventing metal-to-metal contact. Broken grounding conductor inside conduit.', color: '#ff8c00' },
         ],
       },
@@ -465,7 +465,7 @@ const groundingSections: TroubleshootingSection[] = [
       {
         title: 'Lightning Protection System Inspection',
         subItems: [
-          { label: 'Surface Facilities', detail: 'Inspect air terminals (lightning rods) for physical damage. Check down conductors for continuity and secure mounting. Measure ground resistance of lightning ground electrodes (<10\u03A9 typical). Inspect surge protective devices (SPDs) at service entrance.', color: 'var(--primary)' },
+          { label: 'Surface Facilities', detail: 'Inspect air terminals (lightning rods) for physical damage. Check down conductors for continuity and secure mounting. Measure ground resistance of lightning ground electrodes (<10\Ω typical). Inspect surge protective devices (SPDs) at service entrance.', color: 'var(--primary)' },
           { label: 'Power Line Entry', detail: 'Check surge arresters on incoming power lines. Verify ground connections at poles and transformers. Look for signs of previous strikes: burnt arresters, fused connections, damaged insulators.', color: 'var(--primary)' },
           { label: 'Bonding to Lightning System', detail: 'All grounding systems must be bonded together: electrical ground, lightning ground, telecom ground, structural steel. Separate grounds can have dangerous voltage differences during a strike.', color: '#ff8c00' },
         ],
@@ -488,10 +488,10 @@ const toolsSections: TroubleshootingSection[] = [
         severity: 'info',
         steps: [
           'Identify the full scope of the circuit (from source to load, counting all devices in series)',
-          'Test at the MIDDLE of the circuit \u2014 this eliminates half the components in one measurement',
-          'If the test shows good power at the midpoint \u2192 fault is in the second half (toward load)',
-          'If the test shows no power at the midpoint \u2192 fault is in the first half (toward source)',
-          'Test at the middle of the remaining suspect half \u2014 eliminates another half',
+          'Test at the MIDDLE of the circuit \— this eliminates half the components in one measurement',
+          'If the test shows good power at the midpoint \→ fault is in the second half (toward load)',
+          'If the test shows no power at the midpoint \→ fault is in the first half (toward source)',
+          'Test at the middle of the remaining suspect half \— eliminates another half',
           'Repeat until the single faulted component is identified',
         ],
         notes: 'Example: A control circuit has 8 devices in series. Testing device-by-device could take 8 measurements. Half-split: test at device 4, then 2 or 6, then 1 or 3 or 5 or 7. Maximum 3 measurements to find the fault. This method is especially powerful on long circuits or cable runs.',
@@ -511,7 +511,7 @@ const toolsSections: TroubleshootingSection[] = [
           { label: 'Frame', detail: 'Physical mounting dimensions (bolt pattern, shaft height). NEMA standardized: 56 frame to 5000+ frame. Same frame number = same physical mounting regardless of manufacturer.', color: 'var(--primary)' },
           { label: 'Enclosure', detail: 'ODP (Open Drip-Proof): indoor use, clean environments. TEFC (Totally Enclosed Fan Cooled): outdoor, dusty, wet. TENV: no fan, convection cooled. TEAO: for belt-driven fans. XP: explosion-proof for hazardous locations.', color: 'var(--primary)' },
           { label: 'NEMA Design', detail: 'Design A: normal torque, normal starting current. Design B: normal torque, low starting current (most common). Design C: high starting torque for hard-to-start loads. Design D: very high starting torque, high slip (crushers, hoists).', color: 'var(--primary)' },
-          { label: 'Insulation Class', detail: 'Class A: 105\u00B0C max. Class B: 130\u00B0C (most common). Class F: 155\u00B0C (common modern motors). Class H: 180\u00B0C (high temp applications, mining hoists). Class determines maximum allowable winding temperature.', color: 'var(--primary)' },
+          { label: 'Insulation Class', detail: 'Class A: 105\°C max. Class B: 130\°C (most common). Class F: 155\°C (common modern motors). Class H: 180\°C (high temp applications, mining hoists). Class determines maximum allowable winding temperature.', color: 'var(--primary)' },
           { label: 'Voltage / Connection', detail: 'Dual voltage: 230/460V. Low voltage = parallel (higher amps, lower voltage). High voltage = series (lower amps, higher voltage). Check connection diagram inside junction box. 9-lead or 12-lead configurations.', color: 'var(--primary)' },
           { label: 'Code Letter', detail: 'Indicates starting current (locked rotor kVA/HP). Code A = lowest starting current, Code V = highest. Affects branch circuit protection sizing. Most industrial motors are Code F to Code H.', color: 'var(--primary)' },
           { label: 'Efficiency / Premium', detail: 'IE1 (Standard), IE2 (High), IE3 (Premium), IE4 (Super Premium). Higher efficiency = lower operating cost. CEC requires minimum efficiency for most new installations.', color: 'var(--primary)' },
@@ -538,7 +538,7 @@ const toolsSections: TroubleshootingSection[] = [
             ['Brown', 'Phase A (IEC/import equip)', 'International equipment may use IEC colors: brown, black, grey for phases'],
           ],
         },
-        notes: 'CEC Rule 4-036: Identification of conductors. In mining, color coding is especially important for trailing cables and portable equipment. Always verify before connecting \u2014 previous workers may not have followed the code.',
+        notes: 'CEC Rule 4-036: Identification of conductors. In mining, color coding is especially important for trailing cables and portable equipment. Always verify before connecting \— previous workers may not have followed the code.',
       },
     ],
   },
@@ -551,7 +551,7 @@ const toolsSections: TroubleshootingSection[] = [
         subItems: [
           { label: 'Burning plastic / acrid smoke', detail: 'Wire insulation overheating or burning. IMMEDIATE fire hazard. De-energize immediately. Locate source: check panels, junction boxes, motors, and cable runs. Often caused by loose connections or overloaded circuits.', color: '#ff3c3c' },
           { label: 'Ozone (sharp, clean smell)', detail: 'Corona discharge or arcing. Common around high-voltage equipment. Can indicate insulation breakdown, loose connections, or tracking across dirty insulators. Inspect for carbon tracking on bus.', color: '#ff8c00' },
-          { label: 'Rotten eggs (sulfur)', detail: 'Overheated sulfur-based insulation (older equipment). Can also indicate battery issues (hydrogen sulfide from lead-acid). In mining: may also be naturally occurring H2S gas \u2014 check atmosphere.', color: '#ff3c3c' },
+          { label: 'Rotten eggs (sulfur)', detail: 'Overheated sulfur-based insulation (older equipment). Can also indicate battery issues (hydrogen sulfide from lead-acid). In mining: may also be naturally occurring H2S gas \— check atmosphere.', color: '#ff3c3c' },
           { label: 'Fish / seafood smell', detail: 'Overheated electrical components, particularly older capacitors, some wire insulation, and certain plastics. The off-gassing creates an amine compound that smells like fish. Check for hot components.', color: '#ff8c00' },
           { label: 'Hot oil / burnt transformer oil', detail: 'Transformer overheating. Could indicate overload, internal fault, blocked cooling, or low oil level. Check temperature gauges, oil level, and load. May need DGA test.', color: '#ff8c00' },
           { label: 'Metallic / electrical burning smell', detail: 'Arcing at contacts, motor brush wear, or welding contacts. Check contactors, motor brushes (if applicable), and any switching equipment. Usually accompanied by heat and possible discoloration.', color: '#ff8c00' },
@@ -566,7 +566,7 @@ const toolsSections: TroubleshootingSection[] = [
       {
         title: 'Infrared Camera Best Practices',
         subItems: [
-          { label: 'What to Look For', detail: 'Hot spots on connections, breakers, fuses, contactors, motors, transformers. Compare similar components under similar loads. A connection 10\u00B0C above its twin is suspect. 40\u00B0C above ambient = immediate action.', color: 'var(--primary)' },
+          { label: 'What to Look For', detail: 'Hot spots on connections, breakers, fuses, contactors, motors, transformers. Compare similar components under similar loads. A connection 10\°C above its twin is suspect. 40\°C above ambient = immediate action.', color: 'var(--primary)' },
           { label: 'Emissivity Settings', detail: 'Bare copper: ~0.07 (very low, hard to measure). Oxidized copper: ~0.65. Painted surfaces: ~0.95. Electrical tape (black): ~0.95. For accurate readings, apply a patch of electrical tape and measure it.', color: 'var(--primary)' },
           { label: 'Comparison Method', detail: 'Scan all three phases of the same circuit. They should be similar temperature at similar loads. A phase that is significantly hotter indicates a problem on that phase (loose connection, overload, imbalance).', color: 'var(--primary)' },
           { label: 'Common Findings in Mining', detail: 'Loose bus connections (vibration). Overloaded trailing cable connectors. Motor bearing housings (hot bearing vs cool bearing). VFD heatsinks with blocked airflow. Undersized or corroded ground connections.', color: '#ff8c00' },
@@ -600,10 +600,10 @@ const toolsSections: TroubleshootingSection[] = [
 /* ------------------------------------------------------------------ */
 
 const tabs: { key: TabKey; label: string; icon: string }[] = [
-  { key: 'motors', label: 'Motors', icon: '\u2699' },
-  { key: 'controls', label: 'Controls', icon: '\u229E' },
-  { key: 'power', label: 'Power', icon: '\u26A1' },
-  { key: 'grounding', label: 'Grounding', icon: '\u23DA' },
+  { key: 'motors', label: 'Motors', icon: '\⚙' },
+  { key: 'controls', label: 'Controls', icon: '\⊞' },
+  { key: 'power', label: 'Power', icon: '\⚡' },
+  { key: 'grounding', label: 'Grounding', icon: '\⏚' },
   { key: 'tools', label: 'Tools & Tips', icon: '\uD83D\uDD27' },
 ]
 
@@ -698,13 +698,13 @@ function CollapsibleCard({ item }: { item: TroubleshootingItem }) {
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, flex: 1, minWidth: 0 }}>
           {item.severity === 'critical' && (
-            <span style={{ color: '#ff3c3c', fontSize: 16, flexShrink: 0 }}>{'\u26A0'}</span>
+            <span style={{ color: '#ff3c3c', fontSize: 16, flexShrink: 0 }}>{'\⚠'}</span>
           )}
           {item.severity === 'warning' && (
-            <span style={{ color: '#ff8c00', fontSize: 16, flexShrink: 0 }}>{'\u25B2'}</span>
+            <span style={{ color: '#ff8c00', fontSize: 16, flexShrink: 0 }}>{'\▲'}</span>
           )}
           {item.severity === 'info' && (
-            <span style={{ color: 'var(--primary)', fontSize: 16, flexShrink: 0 }}>{'\u2139'}</span>
+            <span style={{ color: 'var(--primary)', fontSize: 16, flexShrink: 0 }}>{'\ℹ'}</span>
           )}
           <span style={{ fontSize: 15, fontWeight: 700, lineHeight: 1.3 }}>{item.title}</span>
         </div>
@@ -847,7 +847,7 @@ function CollapsibleCard({ item }: { item: TroubleshootingItem }) {
               <strong style={{
                 color: item.severity === 'critical' ? '#ff3c3c' : 'var(--primary)',
               }}>
-                {item.severity === 'critical' ? '\u26A0 CRITICAL: ' : '\u2139 Note: '}
+                {item.severity === 'critical' ? '\⚠ CRITICAL: ' : '\ℹ Note: '}
               </strong>
               {item.notes}
             </div>
@@ -898,7 +898,7 @@ function VoltageUnbalanceCalc() {
       statusColor = '#ff8c00'
     } else {
       status = 'bad'
-      statusLabel = 'CRITICAL \u2014 Do Not Run Motors'
+      statusLabel = 'CRITICAL \— Do Not Run Motors'
       statusColor = '#ff3c3c'
     }
   }
@@ -926,7 +926,7 @@ function VoltageUnbalanceCalc() {
       gap: 12,
     }}>
       <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--primary)' }}>
-        {'\u26A1'} Voltage Unbalance Calculator
+        {'\⚡'} Voltage Unbalance Calculator
       </div>
       <div style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.5 }}>
         Enter your three phase-to-phase voltage readings:
@@ -1154,19 +1154,19 @@ export default function TroubleshootingPage() {
           lineHeight: 1.6,
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-            <span style={{ color: '#ff3c3c', fontSize: 14 }}>{'\u26A0'}</span>
+            <span style={{ color: '#ff3c3c', fontSize: 14 }}>{'\⚠'}</span>
             <span><strong>Critical</strong> &mdash; safety hazard or immediate damage risk</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-            <span style={{ color: '#ff8c00', fontSize: 14 }}>{'\u25B2'}</span>
+            <span style={{ color: '#ff8c00', fontSize: 14 }}>{'\▲'}</span>
             <span><strong>Warning</strong> &mdash; common failure point, proceed carefully</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-            <span style={{ color: 'var(--primary)', fontSize: 14 }}>{'\u2139'}</span>
+            <span style={{ color: 'var(--primary)', fontSize: 14 }}>{'\ℹ'}</span>
             <span><strong>Info</strong> &mdash; key reference or procedure</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <span style={{ color: '#4caf50', fontSize: 14 }}>{'\u25CF'}</span>
+            <span style={{ color: '#4caf50', fontSize: 14 }}>{'\●'}</span>
             <span><strong>Solution</strong> &mdash; resolution or fix</span>
           </div>
         </div>

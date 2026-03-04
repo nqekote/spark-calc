@@ -95,25 +95,25 @@ const mineEquipment: MineEquipment[] = [
 const formulas: Formula[] = [
   {
     name: 'Motor FLA (3-Phase)',
-    formula: 'FLA = HP × 746 / (V × \u221A3 × PF × Eff)',
+    formula: 'FLA = HP × 746 / (V × \√3 × PF × Eff)',
     description: 'Calculate full load amps for a 3-phase motor',
     example: '100HP @ 575V, PF=0.85, Eff=0.92: FLA = 100×746/(575×1.732×0.85×0.92) = 96.2A',
   },
   {
     name: 'Voltage Drop',
     formula: 'VD = (2 × L × I × R) / 1000',
-    description: 'Voltage drop in single conductor cable. L in metres, R in \u03A9/km',
-    example: '200m run, 95A, #1/0 Cu (0.397 \u03A9/km): VD = 2×200×95×0.397/1000 = 15.1V (2.6%)',
+    description: 'Voltage drop in single conductor cable. L in metres, R in \Ω/km',
+    example: '200m run, 95A, #1/0 Cu (0.397 \Ω/km): VD = 2×200×95×0.397/1000 = 15.1V (2.6%)',
   },
   {
     name: 'Transformer Sizing',
-    formula: 'kVA = (V × I × \u221A3) / 1000',
+    formula: 'kVA = (V × I × \√3) / 1000',
     description: 'Required transformer kVA for known load',
     example: '575V, 500A load: kVA = 575×500×1.732/1000 = 498 kVA → use 500 kVA',
   },
   {
     name: 'Short Circuit (Approx)',
-    formula: 'Isc = kVA × 1000 / (V × \u221A3 × Z%)',
+    formula: 'Isc = kVA × 1000 / (V × \√3 × Z%)',
     description: 'Approximate available fault current at transformer secondary',
     example: '1000 kVA, 575V, 5.75% Z: Isc = 1000×1000/(575×1.732×0.0575) = 17,451A',
   },
@@ -131,7 +131,7 @@ const formulas: Formula[] = [
   },
   {
     name: 'Ground Fault Trip Time',
-    formula: 'Must trip \u2264 200ms at \u2264 100mA',
+    formula: 'Must trip \≤ 200ms at \≤ 100mA',
     description: 'Ontario mine regulation for ground fault protection on portable equipment',
     example: 'All trailing cable equipment and portable tools underground must have GFP meeting this spec',
   },
@@ -151,7 +151,7 @@ const troubleshootItems: TroubleshootItem[] = [
   {
     symptom: 'Ground fault alarm',
     causes: ['Damaged cable insulation', 'Water in junction box', 'Failed motor winding', 'Damaged connector', 'Insulation degradation over time'],
-    checks: ['Megger the cable (1M\u03A9/kV + 1M\u03A9 minimum)', 'Inspect all J-boxes for moisture', 'Megger motor windings phase-to-ground', 'Inspect all connectors and plugs', 'Check insulation resistance trend records'],
+    checks: ['Megger the cable (1M\Ω/kV + 1M\Ω minimum)', 'Inspect all J-boxes for moisture', 'Megger motor windings phase-to-ground', 'Inspect all connectors and plugs', 'Check insulation resistance trend records'],
   },
   {
     symptom: 'Breaker trips repeatedly',
@@ -357,14 +357,14 @@ export default function MinePowerPage() {
                     minHeight: 56,
                   }}>
                     <span style={{ fontSize: 15, fontWeight: 700, color: 'var(--text)', textAlign: 'left' }}>
-                      {'\u26A0\uFE0F'} {item.symptom}
+                      {'\⚠\uFE0F'} {item.symptom}
                     </span>
                     <span style={{
                       color: 'var(--text-secondary)', fontSize: 20,
                       transform: isExpanded ? 'rotate(180deg)' : 'none',
                       transition: 'transform .2s',
                     }}>
-                      {'\u25BC'}
+                      {'\▼'}
                     </span>
                   </button>
                   {isExpanded && (
@@ -377,7 +377,7 @@ export default function MinePowerPage() {
                           fontSize: 14, color: 'var(--text-secondary)', padding: '4px 0',
                           paddingLeft: 16, position: 'relative', lineHeight: 1.4,
                         }}>
-                          <span style={{ position: 'absolute', left: 0, color: '#ff3c3c' }}>{'\u2022'}</span>
+                          <span style={{ position: 'absolute', left: 0, color: '#ff3c3c' }}>{'\•'}</span>
                           {c}
                         </div>
                       ))}

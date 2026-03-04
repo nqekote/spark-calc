@@ -25,24 +25,24 @@ const circuits: CircuitInfo[] = [
     name: '2-Wire Control',
     schematic:
 `  L1                          L2
-  \u2502                           \u2502
-  \u251C\u2500\u2500\u2500[ DISC ]\u2500\u2500\u2500\u252C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524
-  \u2502               \u2502         \u2502
-  \u2502          [ OL HTR ]     \u2502
-  \u2502               \u2502         \u2502
-  \u2502        \u250C\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2510  \u2502
-  \u2502        \u2502   MOTOR   \u2502  \u2502
-  \u2502        \u2514\u2500\u2500\u2500\u2500\u2500\u252C\u2500\u2500\u2500\u2500\u2500\u2518  \u2502
-  \u2502              \u2502         \u2502
-  \u2502  Control:    \u2502         \u2502
-  \u2502              \u2502         \u2502
-  \u251C\u2500[ Float SW ]\u2500\u2524         \u2502
-  \u2502    (S1)      \u2502         \u2502
-  \u251C\u2500[ OL NC  ]\u2500\u2500\u2524         \u2502
-  \u2502   (OL)       \u2502         \u2502
-  \u251C\u2500\u2500( M coil )\u2500\u2500\u253C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518
-  \u2502              \u2502
-  \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518`,
+  \│                           \│
+  \├\─\─\─[ DISC ]\─\─\─\┬\─\─\─\─\─\─\─\─\─\┤
+  \│               \│         \│
+  \│          [ OL HTR ]     \│
+  \│               \│         \│
+  \│        \┌\─\─\─\─\─\┴\─\─\─\─\─\┐  \│
+  \│        \│   MOTOR   \│  \│
+  \│        \└\─\─\─\─\─\┬\─\─\─\─\─\┘  \│
+  \│              \│         \│
+  \│  Control:    \│         \│
+  \│              \│         \│
+  \├\─[ Float SW ]\─\┤         \│
+  \│    (S1)      \│         \│
+  \├\─[ OL NC  ]\─\─\┤         \│
+  \│   (OL)       \│         \│
+  \├\─\─( M coil )\─\─\┼\─\─\─\─\─\─\─\─\─\┘
+  \│              \│
+  \└\─\─\─\─\─\─\─\─\─\─\─\─\─\─\┘`,
     howItWorks: 'A maintained-contact device (float switch, pressure switch, thermostat) directly controls the contactor coil. When the switch closes, the coil energizes and the motor runs. When the switch opens, the motor stops. No seal-in contact needed because the pilot device stays closed.',
     keyComponents: ['Maintained-contact pilot device (float, pressure, thermostat)', 'Contactor (M)', 'Overload relay (OL)', 'Disconnect switch'],
     safetyInterlocks: ['Overload relay NC contact in series with coil', 'Disconnect switch upstream of all components', 'Motor will restart automatically when power returns — consider if this is safe for the application'],
@@ -52,21 +52,21 @@ const circuits: CircuitInfo[] = [
     name: '3-Wire Control',
     schematic:
 `  L1 (Hot)               L2 (Neutral)
-  \u2502                          \u2502
-  \u251C\u2500\u2500\u2500\u2500[ STOP NC ]\u2500\u2500\u2500\u252C\u2500\u2500\u2500\u2500\u2500\u2524
-  \u2502     (PB1)        \u2502     \u2502
-  \u2502                  \u2502     \u2502
-  \u251C\u2500\u2500[ START NO ]\u2500\u2500\u2524     \u2502
-  \u2502     (PB2)        \u2502     \u2502
-  \u2502                  \u2502     \u2502
-  \u2502  \u250C\u2500[ M aux NO ]\u2500\u2518     \u2502
-  \u2502  \u2502  (seal-in)        \u2502
-  \u2502  \u2502                   \u2502
-  \u251C\u2500\u2500\u2534\u2500[ OL NC ]\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524
-  \u2502      (OL)              \u2502
-  \u251C\u2500\u2500\u2500\u2500( M coil )\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518
-  \u2502
-  \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500`,
+  \│                          \│
+  \├\─\─\─\─[ STOP NC ]\─\─\─\┬\─\─\─\─\─\┤
+  \│     (PB1)        \│     \│
+  \│                  \│     \│
+  \├\─\─[ START NO ]\─\─\┤     \│
+  \│     (PB2)        \│     \│
+  \│                  \│     \│
+  \│  \┌\─[ M aux NO ]\─\┘     \│
+  \│  \│  (seal-in)        \│
+  \│  \│                   \│
+  \├\─\─\┴\─[ OL NC ]\─\─\─\─\─\─\─\┤
+  \│      (OL)              \│
+  \├\─\─\─\─( M coil )\─\─\─\─\─\─\─\┘
+  \│
+  \└\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─`,
     howItWorks: 'The most common motor starter circuit. Press START (NO pushbutton) to energize M coil. M auxiliary NO contact seals in parallel with START button, maintaining the circuit after START is released. Press STOP (NC pushbutton) to break the circuit and de-energize the coil. The seal-in drops out and motor stays off until START is pressed again. Motor does NOT restart after power loss (low-voltage protection).',
     keyComponents: ['STOP pushbutton (NC)', 'START pushbutton (NO)', 'Contactor (M) with auxiliary NO contact', 'Overload relay (OL)', 'Control transformer (if different control voltage)'],
     safetyInterlocks: ['OL NC contact in series — trips on motor overload', 'Low-voltage protection — motor won\'t auto-restart', 'STOP button is NC (fail-safe — broken wire stops motor)', 'E-stop can be wired in series with STOP'],
@@ -76,31 +76,31 @@ const circuits: CircuitInfo[] = [
     name: 'Forward / Reverse',
     schematic:
 `  L1                           L2
-  \u2502                             \u2502
-  \u251C\u2500\u2500\u2500[ STOP NC ]\u2500\u2500\u2500\u252C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524
-  \u2502    (PB1)         \u2502       \u2502
-  \u2502                  \u2502       \u2502
-  \u2502  Forward:        \u2502       \u2502
-  \u251C\u2500[ FWD NO ]\u2500\u2500\u252C\u2500\u2500\u2500\u2524       \u2502
-  \u2502  (PB2)     \u2502   \u2502       \u2502
-  \u2502  \u250C[F aux]\u2500\u2518   \u2502       \u2502
-  \u2502  \u2502 (seal)     \u2502       \u2502
-  \u251C\u2500\u2500\u2534\u2500[R NC]\u2500\u2500\u2500\u2500\u2524       \u2502
-  \u2502  (interlock)    \u2502       \u2502
-  \u251C\u2500\u2500\u2500[ OL NC ]\u2500\u2500\u2500\u2524       \u2502
-  \u251C\u2500\u2500( F coil )\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518
-  \u2502                             \u2502
-  \u2502  Reverse:                   \u2502
-  \u251C\u2500[ REV NO ]\u2500\u2500\u252C\u2500\u2500\u2500\u252C\u2500\u2500\u2500\u2500\u2500\u2500\u2524
-  \u2502  (PB3)     \u2502   \u2502       \u2502
-  \u2502  \u250C[R aux]\u2500\u2518   \u2502       \u2502
-  \u2502  \u2502 (seal)     \u2502       \u2502
-  \u251C\u2500\u2500\u2534\u2500[F NC]\u2500\u2500\u2500\u2500\u2524       \u2502
-  \u2502  (interlock)    \u2502       \u2502
-  \u251C\u2500\u2500\u2500[ OL NC ]\u2500\u2500\u2500\u2524       \u2502
-  \u251C\u2500\u2500( R coil )\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518
-  \u2502
-  \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500`,
+  \│                             \│
+  \├\─\─\─[ STOP NC ]\─\─\─\┬\─\─\─\─\─\─\─\┤
+  \│    (PB1)         \│       \│
+  \│                  \│       \│
+  \│  Forward:        \│       \│
+  \├\─[ FWD NO ]\─\─\┬\─\─\─\┤       \│
+  \│  (PB2)     \│   \│       \│
+  \│  \┌[F aux]\─\┘   \│       \│
+  \│  \│ (seal)     \│       \│
+  \├\─\─\┴\─[R NC]\─\─\─\─\┤       \│
+  \│  (interlock)    \│       \│
+  \├\─\─\─[ OL NC ]\─\─\─\┤       \│
+  \├\─\─( F coil )\─\─\─\┴\─\─\─\─\─\─\─\┘
+  \│                             \│
+  \│  Reverse:                   \│
+  \├\─[ REV NO ]\─\─\┬\─\─\─\┬\─\─\─\─\─\─\┤
+  \│  (PB3)     \│   \│       \│
+  \│  \┌[R aux]\─\┘   \│       \│
+  \│  \│ (seal)     \│       \│
+  \├\─\─\┴\─[F NC]\─\─\─\─\┤       \│
+  \│  (interlock)    \│       \│
+  \├\─\─\─[ OL NC ]\─\─\─\┤       \│
+  \├\─\─( R coil )\─\─\─\┴\─\─\─\─\─\─\─\┘
+  \│
+  \└\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─`,
     howItWorks: 'Two separate 3-wire circuits — one for Forward, one for Reverse. Each has its own seal-in contact. Electrical interlocks: a NC auxiliary contact from each contactor is wired in series with the opposite coil. This prevents both contactors from energizing simultaneously (which would cause a phase-to-phase short). Mechanical interlocking is also used as a backup. You must press STOP before changing direction.',
     keyComponents: ['STOP pushbutton (NC, shared)', 'FWD pushbutton (NO)', 'REV pushbutton (NO)', 'Forward contactor (F) with aux contacts', 'Reverse contactor (R) with aux contacts', 'Mechanical interlock between F and R', 'Overload relay (OL)'],
     safetyInterlocks: ['Electrical interlock: R NC in F circuit, F NC in R circuit', 'Mechanical interlock: physical linkage prevents both closing', 'Must press STOP before reversing (prevents arc flash)', 'OL protection on both directions', 'Consider adding time delay between directions for deceleration'],
@@ -110,25 +110,25 @@ const circuits: CircuitInfo[] = [
     name: 'Jog Circuit',
     schematic:
 `  L1                           L2
-  \u2502                             \u2502
-  \u251C\u2500\u2500\u2500\u2500[ STOP NC ]\u2500\u2500\u252C\u2500\u2500\u2500\u2500\u2500\u2500\u2524
-  \u2502     (PB1)       \u2502       \u2502
-  \u2502                 \u2502       \u2502
-  \u2502  Run path:      \u2502       \u2502
-  \u251C\u2500[ START NO ]\u2500\u2500\u2524       \u2502
-  \u2502    (PB2)        \u2502       \u2502
-  \u2502  \u250C[ M aux NO ]\u2500\u2518       \u2502
-  \u2502  \u2502  (seal-in)          \u2502
-  \u2502  \u2502                     \u2502
-  \u251C\u2500\u2500\u2534\u2500[ OL NC ]\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524
-  \u2502     (OL)                \u2502
-  \u251C\u2500\u2500\u2500( M coil )\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518
-  \u2502                         \u2502
-  \u2502  Jog path (bypasses      \u2502
-  \u2502  seal-in):               \u2502
-  \u251C\u2500\u2500[ JOG NO ]\u2500[ OL NC ]\u2500\u2524
-  \u2502    (PB3)                 \u2502
-  \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500`,
+  \│                             \│
+  \├\─\─\─\─[ STOP NC ]\─\─\┬\─\─\─\─\─\─\┤
+  \│     (PB1)       \│       \│
+  \│                 \│       \│
+  \│  Run path:      \│       \│
+  \├\─[ START NO ]\─\─\┤       \│
+  \│    (PB2)        \│       \│
+  \│  \┌[ M aux NO ]\─\┘       \│
+  \│  \│  (seal-in)          \│
+  \│  \│                     \│
+  \├\─\─\┴\─[ OL NC ]\─\─\─\─\─\─\─\┤
+  \│     (OL)                \│
+  \├\─\─\─( M coil )\─\─\─\─\─\─\─\─\┘
+  \│                         \│
+  \│  Jog path (bypasses      \│
+  \│  seal-in):               \│
+  \├\─\─[ JOG NO ]\─[ OL NC ]\─\┤
+  \│    (PB3)                 \│
+  \└\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─`,
     howItWorks: 'Combines standard 3-wire control with a JOG button. The JOG pushbutton energizes the M coil directly, bypassing the seal-in circuit. Motor runs only while JOG is held down. When released, the coil de-energizes because there is no seal-in path through the jog button. The normal START button still provides latched run operation through the seal-in contact.',
     keyComponents: ['STOP pushbutton (NC)', 'START pushbutton (NO)', 'JOG pushbutton (NO)', 'Contactor (M) with aux NO contact', 'Overload relay (OL)'],
     safetyInterlocks: ['JOG button bypasses seal-in only — OL protection still active', 'Motor only runs while JOG is held', 'STOP button still de-energizes everything', 'Some jog circuits use a JOG/RUN selector switch instead'],
@@ -138,31 +138,31 @@ const circuits: CircuitInfo[] = [
     name: 'Two-Speed (Dahlander)',
     schematic:
 `  L1                           L2
-  \u2502                             \u2502
-  \u251C\u2500\u2500\u2500\u2500[ STOP NC ]\u2500\u2500\u252C\u2500\u2500\u2500\u2500\u2500\u2524
-  \u2502     (PB1)       \u2502      \u2502
-  \u2502                 \u2502      \u2502
-  \u2502  Low Speed:     \u2502      \u2502
-  \u251C\u2500[ LOW NO ]\u2500\u2500\u2500\u2524      \u2502
-  \u2502   (PB2)        \u2502      \u2502
-  \u2502 \u250C[L aux NO]\u2500\u2500\u2518      \u2502
-  \u2502 \u2502 (seal)          \u2502
-  \u251C\u2500\u2534\u2500[H NC]\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524
-  \u2502  (interlock)        \u2502
-  \u251C\u2500\u2500[ OL NC ]\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524
-  \u251C\u2500( L coil )\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518
-  \u2502                      \u2502
-  \u2502  High Speed:         \u2502
-  \u251C\u2500[ HIGH NO ]\u2500\u252C\u2500\u2500\u2500\u2500\u2500\u2524
-  \u2502   (PB3)     \u2502      \u2502
-  \u2502 \u250C[H aux NO]\u2500\u2518      \u2502
-  \u2502 \u2502 (seal)          \u2502
-  \u251C\u2500\u2534\u2500[L NC]\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524
-  \u2502  (interlock)        \u2502
-  \u251C\u2500\u2500[ OL NC ]\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524
-  \u251C\u2500( H coil )\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518
-  \u2502
-  \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500`,
+  \│                             \│
+  \├\─\─\─\─[ STOP NC ]\─\─\┬\─\─\─\─\─\┤
+  \│     (PB1)       \│      \│
+  \│                 \│      \│
+  \│  Low Speed:     \│      \│
+  \├\─[ LOW NO ]\─\─\─\┤      \│
+  \│   (PB2)        \│      \│
+  \│ \┌[L aux NO]\─\─\┘      \│
+  \│ \│ (seal)          \│
+  \├\─\┴\─[H NC]\─\─\─\─\─\─\─\─\┤
+  \│  (interlock)        \│
+  \├\─\─[ OL NC ]\─\─\─\─\─\─\─\┤
+  \├\─( L coil )\─\─\─\─\─\─\─\┘
+  \│                      \│
+  \│  High Speed:         \│
+  \├\─[ HIGH NO ]\─\┬\─\─\─\─\─\┤
+  \│   (PB3)     \│      \│
+  \│ \┌[H aux NO]\─\┘      \│
+  \│ \│ (seal)          \│
+  \├\─\┴\─[L NC]\─\─\─\─\─\─\─\─\┤
+  \│  (interlock)        \│
+  \├\─\─[ OL NC ]\─\─\─\─\─\─\─\┤
+  \├\─( H coil )\─\─\─\─\─\─\─\┘
+  \│
+  \└\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─`,
     howItWorks: 'Dahlander motor has one winding that can be reconnected for two speeds (ratio of 2:1, e.g. 1800/900 RPM). Low-speed contactor (L) connects windings in series-delta. High-speed contactor (H) connects windings in parallel-star. Electrical interlocks prevent both speeds simultaneously. Separate starters with separate OL settings for each speed. Press STOP before switching speeds.',
     keyComponents: ['STOP pushbutton (NC, shared)', 'LOW speed pushbutton (NO)', 'HIGH speed pushbutton (NO)', 'Low-speed contactor (L)', 'High-speed contactor (H)', 'Star-point contactor (S) for high speed', 'Separate overload relays for each speed'],
     safetyInterlocks: ['Electrical interlock between L and H contactors', 'Mechanical interlock as backup', 'Separate OL relays sized for each speed\'s FLC', 'Time delay between speed changes recommended', 'Must stop before switching (or use compelling circuit)'],
@@ -172,32 +172,32 @@ const circuits: CircuitInfo[] = [
     name: 'Star-Delta Starter',
     schematic:
 `  L1                           L2
-  \u2502                             \u2502
-  \u251C\u2500\u2500\u2500[ STOP NC ]\u2500\u2500\u252C\u2500\u2500\u2500\u2500\u2500\u2524
-  \u2502    (PB1)        \u2502      \u2502
-  \u251C\u2500[ START NO ]\u2500\u2500\u2524      \u2502
-  \u2502    (PB2)        \u2502      \u2502
-  \u2502  \u250C[ M aux NO ]\u2500\u2518      \u2502
-  \u2502  \u2502  (seal)            \u2502
-  \u251C\u2500\u2500\u2534\u2500[ OL NC ]\u2500\u2500\u2500\u2500\u2500\u2500\u2524
-  \u2502                        \u2502
-  \u2502  Main contactor:       \u2502
-  \u251C\u2500\u2500( M coil )\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518
-  \u2502                        \u2502
-  \u2502  Star contactor:       \u2502
-  \u251C\u2500[D NC]\u2500( S coil )\u2500\u2500\u2500\u2524
-  \u2502 (intlk)               \u2502
-  \u2502                        \u2502
-  \u2502  Timer (on M energize):\u2502
-  \u251C\u2500[ M NO ]\u2500( TR coil )\u2500\u2524
-  \u2502                        \u2502
-  \u2502  Delta (after timer):  \u2502
-  \u251C\u2500[S NC]\u2500[TR NO]\u2500\u2500\u2500\u2500\u2500\u2524
-  \u2502 (intlk)(timed)        \u2502
-  \u251C\u2500\u2500( D coil )\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518
-  \u2502
-  \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500`,
-    howItWorks: 'Reduced-voltage starter. On START: Main contactor (M) and Star contactor (S) energize simultaneously. Motor windings are connected in Star (Y) configuration, receiving only 58% voltage (1/\u221A3). Timer (TR) starts counting. After preset time (typically 5-15 seconds), timer contact closes, S drops out and Delta contactor (D) energizes. Motor now runs at full voltage in Delta. Starting current is reduced to 33% of DOL (direct-on-line) starting current.',
+  \│                             \│
+  \├\─\─\─[ STOP NC ]\─\─\┬\─\─\─\─\─\┤
+  \│    (PB1)        \│      \│
+  \├\─[ START NO ]\─\─\┤      \│
+  \│    (PB2)        \│      \│
+  \│  \┌[ M aux NO ]\─\┘      \│
+  \│  \│  (seal)            \│
+  \├\─\─\┴\─[ OL NC ]\─\─\─\─\─\─\┤
+  \│                        \│
+  \│  Main contactor:       \│
+  \├\─\─( M coil )\─\─\─\─\─\─\─\─\┘
+  \│                        \│
+  \│  Star contactor:       \│
+  \├\─[D NC]\─( S coil )\─\─\─\┤
+  \│ (intlk)               \│
+  \│                        \│
+  \│  Timer (on M energize):\│
+  \├\─[ M NO ]\─( TR coil )\─\┤
+  \│                        \│
+  \│  Delta (after timer):  \│
+  \├\─[S NC]\─[TR NO]\─\─\─\─\─\┤
+  \│ (intlk)(timed)        \│
+  \├\─\─( D coil )\─\─\─\─\─\─\─\─\┘
+  \│
+  \└\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─`,
+    howItWorks: 'Reduced-voltage starter. On START: Main contactor (M) and Star contactor (S) energize simultaneously. Motor windings are connected in Star (Y) configuration, receiving only 58% voltage (1/\√3). Timer (TR) starts counting. After preset time (typically 5-15 seconds), timer contact closes, S drops out and Delta contactor (D) energizes. Motor now runs at full voltage in Delta. Starting current is reduced to 33% of DOL (direct-on-line) starting current.',
     keyComponents: ['Main contactor (M) - stays closed during run', 'Star contactor (S) - closed during start only', 'Delta contactor (D) - closed during run', 'Star-Delta timer (TR)', 'Overload relay (OL)', 'STOP/START pushbuttons'],
     safetyInterlocks: ['Electrical interlock between S and D (never both on)', 'Mechanical interlock between S and D', 'OL relay sized for motor FLC in delta', 'Timer prevents premature transition', 'Open-transition: brief power interruption during changeover (causes current transient)'],
     miningApps: ['Large pump motors (50+ HP)', 'Compressor motors', 'Crusher drives (where reduced starting torque is acceptable)', 'Fan motors', 'Any application where utility requires reduced inrush'],
@@ -206,34 +206,34 @@ const circuits: CircuitInfo[] = [
     name: 'Auto-Transformer Starter',
     schematic:
 `  L1                           L2
-  \u2502                             \u2502
-  \u251C\u2500\u2500\u2500[ STOP NC ]\u2500\u2500\u252C\u2500\u2500\u2500\u2500\u2500\u2524
-  \u2502    (PB1)        \u2502      \u2502
-  \u251C\u2500[ START NO ]\u2500\u2500\u2524      \u2502
-  \u2502    (PB2)        \u2502      \u2502
-  \u2502  \u250C[ M aux NO ]\u2500\u2518      \u2502
-  \u2502  \u2502  (seal)            \u2502
-  \u251C\u2500\u2500\u2534\u2500[ OL NC ]\u2500\u2500\u2500\u2500\u2500\u2500\u2524
-  \u2502                        \u2502
-  \u2502  Start sequence:       \u2502
-  \u251C\u2500( S coil )\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524
-  \u2502  (start contactor)    \u2502
-  \u2502                        \u2502
-  \u2502  S energizes auto-xfmr \u2502
-  \u2502  Motor gets 65% or 80% \u2502
-  \u2502  voltage via taps      \u2502
-  \u2502                        \u2502
-  \u2502  Timer:                \u2502
-  \u251C\u2500[ S NO ]\u2500( TR coil )\u2500\u2524
-  \u2502                        \u2502
-  \u2502  Run (after timer):    \u2502
-  \u251C\u2500[ TR NO ]\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524
-  \u2502 (timed close)         \u2502
-  \u251C\u2500( R coil )\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524
-  \u2502  (run contactor)      \u2502
-  \u2502  R drops S out, motor  \u2502
-  \u2502  now on full voltage   \u2502
-  \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500`,
+  \│                             \│
+  \├\─\─\─[ STOP NC ]\─\─\┬\─\─\─\─\─\┤
+  \│    (PB1)        \│      \│
+  \├\─[ START NO ]\─\─\┤      \│
+  \│    (PB2)        \│      \│
+  \│  \┌[ M aux NO ]\─\┘      \│
+  \│  \│  (seal)            \│
+  \├\─\─\┴\─[ OL NC ]\─\─\─\─\─\─\┤
+  \│                        \│
+  \│  Start sequence:       \│
+  \├\─( S coil )\─\─\─\─\─\─\─\─\─\┤
+  \│  (start contactor)    \│
+  \│                        \│
+  \│  S energizes auto-xfmr \│
+  \│  Motor gets 65% or 80% \│
+  \│  voltage via taps      \│
+  \│                        \│
+  \│  Timer:                \│
+  \├\─[ S NO ]\─( TR coil )\─\┤
+  \│                        \│
+  \│  Run (after timer):    \│
+  \├\─[ TR NO ]\─\─\─\─\─\─\─\─\─\─\┤
+  \│ (timed close)         \│
+  \├\─( R coil )\─\─\─\─\─\─\─\─\─\┤
+  \│  (run contactor)      \│
+  \│  R drops S out, motor  \│
+  \│  now on full voltage   \│
+  \└\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─\─`,
     howItWorks: 'An auto-transformer provides reduced voltage to the motor during starting. Common taps: 65%, 80% of line voltage. On START: Start contactor (S) energizes, connecting motor to auto-transformer taps. Timer starts. After preset time, Run contactor (R) energizes, bypassing the transformer and applying full voltage. S drops out. Provides more starting torque than Star-Delta at the same reduced current because voltage reduction is adjustable via taps.',
     keyComponents: ['Auto-transformer (3-phase, with 65%/80% taps)', 'Start contactor (S)', 'Run contactor (R)', 'Transition timer (TR)', 'Overload relay (OL)', 'STOP/START pushbuttons'],
     safetyInterlocks: ['Interlock between S and R contactors', 'OL sized for full-voltage FLC', 'Timer prevents premature transition', 'Closed-transition type preferred (Korndorfer) to avoid current spike', 'Thermal protection on auto-transformer windings'],
@@ -261,40 +261,40 @@ const symbolGroups: SymbolGroup[] = [
   {
     title: 'Contacts',
     entries: [
-      { symbol: '\u2500\u2502 \u2502\u2500', abbr: 'NO', name: 'Normally Open', description: 'Open when de-energized, closes when coil energizes. IEC terminals: 13-14 (first NO), 23-24 (second NO).' },
-      { symbol: '\u2500\u2572\u2571\u2500', abbr: 'NC', name: 'Normally Closed', description: 'Closed when de-energized, opens when coil energizes. IEC terminals: 11-12 (first NC), 21-22 (second NC).' },
-      { symbol: '\u2500\u2502\u25D7\u2502\u2500', abbr: 'NOTC', name: 'Timed-Close (NO)', description: 'NO contact with time delay on closing (on-delay). Opens instantly when de-energized.' },
-      { symbol: '\u2500\u2572\u25D7\u2571\u2500', abbr: 'NCTO', name: 'Timed-Open (NC)', description: 'NC contact with time delay on opening (on-delay). Closes instantly when de-energized.' },
+      { symbol: '\─\│ \│\─', abbr: 'NO', name: 'Normally Open', description: 'Open when de-energized, closes when coil energizes. IEC terminals: 13-14 (first NO), 23-24 (second NO).' },
+      { symbol: '\─\╲\╱\─', abbr: 'NC', name: 'Normally Closed', description: 'Closed when de-energized, opens when coil energizes. IEC terminals: 11-12 (first NC), 21-22 (second NC).' },
+      { symbol: '\─\│\◗\│\─', abbr: 'NOTC', name: 'Timed-Close (NO)', description: 'NO contact with time delay on closing (on-delay). Opens instantly when de-energized.' },
+      { symbol: '\─\╲\◗\╱\─', abbr: 'NCTO', name: 'Timed-Open (NC)', description: 'NC contact with time delay on opening (on-delay). Closes instantly when de-energized.' },
     ],
   },
   {
     title: 'Coils',
     entries: [
-      { symbol: '\u2500( )\u2500', abbr: 'CR', name: 'Control Relay', description: 'General-purpose relay coil. Energizes relay contacts throughout the circuit.' },
-      { symbol: '\u2500(M)\u2500', abbr: 'M', name: 'Contactor Coil', description: 'Motor contactor coil. Controls main power contacts for motor starting.' },
-      { symbol: '\u2500(S)\u2500', abbr: 'SOL', name: 'Solenoid', description: 'Solenoid valve or solenoid-operated device. Linear actuator.' },
-      { symbol: '\u2500(TR)\u2500', abbr: 'TR', name: 'Timer Coil', description: 'Timing relay coil. Starts timing sequence when energized.' },
+      { symbol: '\─( )\─', abbr: 'CR', name: 'Control Relay', description: 'General-purpose relay coil. Energizes relay contacts throughout the circuit.' },
+      { symbol: '\─(M)\─', abbr: 'M', name: 'Contactor Coil', description: 'Motor contactor coil. Controls main power contacts for motor starting.' },
+      { symbol: '\─(S)\─', abbr: 'SOL', name: 'Solenoid', description: 'Solenoid valve or solenoid-operated device. Linear actuator.' },
+      { symbol: '\─(TR)\─', abbr: 'TR', name: 'Timer Coil', description: 'Timing relay coil. Starts timing sequence when energized.' },
     ],
   },
   {
     title: 'Pilot Devices',
     entries: [
-      { symbol: '\u2500\u2502\u25CB\u2502\u2500', abbr: 'PB-NO', name: 'Pushbutton (NO)', description: 'Momentary normally-open pushbutton. Spring-return. Green = START.' },
-      { symbol: '\u2500\u2572\u25CB\u2571\u2500', abbr: 'PB-NC', name: 'Pushbutton (NC)', description: 'Momentary normally-closed pushbutton. Spring-return. Red = STOP.' },
-      { symbol: '\u2500\u25CB/\u2500', abbr: 'SS2', name: 'Selector Switch (2-pos)', description: 'Two-position maintained selector switch. HAND/OFF or ON/OFF.' },
-      { symbol: '\u2500\u25CB/\\/\u2500', abbr: 'SS3', name: 'Selector Switch (3-pos)', description: 'Three-position selector: HAND/OFF/AUTO. Most common in mining.' },
-      { symbol: '\u2500\u25C9\u2500', abbr: 'PL', name: 'Pilot Light', description: 'Indicator lamp. Red=running/danger, Green=stopped/safe, Amber=warning.' },
-      { symbol: '\u2500[\u25CB]\u2500', abbr: 'E-STOP', name: 'E-Stop (Mushroom)', description: 'Emergency stop. Red mushroom head, NC contact, latching (pull-to-release or twist-to-release). Yellow background.' },
+      { symbol: '\─\│\○\│\─', abbr: 'PB-NO', name: 'Pushbutton (NO)', description: 'Momentary normally-open pushbutton. Spring-return. Green = START.' },
+      { symbol: '\─\╲\○\╱\─', abbr: 'PB-NC', name: 'Pushbutton (NC)', description: 'Momentary normally-closed pushbutton. Spring-return. Red = STOP.' },
+      { symbol: '\─\○/\─', abbr: 'SS2', name: 'Selector Switch (2-pos)', description: 'Two-position maintained selector switch. HAND/OFF or ON/OFF.' },
+      { symbol: '\─\○/\\/\─', abbr: 'SS3', name: 'Selector Switch (3-pos)', description: 'Three-position selector: HAND/OFF/AUTO. Most common in mining.' },
+      { symbol: '\─\◉\─', abbr: 'PL', name: 'Pilot Light', description: 'Indicator lamp. Red=running/danger, Green=stopped/safe, Amber=warning.' },
+      { symbol: '\─[\○]\─', abbr: 'E-STOP', name: 'E-Stop (Mushroom)', description: 'Emergency stop. Red mushroom head, NC contact, latching (pull-to-release or twist-to-release). Yellow background.' },
     ],
   },
   {
     title: 'Protection',
     entries: [
-      { symbol: '\u2500[OL]\u2500', abbr: 'OL', name: 'Overload Relay', description: 'Thermal or electronic overload relay. Protects motor from sustained overcurrent. Trips OL NC contact.' },
-      { symbol: '\u2500[OL-E]\u2500', abbr: 'OL-E', name: 'Electronic Overload', description: 'Electronic (solid-state) overload. Adjustable trip class, phase-loss protection, ground fault.' },
-      { symbol: '\u2500\u253C\u2500', abbr: 'FU', name: 'Fuse', description: 'Overcurrent protection. One-time or renewable. Sized per CEC tables.' },
-      { symbol: '\u2500[CB]\u2500', abbr: 'CB', name: 'Circuit Breaker', description: 'Resettable overcurrent protection. Thermal-magnetic or electronic trip.' },
-      { symbol: '\u2500[DISC]\u2500', abbr: 'DISC', name: 'Disconnect', description: 'Disconnect switch. Provides visible break for lockout/tagout. May be fused or non-fused.' },
+      { symbol: '\─[OL]\─', abbr: 'OL', name: 'Overload Relay', description: 'Thermal or electronic overload relay. Protects motor from sustained overcurrent. Trips OL NC contact.' },
+      { symbol: '\─[OL-E]\─', abbr: 'OL-E', name: 'Electronic Overload', description: 'Electronic (solid-state) overload. Adjustable trip class, phase-loss protection, ground fault.' },
+      { symbol: '\─\┼\─', abbr: 'FU', name: 'Fuse', description: 'Overcurrent protection. One-time or renewable. Sized per CEC tables.' },
+      { symbol: '\─[CB]\─', abbr: 'CB', name: 'Circuit Breaker', description: 'Resettable overcurrent protection. Thermal-magnetic or electronic trip.' },
+      { symbol: '\─[DISC]\─', abbr: 'DISC', name: 'Disconnect', description: 'Disconnect switch. Provides visible break for lockout/tagout. May be fused or non-fused.' },
     ],
   },
   {
@@ -308,14 +308,14 @@ const symbolGroups: SymbolGroup[] = [
   {
     title: 'Sensors',
     entries: [
-      { symbol: '\u2500[|]]\u2500', abbr: 'PROX-I', name: 'Proximity (Inductive)', description: 'Detects metal objects without contact. Common for position sensing on conveyors, hoists.' },
-      { symbol: '\u2500[||]]\u2500', abbr: 'PROX-C', name: 'Proximity (Capacitive)', description: 'Detects metal and non-metal objects. Used for level sensing through vessel walls.' },
-      { symbol: '\u2500[>]\u2500', abbr: 'PE', name: 'Photoelectric', description: 'Light beam detection. Through-beam, retro-reflective, or diffuse. Conveyor presence detection.' },
-      { symbol: '\u2500/\u2502\u2500', abbr: 'LS', name: 'Limit Switch', description: 'Mechanical contact actuated by equipment movement. Roller lever, plunger, or wobble stick.' },
-      { symbol: '\u2500[P]\u2500', abbr: 'PS', name: 'Pressure Switch', description: 'Opens/closes contacts based on pressure setpoint. Used for compressors, hydraulic systems.' },
-      { symbol: '\u2500[F]\u2500', abbr: 'FS', name: 'Flow Switch', description: 'Detects fluid flow above/below setpoint. Paddle or thermal type. Cooling water verification.' },
-      { symbol: '\u2500[L]\u2500', abbr: 'LVS', name: 'Level Switch', description: 'Detects liquid or solid material level. Float, capacitive, or ultrasonic. Sump level control.' },
-      { symbol: '\u2500[T]\u2500', abbr: 'TS', name: 'Temperature Switch', description: 'Opens/closes at temperature setpoint. Bimetallic, RTD, or thermocouple input. Motor bearing monitoring.' },
+      { symbol: '\─[|]]\─', abbr: 'PROX-I', name: 'Proximity (Inductive)', description: 'Detects metal objects without contact. Common for position sensing on conveyors, hoists.' },
+      { symbol: '\─[||]]\─', abbr: 'PROX-C', name: 'Proximity (Capacitive)', description: 'Detects metal and non-metal objects. Used for level sensing through vessel walls.' },
+      { symbol: '\─[>]\─', abbr: 'PE', name: 'Photoelectric', description: 'Light beam detection. Through-beam, retro-reflective, or diffuse. Conveyor presence detection.' },
+      { symbol: '\─/\│\─', abbr: 'LS', name: 'Limit Switch', description: 'Mechanical contact actuated by equipment movement. Roller lever, plunger, or wobble stick.' },
+      { symbol: '\─[P]\─', abbr: 'PS', name: 'Pressure Switch', description: 'Opens/closes contacts based on pressure setpoint. Used for compressors, hydraulic systems.' },
+      { symbol: '\─[F]\─', abbr: 'FS', name: 'Flow Switch', description: 'Detects fluid flow above/below setpoint. Paddle or thermal type. Cooling water verification.' },
+      { symbol: '\─[L]\─', abbr: 'LVS', name: 'Level Switch', description: 'Detects liquid or solid material level. Float, capacitive, or ultrasonic. Sump level control.' },
+      { symbol: '\─[T]\─', abbr: 'TS', name: 'Temperature Switch', description: 'Opens/closes at temperature setpoint. Bimetallic, RTD, or thermocouple input. Motor bearing monitoring.' },
     ],
   },
 ]
@@ -356,7 +356,7 @@ const disconnectSections: DisconnectSection[] = [
     content: [
       'All-in-one unit: disconnect + fuses + contactor + overload relay in one enclosure.',
       'Door interlock: disconnect must be OFF to open door. Defeat mechanism for qualified personnel only.',
-      'Wiring order (top to bottom): Line power in \u2192 Fuses \u2192 Contactor \u2192 Overload \u2192 Motor out.',
+      'Wiring order (top to bottom): Line power in \→ Fuses \→ Contactor \→ Overload \→ Motor out.',
       'Control transformer usually mounted inside, fed from line side.',
       'Auxiliary contacts available on contactor for control circuit and indication.',
       'NEMA ratings: NEMA 1 (indoor), NEMA 3R (outdoor rain-tight), NEMA 4X (washdown), NEMA 7/9 (hazardous).',
@@ -400,7 +400,7 @@ const disconnectSections: DisconnectSection[] = [
       'Must be rated in HP at the circuit voltage, or in amperes at 115% or more of motor FLC.',
       'Common sizes: 30A, 60A, 100A, 200A, 400A, 600A.',
       'For 600V 3-phase motors, HP rating must match or exceed motor HP.',
-      'If no HP rating on disconnect, use ampere rating \u2265 115% of motor FLC.',
+      'If no HP rating on disconnect, use ampere rating \≥ 115% of motor FLC.',
       'For multiple motors: disconnect rated for sum of all motor FLCs, or largest motor HP (whichever is larger).',
       'ALWAYS check both HP rating AND ampere rating — both must be adequate.',
     ],
@@ -451,11 +451,11 @@ interface TimerType {
 }
 
 const timerTypes: TimerType[] = [
-  { name: 'On-Delay Timer', abbr: 'TON', description: 'Output turns ON after a preset time delay. Resets instantly when de-energized.', behavior: 'Energize coil \u2192 wait \u2192 contacts change. De-energize \u2192 instant reset.' },
-  { name: 'Off-Delay Timer', abbr: 'TOF', description: 'Output turns OFF after a preset time delay. Activates instantly when energized.', behavior: 'Energize coil \u2192 contacts change instantly. De-energize \u2192 wait \u2192 contacts reset.' },
-  { name: 'One-Shot Timer', abbr: 'TPULSE', description: 'Produces a single timed pulse when triggered. Output ON for preset duration then OFF.', behavior: 'Trigger \u2192 output ON for set time \u2192 auto OFF. Will not re-trigger until complete.' },
-  { name: 'Repeat Cycle', abbr: 'TCYCLE', description: 'Alternates ON/OFF continuously. Adjustable ON time and OFF time.', behavior: 'ON for T1 \u2192 OFF for T2 \u2192 repeat. Used for flashers, periodic pumping.' },
-  { name: 'Star-Delta Timer', abbr: 'TSD', description: 'Specialized timer for Star-Delta motor starting. Pre-programmed sequence.', behavior: 'Start \u2192 Star mode for T1 \u2192 open transition gap \u2192 Delta mode.' },
+  { name: 'On-Delay Timer', abbr: 'TON', description: 'Output turns ON after a preset time delay. Resets instantly when de-energized.', behavior: 'Energize coil \→ wait \→ contacts change. De-energize \→ instant reset.' },
+  { name: 'Off-Delay Timer', abbr: 'TOF', description: 'Output turns OFF after a preset time delay. Activates instantly when energized.', behavior: 'Energize coil \→ contacts change instantly. De-energize \→ wait \→ contacts reset.' },
+  { name: 'One-Shot Timer', abbr: 'TPULSE', description: 'Produces a single timed pulse when triggered. Output ON for preset duration then OFF.', behavior: 'Trigger \→ output ON for set time \→ auto OFF. Will not re-trigger until complete.' },
+  { name: 'Repeat Cycle', abbr: 'TCYCLE', description: 'Alternates ON/OFF continuously. Adjustable ON time and OFF time.', behavior: 'ON for T1 \→ OFF for T2 \→ repeat. Used for flashers, periodic pumping.' },
+  { name: 'Star-Delta Timer', abbr: 'TSD', description: 'Specialized timer for Star-Delta motor starting. Pre-programmed sequence.', behavior: 'Start \→ Star mode for T1 \→ open transition gap \→ Delta mode.' },
 ]
 
 interface RelayType {
@@ -520,11 +520,11 @@ const safetyRelayConfigs: SafetyRelayConfig[] = [
     brand: 'Pilz PNOZ / AB Guardmaster',
     description: 'Two NC contacts from E-stop button wired to separate input channels (S11-S12, S21-S22). Relay monitors both channels for simultaneous opening.',
     wiring: [
-      'Channel 1: E-stop NC1 \u2192 S11 input',
-      'Channel 2: E-stop NC2 \u2192 S21 input',
-      'Feedback: Y1/Y2 from monitored contactors \u2192 feedback input',
+      'Channel 1: E-stop NC1 \→ S11 input',
+      'Channel 2: E-stop NC2 \→ S21 input',
+      'Feedback: Y1/Y2 from monitored contactors \→ feedback input',
       'Reset: manual reset button to S33-S34 (after E-stop released)',
-      'Outputs: safety contacts (13-14, 23-24) \u2192 contactor coils',
+      'Outputs: safety contacts (13-14, 23-24) \→ contactor coils',
     ],
   },
   {
@@ -532,8 +532,8 @@ const safetyRelayConfigs: SafetyRelayConfig[] = [
     brand: 'Pilz PNOZ / AB Guardmaster',
     description: 'OSSD (Output Signal Switching Device) outputs from light curtain to safety relay inputs. Dual-channel pulsed signal.',
     wiring: [
-      'OSSD1 \u2192 Safety relay input channel 1',
-      'OSSD2 \u2192 Safety relay input channel 2',
+      'OSSD1 \→ Safety relay input channel 1',
+      'OSSD2 \→ Safety relay input channel 2',
       'Feedback loop from external contactors',
       'Auto-reset or manual reset depending on application risk assessment',
       'Muting sensors if needed for material pass-through',
@@ -544,8 +544,8 @@ const safetyRelayConfigs: SafetyRelayConfig[] = [
     brand: 'Pilz PNOZ / AB Guardmaster',
     description: 'Coded magnetic or tongue interlock switch provides dual NC contacts. Machine stops when gate opens.',
     wiring: [
-      'Switch NC1 \u2192 Safety relay channel 1',
-      'Switch NC2 \u2192 Safety relay channel 2',
+      'Switch NC1 \→ Safety relay channel 1',
+      'Switch NC2 \→ Safety relay channel 2',
       'Guard locking solenoid from safety relay output (if applicable)',
       'Feedback from power contactors to relay',
       'Manual reset recommended for safety gates',

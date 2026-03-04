@@ -43,7 +43,7 @@ export default function PowerFactorPage() {
     newKVA = kW / pfNew
     savingsPercent = ((currentKVA - newKVA) / currentKVA) * 100
 
-    formula = `Required kVAR = kW \u00D7 (tan(arccos(PF\u2081)) \u2212 tan(arccos(PF\u2082))) = ${fmt(kW)} \u00D7 (${fmt(Math.tan(thetaOld))} \u2212 ${fmt(Math.tan(thetaNew))}) = ${fmt(requiredKVAR)} kVAR`
+    formula = `Required kVAR = kW \× (tan(arccos(PF\₁)) \− tan(arccos(PF\₂))) = ${fmt(kW)} \× (${fmt(Math.tan(thetaOld))} \− ${fmt(Math.tan(thetaNew))}) = ${fmt(requiredKVAR)} kVAR`
   }
 
   const results = hasInputs
@@ -56,12 +56,12 @@ export default function PowerFactorPage() {
         { label: 'Current Savings', value: fmt(savingsPercent, 1), unit: '%' },
       ]
     : [
-        { label: 'Current kVAR', value: '\u2014', unit: 'kVAR' },
-        { label: 'Desired kVAR', value: '\u2014', unit: 'kVAR' },
-        { label: 'Required Capacitor', value: '\u2014', unit: 'kVAR' },
-        { label: 'Current kVA', value: '\u2014', unit: 'kVA' },
-        { label: 'New kVA', value: '\u2014', unit: 'kVA' },
-        { label: 'Current Savings', value: '\u2014', unit: '%' },
+        { label: 'Current kVAR', value: '\—', unit: 'kVAR' },
+        { label: 'Desired kVAR', value: '\—', unit: 'kVAR' },
+        { label: 'Required Capacitor', value: '\—', unit: 'kVAR' },
+        { label: 'Current kVA', value: '\—', unit: 'kVA' },
+        { label: 'New kVA', value: '\—', unit: 'kVA' },
+        { label: 'Current Savings', value: '\—', unit: '%' },
       ]
 
   return (

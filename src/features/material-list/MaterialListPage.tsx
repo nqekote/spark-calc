@@ -362,7 +362,7 @@ const JOB_TEMPLATES: JobTemplate[] = [
       { name: 'Ground Clamp', quantity: '4', unit: 'pcs', notes: '', category: 'Fittings' },
       { name: '#2 Bare Ground Wire', quantity: '', unit: 'm', notes: 'Ground grid', category: 'Cable' },
       { name: 'Exothermic Weld Kit', quantity: '1', unit: 'sets', notes: 'Cadweld', category: 'Consumables' },
-      { name: 'Fall of Potential Tester', quantity: '1', unit: 'pcs', notes: 'Verify <1\u03A9', category: 'Tools' },
+      { name: 'Fall of Potential Tester', quantity: '1', unit: 'pcs', notes: 'Verify <1Ω', category: 'Tools' },
       { name: 'Dielectric Grease', quantity: '1', unit: 'pcs', notes: '', category: 'Consumables' },
       { name: 'Penetrox (Anti-Oxidant)', quantity: '1', unit: 'pcs', notes: '', category: 'Consumables' },
       { name: 'Wire Markers / Labels', quantity: '1', unit: 'pcs', notes: 'Phase identification', category: 'Consumables' },
@@ -1093,23 +1093,27 @@ export default function MaterialListPage() {
     ))
   }
 
+  // ── Derived data (must be before conditional returns for hooks rules) ──
+  const allItems = useMemo(() => {
+    if (!activeJob) return []
+    return sortMode === 'added' ? activeJob.items : sortItems(activeJob.items)
+  }, [activeJob, sortMode, sortItems])
+
+  const grouped = useMemo(() => {
+    if (!groupByCategory || !activeJob) return null
+    const map = new Map<ItemCategory, MaterialItem[]>()
+    for (const item of allItems) {
+      const list = map.get(item.category) || []
+      list.push(item)
+      map.set(item.category, list)
+    }
+    return map
+  }, [allItems, groupByCategory, activeJob])
+
   // ── Render: Job Detail View ───────────────────────────
   if (activeJob) {
-    const allItems = sortMode === 'added' ? activeJob.items : sortItems(activeJob.items)
     const totalItems = activeJob.items.length
     const checkedCount = activeJob.items.filter(i => i.checked).length
-
-    // Group items by category for grouped view
-    const grouped = useMemo(() => {
-      if (!groupByCategory) return null
-      const map = new Map<ItemCategory, MaterialItem[]>()
-      for (const item of allItems) {
-        const list = map.get(item.category) || []
-        list.push(item)
-        map.set(item.category, list)
-      }
-      return map
-    }, [allItems, groupByCategory])
 
     const renderItemRow = (item: MaterialItem, idx: number, arr: MaterialItem[]) => (
       <MaterialItemRow

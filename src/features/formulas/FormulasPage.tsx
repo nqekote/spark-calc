@@ -24,28 +24,28 @@ const formulas: Formula[] = [
   // Basic
   {
     name: "Ohm's Law (Voltage)",
-    formula: 'V = I \u00D7 R',
+    formula: 'V = I \× R',
     description: 'Voltage equals current multiplied by resistance.',
     variables: ['V = Voltage (volts)', 'I = Current (amps)', 'R = Resistance (ohms)'],
     category: 'basic',
   },
   {
     name: 'Power (Basic)',
-    formula: 'P = V \u00D7 I',
+    formula: 'P = V \× I',
     description: 'Power equals voltage multiplied by current.',
     variables: ['P = Power (watts)', 'V = Voltage (volts)', 'I = Current (amps)'],
     category: 'basic',
   },
   {
     name: 'Power (Current & Resistance)',
-    formula: 'P = I\u00B2 \u00D7 R',
+    formula: 'P = I\² \× R',
     description: 'Power equals current squared multiplied by resistance. Useful when voltage is unknown.',
     variables: ['P = Power (watts)', 'I = Current (amps)', 'R = Resistance (ohms)'],
     category: 'basic',
   },
   {
     name: 'Power (Voltage & Resistance)',
-    formula: 'P = V\u00B2 / R',
+    formula: 'P = V\² / R',
     description: 'Power equals voltage squared divided by resistance. Useful when current is unknown.',
     variables: ['P = Power (watts)', 'V = Voltage (volts)', 'R = Resistance (ohms)'],
     category: 'basic',
@@ -60,7 +60,7 @@ const formulas: Formula[] = [
   // AC Power
   {
     name: 'Single-Phase Power',
-    formula: 'P = V \u00D7 I \u00D7 PF',
+    formula: 'P = V \× I \× PF',
     description: 'Real power in a single-phase AC circuit, accounting for power factor.',
     variables: [
       'P = Real power (watts)',
@@ -72,19 +72,19 @@ const formulas: Formula[] = [
   },
   {
     name: 'Three-Phase Power',
-    formula: 'P = \u221A3 \u00D7 V\u2097 \u00D7 I\u2097 \u00D7 PF',
+    formula: 'P = \√3 \× V\ₗ \× I\ₗ \× PF',
     description: 'Real power in a three-phase AC circuit using line voltage and line current.',
     variables: [
       'P = Real power (watts)',
-      'V\u2097 = Line-to-line voltage (volts)',
-      'I\u2097 = Line current (amps)',
+      'V\ₗ = Line-to-line voltage (volts)',
+      'I\ₗ = Line current (amps)',
       'PF = Power factor (0 to 1)',
     ],
     category: 'ac',
   },
   {
-    name: 'Apparent Power (3\u03D5)',
-    formula: 'kVA = \u221A3 \u00D7 V \u00D7 I / 1000',
+    name: 'Apparent Power (3\ϕ)',
+    formula: 'kVA = \√3 \× V \× I / 1000',
     description: 'Apparent power in a three-phase system, measured in kilovolt-amperes.',
     variables: [
       'kVA = Apparent power (kilovolt-amperes)',
@@ -95,7 +95,7 @@ const formulas: Formula[] = [
   },
   {
     name: 'Real Power from kVA',
-    formula: 'kW = kVA \u00D7 PF',
+    formula: 'kW = kVA \× PF',
     description: 'Real power equals apparent power multiplied by power factor.',
     variables: [
       'kW = Real power (kilowatts)',
@@ -106,7 +106,7 @@ const formulas: Formula[] = [
   },
   {
     name: 'Reactive Power',
-    formula: 'kVAR = \u221A(kVA\u00B2 \u2212 kW\u00B2)',
+    formula: 'kVAR = \√(kVA\² \− kW\²)',
     description: 'Reactive power is the component of apparent power that does no useful work but sustains magnetic fields in motors and transformers.',
     variables: [
       'kVAR = Reactive power (kilovolt-amperes reactive)',
@@ -118,7 +118,7 @@ const formulas: Formula[] = [
   // Motor
   {
     name: 'Motor Full Load Amps',
-    formula: 'FLA = HP \u00D7 746 / (V \u00D7 \u221A3 \u00D7 PF \u00D7 Eff)',
+    formula: 'FLA = HP \× 746 / (V \× \√3 \× PF \× Eff)',
     description: 'Calculates the full-load current of a three-phase motor from its horsepower rating.',
     variables: [
       'FLA = Full load amps',
@@ -132,7 +132,7 @@ const formulas: Formula[] = [
   },
   {
     name: 'Motor Slip',
-    formula: 'Slip% = (Ns \u2212 N) / Ns \u00D7 100',
+    formula: 'Slip% = (Ns \− N) / Ns \× 100',
     description: 'Slip is the difference between synchronous speed and actual rotor speed, expressed as a percentage.',
     variables: [
       'Slip% = Percent slip',
@@ -143,7 +143,7 @@ const formulas: Formula[] = [
   },
   {
     name: 'Synchronous Speed',
-    formula: 'Ns = 120 \u00D7 f / P',
+    formula: 'Ns = 120 \× f / P',
     description: 'The theoretical speed of the rotating magnetic field in an AC motor.',
     variables: [
       'Ns = Synchronous speed (RPM)',
@@ -154,12 +154,12 @@ const formulas: Formula[] = [
   },
   {
     name: 'Motor Torque',
-    formula: 'T = HP \u00D7 5252 / RPM',
+    formula: 'T = HP \× 5252 / RPM',
     description: 'Torque output of a motor at a given speed in foot-pounds.',
     variables: [
       'T = Torque (ft-lbs)',
       'HP = Horsepower',
-      '5252 = Constant (33000 / 2\u03C0)',
+      '5252 = Constant (33000 / 2\π)',
       'RPM = Rotational speed',
     ],
     category: 'motor',
@@ -178,8 +178,8 @@ const formulas: Formula[] = [
     category: 'transformer',
   },
   {
-    name: 'Transformer kVA (3\u03D5)',
-    formula: 'kVA = V \u00D7 I \u00D7 \u221A3 / 1000',
+    name: 'Transformer kVA (3\ϕ)',
+    formula: 'kVA = V \× I \× \√3 / 1000',
     description: 'Apparent power rating of a three-phase transformer.',
     variables: [
       'kVA = Transformer rating',
@@ -190,7 +190,7 @@ const formulas: Formula[] = [
   },
   {
     name: 'Impedance Voltage',
-    formula: 'Z% = Vsc / Vrated \u00D7 100',
+    formula: 'Z% = Vsc / Vrated \× 100',
     description: 'Percent impedance is the voltage required to circulate rated current through one winding with the other shorted.',
     variables: [
       'Z% = Percent impedance',
@@ -201,7 +201,7 @@ const formulas: Formula[] = [
   },
   {
     name: 'Short-Circuit Current',
-    formula: 'Isc = kVA \u00D7 1000 / (V \u00D7 \u221A3 \u00D7 Z%)',
+    formula: 'Isc = kVA \× 1000 / (V \× \√3 \× Z%)',
     description: 'Maximum fault current available at the transformer secondary. Critical for selecting overcurrent devices.',
     variables: [
       'Isc = Short-circuit current (amps)',
@@ -214,37 +214,37 @@ const formulas: Formula[] = [
   // Cable
   {
     name: 'Voltage Drop',
-    formula: 'VD = 2 \u00D7 L \u00D7 I \u00D7 R / 1000',
+    formula: 'VD = 2 \× L \× I \× R / 1000',
     description: 'Voltage drop in a single-phase circuit based on conductor length, current, and resistance per km.',
     variables: [
       'VD = Voltage drop (volts)',
       'L = One-way length (metres)',
       'I = Current (amps)',
-      'R = Resistance (\u03A9/km)',
+      'R = Resistance (\Ω/km)',
       '2 = Accounts for supply and return conductor',
     ],
     category: 'cable',
   },
   {
     name: 'Conductor Resistance',
-    formula: 'R = \u03C1 \u00D7 L / A',
+    formula: 'R = \ρ \× L / A',
     description: 'Resistance of a conductor based on its resistivity, length, and cross-sectional area.',
     variables: [
       'R = Resistance (ohms)',
-      '\u03C1 = Resistivity (\u03A9\u00B7mm\u00B2/m)',
+      '\ρ = Resistivity (\Ω\·mm\²/m)',
       'L = Length (metres)',
-      'A = Cross-sectional area (mm\u00B2)',
+      'A = Cross-sectional area (mm\²)',
     ],
     category: 'cable',
   },
   {
     name: 'Ampacity Derating',
-    formula: 'I_adj = I_table \u00D7 TCF \u00D7 BCF',
+    formula: 'I_adj = I_table \× TCF \× BCF',
     description: 'Adjusted ampacity after applying temperature correction and bundling correction factors from CEC tables.',
     variables: [
       'I_adj = Adjusted ampacity (amps)',
-      'I_table = Table ampacity (CEC Table 1\u20134)',
-      'TCF = Temperature correction factor (CEC Table 5A\u20135C)',
+      'I_table = Table ampacity (CEC Table 1\–4)',
+      'TCF = Temperature correction factor (CEC Table 5A\–5C)',
       'BCF = Bundling correction factor (CEC Table 5D)',
     ],
     category: 'cable',
@@ -252,31 +252,31 @@ const formulas: Formula[] = [
   // Conduit
   {
     name: 'Conduit Fill Percentage',
-    formula: 'Fill% = \u03A3(Cable Area) / Conduit Area \u00D7 100',
+    formula: 'Fill% = \Σ(Cable Area) / Conduit Area \× 100',
     description: 'The total cross-sectional area of all conductors divided by the internal area of the conduit.',
     variables: [
       'Fill% = Percent fill',
-      '\u03A3(Cable Area) = Sum of all conductor areas (mm\u00B2)',
-      'Conduit Area = Internal area of conduit (mm\u00B2)',
+      '\Σ(Cable Area) = Sum of all conductor areas (mm\²)',
+      'Conduit Area = Internal area of conduit (mm\²)',
     ],
     category: 'conduit',
   },
   {
-    name: 'CEC Fill Limits \u2014 1 Conductor',
+    name: 'CEC Fill Limits \— 1 Conductor',
     formula: '1 wire = 53% fill max',
     description: 'A single conductor may fill up to 53% of the conduit cross-sectional area (CEC Table 8).',
     variables: ['Applies to a single conductor in a raceway'],
     category: 'conduit',
   },
   {
-    name: 'CEC Fill Limits \u2014 2 Conductors',
+    name: 'CEC Fill Limits \— 2 Conductors',
     formula: '2 wires = 31% fill max',
     description: 'Two conductors may fill up to 31% of the conduit cross-sectional area (CEC Table 8).',
     variables: ['Applies to exactly two conductors in a raceway'],
     category: 'conduit',
   },
   {
-    name: 'CEC Fill Limits \u2014 3+ Conductors',
+    name: 'CEC Fill Limits \— 3+ Conductors',
     formula: '3+ wires = 40% fill max',
     description: 'Three or more conductors may fill up to 40% of the conduit cross-sectional area (CEC Table 8).',
     variables: ['Applies to three or more conductors in a raceway'],

@@ -1199,7 +1199,7 @@ function SizingCalculator() {
               borderTop: '1px solid var(--divider)',
             }}
           >
-            Recommended VFD Rating: {'\u2265'} {recommendedAmps.toFixed(1)}A at {voltage}V
+            Recommended VFD Rating: {'\≥'} {recommendedAmps.toFixed(1)}A at {voltage}V
           </div>
           <div style={{ fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.5 }}>
             Select a VFD with continuous output current rating at or above this value.
@@ -1241,29 +1241,29 @@ function PumpSizingExample() {
 
         <div style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.7 }}>
           <strong style={{ color: 'var(--text)' }}>Step 4: Select VFD</strong><br />
-          Motor FLA = 77A at 575V. Variable torque, no derating needed. Select VFD with continuous output current {'\u2265'} 77A at 600V. Example: ABB ACS580-01-088A-6 (88A/600V) or PowerFlex 525 Frame F (88A/600V).
+          Motor FLA = 77A at 575V. Variable torque, no derating needed. Select VFD with continuous output current {'\≥'} 77A at 600V. Example: ABB ACS580-01-088A-6 (88A/600V) or PowerFlex 525 Frame F (88A/600V).
         </div>
 
         <div style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.7 }}>
           <strong style={{ color: 'var(--text)' }}>Step 5: Accessories</strong><br />
-          {'\u2022'} 3% line reactor on input (harmonic reduction + surge protection)<br />
-          {'\u2022'} Output reactor (85m cable run, near the 100m threshold)<br />
-          {'\u2022'} NEMA 12 panel (underground, dusty environment)<br />
-          {'\u2022'} Panel AC unit or forced ventilation for heat removal<br />
-          {'\u2022'} Semiconductor fuses per manufacturer specification<br />
-          {'\u2022'} Bypass contactor (critical dewatering application)
+          {'\•'} 3% line reactor on input (harmonic reduction + surge protection)<br />
+          {'\•'} Output reactor (85m cable run, near the 100m threshold)<br />
+          {'\•'} NEMA 12 panel (underground, dusty environment)<br />
+          {'\•'} Panel AC unit or forced ventilation for heat removal<br />
+          {'\•'} Semiconductor fuses per manufacturer specification<br />
+          {'\•'} Bypass contactor (critical dewatering application)
         </div>
 
         <div style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.7 }}>
           <strong style={{ color: 'var(--text)' }}>Step 6: Key Parameters</strong><br />
-          {'\u2022'} Motor data: 575V, 77A, 75HP, 1770 RPM, 60Hz<br />
-          {'\u2022'} Control mode: V/Hz (adequate for centrifugal pump)<br />
-          {'\u2022'} Min freq: 20Hz (maintain pump prime and cooling)<br />
-          {'\u2022'} Max freq: 60Hz<br />
-          {'\u2022'} Accel time: 15s, Decel time: 20s<br />
-          {'\u2022'} PID control: enable for constant pressure/level<br />
-          {'\u2022'} Pipe-fill function: enable to prevent water hammer on start<br />
-          {'\u2022'} Ground fault detection: ENABLED
+          {'\•'} Motor data: 575V, 77A, 75HP, 1770 RPM, 60Hz<br />
+          {'\•'} Control mode: V/Hz (adequate for centrifugal pump)<br />
+          {'\•'} Min freq: 20Hz (maintain pump prime and cooling)<br />
+          {'\•'} Max freq: 60Hz<br />
+          {'\•'} Accel time: 15s, Decel time: 20s<br />
+          {'\•'} PID control: enable for constant pressure/level<br />
+          {'\•'} Pipe-fill function: enable to prevent water hammer on start<br />
+          {'\•'} Ground fault detection: ENABLED
         </div>
 
         <div style={tipBox}>
@@ -1570,11 +1570,11 @@ export default function VFDReferencePage() {
                       When to Re-Run Auto-Tune
                     </div>
                     <div style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                      {'\u2022'} Motor replaced with different motor<br />
-                      {'\u2022'} Motor rewound<br />
-                      {'\u2022'} VFD replaced or factory reset<br />
-                      {'\u2022'} Cable run length changed significantly<br />
-                      {'\u2022'} Performance issues (torque ripple, instability, overcurrent at low speed)
+                      {'\•'} Motor replaced with different motor<br />
+                      {'\•'} Motor rewound<br />
+                      {'\•'} VFD replaced or factory reset<br />
+                      {'\•'} Cable run length changed significantly<br />
+                      {'\•'} Performance issues (torque ripple, instability, overcurrent at low speed)
                     </div>
                   </div>
                 </div>
@@ -1902,10 +1902,10 @@ export default function VFDReferencePage() {
                       When is Braking Needed?
                     </div>
                     <div style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.7 }}>
-                      {'\u2022'} High-inertia loads that must decelerate quickly (fans, flywheels)<br />
-                      {'\u2022'} Overhauling loads (downhill conveyors, lowering hoists)<br />
-                      {'\u2022'} Frequent stop/start cycles requiring fast deceleration<br />
-                      {'\u2022'} Any application getting overvoltage faults during deceleration
+                      {'\•'} High-inertia loads that must decelerate quickly (fans, flywheels)<br />
+                      {'\•'} Overhauling loads (downhill conveyors, lowering hoists)<br />
+                      {'\•'} Frequent stop/start cycles requiring fast deceleration<br />
+                      {'\•'} Any application getting overvoltage faults during deceleration
                     </div>
                   </div>
                   <div style={cardStyle}>

@@ -15,9 +15,9 @@ const materialOptions = [
 ]
 
 const tempRatingOptions = [
-  { value: '60', label: '60\u00B0C' },
-  { value: '75', label: '75\u00B0C' },
-  { value: '90', label: '90\u00B0C' },
+  { value: '60', label: '60\°C' },
+  { value: '75', label: '75\°C' },
+  { value: '90', label: '90\°C' },
 ]
 
 const wireSizes = [
@@ -170,7 +170,7 @@ export default function WireSizingPage() {
       const corrected = getCorrectedAmpacity(size, material, tempRating, ambTemp, numConductors)
       nearbySizes.push({
         size: formatSize(size),
-        ampacity: corrected !== null ? `${fmt(corrected)} A` : '\u2014',
+        ampacity: corrected !== null ? `${fmt(corrected)} A` : '\—',
       })
     }
   }
@@ -184,7 +184,7 @@ export default function WireSizingPage() {
         },
         {
           label: 'Corrected Ampacity',
-          value: recommendedAmpacity !== null ? fmt(recommendedAmpacity) : '\u2014',
+          value: recommendedAmpacity !== null ? fmt(recommendedAmpacity) : '\—',
           unit: 'A',
         },
         ...(nextSizeUp !== null
@@ -197,8 +197,8 @@ export default function WireSizingPage() {
     : hasInputs
       ? [{ label: 'Recommended Wire Size', value: 'No suitable wire found' }]
       : [
-          { label: 'Recommended Wire Size', value: '\u2014' },
-          { label: 'Corrected Ampacity', value: '\u2014', unit: 'A' },
+          { label: 'Recommended Wire Size', value: '\—' },
+          { label: 'Corrected Ampacity', value: '\—', unit: 'A' },
         ]
 
   return (
@@ -221,7 +221,7 @@ export default function WireSizingPage() {
         />
         <InputField
           label="Ambient Temperature"
-          unit={'\u00B0C'}
+          unit={'\°C'}
           value={ambientTemp}
           onChange={setAmbientTemp}
           placeholder="30"

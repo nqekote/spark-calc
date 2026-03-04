@@ -82,11 +82,11 @@ export default function TransformerSizingPage() {
       if (phase === 'three') {
         calculatedKva = (V * demandLoad * Math.sqrt(3)) / 1000
         currentAmps = demandLoad
-        formula = `kVA = (${V}V \u00D7 ${fmt(demandLoad, 1)}A \u00D7 \u221A3) / 1000 = ${fmt(calculatedKva, 2)} kVA`
+        formula = `kVA = (${V}V \× ${fmt(demandLoad, 1)}A \× \√3) / 1000 = ${fmt(calculatedKva, 2)} kVA`
       } else {
         calculatedKva = (V * demandLoad) / 1000
         currentAmps = demandLoad
-        formula = `kVA = (${V}V \u00D7 ${fmt(demandLoad, 1)}A) / 1000 = ${fmt(calculatedKva, 2)} kVA`
+        formula = `kVA = (${V}V \× ${fmt(demandLoad, 1)}A) / 1000 = ${fmt(calculatedKva, 2)} kVA`
       }
     }
   }
@@ -106,13 +106,13 @@ export default function TransformerSizingPage() {
         { label: 'Required kVA', value: fmt(calculatedKva, 2), unit: 'kVA', highlight: true },
         { label: 'Load Current', value: fmt(currentAmps, 1), unit: 'A' },
         { label: 'Next Standard Size', value: fmt(nextStd, 1), unit: 'kVA' },
-        { label: 'Loading', value: `${fmt(loadingPct, 1)}% \u2014 ${getLoadingStatus(loadingPct)}` },
+        { label: 'Loading', value: `${fmt(loadingPct, 1)}% \— ${getLoadingStatus(loadingPct)}` },
       ]
     : [
-        { label: 'Required kVA', value: '\u2014', unit: 'kVA' },
-        { label: 'Load Current', value: '\u2014', unit: 'A' },
-        { label: 'Next Standard Size', value: '\u2014', unit: 'kVA' },
-        { label: 'Loading', value: '\u2014' },
+        { label: 'Required kVA', value: '\—', unit: 'kVA' },
+        { label: 'Load Current', value: '\—', unit: 'A' },
+        { label: 'Next Standard Size', value: '\—', unit: 'kVA' },
+        { label: 'Loading', value: '\—' },
       ]
 
   return (
@@ -180,10 +180,10 @@ export default function TransformerSizingPage() {
             </div>
           </div>
 
-          <InfoBox title="CEC Rule 26-252 \u2014 Transformer OCP">
+          <InfoBox title="CEC Rule 26-252 \— Transformer OCP">
             CEC Rule 26-252 governs overcurrent protection for transformers. For transformers rated
             over 750V, primary OCP shall not exceed 150% of rated primary current (300% for
-            supervised installations with impedance \u2265 6%). For transformers rated 750V or less,
+            supervised installations with impedance \≥ 6%). For transformers rated 750V or less,
             primary OCP shall not exceed 125% of rated primary current. If 125% does not correspond
             to a standard fuse or breaker size, the next higher standard size is permitted.
             Demand factors can be applied per CEC Rule 8-106 depending on the type of load served.

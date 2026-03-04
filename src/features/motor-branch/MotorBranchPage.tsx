@@ -17,9 +17,9 @@ const materialOptions = [
 ]
 
 const tempRatingOptions = [
-  { value: '60', label: '60\u00B0C' },
-  { value: '75', label: '75\u00B0C' },
-  { value: '90', label: '90\u00B0C' },
+  { value: '60', label: '60\°C' },
+  { value: '75', label: '75\°C' },
+  { value: '90', label: '90\°C' },
 ]
 
 const ocpDeviceOptions = [
@@ -178,25 +178,25 @@ export default function MotorBranchPage() {
         { label: 'Motor FLC', value: fmt(flc, 1), unit: 'A', highlight: true },
         { label: 'Min Conductor Ampacity (125%)', value: fmt(minConductorAmpacity, 1), unit: 'A' },
         { label: 'Recommended Wire Size', value: wireResult ? wireSizeLabels[wireResult.size] : 'Exceeds table' },
-        { label: 'Wire Ampacity', value: wireResult ? fmt(wireResult.ampacity, 1) : '\u2014', unit: wireResult ? 'A' : undefined },
+        { label: 'Wire Ampacity', value: wireResult ? fmt(wireResult.ampacity, 1) : '\—', unit: wireResult ? 'A' : undefined },
         { label: `Max OCP (${ocpDeviceLabel})`, value: fmt(maxOCP, 1), unit: 'A' },
         { label: 'Standard OCP Size', value: fmt(standardOCP, 0), unit: 'A' },
-        { label: 'Overload (SF\u22651.15)', value: fmt(overloadProtection115, 1), unit: 'A' },
+        { label: 'Overload (SF\≥1.15)', value: fmt(overloadProtection115, 1), unit: 'A' },
         { label: 'Overload (SF<1.15)', value: fmt(overloadProtection125, 1), unit: 'A' },
       ]
     : [
-        { label: 'Motor FLC', value: '\u2014', unit: 'A' },
-        { label: 'Min Conductor Ampacity (125%)', value: '\u2014', unit: 'A' },
-        { label: 'Recommended Wire Size', value: '\u2014' },
-        { label: 'Wire Ampacity', value: '\u2014', unit: 'A' },
-        { label: 'Max OCP Rating', value: '\u2014', unit: 'A' },
-        { label: 'Standard OCP Size', value: '\u2014', unit: 'A' },
-        { label: 'Overload (SF\u22651.15)', value: '\u2014', unit: 'A' },
-        { label: 'Overload (SF<1.15)', value: '\u2014', unit: 'A' },
+        { label: 'Motor FLC', value: '\—', unit: 'A' },
+        { label: 'Min Conductor Ampacity (125%)', value: '\—', unit: 'A' },
+        { label: 'Recommended Wire Size', value: '\—' },
+        { label: 'Wire Ampacity', value: '\—', unit: 'A' },
+        { label: 'Max OCP Rating', value: '\—', unit: 'A' },
+        { label: 'Standard OCP Size', value: '\—', unit: 'A' },
+        { label: 'Overload (SF\≥1.15)', value: '\—', unit: 'A' },
+        { label: 'Overload (SF<1.15)', value: '\—', unit: 'A' },
       ]
 
   const formula = hasResult
-    ? `FLC = ${fmt(flc, 1)} A \u00D7 125% = ${fmt(minConductorAmpacity, 1)} A min ampacity | OCP = ${fmt(flc, 1)} A \u00D7 ${(ocpMultiplier * 100).toFixed(0)}% = ${fmt(maxOCP, 1)} A \u2192 ${fmt(standardOCP, 0)} A std`
+    ? `FLC = ${fmt(flc, 1)} A \× 125% = ${fmt(minConductorAmpacity, 1)} A min ampacity | OCP = ${fmt(flc, 1)} A \× ${(ocpMultiplier * 100).toFixed(0)}% = ${fmt(maxOCP, 1)} A \→ ${fmt(standardOCP, 0)} A std`
     : undefined
 
   return (
@@ -230,7 +230,7 @@ export default function MotorBranchPage() {
           options={ocpDeviceOptions}
         />
         <ResultDisplay results={results} formula={formula} />
-        <InfoBox title="CEC Rule 28 \u2014 Motor Branch Circuits">
+        <InfoBox title="CEC Rule 28 \— Motor Branch Circuits">
           Motor branch circuit conductors must have an ampacity not less than 125% of the motor
           full load current (Rule 28-106). Overcurrent protection is sized per Table 29 based on the
           device type. If the calculated OCP value does not match a standard size, the next standard

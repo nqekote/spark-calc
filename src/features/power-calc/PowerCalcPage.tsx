@@ -36,9 +36,9 @@ export default function PowerCalcPage() {
     kw = watts / 1000
 
     if (phase === 'single') {
-      formula = `W = V \u00D7 I \u00D7 PF = ${fmt(V)} \u00D7 ${fmt(I)} \u00D7 ${fmt(PF)} = ${fmt(watts)} W`
+      formula = `W = V \× I \× PF = ${fmt(V)} \× ${fmt(I)} \× ${fmt(PF)} = ${fmt(watts)} W`
     } else {
-      formula = `W = V \u00D7 I \u00D7 PF \u00D7 \u221A3 = ${fmt(V)} \u00D7 ${fmt(I)} \u00D7 ${fmt(PF)} \u00D7 1.732 = ${fmt(watts)} W`
+      formula = `W = V \× I \× PF \× \√3 = ${fmt(V)} \× ${fmt(I)} \× ${fmt(PF)} \× 1.732 = ${fmt(watts)} W`
     }
   }
 
@@ -50,10 +50,10 @@ export default function PowerCalcPage() {
         { label: 'Kilo Volt-Amps', value: fmt(kva, 3), unit: 'kVA' },
       ]
     : [
-        { label: 'Watts', value: '\u2014', unit: 'W' },
-        { label: 'Volt-Amps', value: '\u2014', unit: 'VA' },
-        { label: 'Kilowatts', value: '\u2014', unit: 'kW' },
-        { label: 'Kilo Volt-Amps', value: '\u2014', unit: 'kVA' },
+        { label: 'Watts', value: '\—', unit: 'W' },
+        { label: 'Volt-Amps', value: '\—', unit: 'VA' },
+        { label: 'Kilowatts', value: '\—', unit: 'kW' },
+        { label: 'Kilo Volt-Amps', value: '\—', unit: 'kVA' },
       ]
 
   return (
