@@ -79,6 +79,13 @@ const ConductorPropertiesPage = React.lazy(() => import('./features/conductor-pr
 const WiringMethodsPage = React.lazy(() => import('./features/wiring-methods/WiringMethodsPage'))
 const IndustrialCommsPage = React.lazy(() => import('./features/industrial-comms/IndustrialCommsPage'))
 
+// Batch 7: Battery/UPS, Solar, Emergency Power, OC Coordination, Safety Training
+const BatteryUPSPage = React.lazy(() => import('./features/battery-ups/BatteryUPSPage'))
+const SolarRenewablePage = React.lazy(() => import('./features/solar-renewable/SolarRenewablePage'))
+const EmergencyPowerPage = React.lazy(() => import('./features/emergency-power/EmergencyPowerPage'))
+const OCCoordinationPage = React.lazy(() => import('./features/oc-coordination/OCCoordinationPage'))
+const SafetyTrainingPage = React.lazy(() => import('./features/safety-training/SafetyTrainingPage'))
+
 // Category items
 const electricalItems: CalcItem[] = [
   { to: '/electrical/ohms-law', title: "Ohm's Law", subtitle: 'Voltage, current & resistance', icon: '\u03A9' },
@@ -91,6 +98,7 @@ const electricalItems: CalcItem[] = [
   { to: '/electrical/transformer-sizing', title: 'Transformer Sizing', subtitle: 'kVA sizing & standard sizes', icon: '\u2394' },
   { to: '/electrical/disconnect', title: 'Disconnect Sizing', subtitle: 'HP-rated switch selection', icon: '\u2393' },
   { to: '/electrical/generator', title: 'Generator Sizing', subtitle: 'Backup power calculator', icon: '\u26A1' },
+  { to: '/electrical/oc-coordination', title: 'OC Coordination', subtitle: 'Breaker & fuse selectivity', icon: '\uD83D\uDCCA' },
 ]
 
 const wireItems: CalcItem[] = [
@@ -137,12 +145,16 @@ const referenceItems: CalcItem[] = [
   { to: '/reference/conductor-properties', title: 'Conductor Properties', subtitle: 'AWG, resistance, derating, selection', icon: '\uD83E\uDDF5' },
   { to: '/reference/wiring-methods', title: 'Wiring Methods', subtitle: 'EMT, TECK, cable tray, burial', icon: '\uD83D\uDD27' },
   { to: '/reference/industrial-comms', title: 'Industrial Comms', subtitle: 'RS-485, Ethernet, fiber, Modbus', icon: '\uD83D\uDCE1' },
+  { to: '/reference/battery-ups', title: 'Battery & UPS', subtitle: 'UPS types, sizing, CEC Sec 64', icon: '\uD83D\uDD0B' },
+  { to: '/reference/solar-renewable', title: 'Solar & Renewable', subtitle: 'PV, inverters, ESS, CEC', icon: '\u2600' },
+  { to: '/reference/emergency-power', title: 'Emergency Power', subtitle: 'ATS, generators, CEC Sec 46', icon: '\uD83D\uDEA8' },
 ]
 
 const safetyItems: CalcItem[] = [
   { to: '/safety/arc-flash', title: 'Arc Flash', subtitle: 'PPE categories, boundaries, labels', icon: '\u26A1' },
   { to: '/safety/loto', title: 'Lockout / Tagout', subtitle: 'Procedures, energy sources, mining', icon: '\uD83D\uDD12' },
   { to: '/mining/safety', title: 'Mining Electrical Safety', subtitle: 'Lockout, grounding, PPE, arc flash', icon: '\u26A0\uFE0F' },
+  { to: '/safety/training', title: 'CSA Z462 Safety', subtitle: 'Shock, arc flash, PPE, training', icon: '\uD83C\uDF93' },
 ]
 
 const miningItems: CalcItem[] = [
@@ -197,6 +209,7 @@ export default function App() {
             <Route path="/electrical/transformer-sizing" element={<TransformerSizingPage />} />
             <Route path="/electrical/disconnect" element={<DisconnectSizingPage />} />
             <Route path="/electrical/generator" element={<GeneratorSizingPage />} />
+            <Route path="/electrical/oc-coordination" element={<OCCoordinationPage />} />
 
             {/* Wire & Cable (includes conduit) */}
             <Route path="/wire" element={<CategoryPage title="Wire & Cable" items={wireItems} />} />
@@ -244,11 +257,15 @@ export default function App() {
             <Route path="/reference/conductor-properties" element={<ConductorPropertiesPage />} />
             <Route path="/reference/wiring-methods" element={<WiringMethodsPage />} />
             <Route path="/reference/industrial-comms" element={<IndustrialCommsPage />} />
+            <Route path="/reference/battery-ups" element={<BatteryUPSPage />} />
+            <Route path="/reference/solar-renewable" element={<SolarRenewablePage />} />
+            <Route path="/reference/emergency-power" element={<EmergencyPowerPage />} />
 
             {/* Safety */}
             <Route path="/safety" element={<CategoryPage title="Safety" items={safetyItems} />} />
             <Route path="/safety/arc-flash" element={<ArcFlashPage />} />
             <Route path="/safety/loto" element={<LOTOPage />} />
+            <Route path="/safety/training" element={<SafetyTrainingPage />} />
 
             {/* Mining */}
             <Route path="/mining" element={<CategoryPage title="Mining" items={miningItems} />} />

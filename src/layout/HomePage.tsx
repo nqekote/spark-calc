@@ -36,6 +36,7 @@ const allFeatures: Feature[] = [
   { to: '/electrical/generator', title: 'Generator', icon: '⚡', category: 'Calculators', subtitle: 'Backup power' },
   { to: '/reference/box-fill', title: 'Box Fill', icon: '▣', category: 'Calculators', subtitle: 'Junction box' },
   { to: '/reference/residential', title: 'Residential', icon: '⌂', category: 'Calculators', subtitle: 'Demand load' },
+  { to: '/electrical/oc-coordination', title: 'OC Coordination', icon: '📊', category: 'Calculators', subtitle: 'Selectivity' },
 
   // ── Wire & Cable ──
   { to: '/wire/ampacity', title: 'Ampacity', icon: 'ᴬ', category: 'Wire & Cable', subtitle: 'Wire tables' },
@@ -65,6 +66,7 @@ const allFeatures: Feature[] = [
   { to: '/safety/loto', title: 'Lockout/Tagout', icon: '🔒', category: 'Safety', subtitle: 'LOTO procedures' },
   { to: '/mining/safety', title: 'Mining Safety', icon: '⚠️', category: 'Safety', subtitle: 'PPE, grounding' },
   { to: '/mining/hazardous-areas', title: 'Hazardous Areas', icon: '💨', category: 'Safety', subtitle: 'Zone classify' },
+  { to: '/safety/training', title: 'CSA Z462', icon: '🎓', category: 'Safety', subtitle: 'Safety training' },
 
   // ── Reference ──
   { to: '/reference/formulas', title: 'Formulas', icon: '📝', category: 'Reference', subtitle: 'Cheat sheet' },
@@ -79,6 +81,9 @@ const allFeatures: Feature[] = [
   { to: '/reference/instrumentation', title: 'Instrumentation', icon: '📡', category: 'Reference', subtitle: '4-20mA, HART' },
   { to: '/reference/power-quality', title: 'Power Quality', icon: '📈', category: 'Reference', subtitle: 'Harmonics/THD' },
   { to: '/electrical/gfci-afci', title: 'GFCI / AFCI', icon: '🛡', category: 'Reference', subtitle: 'Protection' },
+  { to: '/reference/battery-ups', title: 'Battery & UPS', icon: '🔋', category: 'Reference', subtitle: 'UPS systems' },
+  { to: '/reference/solar-renewable', title: 'Solar & PV', icon: '☀', category: 'Reference', subtitle: 'PV systems' },
+  { to: '/reference/emergency-power', title: 'Emergency Power', icon: '🚨', category: 'Reference', subtitle: 'ATS & gensets' },
 
   // ── Installation Guides ──
   { to: '/reference/grounding-systems', title: 'Grounding Systems', icon: '⏚', category: 'Installation Guides', subtitle: 'HRG, testing' },
