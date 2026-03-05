@@ -28,12 +28,12 @@ interface TestVoltageRow {
 
 const testVoltageTable: TestVoltageRow[] = [
   { equipRating: '< 250V', testVoltage: '500 VDC', minIR: '0.5 MΩ' },
-  { equipRating: '250V \– 600V', testVoltage: '1,000 VDC', minIR: '1.0 MΩ' },
-  { equipRating: '601V \– 5,000V', testVoltage: '2,500 VDC', minIR: '5.0 MΩ' },
+  { equipRating: '250V – 600V', testVoltage: '1,000 VDC', minIR: '1.0 MΩ' },
+  { equipRating: '601V – 5,000V', testVoltage: '2,500 VDC', minIR: '5.0 MΩ' },
   { equipRating: '4,160V (typical mine)', testVoltage: '5,000 VDC', minIR: '5.16 MΩ' },
-  { equipRating: '5,001V \– 15,000V', testVoltage: '5,000 VDC', minIR: '15.0 MΩ' },
-  { equipRating: '15,001V \– 25,000V', testVoltage: '5,000 VDC', minIR: '25.0 MΩ' },
-  { equipRating: '> 25,000V', testVoltage: '5,000 \– 10,000 VDC', minIR: '100.0 MΩ' },
+  { equipRating: '5,001V – 15,000V', testVoltage: '5,000 VDC', minIR: '15.0 MΩ' },
+  { equipRating: '15,001V – 25,000V', testVoltage: '5,000 VDC', minIR: '25.0 MΩ' },
+  { equipRating: '> 25,000V', testVoltage: '5,000 – 10,000 VDC', minIR: '100.0 MΩ' },
 ]
 
 interface TempCorrectionRow {
@@ -85,10 +85,10 @@ interface PIClassRow {
 }
 
 const piClassTable: PIClassRow[] = [
-  { insClass: 'Class A (105\°C)', minPI: 1.5, condition: 'Minimum acceptable for Class A insulation' },
-  { insClass: 'Class B (130\°C)', minPI: 2.0, condition: 'Minimum acceptable for Class B insulation' },
-  { insClass: 'Class F (155\°C)', minPI: 2.0, condition: 'Minimum acceptable for Class F insulation' },
-  { insClass: 'Class H (180\°C)', minPI: 2.0, condition: 'Minimum acceptable for Class H insulation' },
+  { insClass: 'Class A (105°C)', minPI: 1.5, condition: 'Minimum acceptable for Class A insulation' },
+  { insClass: 'Class B (130°C)', minPI: 2.0, condition: 'Minimum acceptable for Class B insulation' },
+  { insClass: 'Class F (155°C)', minPI: 2.0, condition: 'Minimum acceptable for Class F insulation' },
+  { insClass: 'Class H (180°C)', minPI: 2.0, condition: 'Minimum acceptable for Class H insulation' },
 ]
 
 interface PICondition {
@@ -100,9 +100,9 @@ interface PICondition {
 
 const piConditionTable: PICondition[] = [
   { piRange: '< 1.0', condition: 'Dangerous', action: 'Do NOT energize. Insulation critically degraded. Full rewind or replacement required.', color: '#ff3c3c' },
-  { piRange: '1.0 \– 1.5', condition: 'Questionable', action: 'Investigate further. Possible moisture contamination. Consider drying/baking. Retest after treatment.', color: '#ff8c00' },
-  { piRange: '1.5 \– 2.0', condition: 'Acceptable (Class A only)', action: 'Marginal for Class B/F/H. Acceptable for Class A only. Monitor trend closely.', color: '#ffd700' },
-  { piRange: '2.0 \– 4.0', condition: 'Good', action: 'Insulation in good condition. Normal service. Continue routine testing schedule.', color: '#4ade80' },
+  { piRange: '1.0 – 1.5', condition: 'Questionable', action: 'Investigate further. Possible moisture contamination. Consider drying/baking. Retest after treatment.', color: '#ff8c00' },
+  { piRange: '1.5 – 2.0', condition: 'Acceptable (Class A only)', action: 'Marginal for Class B/F/H. Acceptable for Class A only. Monitor trend closely.', color: '#ffd700' },
+  { piRange: '2.0 – 4.0', condition: 'Good', action: 'Insulation in good condition. Normal service. Continue routine testing schedule.', color: '#4ade80' },
   { piRange: '> 4.0', condition: 'Excellent', action: 'Insulation in excellent condition. No concerns. If extremely high (>8), may indicate brittle/dry insulation in very old motors.', color: '#4ade80' },
 ]
 
@@ -118,13 +118,13 @@ interface HiPotVoltageRow {
 }
 
 const hiPotVoltageTable: HiPotVoltageRow[] = [
-  { equipClass: 'LV Motors \≤ 600V', ratedVoltage: '600V', factoryTest: '2,200 VDC (2×600+1000)', maintenanceTest: '1,320 VDC (60%)' },
+  { equipClass: 'LV Motors ≤ 600V', ratedVoltage: '600V', factoryTest: '2,200 VDC (2×600+1000)', maintenanceTest: '1,320 VDC (60%)' },
   { equipClass: 'LV Motors 480V', ratedVoltage: '480V', factoryTest: '1,960 VDC (2×480+1000)', maintenanceTest: '1,176 VDC (60%)' },
   { equipClass: 'MV Motors 4,160V', ratedVoltage: '4,160V', factoryTest: '10,120 VDC (2×4160+1800)', maintenanceTest: '6,072 VDC (60%)' },
   { equipClass: 'MV Cable 5kV', ratedVoltage: '5,000V', factoryTest: '25,000 VDC', maintenanceTest: '15,000 VDC (60%)' },
   { equipClass: 'MV Cable 15kV', ratedVoltage: '15,000V', factoryTest: '55,000 VDC', maintenanceTest: '33,000 VDC (60%)' },
   { equipClass: 'MV Cable 25kV', ratedVoltage: '25,000V', factoryTest: '80,000 VDC', maintenanceTest: '48,000 VDC (60%)' },
-  { equipClass: 'Transformer \≤ 600V', ratedVoltage: '600V', factoryTest: '2,200 VAC / 3,100 VDC', maintenanceTest: '1,860 VDC (60%)' },
+  { equipClass: 'Transformer ≤ 600V', ratedVoltage: '600V', factoryTest: '2,200 VAC / 3,100 VDC', maintenanceTest: '1,860 VDC (60%)' },
   { equipClass: 'Transformer 4,160V', ratedVoltage: '4,160V', factoryTest: '19,000 VAC / 26,800 VDC', maintenanceTest: '16,080 VDC (60%)' },
 ]
 
@@ -135,18 +135,18 @@ interface LeakageLimit {
 }
 
 const leakageLimits: LeakageLimit[] = [
-  { equipType: 'Motors \≤ 600V', acceptableUA: '< 50 \µA', notes: 'Current should stabilize and not increase over test duration' },
-  { equipType: 'Motors 2,300V \– 6,900V', acceptableUA: '< 100 \µA', notes: 'Typical for mine shovel and drill motors in good condition' },
-  { equipType: 'MV Cables (5kV class)', acceptableUA: '< 10 \µA/1000ft', notes: 'Per unit length; total depends on cable run' },
-  { equipType: 'MV Cables (15kV class)', acceptableUA: '< 20 \µA/1000ft', notes: 'Monitor for increasing trend during test' },
-  { equipType: 'Transformers', acceptableUA: '< 100 \µA', notes: 'Depends on MVA rating; compare to factory test data' },
+  { equipType: 'Motors ≤ 600V', acceptableUA: '< 50 µA', notes: 'Current should stabilize and not increase over test duration' },
+  { equipType: 'Motors 2,300V – 6,900V', acceptableUA: '< 100 µA', notes: 'Typical for mine shovel and drill motors in good condition' },
+  { equipType: 'MV Cables (5kV class)', acceptableUA: '< 10 µA/1000ft', notes: 'Per unit length; total depends on cable run' },
+  { equipType: 'MV Cables (15kV class)', acceptableUA: '< 20 µA/1000ft', notes: 'Monitor for increasing trend during test' },
+  { equipType: 'Transformers', acceptableUA: '< 100 µA', notes: 'Depends on MVA rating; compare to factory test data' },
 ]
 
 const dischargeSteps: string[] = [
   'Reduce test voltage to zero gradually (do not abruptly remove).',
   'Connect a discharge resistor (typically 5kΩ/kV of test voltage) across the specimen.',
   'Wait a minimum of 4 times the test duration before touching any conductors.',
-  'For cables: discharge through 1\–5 MΩ bleed resistor for at least 1 minute per kV of test voltage.',
+  'For cables: discharge through 1–5 MΩ bleed resistor for at least 1 minute per kV of test voltage.',
   'Verify zero voltage with a voltmeter rated for the test voltage before removing leads.',
   'Apply a final hard ground (shorting bar) to all tested conductors.',
   'NEVER assume equipment is discharged — always verify with a rated instrument.',
@@ -164,7 +164,7 @@ interface TTRRow {
 }
 
 const transformerTests: TTRRow[] = [
-  { test: 'Turns Ratio (TTR)', method: 'Apply voltage to one winding, measure induced voltage on other winding', acceptable: '\±0.5% of nameplate ratio', notes: 'Test all taps. Deviations indicate shorted turns or tap changer issues.' },
+  { test: 'Turns Ratio (TTR)', method: 'Apply voltage to one winding, measure induced voltage on other winding', acceptable: '±0.5% of nameplate ratio', notes: 'Test all taps. Deviations indicate shorted turns or tap changer issues.' },
   { test: 'Winding Resistance', method: 'DC resistance measurement using Kelvin bridge or micro-ohmmeter', acceptable: 'Within 2% between phases; within 5% of factory data', notes: 'Correct for temperature. Indicates loose connections, broken strands.' },
   { test: 'Power Factor / Dissipation Factor', method: 'Apply AC voltage, measure watts loss and reactive component', acceptable: 'New: < 0.5%. In service: < 2.0%', notes: 'Compare to factory test. Trending is critical. Higher = contamination.' },
   { test: 'Insulation Resistance (Megger)', method: 'DC voltage applied between windings and ground', acceptable: 'IEEE 43: 1 MΩ per kV rated +1 MΩ', notes: 'Test HV-to-LV, HV-to-GND, LV-to-GND. Temperature correct.' },
@@ -181,14 +181,14 @@ interface DGARow {
 }
 
 const dgaTable: DGARow[] = [
-  { gas: 'Hydrogen (H\₂)', faultType: 'Partial discharge / corona', normalPPM: '< 100', cautionPPM: '100 \– 700', warningPPM: '> 700' },
-  { gas: 'Methane (CH\₄)', faultType: 'Low-temp thermal fault (150\–300\°C)', normalPPM: '< 120', cautionPPM: '120 \– 400', warningPPM: '> 400' },
-  { gas: 'Ethane (C\₂H\₆)', faultType: 'Low-temp thermal fault (300\–700\°C)', normalPPM: '< 65', cautionPPM: '65 \– 100', warningPPM: '> 100' },
-  { gas: 'Ethylene (C\₂H\₄)', faultType: 'High-temp thermal fault (>700\°C)', normalPPM: '< 50', cautionPPM: '50 \– 200', warningPPM: '> 200' },
-  { gas: 'Acetylene (C\₂H\₂)', faultType: 'Arcing / very high temp', normalPPM: '< 1', cautionPPM: '1 \– 35', warningPPM: '> 35' },
-  { gas: 'Carbon Monoxide (CO)', faultType: 'Cellulose (paper) degradation', normalPPM: '< 350', cautionPPM: '350 \– 570', warningPPM: '> 570' },
-  { gas: 'Carbon Dioxide (CO\₂)', faultType: 'Cellulose degradation (with CO)', normalPPM: '< 2,500', cautionPPM: '2,500 \– 4,000', warningPPM: '> 4,000' },
-  { gas: 'Oxygen (O\₂)', faultType: 'Seal integrity indicator', normalPPM: '< 3,500', cautionPPM: 'N/A', warningPPM: '> 7,000' },
+  { gas: 'Hydrogen (H₂)', faultType: 'Partial discharge / corona', normalPPM: '< 100', cautionPPM: '100 – 700', warningPPM: '> 700' },
+  { gas: 'Methane (CH₄)', faultType: 'Low-temp thermal fault (150–300°C)', normalPPM: '< 120', cautionPPM: '120 – 400', warningPPM: '> 400' },
+  { gas: 'Ethane (C₂H₆)', faultType: 'Low-temp thermal fault (300–700°C)', normalPPM: '< 65', cautionPPM: '65 – 100', warningPPM: '> 100' },
+  { gas: 'Ethylene (C₂H₄)', faultType: 'High-temp thermal fault (>700°C)', normalPPM: '< 50', cautionPPM: '50 – 200', warningPPM: '> 200' },
+  { gas: 'Acetylene (C₂H₂)', faultType: 'Arcing / very high temp', normalPPM: '< 1', cautionPPM: '1 – 35', warningPPM: '> 35' },
+  { gas: 'Carbon Monoxide (CO)', faultType: 'Cellulose (paper) degradation', normalPPM: '< 350', cautionPPM: '350 – 570', warningPPM: '> 570' },
+  { gas: 'Carbon Dioxide (CO₂)', faultType: 'Cellulose degradation (with CO)', normalPPM: '< 2,500', cautionPPM: '2,500 – 4,000', warningPPM: '> 4,000' },
+  { gas: 'Oxygen (O₂)', faultType: 'Seal integrity indicator', normalPPM: '< 3,500', cautionPPM: 'N/A', warningPPM: '> 7,000' },
 ]
 
 interface OilTestRow {
@@ -200,13 +200,13 @@ interface OilTestRow {
 }
 
 const oilTestTable: OilTestRow[] = [
-  { test: 'Dielectric Breakdown (kV)', standard: 'ASTM D1816 (1mm gap)', newOil: '\≥ 30 kV', serviceableOil: '\≥ 25 kV', rejectOil: '< 25 kV' },
-  { test: 'Dielectric Breakdown (kV)', standard: 'ASTM D877 (2.5mm gap)', newOil: '\≥ 30 kV', serviceableOil: '\≥ 26 kV', rejectOil: '< 26 kV' },
-  { test: 'Moisture Content (ppm)', standard: 'ASTM D1533', newOil: '< 10 ppm', serviceableOil: '< 35 ppm (\≤69kV)', rejectOil: '> 35 ppm' },
+  { test: 'Dielectric Breakdown (kV)', standard: 'ASTM D1816 (1mm gap)', newOil: '≥ 30 kV', serviceableOil: '≥ 25 kV', rejectOil: '< 25 kV' },
+  { test: 'Dielectric Breakdown (kV)', standard: 'ASTM D877 (2.5mm gap)', newOil: '≥ 30 kV', serviceableOil: '≥ 26 kV', rejectOil: '< 26 kV' },
+  { test: 'Moisture Content (ppm)', standard: 'ASTM D1533', newOil: '< 10 ppm', serviceableOil: '< 35 ppm (≤69kV)', rejectOil: '> 35 ppm' },
   { test: 'Acidity (mg KOH/g)', standard: 'ASTM D974', newOil: '< 0.03', serviceableOil: '< 0.20', rejectOil: '> 0.20' },
-  { test: 'Interfacial Tension (mN/m)', standard: 'ASTM D971', newOil: '\≥ 40', serviceableOil: '\≥ 25', rejectOil: '< 25' },
-  { test: 'Power Factor (%)', standard: 'ASTM D924', newOil: '< 0.05%', serviceableOil: '< 0.5% (25\°C)', rejectOil: '> 0.5%' },
-  { test: 'Color', standard: 'ASTM D1500', newOil: '0.5 \– 1.0', serviceableOil: '< 3.5', rejectOil: '> 3.5' },
+  { test: 'Interfacial Tension (mN/m)', standard: 'ASTM D971', newOil: '≥ 40', serviceableOil: '≥ 25', rejectOil: '< 25' },
+  { test: 'Power Factor (%)', standard: 'ASTM D924', newOil: '< 0.05%', serviceableOil: '< 0.5% (25°C)', rejectOil: '> 0.5%' },
+  { test: 'Color', standard: 'ASTM D1500', newOil: '0.5 – 1.0', serviceableOil: '< 3.5', rejectOil: '> 3.5' },
 ]
 
 /* ------------------------------------------------------------------ */
@@ -254,15 +254,15 @@ const motorTests: MotorTestRow[] = [
     test: 'Current Signature Analysis (CSA)',
     what: 'Running test to detect rotor and air gap issues from stator current waveform',
     procedure: 'Capture stator current waveform with high-resolution analyzer. FFT analysis looking for sideband frequencies around line frequency.',
-    acceptable: 'Sidebands at f\ₗ \± 2sf\ₗ should be > 54 dB below fundamental (healthy). 48\–54 dB = 1 broken bar, < 40 dB = multiple bars.',
+    acceptable: 'Sidebands at fₗ ± 2sfₗ should be > 54 dB below fundamental (healthy). 48–54 dB = 1 broken bar, < 40 dB = multiple bars.',
     miningNote: 'Non-invasive test for running equipment. Use on drag chain conveyors and pump motors between shutdowns.',
   },
   {
     test: 'Temperature Rise Test',
     what: 'Verifies motor does not exceed insulation class temperature limits under load',
-    procedure: 'Run motor at rated load until thermal equilibrium (typically 4\–8 hours). Measure winding temperature by resistance method or embedded RTD/thermocouple.',
-    acceptable: 'Class B: 80\°C rise over 40\°C ambient. Class F: 105\°C rise. Class H: 125\°C rise.',
-    miningNote: 'Open pit ambient can exceed 40\°C in summer — derate motors or use Class F/H insulation for all mine equipment.',
+    procedure: 'Run motor at rated load until thermal equilibrium (typically 4–8 hours). Measure winding temperature by resistance method or embedded RTD/thermocouple.',
+    acceptable: 'Class B: 80°C rise over 40°C ambient. Class F: 105°C rise. Class H: 125°C rise.',
+    miningNote: 'Open pit ambient can exceed 40°C in summer — derate motors or use Class F/H insulation for all mine equipment.',
   },
 ]
 
@@ -469,7 +469,7 @@ export default function TestingGuidePage() {
           gap: 10,
           alignItems: 'flex-start',
         }}>
-          <span style={{ fontSize: 22, flexShrink: 0, lineHeight: 1 }}>{'\⚠'}</span>
+          <span style={{ fontSize: 22, flexShrink: 0, lineHeight: 1 }}>{'⚠'}</span>
           <div style={{ fontSize: 13, color: 'var(--text)', lineHeight: 1.6 }}>
             <strong style={{ color: '#ff3c3c' }}>HI-POT TESTING USES LETHAL VOLTAGES.</strong> Always follow
             LOTO and safe work procedures. Ensure all personnel are clear of the test area. Only qualified
@@ -850,10 +850,10 @@ export default function TestingGuidePage() {
                 'Connect megger leads: LINE to winding under test, EARTH to frame/ground.',
                 'Select appropriate test voltage (same as IR test voltage for equipment rating).',
                 'Start the test and start timing. Do NOT interrupt the test once started.',
-                'Record the IR value at exactly 1 minute (R\₁).',
+                'Record the IR value at exactly 1 minute (R₁).',
                 'Continue the test without interruption for a full 10 minutes.',
-                'Record the IR value at exactly 10 minutes (R\₁\₀).',
-                'Calculate PI = R\₁\₀ / R\₁. Compare to minimum values for insulation class.',
+                'Record the IR value at exactly 10 minutes (R₁₀).',
+                'Calculate PI = R₁₀ / R₁. Compare to minimum values for insulation class.',
                 'Discharge windings: short to ground for at least 4× the test duration (40 minutes).',
                 'Record all values with date, equipment ID, ambient conditions.',
               ].map((step, i) => (
@@ -1024,7 +1024,7 @@ export default function TestingGuidePage() {
               gap: 10,
               alignItems: 'flex-start',
             }}>
-              <span style={{ fontSize: 22, flexShrink: 0, lineHeight: 1 }}>{'\☠'}</span>
+              <span style={{ fontSize: 22, flexShrink: 0, lineHeight: 1 }}>{'☠'}</span>
               <div style={{ fontSize: 13, color: 'var(--text)', lineHeight: 1.7 }}>
                 <strong style={{ color: '#ff3c3c' }}>LETHAL VOLTAGES.</strong> Hi-pot testing uses voltages
                 up to 80,000 VDC. Death or serious injury will result from contact. Establish a barricaded test
@@ -1338,10 +1338,10 @@ export default function TestingGuidePage() {
             <div style={sectionHeading}>Key DGA Ratio Analysis</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
               {[
-                { ratio: 'C\₂H\₂ / C\₂H\₄ > 1', meaning: 'Arcing fault', detail: 'Acetylene only forms at extremely high temperatures (>700\°C). If acetylene exceeds ethylene, arcing is occurring. Investigate immediately.' },
-                { ratio: 'C\₂H\₄ / C\₂H\₆ > 1', meaning: 'High-temperature thermal fault', detail: 'Ethylene is generated at higher temperatures than ethane. Ratio > 1 suggests hotspot above 700\°C. Check connections and core.' },
-                { ratio: 'CH\₄ / H\₂ > 1', meaning: 'Thermal fault', detail: 'Methane dominant over hydrogen indicates thermal decomposition rather than partial discharge. Check oil circulation.' },
-                { ratio: 'CO\₂ / CO > 7', meaning: 'Normal aging', detail: 'Healthy ratio for cellulose (paper) insulation aging. Values dropping below 3 indicate accelerated paper degradation.' },
+                { ratio: 'C₂H₂ / C₂H₄ > 1', meaning: 'Arcing fault', detail: 'Acetylene only forms at extremely high temperatures (>700°C). If acetylene exceeds ethylene, arcing is occurring. Investigate immediately.' },
+                { ratio: 'C₂H₄ / C₂H₆ > 1', meaning: 'High-temperature thermal fault', detail: 'Ethylene is generated at higher temperatures than ethane. Ratio > 1 suggests hotspot above 700°C. Check connections and core.' },
+                { ratio: 'CH₄ / H₂ > 1', meaning: 'Thermal fault', detail: 'Methane dominant over hydrogen indicates thermal decomposition rather than partial discharge. Check oil circulation.' },
+                { ratio: 'CO₂ / CO > 7', meaning: 'Normal aging', detail: 'Healthy ratio for cellulose (paper) insulation aging. Values dropping below 3 indicate accelerated paper degradation.' },
               ].map((item, i) => (
                 <div key={i} style={card}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
@@ -1416,7 +1416,7 @@ export default function TestingGuidePage() {
                   'When turns ratio test shows deviations',
                 ].map((item, i) => (
                   <div key={i} style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
-                    <span style={{ color: 'var(--primary)', fontWeight: 700, fontSize: 14, lineHeight: 1.6 }}>{'\•'}</span>
+                    <span style={{ color: 'var(--primary)', fontWeight: 700, fontSize: 14, lineHeight: 1.6 }}>{'•'}</span>
                     <span style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.6 }}>{item}</span>
                   </div>
                 ))}
@@ -1609,8 +1609,8 @@ export default function TestingGuidePage() {
                 <tbody>
                   {[
                     { cls: 'Good', mms: '< 2.8', ins: '< 0.11', status: 'Normal', color: '#4ade80' },
-                    { cls: 'Acceptable', mms: '2.8 \– 7.1', ins: '0.11 \– 0.28', status: 'Satisfactory', color: '#ffd700' },
-                    { cls: 'Alert', mms: '7.1 \– 18', ins: '0.28 \– 0.71', status: 'Unsatisfactory', color: '#ff8c00' },
+                    { cls: 'Acceptable', mms: '2.8 – 7.1', ins: '0.11 – 0.28', status: 'Satisfactory', color: '#ffd700' },
+                    { cls: 'Alert', mms: '7.1 – 18', ins: '0.28 – 0.71', status: 'Unsatisfactory', color: '#ff8c00' },
                     { cls: 'Danger', mms: '> 18', ins: '> 0.71', status: 'Unacceptable', color: '#ff3c3c' },
                   ].map((r, i) => (
                     <tr key={i} style={{ background: i % 2 ? 'var(--surface-elevated)' : 'transparent' }}>
@@ -1628,10 +1628,10 @@ export default function TestingGuidePage() {
             <div style={sectionHeading}>Current Signature Analysis &mdash; Frequency Guide</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
               {[
-                { freq: 'f\ₗ \± 2sf\ₗ', fault: 'Broken rotor bars', detail: 'Sidebands at line frequency \± 2×slip×line frequency. Amplitude indicates severity. s = slip = (sync speed - actual speed) / sync speed.' },
-                { freq: '2 × f\ₗ', fault: 'Eccentricity / air gap variation', detail: 'Twice line frequency component increases with non-uniform air gap. Static eccentricity from misaligned stator; dynamic from bent shaft.' },
-                { freq: 'f\ₗ \± f\ᵣ', fault: 'Rotor mechanical fault', detail: 'Line frequency modulated by rotational frequency. Indicates mechanical imbalance, misalignment, or bearing fault.' },
-                { freq: 'High-frequency slots', fault: 'Stator winding issues', detail: 'Slot harmonics at n×(number of slots)×f\ᵣ \± f\ₗ. Changes from baseline indicate winding movement or short circuits.' },
+                { freq: 'fₗ ± 2sfₗ', fault: 'Broken rotor bars', detail: 'Sidebands at line frequency ± 2×slip×line frequency. Amplitude indicates severity. s = slip = (sync speed - actual speed) / sync speed.' },
+                { freq: '2 × fₗ', fault: 'Eccentricity / air gap variation', detail: 'Twice line frequency component increases with non-uniform air gap. Static eccentricity from misaligned stator; dynamic from bent shaft.' },
+                { freq: 'fₗ ± fᵣ', fault: 'Rotor mechanical fault', detail: 'Line frequency modulated by rotational frequency. Indicates mechanical imbalance, misalignment, or bearing fault.' },
+                { freq: 'High-frequency slots', fault: 'Stator winding issues', detail: 'Slot harmonics at n×(number of slots)×fᵣ ± fₗ. Changes from baseline indicate winding movement or short circuits.' },
               ].map((item, i) => (
                 <div key={i} style={card}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>

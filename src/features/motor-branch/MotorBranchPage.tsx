@@ -17,9 +17,9 @@ const materialOptions = [
 ]
 
 const tempRatingOptions = [
-  { value: '60', label: '60\°C' },
-  { value: '75', label: '75\°C' },
-  { value: '90', label: '90\°C' },
+  { value: '60', label: '60°C' },
+  { value: '75', label: '75°C' },
+  { value: '90', label: '90°C' },
 ]
 
 const ocpDeviceOptions = [
@@ -181,7 +181,7 @@ export default function MotorBranchPage() {
         { label: 'Wire Ampacity', value: wireResult ? fmt(wireResult.ampacity, 1) : '—', unit: wireResult ? 'A' : undefined },
         { label: `Max OCP (${ocpDeviceLabel})`, value: fmt(maxOCP, 1), unit: 'A' },
         { label: 'Standard OCP Size', value: fmt(standardOCP, 0), unit: 'A' },
-        { label: 'Overload (SF\≥1.15)', value: fmt(overloadProtection115, 1), unit: 'A' },
+        { label: 'Overload (SF≥1.15)', value: fmt(overloadProtection115, 1), unit: 'A' },
         { label: 'Overload (SF<1.15)', value: fmt(overloadProtection125, 1), unit: 'A' },
       ]
     : [
@@ -191,12 +191,12 @@ export default function MotorBranchPage() {
         { label: 'Wire Ampacity', value: '—', unit: 'A' },
         { label: 'Max OCP Rating', value: '—', unit: 'A' },
         { label: 'Standard OCP Size', value: '—', unit: 'A' },
-        { label: 'Overload (SF\≥1.15)', value: '—', unit: 'A' },
+        { label: 'Overload (SF≥1.15)', value: '—', unit: 'A' },
         { label: 'Overload (SF<1.15)', value: '—', unit: 'A' },
       ]
 
   const formula = hasResult
-    ? `FLC = ${fmt(flc, 1)} A × 125% = ${fmt(minConductorAmpacity, 1)} A min ampacity | OCP = ${fmt(flc, 1)} A × ${(ocpMultiplier * 100).toFixed(0)}% = ${fmt(maxOCP, 1)} A \→ ${fmt(standardOCP, 0)} A std`
+    ? `FLC = ${fmt(flc, 1)} A × 125% = ${fmt(minConductorAmpacity, 1)} A min ampacity | OCP = ${fmt(flc, 1)} A × ${(ocpMultiplier * 100).toFixed(0)}% = ${fmt(maxOCP, 1)} A → ${fmt(standardOCP, 0)} A std`
     : undefined
 
   return (
@@ -229,7 +229,7 @@ export default function MotorBranchPage() {
           onChange={setOcpDevice}
           options={ocpDeviceOptions}
         />
-        <ResultDisplay results={results} formula={formula} />
+        <ResultDisplay results={results} formula={formula} title="Motor Branch" />
         <InfoBox title="CEC Rule 28 — Motor Branch Circuits">
           Motor branch circuit conductors must have an ampacity not less than 125% of the motor
           full load current (Rule 28-106). Overcurrent protection is sized per Table 29 based on the

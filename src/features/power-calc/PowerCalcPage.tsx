@@ -38,7 +38,7 @@ export default function PowerCalcPage() {
     if (phase === 'single') {
       formula = `W = V × I × PF = ${fmt(V)} × ${fmt(I)} × ${fmt(PF)} = ${fmt(watts)} W`
     } else {
-      formula = `W = V × I × PF × \√3 = ${fmt(V)} × ${fmt(I)} × ${fmt(PF)} × 1.732 = ${fmt(watts)} W`
+      formula = `W = V × I × PF × √3 = ${fmt(V)} × ${fmt(I)} × ${fmt(PF)} × 1.732 = ${fmt(watts)} W`
     }
   }
 
@@ -82,7 +82,7 @@ export default function PowerCalcPage() {
           onChange={setPf}
           placeholder="0.0 - 1.0"
         />
-        <ResultDisplay results={results} formula={hasInputs ? formula : undefined} />
+        <ResultDisplay results={results} formula={hasInputs ? formula : undefined} title="Power Calc" />
       </div>
     </>
   )

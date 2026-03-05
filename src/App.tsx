@@ -96,6 +96,9 @@ const ProtectiveRelaysPage = React.lazy(() => import('./features/protective-rela
 const SingleLinePage = React.lazy(() => import('./features/single-line/SingleLinePage'))
 const SwitchgearPage = React.lazy(() => import('./features/switchgear/SwitchgearPage'))
 
+// Utility pages
+const HistoryPage = React.lazy(() => import('./features/history/HistoryPage'))
+
 // Category items
 const electricalItems: CalcItem[] = [
   { to: '/electrical/ohms-law', title: "Ohm's Law", subtitle: 'Voltage, current & resistance', icon: '\u03A9' },
@@ -247,6 +250,7 @@ export default function App() {
           <Suspense fallback={<LoadingSpinner />}>
             <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/history" element={<HistoryPage />} />
 
             {/* Electrical */}
             <Route path="/electrical" element={<CategoryPage title="Electrical" items={electricalItems} />} />

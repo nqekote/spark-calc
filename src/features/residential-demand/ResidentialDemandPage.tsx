@@ -135,7 +135,7 @@ export default function ResidentialDemandPage() {
       ]
 
   const formula = canCalculate
-    ? `Lighting: first 5000W @ 100% + remainder @ 35% | Range: \≤12kW = 6000W flat | Service: ${fmt(totalDemand, 0)}W \÷ ${voltage}V = ${fmt(serviceCurrent, 1)}A`
+    ? `Lighting: first 5000W @ 100% + remainder @ 35% | Range: ≤12kW = 6000W flat | Service: ${fmt(totalDemand, 0)}W ÷ ${voltage}V = ${fmt(serviceCurrent, 1)}A`
     : undefined
 
   return (
@@ -155,7 +155,7 @@ export default function ResidentialDemandPage() {
         </div>
         <InputField
           label="Floor area"
-          unit="m\²"
+          unit="m²"
           value={floorArea}
           onChange={setFloorArea}
           placeholder="Enter floor area"
@@ -257,7 +257,7 @@ export default function ResidentialDemandPage() {
           options={voltageOptions}
         />
 
-        <ResultDisplay results={results} formula={formula} />
+        <ResultDisplay results={results} formula={formula} title="Residential Demand" />
 
         {canCalculate && (
           <div style={{
@@ -281,11 +281,11 @@ export default function ResidentialDemandPage() {
         <InfoBox title="CEC Rule 8-200 — Residential Demand">
           <p>This calculator uses a simplified CEC Rule 8-200 method for estimating residential service demand:</p>
           <ul style={{ paddingLeft: 20, margin: '8px 0' }}>
-            <li style={{ marginBottom: 4 }}><strong>General lighting:</strong> Floor area × 75 W/m\² + appliance circuits (1500W each) + laundry. First 5000W at 100%, remainder at 35%.</li>
+            <li style={{ marginBottom: 4 }}><strong>General lighting:</strong> Floor area × 75 W/m² + appliance circuits (1500W each) + laundry. First 5000W at 100%, remainder at 35%.</li>
             <li style={{ marginBottom: 4 }}><strong>Range:</strong> Up to 12kW rated = 6000W flat demand. Above 12kW, add 40% of the excess.</li>
             <li style={{ marginBottom: 4 }}><strong>Fixed appliances:</strong> If fewer than 4, apply at 100%. If 4 or more, apply at 75% each.</li>
             <li style={{ marginBottom: 4 }}><strong>Heating/Cooling:</strong> Use the larger of A/C or electric heat at 100%.</li>
-            <li style={{ marginBottom: 4 }}><strong>Service current:</strong> Total demand \÷ 240V for single-phase.</li>
+            <li style={{ marginBottom: 4 }}><strong>Service current:</strong> Total demand ÷ 240V for single-phase.</li>
           </ul>
           <p style={{ marginTop: 8, fontStyle: 'italic' }}>This is a simplified calculation for exam preparation and estimation purposes. Actual installations should be calculated per the full CEC requirements by a qualified electrician.</p>
         </InfoBox>

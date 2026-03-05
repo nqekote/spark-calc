@@ -235,7 +235,7 @@ const cecRules: CECRule[] = [
     rule: 'Rule 10-204',
     title: 'Grounding Electrode Types',
     summary: 'Specifies acceptable types of grounding electrodes.',
-    fieldApplication: 'Acceptable electrodes include: Ground rods (minimum 3m long, 16mm diameter copper-bonded or 19mm galvanized steel). Ground plates (minimum 0.6m\² area, at least 600mm below grade). Ground ring (bare copper, #2 AWG minimum, encircling the building at least 600mm deep). Concrete-encased electrode (Ufer ground) — 6m of #4 AWG bare copper in concrete footer. Metal underground water pipe (first 3m entering building, must be supplemented). For mines: driven rods and ground plates are most common. Rock conditions may require drilled holes with conductive backfill (bentonite or ground enhancement material).',
+    fieldApplication: 'Acceptable electrodes include: Ground rods (minimum 3m long, 16mm diameter copper-bonded or 19mm galvanized steel). Ground plates (minimum 0.6m² area, at least 600mm below grade). Ground ring (bare copper, #2 AWG minimum, encircling the building at least 600mm deep). Concrete-encased electrode (Ufer ground) — 6m of #4 AWG bare copper in concrete footer. Metal underground water pipe (first 3m entering building, must be supplemented). For mines: driven rods and ground plates are most common. Rock conditions may require drilled holes with conductive backfill (bentonite or ground enhancement material).',
     critical: false,
   },
   {
@@ -406,7 +406,7 @@ const testProcedures: TestProcedure[] = [
       'Spacing "a" between probes determines the depth measured (depth = spacing)',
       'Connect instrument: C1 to outer probe 1, P1 to inner probe 2, P2 to inner probe 3, C2 to outer probe 4',
       'Take the resistance reading (R)',
-      'Calculate resistivity: \ρ = 2\πaR (where a = spacing in metres, R = reading in ohms)',
+      'Calculate resistivity: ρ = 2πaR (where a = spacing in metres, R = reading in ohms)',
       'Result is in ohm-metres',
       'Repeat at different spacings: 1m, 2m, 5m, 10m, 20m to get a resistivity profile at different depths',
       'The depth at which resistivity is lowest indicates the best depth for ground electrodes',
@@ -594,7 +594,7 @@ const troubleshootingTopics: TroubleshootingTopic[] = [
       { heading: 'Moisture Ingress', text: 'The number one cause. Water entering junction boxes, motor terminal boxes, cable splices, and connector interfaces. Underground mines have constant water. Condensation from temperature changes. Pressure washing of equipment forces water into enclosures. Prevention: proper sealing, drain holes in J-boxes, heat tracing in cold areas, silicone sealant on entries.' },
       { heading: 'Vibration Damage', text: 'Mining equipment vibrates constantly. Vibration loosens terminal connections, causing hot spots that degrade insulation. Wire insulation wears through against sharp edges in vibrating equipment. Vibration causes fatigue cracking of cable jackets at entry points. Prevention: proper strain relief, vibration-resistant connectors, regular retorquing of terminals, flexible conduit transitions.' },
       { heading: 'Mechanical Damage', text: 'Trailing cables run over by equipment. Cables pinched between rock and equipment. Impact damage from falling rock. Cable pulled too tight around corners, damaging the jacket. Rodent damage (mice and porcupines chew cable insulation). Prevention: cable troughs, proper cable management, rodent-resistant cable jackets where available, regular visual inspection.' },
-      { heading: 'Age and Thermal Degradation', text: 'Insulation deteriorates over time, especially at elevated temperatures. Every 10\°C above rated temperature halves insulation life. Overloaded cables run hot, accelerating degradation. UV exposure on surface cables breaks down insulation. Prevention: proper cable sizing, temperature monitoring, replacing aged cables proactively, keeping cables out of direct sunlight.' },
+      { heading: 'Age and Thermal Degradation', text: 'Insulation deteriorates over time, especially at elevated temperatures. Every 10°C above rated temperature halves insulation life. Overloaded cables run hot, accelerating degradation. UV exposure on surface cables breaks down insulation. Prevention: proper cable sizing, temperature monitoring, replacing aged cables proactively, keeping cables out of direct sunlight.' },
       { heading: 'Poor Terminations and Splices', text: 'Improperly made splices are a major failure point. Insufficient insulation buildup on splices. Cold solder joints or improperly crimped connectors. Splice kits not rated for the voltage or environment. Moisture entering through poorly sealed splice points. Prevention: trained personnel making all splices, using proper splice kits, testing after splicing, regular inspection of accessible splices.' },
     ],
   },
@@ -752,7 +752,7 @@ export default function GroundingSystemsPage() {
 
         {/* Safety banner */}
         <div style={dangerBanner}>
-          <span style={{ fontSize: 20, flexShrink: 0 }}>{'\⚠\uFE0F'}</span>
+          <span style={{ fontSize: 20, flexShrink: 0 }}>{'⚠\uFE0F'}</span>
           <div style={{ fontSize: 13, color: 'var(--text)', lineHeight: 1.5 }}>
             <strong>Grounding saves lives.</strong> An improper ground is invisible until someone gets hurt.
             Always verify ground integrity before energizing. Never bypass ground check systems.
@@ -837,7 +837,7 @@ export default function GroundingSystemsPage() {
                         transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
                         transition: 'transform 0.2s',
                       }}>
-                        {'\▼'}
+                        {'▼'}
                       </span>
                     </button>
 
@@ -914,7 +914,7 @@ export default function GroundingSystemsPage() {
                             </div>
                             {sys.advantages.map((a, i) => (
                               <div key={i} style={{ fontSize: 13, color: 'var(--text)', lineHeight: 1.6, paddingLeft: 12, position: 'relative' }}>
-                                <span style={{ position: 'absolute', left: 0, color: '#00cc66' }}>{'\✓'}</span>
+                                <span style={{ position: 'absolute', left: 0, color: '#00cc66' }}>{'✓'}</span>
                                 {a}
                               </div>
                             ))}
@@ -930,7 +930,7 @@ export default function GroundingSystemsPage() {
                             </div>
                             {sys.disadvantages.map((d, i) => (
                               <div key={i} style={{ fontSize: 13, color: 'var(--text)', lineHeight: 1.6, paddingLeft: 12, position: 'relative' }}>
-                                <span style={{ position: 'absolute', left: 0, color: '#ff3c3c' }}>{'\✗'}</span>
+                                <span style={{ position: 'absolute', left: 0, color: '#ff3c3c' }}>{'✗'}</span>
                                 {d}
                               </div>
                             ))}
@@ -1049,7 +1049,7 @@ export default function GroundingSystemsPage() {
                   }}>
                     <div style={{ flex: 1 }}>
                       <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--text)', lineHeight: 1.3 }}>
-                        {rule.critical && <span style={{ color: '#ff3c3c', marginRight: 6 }}>{'\●'}</span>}
+                        {rule.critical && <span style={{ color: '#ff3c3c', marginRight: 6 }}>{'●'}</span>}
                         {rule.title}
                       </div>
                     </div>
@@ -1091,11 +1091,11 @@ export default function GroundingSystemsPage() {
               ...card, fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.6,
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-                <span style={{ color: '#ff3c3c', fontSize: 14 }}>{'\●'}</span>
+                <span style={{ color: '#ff3c3c', fontSize: 14 }}>{'●'}</span>
                 <span><strong>Critical rules</strong> — essential for mining safety and compliance</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <span style={{ color: 'var(--primary)', fontSize: 14 }}>{'\●'}</span>
+                <span style={{ color: 'var(--primary)', fontSize: 14 }}>{'●'}</span>
                 <span><strong>Standard rules</strong> — important reference for proper grounding practice</span>
               </div>
             </div>
@@ -1131,7 +1131,7 @@ export default function GroundingSystemsPage() {
                     >
                       <div>
                         <div style={{ fontSize: 16, fontWeight: 700, color: 'var(--text)', marginBottom: 4 }}>
-                          {topic.critical && <span style={{ color: borderColor, marginRight: 6 }}>{'\●'}</span>}
+                          {topic.critical && <span style={{ color: borderColor, marginRight: 6 }}>{'●'}</span>}
                           {topic.title}
                         </div>
                         <div style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.5 }}>
@@ -1143,7 +1143,7 @@ export default function GroundingSystemsPage() {
                         transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
                         transition: 'transform 0.2s',
                       }}>
-                        {'\▼'}
+                        {'▼'}
                       </span>
                     </button>
 
@@ -1222,7 +1222,7 @@ export default function GroundingSystemsPage() {
                         transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
                         transition: 'transform 0.2s',
                       }}>
-                        {'\▼'}
+                        {'▼'}
                       </span>
                     </button>
 
@@ -1308,7 +1308,7 @@ export default function GroundingSystemsPage() {
                                 fontSize: 13, color: 'var(--text)', lineHeight: 1.6,
                                 paddingLeft: 14, position: 'relative',
                               }}>
-                                <span style={{ position: 'absolute', left: 0, color: 'var(--primary)' }}>{'\•'}</span>
+                                <span style={{ position: 'absolute', left: 0, color: 'var(--primary)' }}>{'•'}</span>
                                 {eq}
                               </div>
                             ))}
@@ -1356,7 +1356,7 @@ export default function GroundingSystemsPage() {
                       return matchSearch(allText)
                     }).findIndex(t => t.danger) && (
                       <div style={{ ...dangerBanner, marginBottom: 12 }}>
-                        <span style={{ fontSize: 20, flexShrink: 0 }}>{'\⚠\uFE0F'}</span>
+                        <span style={{ fontSize: 20, flexShrink: 0 }}>{'⚠\uFE0F'}</span>
                         <div style={{ fontSize: 13, color: 'var(--text)', lineHeight: 1.5 }}>
                           <strong>Emergency decisions matter.</strong> Know when to de-energize immediately versus when you can safely investigate.
                         </div>
@@ -1380,8 +1380,8 @@ export default function GroundingSystemsPage() {
                       >
                         <div>
                           <div style={{ fontSize: 16, fontWeight: 700, color: 'var(--text)', marginBottom: 4 }}>
-                            {isDanger && <span style={{ color: '#ff3c3c', marginRight: 6 }}>{'\●'}</span>}
-                            {isWarning && <span style={{ color: '#ff8c00', marginRight: 6 }}>{'\●'}</span>}
+                            {isDanger && <span style={{ color: '#ff3c3c', marginRight: 6 }}>{'●'}</span>}
+                            {isWarning && <span style={{ color: '#ff8c00', marginRight: 6 }}>{'●'}</span>}
                             {topic.title}
                           </div>
                           <div style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.5 }}>
@@ -1393,7 +1393,7 @@ export default function GroundingSystemsPage() {
                           transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
                           transition: 'transform 0.2s',
                         }}>
-                          {'\▼'}
+                          {'▼'}
                         </span>
                       </button>
 

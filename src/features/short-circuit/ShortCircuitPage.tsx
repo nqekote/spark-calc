@@ -115,7 +115,7 @@ export default function ShortCircuitPage() {
     // Z% is expressed as decimal (e.g., 5.75% = 0.0575)
     const zDecimal = zPct / 100
     iscTransformer = (kvaVal * 1000) / (vSec * Math.sqrt(3) * zDecimal)
-    formulaXfmr = `Isc = (${fmt(kvaVal, 0)} × 1000) / (${fmt(vSec, 0)} × \√3 × ${fmt(zDecimal, 4)}) = ${fmt(iscTransformer, 0)} A`
+    formulaXfmr = `Isc = (${fmt(kvaVal, 0)} × 1000) / (${fmt(vSec, 0)} × √3 × ${fmt(zDecimal, 4)}) = ${fmt(iscTransformer, 0)} A`
 
     if (hasCableInputs) {
       // Point-to-point method
@@ -129,7 +129,7 @@ export default function ShortCircuitPage() {
         // Isc_panel = Isc_transformer / (1 + f)
         const f = (Math.sqrt(3) * lengthFt * Z) / vSec
         iscPanel = iscTransformer / (1 + f)
-        formulaPanel = `f = (\√3 × ${fmt(lengthFt, 0)} × ${fmt(Z, 4)}) / ${fmt(vSec, 0)} = ${fmt(f, 4)}  |  Isc(panel) = ${fmt(iscTransformer, 0)} / (1 + ${fmt(f, 4)}) = ${fmt(iscPanel, 0)} A`
+        formulaPanel = `f = (√3 × ${fmt(lengthFt, 0)} × ${fmt(Z, 4)}) / ${fmt(vSec, 0)} = ${fmt(f, 4)}  |  Isc(panel) = ${fmt(iscTransformer, 0)} / (1 + ${fmt(f, 4)}) = ${fmt(iscPanel, 0)} A`
       }
     }
   }
@@ -226,7 +226,7 @@ export default function ShortCircuitPage() {
             options={cableSizeOptions}
           />
 
-          <ResultDisplay results={results} formula={fullFormula} />
+          <ResultDisplay results={results} formula={fullFormula} title="Short Circuit" />
 
           {/* Fault level severity indicator */}
           {hasBasicInputs && (

@@ -82,7 +82,7 @@ export default function TransformerSizingPage() {
       if (phase === 'three') {
         calculatedKva = (V * demandLoad * Math.sqrt(3)) / 1000
         currentAmps = demandLoad
-        formula = `kVA = (${V}V × ${fmt(demandLoad, 1)}A × \√3) / 1000 = ${fmt(calculatedKva, 2)} kVA`
+        formula = `kVA = (${V}V × ${fmt(demandLoad, 1)}A × √3) / 1000 = ${fmt(calculatedKva, 2)} kVA`
       } else {
         calculatedKva = (V * demandLoad) / 1000
         currentAmps = demandLoad
@@ -145,7 +145,7 @@ export default function TransformerSizingPage() {
             options={demandFactorOptions}
           />
 
-          <ResultDisplay results={results} formula={hasInputs ? formula : undefined} />
+          <ResultDisplay results={results} formula={hasInputs ? formula : undefined} title="Transformer Sizing" />
 
           {/* Standard Transformer Sizes Reference Table */}
           <div style={{
@@ -183,7 +183,7 @@ export default function TransformerSizingPage() {
           <InfoBox title="CEC Rule 26-252 — Transformer OCP">
             CEC Rule 26-252 governs overcurrent protection for transformers. For transformers rated
             over 750V, primary OCP shall not exceed 150% of rated primary current (300% for
-            supervised installations with impedance \≥ 6%). For transformers rated 750V or less,
+            supervised installations with impedance ≥ 6%). For transformers rated 750V or less,
             primary OCP shall not exceed 125% of rated primary current. If 125% does not correspond
             to a standard fuse or breaker size, the next higher standard size is permitted.
             Demand factors can be applied per CEC Rule 8-106 depending on the type of load served.

@@ -258,12 +258,12 @@ const testMethods: TestMethod[] = [
       'Drive 4 stakes in a straight line with equal spacing "a"',
       'Spacing "a" determines test depth (test measures to depth = a)',
       'Connect tester: C1-P1-P2-C2 from left to right',
-      'Take reading (\ρ = 2\πaR where R is the reading)',
+      'Take reading (ρ = 2πaR where R is the reading)',
       'Repeat with different spacings to profile resistivity vs. depth',
       'Use multiple directions if terrain is variable (open pit benches)',
     ],
-    acceptableLimits: 'Design data — not a pass/fail test. Typical values: rocky soil 1000-5000 Ω\·m, clay 25-70 Ω\·m, gravel 600-1000 Ω\·m',
-    miningNotes: 'Open pit ore body and waste rock have widely varying resistivity. Test on multiple benches and in different seasons. Frozen ground resistivity can exceed 10,000 Ω\·m — critical for winter ground fault protection.',
+    acceptableLimits: 'Design data — not a pass/fail test. Typical values: rocky soil 1000-5000 Ω·m, clay 25-70 Ω·m, gravel 600-1000 Ω·m',
+    miningNotes: 'Open pit ore body and waste rock have widely varying resistivity. Test on multiple benches and in different seasons. Frozen ground resistivity can exceed 10,000 Ω·m — critical for winter ground fault protection.',
   },
 ]
 
@@ -274,13 +274,13 @@ interface GroundRef {
 }
 
 const groundingReferences: GroundRef[] = [
-  { item: 'Mine substation ground grid', requirement: '\≤1 Ω resistance to remote earth', reference: 'IEEE 80, O.Reg 854 s.159' },
+  { item: 'Mine substation ground grid', requirement: '≤1 Ω resistance to remote earth', reference: 'IEEE 80, O.Reg 854 s.159' },
   { item: 'Portable equipment ground', requirement: 'Equipment grounding conductor continuous to source', reference: 'CEC 10-600, O.Reg 854 s.160' },
   { item: 'Trailing cable ground conductor', requirement: 'Monitored by GCM, resistance <1 Ω end-to-end', reference: 'O.Reg 854 s.160(2)' },
   { item: 'Ground fault relay', requirement: 'Required on all mine distribution, trip <0.5 sec', reference: 'O.Reg 854 s.160(1)' },
   { item: 'Grounding electrode conductor', requirement: 'Per CEC Table 10, min #6 AWG Cu', reference: 'CEC 10-114' },
-  { item: 'Step potential limit', requirement: '\≤50V RMS for 1 second (70 kg person)', reference: 'IEEE 80-2013 Table 9' },
-  { item: 'Touch potential limit', requirement: '\≤50V RMS for 1 second', reference: 'IEEE 80-2013 Table 10' },
+  { item: 'Step potential limit', requirement: '≤50V RMS for 1 second (70 kg person)', reference: 'IEEE 80-2013 Table 9' },
+  { item: 'Touch potential limit', requirement: '≤50V RMS for 1 second', reference: 'IEEE 80-2013 Table 10' },
   { item: 'Bonding jumper at service', requirement: 'Sized per CEC Table 16', reference: 'CEC 10-614' },
   { item: 'Shovel/drill ground rod', requirement: '<25 Ω individual, system <5 Ω with grid', reference: 'Mine site specification' },
   { item: 'Seasonal testing', requirement: 'Test in worst-case season (winter for open pit)', reference: 'IEEE 81, Mine practice' },
@@ -299,7 +299,7 @@ const testEquipmentList: TestEquipment[] = [
   { name: 'Fluke 1630-2', type: 'Clamp-on ground tester', use: 'Stakeless ground resistance', range: '0.025Ω to 1500Ω' },
   { name: 'AEMC 6417', type: 'Clamp-on ground tester', use: 'Multi-ground systems testing', range: '0.01Ω to 1500Ω' },
   { name: 'Megger MIT485', type: 'Insulation resistance tester', use: 'Cable insulation testing (Megger)', range: '0.01 MΩ to 20 GΩ' },
-  { name: 'Megger DLRO-10', type: 'Micro-ohmmeter', use: 'Bonding connection resistance', range: '0.1\µΩ to 2000Ω' },
+  { name: 'Megger DLRO-10', type: 'Micro-ohmmeter', use: 'Bonding connection resistance', range: '0.1µΩ to 2000Ω' },
   { name: 'Dranetz HDPQ', type: 'Power quality analyzer', use: 'Ground current monitoring', range: 'N/A' },
 ]
 
@@ -574,7 +574,7 @@ export default function GroundFaultPage() {
           gap: 10,
           alignItems: 'flex-start',
         }}>
-          <span style={{ fontSize: 20, flexShrink: 0, lineHeight: 1 }}>{'\⚠'}</span>
+          <span style={{ fontSize: 20, flexShrink: 0, lineHeight: 1 }}>{'⚠'}</span>
           <div style={{ fontSize: 13, color: 'var(--text)', lineHeight: 1.6 }}>
             <strong>Open Pit Mine Ground Fault Protection.</strong> O.Reg 854 requires ground fault
             protection on all mine power distribution systems. HRG systems limit fault current to
@@ -1158,7 +1158,7 @@ export default function GroundFaultPage() {
 
             <div style={noteBox}>
               <strong>Mining Note:</strong> When ordering an NGR for an open pit mine, specify the operating
-              environment: outdoor installation, ambient temperature range (-40{'\°'}C to +40{'\°'}C typical
+              environment: outdoor installation, ambient temperature range (-40{'°'}C to +40{'°'}C typical
               for Northern Ontario), and IP/NEMA rating for weather exposure. Stainless steel resistor elements
               are preferred for mine environments due to corrosion resistance from dust and moisture.
             </div>
@@ -1206,17 +1206,17 @@ export default function GroundFaultPage() {
                 whiteSpace: 'pre',
               }}>
 {`POWER CENTER                TRAILING CABLE              EQUIPMENT
-\┌\─\─\─\─\─\─\─\─\─\─\─\─\┐              \┌\─\─\─\─\─\─\─\─\─\─\─\─\┐          \┌\─\─\─\─\─\─\─\─\─\─\─\─\┐
-\│  GCM Relay \│   Pilot    \│  L1 \─\─\─\─\─\─\─\─\│\─\─\─\►\│   Motor    \│
-\│  \┌\─\─\─\─\─\─\┐ \│   Wire     \│  L2 \─\─\─\─\─\─\─\─\│\─\─\─\►\│   Load     \│
-\│  \│ Coil \│ \│\─\─\─\─\─\─\─\─\─\│  L3 \─\─\─\─\─\─\─\─\│\─\─\─\►\│            \│
-\│  \└\─\─\┬\─\─\─\┘ \│\─\─\─\─\►    \│  GND\─\─\─\─\─\─\─\─\│\─\─\─\─\│\─\─Ground   \│
-\│     \│     \│   Pilot   \│  PILOT\─\─\─\─\─\─\│\─\─\─\─\│\─\─\┐        \│
-\│     \│     \│\─\─\─\─\◄    \│             \│    \│  \│ R     \│
-\│  \┌\─\─\┴\─\─\─\┐ \│         \└\─\─\─\─\─\─\─\─\─\─\─\─\─\┘    \│  \│(end)  \│
-\│  \│ Trip  \│ \│                             \│  \│ loop  \│
-\│  \│ Cont. \│ \│                             \└\─\─\┘       \│
-\└\─\─\┴\─\─\─\─\─\─\┴\─\┘                             \└\─\─\─\─\─\─\─\─\─\─\─\─\┘`}
+┌────────────┐              ┌────────────┐          ┌────────────┐
+│  GCM Relay │   Pilot    │  L1 ────────│───►│   Motor    │
+│  ┌──────┐ │   Wire     │  L2 ────────│───►│   Load     │
+│  │ Coil │ │─────────│  L3 ────────│───►│            │
+│  └──┬───┘ │────►    │  GND────────│────│──Ground   │
+│     │     │   Pilot   │  PILOT──────│────│──┐        │
+│     │     │────◄    │             │    │  │ R     │
+│  ┌──┴───┐ │         └─────────────┘    │  │(end)  │
+│  │ Trip  │ │                             │  │ loop  │
+│  │ Cont. │ │                             └──┘       │
+└──┴──────┴─┘                             └────────────┘`}
               </div>
               <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 10, lineHeight: 1.6 }}>
                 The GCM relay sends a low-voltage signal through the pilot wire to the equipment end, where
@@ -1296,7 +1296,7 @@ export default function GroundFaultPage() {
                       fontSize: 13, color: 'var(--text)', lineHeight: 1.6,
                       paddingLeft: 16, position: 'relative',
                     }}>
-                      <span style={{ position: 'absolute', left: 0, color: 'var(--text-tertiary)' }}>{'\•'}</span>
+                      <span style={{ position: 'absolute', left: 0, color: 'var(--text-tertiary)' }}>{'•'}</span>
                       {s}
                     </div>
                   ))}
@@ -1312,7 +1312,7 @@ export default function GroundFaultPage() {
                       fontSize: 13, color: 'var(--text)', lineHeight: 1.6,
                       paddingLeft: 16, position: 'relative',
                     }}>
-                      <span style={{ position: 'absolute', left: 0, color: '#fbbf24' }}>{'\▶'}</span>
+                      <span style={{ position: 'absolute', left: 0, color: '#fbbf24' }}>{'▶'}</span>
                       {c}
                     </div>
                   ))}
@@ -1372,7 +1372,7 @@ export default function GroundFaultPage() {
                     <span style={{
                       position: 'absolute', left: 0,
                       color: '#f87171', fontWeight: 700,
-                    }}>{'\§'}</span>
+                    }}>{'§'}</span>
                     {req}
                   </div>
                 ))}
@@ -1637,7 +1637,7 @@ export default function GroundFaultPage() {
                 Ground Grid Resistance Estimation
               </div>
               <div style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: 12 }}>
-                For a ground grid with total buried conductor length L in soil of resistivity {'\ρ'}:
+                For a ground grid with total buried conductor length L in soil of resistivity {'ρ'}:
               </div>
               <div style={{
                 background: 'var(--surface-elevated)',
@@ -1652,9 +1652,9 @@ export default function GroundFaultPage() {
                 flexDirection: 'column',
                 gap: 6,
               }}>
-                <div>R<sub>grid</sub> = {'\ρ'} / (4r) + {'\ρ'} / L</div>
+                <div>R<sub>grid</sub> = {'ρ'} / (4r) + {'ρ'} / L</div>
                 <div style={{ fontSize: 11, color: 'var(--text-tertiary)', fontWeight: 400 }}>
-                  where r = {'\√'}(A/{'\π'}) = equivalent radius of grid area A
+                  where r = {'√'}(A/{'π'}) = equivalent radius of grid area A
                 </div>
               </div>
               <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 10, lineHeight: 1.6 }}>
@@ -1719,7 +1719,7 @@ export default function GroundFaultPage() {
                   'Consider ground enhancement (Chem-Rod, bentonite, ground enhancement material) in rocky waste dumps',
                 ].map((note, i) => (
                   <div key={i} style={{ paddingLeft: 16, position: 'relative', fontSize: 13, lineHeight: 1.6 }}>
-                    <span style={{ position: 'absolute', left: 0, color: 'var(--text-tertiary)' }}>{'\•'}</span>
+                    <span style={{ position: 'absolute', left: 0, color: 'var(--text-tertiary)' }}>{'•'}</span>
                     {note}
                   </div>
                 ))}

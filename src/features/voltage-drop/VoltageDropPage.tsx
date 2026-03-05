@@ -103,7 +103,7 @@ export default function VoltageDropPage() {
     if (phase === 'single') {
       formula = `VD = 2 × K × I × L / CM = 2 × ${K} × ${fmt(I)} × ${fmt(L)} / ${CM.toLocaleString()} = ${fmt(vDrop)} V`
     } else {
-      formula = `VD = \√3 × K × I × L / CM = 1.732 × ${K} × ${fmt(I)} × ${fmt(L)} / ${CM.toLocaleString()} = ${fmt(vDrop)} V`
+      formula = `VD = √3 × K × I × L / CM = 1.732 × ${K} × ${fmt(I)} × ${fmt(L)} / ${CM.toLocaleString()} = ${fmt(vDrop)} V`
     }
   }
 
@@ -174,7 +174,7 @@ export default function VoltageDropPage() {
           onChange={setWireSize}
           options={wireSizeOptions}
         />
-        <ResultDisplay results={results} formula={hasInputs ? formula : undefined} />
+        <ResultDisplay results={results} formula={hasInputs ? formula : undefined} title="Voltage Drop" />
         <InfoBox title="CEC Voltage Drop Recommendations">
           The Canadian Electrical Code recommends a maximum voltage drop of 3% for branch circuits
           and 5% for the combined feeder and branch circuit. Excessive voltage drop can cause

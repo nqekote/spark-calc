@@ -95,7 +95,7 @@ const mineEquipment: MineEquipment[] = [
 const formulas: Formula[] = [
   {
     name: 'Motor FLA (3-Phase)',
-    formula: 'FLA = HP × 746 / (V × \√3 × PF × Eff)',
+    formula: 'FLA = HP × 746 / (V × √3 × PF × Eff)',
     description: 'Calculate full load amps for a 3-phase motor',
     example: '100HP @ 575V, PF=0.85, Eff=0.92: FLA = 100×746/(575×1.732×0.85×0.92) = 96.2A',
   },
@@ -107,13 +107,13 @@ const formulas: Formula[] = [
   },
   {
     name: 'Transformer Sizing',
-    formula: 'kVA = (V × I × \√3) / 1000',
+    formula: 'kVA = (V × I × √3) / 1000',
     description: 'Required transformer kVA for known load',
     example: '575V, 500A load: kVA = 575×500×1.732/1000 = 498 kVA → use 500 kVA',
   },
   {
     name: 'Short Circuit (Approx)',
-    formula: 'Isc = kVA × 1000 / (V × \√3 × Z%)',
+    formula: 'Isc = kVA × 1000 / (V × √3 × Z%)',
     description: 'Approximate available fault current at transformer secondary',
     example: '1000 kVA, 575V, 5.75% Z: Isc = 1000×1000/(575×1.732×0.0575) = 17,451A',
   },
@@ -131,7 +131,7 @@ const formulas: Formula[] = [
   },
   {
     name: 'Ground Fault Trip Time',
-    formula: 'Must trip \≤ 200ms at \≤ 100mA',
+    formula: 'Must trip ≤ 200ms at ≤ 100mA',
     description: 'Ontario mine regulation for ground fault protection on portable equipment',
     example: 'All trailing cable equipment and portable tools underground must have GFP meeting this spec',
   },
@@ -357,14 +357,14 @@ export default function MinePowerPage() {
                     minHeight: 56,
                   }}>
                     <span style={{ fontSize: 15, fontWeight: 700, color: 'var(--text)', textAlign: 'left' }}>
-                      {'\⚠\uFE0F'} {item.symptom}
+                      {'⚠\uFE0F'} {item.symptom}
                     </span>
                     <span style={{
                       color: 'var(--text-secondary)', fontSize: 20,
                       transform: isExpanded ? 'rotate(180deg)' : 'none',
                       transition: 'transform .2s',
                     }}>
-                      {'\▼'}
+                      {'▼'}
                     </span>
                   </button>
                   {isExpanded && (
@@ -377,7 +377,7 @@ export default function MinePowerPage() {
                           fontSize: 14, color: 'var(--text-secondary)', padding: '4px 0',
                           paddingLeft: 16, position: 'relative', lineHeight: 1.4,
                         }}>
-                          <span style={{ position: 'absolute', left: 0, color: '#ff3c3c' }}>{'\•'}</span>
+                          <span style={{ position: 'absolute', left: 0, color: '#ff3c3c' }}>{'•'}</span>
                           {c}
                         </div>
                       ))}

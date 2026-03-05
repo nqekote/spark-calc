@@ -15,9 +15,9 @@ const materialOptions = [
 ]
 
 const tempRatingOptions = [
-  { value: '60', label: '60\°C' },
-  { value: '75', label: '75\°C' },
-  { value: '90', label: '90\°C' },
+  { value: '60', label: '60°C' },
+  { value: '75', label: '75°C' },
+  { value: '90', label: '90°C' },
 ]
 
 const loadTypeOptions = [
@@ -255,7 +255,7 @@ export default function FeederOCPPage() {
         />
         <InputField
           label="Ambient Temperature"
-          unit={'\°C'}
+          unit={'°C'}
           value={ambientTemp}
           onChange={setAmbientTemp}
           placeholder="30"
@@ -268,7 +268,7 @@ export default function FeederOCPPage() {
           placeholder="3"
         />
         <SegmentedControl options={loadTypeOptions} value={loadType} onChange={setLoadType} />
-        <ResultDisplay results={results} formula={hasInputs ? formula : undefined} />
+        <ResultDisplay results={results} formula={hasInputs ? formula : undefined} title="Feeder OCP" />
         <InfoBox title="CEC Rule 14-104">
           Feeder conductors shall have an allowable ampacity not less than the load to be
           served. For continuous loads, conductors must be sized at 125% of the continuous

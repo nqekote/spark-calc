@@ -428,7 +428,7 @@ export default function GeneratorSizingPage() {
 
           <InfoBox title="Generator Sizing Guidelines">
             Generator sizing must account for both continuous running loads and transient starting
-            loads. Motor starting current (LRA) is typically 3\–6 times the full load current,
+            loads. Motor starting current (LRA) is typically 3–6 times the full load current,
             causing a significant momentary power demand. The generator must be sized to handle
             the largest motor starting while all other loads are running. A minimum 25% safety
             margin above calculated load is recommended for future expansion and load growth.

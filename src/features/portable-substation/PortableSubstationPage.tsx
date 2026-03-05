@@ -119,11 +119,11 @@ interface VoltageConfig {
 }
 
 const voltageConfigs: VoltageConfig[] = [
-  { primaryVoltage: '4.16 kV', secondaryVoltage: '600V 3\ϕ', winding: '\Δ-Y', application: 'Small mine distribution, older systems', notes: 'Common in smaller operations. Short distribution distances.', color: '#4ade80' },
-  { primaryVoltage: '13.8 kV', secondaryVoltage: '600V 3\ϕ', winding: '\Δ-Y', application: 'Most common open pit mining configuration', notes: 'Standard for most Ontario mines. Good balance of distribution distance and equipment cost.', color: '#ff9f43' },
-  { primaryVoltage: '13.8 kV', secondaryVoltage: '347/600V 3\ϕ 4W', winding: '\Δ-Y', application: 'When 347V lighting loads are present', notes: '4-wire secondary provides 347V line-to-neutral for HID lighting.', color: '#ffd700' },
-  { primaryVoltage: '25 kV', secondaryVoltage: '600V 3\ϕ', winding: '\Δ-Y', application: 'Large pits with long distribution runs', notes: 'Higher primary voltage allows longer cable runs with less loss. Requires 25kV-rated cable and terminations.', color: '#ff6b6b' },
-  { primaryVoltage: '44 kV', secondaryVoltage: '4.16 kV / 13.8 kV', winding: '\Δ-Y or Y-Y', application: 'Main substation feeding portable subs', notes: 'Step-down from utility/mine main to distribution voltage.', color: '#a78bfa' },
+  { primaryVoltage: '4.16 kV', secondaryVoltage: '600V 3ϕ', winding: 'Δ-Y', application: 'Small mine distribution, older systems', notes: 'Common in smaller operations. Short distribution distances.', color: '#4ade80' },
+  { primaryVoltage: '13.8 kV', secondaryVoltage: '600V 3ϕ', winding: 'Δ-Y', application: 'Most common open pit mining configuration', notes: 'Standard for most Ontario mines. Good balance of distribution distance and equipment cost.', color: '#ff9f43' },
+  { primaryVoltage: '13.8 kV', secondaryVoltage: '347/600V 3ϕ 4W', winding: 'Δ-Y', application: 'When 347V lighting loads are present', notes: '4-wire secondary provides 347V line-to-neutral for HID lighting.', color: '#ffd700' },
+  { primaryVoltage: '25 kV', secondaryVoltage: '600V 3ϕ', winding: 'Δ-Y', application: 'Large pits with long distribution runs', notes: 'Higher primary voltage allows longer cable runs with less loss. Requires 25kV-rated cable and terminations.', color: '#ff6b6b' },
+  { primaryVoltage: '44 kV', secondaryVoltage: '4.16 kV / 13.8 kV', winding: 'Δ-Y or Y-Y', application: 'Main substation feeding portable subs', notes: 'Step-down from utility/mine main to distribution voltage.', color: '#a78bfa' },
 ]
 
 interface ProtectionDevice {
@@ -142,7 +142,7 @@ const protectionDevices: ProtectionDevice[] = [
   { device: 'Ground Fault Protection (GFP)', location: 'Secondary circuit', function: 'Detect ground faults on secondary feeders — critical for mine safety', typicalSetting: '100 mA pickup, 200 ms trip (O.Reg.854)', standard: 'O.Reg.854 s.160' },
   { device: 'Surge Arresters', location: 'Primary and secondary bushings', function: 'Protect windings from lightning and switching surges', typicalSetting: 'MCOV rated for system voltage class', standard: 'IEEE C62.11' },
   { device: 'Neutral Grounding Resistor (NGR)', location: 'Secondary neutral', function: 'Limit ground fault current on resistance-grounded systems', typicalSetting: '200-400A for 10 seconds, or 25A continuous', standard: 'IEEE 142' },
-  { device: 'Temperature Alarm/Trip', location: 'Winding hot-spot', function: 'Protect transformer from overheating damage', typicalSetting: 'Alarm at 95\°C, trip at 105\°C (top oil)', standard: 'IEEE C57.91' },
+  { device: 'Temperature Alarm/Trip', location: 'Winding hot-spot', function: 'Protect transformer from overheating damage', typicalSetting: 'Alarm at 95°C, trip at 105°C (top oil)', standard: 'IEEE C57.91' },
 ]
 
 interface SubstationRating {
@@ -255,7 +255,7 @@ const installSteps: InstallStep[] = [
       'Set secondary main breaker trip at transformer secondary FLA or per coordination',
       'Test GFP relay pickup and timing: verify 100 mA / 200 ms per O.Reg.854',
       'Test ground check monitor: verify trip on pilot wire open or short',
-      'Verify temperature alarm and trip setpoints: alarm 95\°C, trip 105\°C typical',
+      'Verify temperature alarm and trip setpoints: alarm 95°C, trip 105°C typical',
       'Verify pressure relief device is operational and vent path is clear',
       'Test all alarm circuits: low oil, high temp, pressure, Buchholz (if equipped)',
       'Verify relay targets and trip counters are reset',
@@ -269,7 +269,7 @@ const installSteps: InstallStep[] = [
     description: 'Perform electrical tests to verify transformer integrity before energization.',
     details: [
       'Insulation resistance (megger) test: 1000V DC for 600V winding, 5000V DC for HV winding',
-      'Minimum acceptable IR: 100 MΩ at 20\°C for new oil-filled transformers',
+      'Minimum acceptable IR: 100 MΩ at 20°C for new oil-filled transformers',
       'Turns ratio test (TTR): verify ratio within 0.5% of nameplate on all taps',
       'Winding resistance test: verify within 2% between phases (balance check)',
       'Power factor / dissipation factor test: should be < 0.5% for new oil-filled units',
@@ -313,7 +313,7 @@ const safetyRequirements: SafetyRequirement[] = [
   { requirement: 'Signage', details: 'DANGER HIGH VOLTAGE signs on all sides. Voltage rating posted. Emergency contact numbers posted. No Unauthorized Entry signs.', reference: 'CEC Rule 36-006', color: '#ff9f43' },
   { requirement: 'Fire Protection', details: 'Class BC or ABC fire extinguisher (minimum 20 lb) within 3m of substation. For oil-filled units >1000 kVA: consider fixed suppression or foam system.', reference: 'O.Reg.854 s.45', color: '#ffd700' },
   { requirement: 'Oil Containment', details: 'Secondary containment capable of holding 110% of total oil volume. Lined with oil-resistant membrane. Drain valve for rainwater removal. Regular inspection for integrity.', reference: 'TSSA O.Reg.217', color: '#4ade80' },
-  { requirement: 'Lightning Protection', details: 'Surge arresters on primary and secondary bushings. Overhead shield wire if substation is the highest point in area. Ground flash density in Northern Ontario: 1-2 flashes/km\²/year.', reference: 'IEEE C62.11', color: '#60a5fa' },
+  { requirement: 'Lightning Protection', details: 'Surge arresters on primary and secondary bushings. Overhead shield wire if substation is the highest point in area. Ground flash density in Northern Ontario: 1-2 flashes/km²/year.', reference: 'IEEE C62.11', color: '#60a5fa' },
   { requirement: 'Approach Distances', details: 'Minimum approach distances for unqualified persons: 3.0m for 13.8kV, 3.0m for 25kV, 3.5m for 44kV. Qualified electrical workers: per CSA Z462 Table 4.', reference: 'CSA Z462 / O.Reg.854', color: '#a78bfa' },
 ]
 
@@ -467,12 +467,12 @@ interface RecommissionTest {
 const recommissionTests: RecommissionTest[] = [
   { test: 'Visual Inspection', purpose: 'Check for transport damage, oil leaks, loose connections', acceptCriteria: 'No visible damage, leaks, or loose components', required: 'Always' },
   { test: 'Oil Level Check', purpose: 'Verify oil is at proper level after transport', acceptCriteria: 'Oil level in normal range on sight glass at current temp', required: 'Always' },
-  { test: 'Insulation Resistance (Megger)', purpose: 'Verify winding insulation integrity after move', acceptCriteria: '\≥ 100 MΩ at 20\°C (oil-filled), PI > 2.0', required: 'Always' },
+  { test: 'Insulation Resistance (Megger)', purpose: 'Verify winding insulation integrity after move', acceptCriteria: '≥ 100 MΩ at 20°C (oil-filled), PI > 2.0', required: 'Always' },
   { test: 'Turns Ratio Test (TTR)', purpose: 'Verify core and winding integrity', acceptCriteria: 'Within 0.5% of nameplate ratio on all taps', required: 'After significant impact or damage suspected' },
-  { test: 'Oil Dielectric Strength', purpose: 'Verify oil has not been contaminated during move', acceptCriteria: '\≥ 30 kV breakdown (ASTM D1816)', required: 'Always' },
-  { test: 'Ground Resistance', purpose: 'Verify new grounding system is adequate', acceptCriteria: '\≤ 5Ω (O.Reg.854), target < 1Ω', required: 'Always' },
+  { test: 'Oil Dielectric Strength', purpose: 'Verify oil has not been contaminated during move', acceptCriteria: '≥ 30 kV breakdown (ASTM D1816)', required: 'Always' },
+  { test: 'Ground Resistance', purpose: 'Verify new grounding system is adequate', acceptCriteria: '≤ 5Ω (O.Reg.854), target < 1Ω', required: 'Always' },
   { test: 'Phase Rotation', purpose: 'Verify correct phase sequence at new location', acceptCriteria: 'ABC clockwise rotation matches mine standard', required: 'Always' },
-  { test: 'GFP Relay Test', purpose: 'Verify ground fault protection is operational', acceptCriteria: 'Trips at \≤ 100 mA within 200 ms', required: 'Always' },
+  { test: 'GFP Relay Test', purpose: 'Verify ground fault protection is operational', acceptCriteria: 'Trips at ≤ 100 mA within 200 ms', required: 'Always' },
   { test: 'Phasing Verification', purpose: 'Verify phase alignment with existing mine distribution', acceptCriteria: 'Zero volts between same phases of parallel sources', required: 'When paralleling with other sources' },
   { test: 'Protection Function Test', purpose: 'Verify all protection relay functions', acceptCriteria: 'All relays trip at set values within tolerance', required: 'Always' },
 ]
@@ -511,21 +511,21 @@ const inspectionChecklist: InspectionItem[] = [
   { item: 'Oil level — sight glass', frequency: 'Daily', procedure: 'Check oil level gauge/sight glass against temperature-corrected normal range', acceptCriteria: 'Oil level within normal band for ambient temperature', color: '#4ade80' },
   { item: 'Temperature reading', frequency: 'Daily', procedure: 'Record top-oil temperature from gauge or RTD. Compare to load and ambient.', acceptCriteria: 'Top oil temperature within rated rise above ambient', color: '#4ade80' },
   { item: 'Unusual noise or vibration', frequency: 'Daily', procedure: 'Listen for changes in hum level, buzzing, cracking, or mechanical rattling', acceptCriteria: 'Steady, low-frequency hum only — no arcing or rattling sounds', color: '#4ade80' },
-  { item: 'Load current and voltage', frequency: 'Weekly', procedure: 'Record all phase currents and voltages. Check for imbalance.', acceptCriteria: 'Current \≤ rated FLA, voltage imbalance < 2%, current imbalance < 5%', color: '#60a5fa' },
+  { item: 'Load current and voltage', frequency: 'Weekly', procedure: 'Record all phase currents and voltages. Check for imbalance.', acceptCriteria: 'Current ≤ rated FLA, voltage imbalance < 2%, current imbalance < 5%', color: '#60a5fa' },
   { item: 'GFP relay indicator check', frequency: 'Weekly', procedure: 'Verify GFP relay power light is on, no fault indication, no tripped targets', acceptCriteria: 'Relay powered, no trip flags, no alarms', color: '#60a5fa' },
   { item: 'Containment inspection', frequency: 'Weekly', procedure: 'Inspect oil containment berm/liner for damage, accumulated water, or oil', acceptCriteria: 'No oil in containment, no liner damage, drain water if accumulated', color: '#60a5fa' },
   { item: 'Grounding connections', frequency: 'Monthly', procedure: 'Inspect all visible ground connections for tightness, corrosion, mechanical damage', acceptCriteria: 'All connections tight, no corrosion, conductors intact', color: '#ff9f43' },
-  { item: 'GFP relay function test', frequency: 'Monthly', procedure: 'Inject test current using relay test set. Verify pickup and timing.', acceptCriteria: 'Trips at \≤ 100 mA within 200 ms per O.Reg.854', color: '#ff9f43' },
+  { item: 'GFP relay function test', frequency: 'Monthly', procedure: 'Inject test current using relay test set. Verify pickup and timing.', acceptCriteria: 'Trips at ≤ 100 mA within 200 ms per O.Reg.854', color: '#ff9f43' },
   { item: 'Surge arrester inspection', frequency: 'Monthly', procedure: 'Visual inspection for cracking, tracking marks, or flashover damage', acceptCriteria: 'No cracks, no tracking, no discoloration, counter reading normal', color: '#ff9f43' },
   { item: 'Bushing cleaning', frequency: 'Quarterly', procedure: 'De-energize and clean bushings with lint-free cloth. Check for cracks or chips.', acceptCriteria: 'Clean, no tracking marks, no cracks, no chips, creepage distance maintained', color: '#ffd700' },
-  { item: 'Connection thermal scan', frequency: 'Quarterly', procedure: 'Infrared scan of all primary and secondary connections under load', acceptCriteria: 'No hotspots > 10\°C above adjacent phase or > 40\°C above ambient', color: '#ffd700' },
-  { item: 'Oil dielectric breakdown test', frequency: 'Annual', procedure: 'Sample oil per ASTM D923. Test breakdown voltage per ASTM D1816.', acceptCriteria: '\≥ 30 kV (1mm gap) for in-service oil', color: '#ff6b6b' },
+  { item: 'Connection thermal scan', frequency: 'Quarterly', procedure: 'Infrared scan of all primary and secondary connections under load', acceptCriteria: 'No hotspots > 10°C above adjacent phase or > 40°C above ambient', color: '#ffd700' },
+  { item: 'Oil dielectric breakdown test', frequency: 'Annual', procedure: 'Sample oil per ASTM D923. Test breakdown voltage per ASTM D1816.', acceptCriteria: '≥ 30 kV (1mm gap) for in-service oil', color: '#ff6b6b' },
   { item: 'Dissolved Gas Analysis (DGA)', frequency: 'Annual', procedure: 'Sample oil per IEEE C57.104. Lab analysis for combustible gases.', acceptCriteria: 'All gases within Condition 1 limits (see DGA table)', color: '#ff6b6b' },
-  { item: 'Oil moisture content', frequency: 'Annual', procedure: 'Sample oil. Karl Fischer titration per ASTM D1533.', acceptCriteria: '\≤ 35 ppm for in-service oil (per IEEE C57.106)', color: '#ff6b6b' },
+  { item: 'Oil moisture content', frequency: 'Annual', procedure: 'Sample oil. Karl Fischer titration per ASTM D1533.', acceptCriteria: '≤ 35 ppm for in-service oil (per IEEE C57.106)', color: '#ff6b6b' },
   { item: 'Insulation resistance (megger)', frequency: 'Annual', procedure: 'De-energize. Megger H-L, H-Gnd, L-Gnd at rated test voltage for 1 minute.', acceptCriteria: 'Minimum per voltage class table. PI > 2.0.', color: '#ff6b6b' },
-  { item: 'Ground resistance test', frequency: 'Annual', procedure: 'Fall-of-potential method. Test entire ground grid resistance.', acceptCriteria: '\≤ 5Ω per O.Reg.854 s.159, target < 1Ω', color: '#ff6b6b' },
+  { item: 'Ground resistance test', frequency: 'Annual', procedure: 'Fall-of-potential method. Test entire ground grid resistance.', acceptCriteria: '≤ 5Ω per O.Reg.854 s.159, target < 1Ω', color: '#ff6b6b' },
   { item: 'Cooling system check', frequency: 'Annual', procedure: 'Clean radiator fins, test fan motors (if ONAF), check oil pump (if OFAF).', acceptCriteria: 'Fins clear of debris, fans start and run properly, pumps flow verified', color: '#ff6b6b' },
-  { item: 'Protection relay calibration', frequency: 'Annual', procedure: 'Full relay calibration using secondary injection test set.', acceptCriteria: 'All pickup and timing values within \± 5% of settings', color: '#ff6b6b' },
+  { item: 'Protection relay calibration', frequency: 'Annual', procedure: 'Full relay calibration using secondary injection test set.', acceptCriteria: 'All pickup and timing values within ± 5% of settings', color: '#ff6b6b' },
 ]
 
 interface DGAGas {
@@ -540,14 +540,14 @@ interface DGAGas {
 }
 
 const dgaGases: DGAGas[] = [
-  { gas: 'Hydrogen', symbol: 'H\₂', source: 'Partial discharge, low-energy arcing', condition1: '\≤ 100 ppm', condition2: '101-700 ppm', condition3: '> 700 ppm', indicates: 'Corona, partial discharge in oil or paper. Low levels may indicate normal aging.', color: '#60a5fa' },
-  { gas: 'Methane', symbol: 'CH\₄', source: 'Low-temperature thermal fault (150-300\°C)', condition1: '\≤ 120 ppm', condition2: '121-400 ppm', condition3: '> 400 ppm', indicates: 'Overheated oil near hot metal surfaces. Localized hot spots.', color: '#4ade80' },
-  { gas: 'Ethane', symbol: 'C\₂H\₆', source: 'Low-temperature thermal fault (300-700\°C)', condition1: '\≤ 65 ppm', condition2: '66-100 ppm', condition3: '> 100 ppm', indicates: 'Thermal decomposition of oil. More severe than methane alone.', color: '#ffd700' },
-  { gas: 'Ethylene', symbol: 'C\₂H\₄', source: 'High-temperature thermal fault (>700\°C)', condition1: '\≤ 50 ppm', condition2: '51-200 ppm', condition3: '> 200 ppm', indicates: 'Severe overheating — hot metal in oil, bad connections, circulating currents. Key indicator of serious thermal fault.', color: '#ff9f43' },
-  { gas: 'Acetylene', symbol: 'C\₂H\₂', source: 'Arcing (>1000\°C)', condition1: '\≤ 1 ppm', condition2: '2-9 ppm', condition3: '> 9 ppm', indicates: 'Active arcing in oil. VERY SIGNIFICANT even at low levels. May indicate tap changer problems, flashover, or winding fault.', color: '#ff6b6b' },
-  { gas: 'Carbon Monoxide', symbol: 'CO', source: 'Paper (cellulose) degradation', condition1: '\≤ 350 ppm', condition2: '351-570 ppm', condition3: '> 570 ppm', indicates: 'Overheated paper insulation. Combined with CO\₂, indicates paper thermal damage.', color: '#a78bfa' },
-  { gas: 'Carbon Dioxide', symbol: 'CO\₂', source: 'Paper degradation, normal aging', condition1: '\≤ 2500 ppm', condition2: '2501-4000 ppm', condition3: '> 4000 ppm', indicates: 'Normal paper aging or thermal degradation. CO\₂/CO ratio helps determine severity.', color: '#e879f9' },
-  { gas: 'Oxygen', symbol: 'O\₂', source: 'Air ingress, seal leaks', condition1: 'N/A', condition2: 'N/A', condition3: 'N/A', indicates: 'Seal integrity. High O\₂ accelerates oil degradation. Should decrease over time in sealed units.', color: '#94a3b8' },
+  { gas: 'Hydrogen', symbol: 'H₂', source: 'Partial discharge, low-energy arcing', condition1: '≤ 100 ppm', condition2: '101-700 ppm', condition3: '> 700 ppm', indicates: 'Corona, partial discharge in oil or paper. Low levels may indicate normal aging.', color: '#60a5fa' },
+  { gas: 'Methane', symbol: 'CH₄', source: 'Low-temperature thermal fault (150-300°C)', condition1: '≤ 120 ppm', condition2: '121-400 ppm', condition3: '> 400 ppm', indicates: 'Overheated oil near hot metal surfaces. Localized hot spots.', color: '#4ade80' },
+  { gas: 'Ethane', symbol: 'C₂H₆', source: 'Low-temperature thermal fault (300-700°C)', condition1: '≤ 65 ppm', condition2: '66-100 ppm', condition3: '> 100 ppm', indicates: 'Thermal decomposition of oil. More severe than methane alone.', color: '#ffd700' },
+  { gas: 'Ethylene', symbol: 'C₂H₄', source: 'High-temperature thermal fault (>700°C)', condition1: '≤ 50 ppm', condition2: '51-200 ppm', condition3: '> 200 ppm', indicates: 'Severe overheating — hot metal in oil, bad connections, circulating currents. Key indicator of serious thermal fault.', color: '#ff9f43' },
+  { gas: 'Acetylene', symbol: 'C₂H₂', source: 'Arcing (>1000°C)', condition1: '≤ 1 ppm', condition2: '2-9 ppm', condition3: '> 9 ppm', indicates: 'Active arcing in oil. VERY SIGNIFICANT even at low levels. May indicate tap changer problems, flashover, or winding fault.', color: '#ff6b6b' },
+  { gas: 'Carbon Monoxide', symbol: 'CO', source: 'Paper (cellulose) degradation', condition1: '≤ 350 ppm', condition2: '351-570 ppm', condition3: '> 570 ppm', indicates: 'Overheated paper insulation. Combined with CO₂, indicates paper thermal damage.', color: '#a78bfa' },
+  { gas: 'Carbon Dioxide', symbol: 'CO₂', source: 'Paper degradation, normal aging', condition1: '≤ 2500 ppm', condition2: '2501-4000 ppm', condition3: '> 4000 ppm', indicates: 'Normal paper aging or thermal degradation. CO₂/CO ratio helps determine severity.', color: '#e879f9' },
+  { gas: 'Oxygen', symbol: 'O₂', source: 'Air ingress, seal leaks', condition1: 'N/A', condition2: 'N/A', condition3: 'N/A', indicates: 'Seal integrity. High O₂ accelerates oil degradation. Should decrease over time in sealed units.', color: '#94a3b8' },
 ]
 
 interface InsulationResistance {
@@ -559,7 +559,7 @@ interface InsulationResistance {
 }
 
 const insulationResistanceTable: InsulationResistance[] = [
-  { voltageClass: '600V secondary', testVoltage: '1000V DC', minNew: '100 MΩ', minService: '25 MΩ', notes: 'Correct all readings to 20\°C. Halves for every 10\°C above 20\°C.' },
+  { voltageClass: '600V secondary', testVoltage: '1000V DC', minNew: '100 MΩ', minService: '25 MΩ', notes: 'Correct all readings to 20°C. Halves for every 10°C above 20°C.' },
   { voltageClass: '4.16 kV', testVoltage: '5000V DC', minNew: '500 MΩ', minService: '100 MΩ', notes: 'PI (Polarization Index) > 2.0 indicates dry insulation.' },
   { voltageClass: '13.8 kV', testVoltage: '5000V DC', minNew: '1000 MΩ', minService: '200 MΩ', notes: 'Trending over time is more important than absolute value.' },
   { voltageClass: '25 kV', testVoltage: '5000V DC', minNew: '1500 MΩ', minService: '300 MΩ', notes: 'If below minimum, investigate before re-energizing.' },
@@ -613,7 +613,7 @@ const troubleshootItems: TroubleshootItem[] = [
       'Check load current on all phases — compare to rated FLA',
       'Inspect radiator fins for blockage — dust, debris, ice in winter',
       'Verify fan operation — check motor, contactor, thermal switch',
-      'Compare top oil temp to ambient — rise should be \≤ rated value',
+      'Compare top oil temp to ambient — rise should be ≤ rated value',
       'Check for current imbalance between phases (>5% is suspect)',
       'Review load profile — k-factor and harmonic content if VFDs present',
     ],
@@ -645,7 +645,7 @@ const troubleshootItems: TroubleshootItem[] = [
   },
   {
     symptom: 'Relay Tripping — Ground Fault',
-    icon: '\⚡',
+    icon: '⚡',
     causes: [
       { cause: 'Actual ground fault on secondary feeder cable', likelihood: 'Common' },
       { cause: 'Equipment insulation failure (motor, cable, junction box)', likelihood: 'Common' },
@@ -667,7 +667,7 @@ const troubleshootItems: TroubleshootItem[] = [
   },
   {
     symptom: 'Relay Tripping — Overcurrent',
-    icon: '\⚠',
+    icon: '⚠',
     causes: [
       { cause: 'Motor locked rotor on starting', likelihood: 'Common' },
       { cause: 'Overloaded secondary circuit', likelihood: 'Common' },
@@ -741,7 +741,7 @@ const emergencyProcedures: EmergencyProcedure[] = [
       'Activate mine emergency alarm — report fire location to dispatch',
       'If safe to do so: de-energize transformer from upstream breaker (remote trip)',
       'Evacuate area — maintain 15m minimum exclusion zone',
-      'If fire is small and unit is de-energized: use dry chemical or CO\₂ extinguisher',
+      'If fire is small and unit is de-energized: use dry chemical or CO₂ extinguisher',
       'Do NOT use water on an energized or oil-burning transformer',
       'Notify mine rescue team and environmental coordinator',
       'Contain oil runoff to prevent environmental contamination',
@@ -802,13 +802,13 @@ interface OutOfServiceCriteria {
 }
 
 const outOfServiceCriteria: OutOfServiceCriteria[] = [
-  { condition: 'Acetylene (C\₂H\₂) > 9 ppm in DGA', action: 'De-energize immediately. Active arcing inside transformer.', urgency: 'Immediate', color: '#ff6b6b' },
+  { condition: 'Acetylene (C₂H₂) > 9 ppm in DGA', action: 'De-energize immediately. Active arcing inside transformer.', urgency: 'Immediate', color: '#ff6b6b' },
   { condition: 'Oil dielectric strength < 25 kV', action: 'De-energize. Oil is contaminated or degraded. Filter or replace oil.', urgency: 'Immediate', color: '#ff6b6b' },
   { condition: 'Insulation resistance below minimum for voltage class', action: 'De-energize. Investigate cause — moisture, contamination, or winding damage.', urgency: 'Immediate', color: '#ff6b6b' },
   { condition: 'Oil level below minimum with active leak', action: 'De-energize. Repair leak, top up oil, retest before re-energizing.', urgency: 'Immediate', color: '#ff6b6b' },
   { condition: 'Pressure relief device has operated', action: 'De-energize and investigate. Internal fault or overpressure event.', urgency: 'Immediate', color: '#ff6b6b' },
   { condition: 'Audible partial discharge (crackling/snapping)', action: 'De-energize. Partial discharge will progress to failure.', urgency: 'Urgent', color: '#ff9f43' },
-  { condition: 'Top oil temp exceeds 110\°C at rated load', action: 'Reduce load immediately. If temp continues to rise, de-energize.', urgency: 'Urgent', color: '#ff9f43' },
+  { condition: 'Top oil temp exceeds 110°C at rated load', action: 'Reduce load immediately. If temp continues to rise, de-energize.', urgency: 'Urgent', color: '#ff9f43' },
   { condition: 'DGA shows rapid gas generation rate', action: 'Increase monitoring frequency. Plan outage for investigation.', urgency: 'Scheduled', color: '#ffd700' },
   { condition: 'Oil moisture > 50 ppm', action: 'Plan oil processing (vacuum dehydration). Monitor closely.', urgency: 'Scheduled', color: '#ffd700' },
   { condition: 'Visible bushing cracks or tracking marks', action: 'Schedule replacement at next outage. Monitor closely.', urgency: 'Scheduled', color: '#ffd700' },
@@ -833,25 +833,25 @@ const commissioningChecklist: CommissioningItem[] = [
   { category: 'Site', item: 'Danger High Voltage signs posted on all sides', pass: 'Visible from 5m' },
   { category: 'Site', item: 'Fire extinguisher in place (20 lb min BC/ABC)', pass: 'Within 3m, inspected' },
   { category: 'Grounding', item: 'Ground rods installed per design', pass: 'Min 2 rods, 3m apart' },
-  { category: 'Grounding', item: 'Ground resistance tested', pass: '\≤ 5Ω (target < 1Ω)' },
+  { category: 'Grounding', item: 'Ground resistance tested', pass: '≤ 5Ω (target < 1Ω)' },
   { category: 'Grounding', item: 'Tank/skid bonded to ground grid', pass: '#2/0 AWG minimum' },
   { category: 'Grounding', item: 'Neutral-ground bond in place (if req\'d)', pass: 'Per system design' },
-  { category: 'Electrical', item: 'Insulation resistance — HV to ground', pass: '\≥ min per voltage class' },
-  { category: 'Electrical', item: 'Insulation resistance — LV to ground', pass: '\≥ 100 MΩ at 20\°C' },
-  { category: 'Electrical', item: 'Insulation resistance — HV to LV', pass: '\≥ min per voltage class' },
+  { category: 'Electrical', item: 'Insulation resistance — HV to ground', pass: '≥ min per voltage class' },
+  { category: 'Electrical', item: 'Insulation resistance — LV to ground', pass: '≥ 100 MΩ at 20°C' },
+  { category: 'Electrical', item: 'Insulation resistance — HV to LV', pass: '≥ min per voltage class' },
   { category: 'Electrical', item: 'Turns ratio test (all taps)', pass: 'Within 0.5% of nameplate' },
   { category: 'Electrical', item: 'Winding resistance (all phases)', pass: 'Within 2% between phases' },
   { category: 'Electrical', item: 'Phase rotation verified', pass: 'ABC clockwise' },
   { category: 'Electrical', item: 'Phasing verified against mine system', pass: '0V between same phases' },
   { category: 'Oil', item: 'Oil level within normal range', pass: 'At correct temp band' },
-  { category: 'Oil', item: 'Oil dielectric breakdown', pass: '\≥ 30 kV (ASTM D1816)' },
-  { category: 'Oil', item: 'Oil moisture content', pass: '\≤ 20 ppm new, \≤ 35 ppm service' },
+  { category: 'Oil', item: 'Oil dielectric breakdown', pass: '≥ 30 kV (ASTM D1816)' },
+  { category: 'Oil', item: 'Oil moisture content', pass: '≤ 20 ppm new, ≤ 35 ppm service' },
   { category: 'Oil', item: 'DGA baseline sample taken', pass: 'Results on file' },
   { category: 'Protection', item: 'Primary fuses correct size and condition', pass: 'Per coordination study' },
   { category: 'Protection', item: 'Secondary breaker settings verified', pass: 'Per coordination study' },
-  { category: 'Protection', item: 'GFP relay tested', pass: '\≤ 100 mA / 200 ms' },
+  { category: 'Protection', item: 'GFP relay tested', pass: '≤ 100 mA / 200 ms' },
   { category: 'Protection', item: 'Ground check monitor tested', pass: 'Trips on pilot open' },
-  { category: 'Protection', item: 'Temperature alarms/trips verified', pass: 'Alarm 95\°C, trip 105\°C' },
+  { category: 'Protection', item: 'Temperature alarms/trips verified', pass: 'Alarm 95°C, trip 105°C' },
   { category: 'Protection', item: 'Surge arresters installed and inspected', pass: 'No damage, proper rating' },
   { category: 'Connections', item: 'All primary connections torqued', pass: 'Per manufacturer spec' },
   { category: 'Connections', item: 'All secondary connections torqued', pass: 'Per manufacturer spec' },
@@ -1049,7 +1049,7 @@ function ExpandableCard({ title, color, defaultOpen, children }: { title: string
           flexShrink: 0,
           marginLeft: 8,
         }}>
-          {'\▼'}
+          {'▼'}
         </span>
       </button>
       {open && <div style={{ marginTop: 10 }}>{children}</div>}
@@ -1071,7 +1071,7 @@ function BulletList({ items, color }: { items: string[]; color: string }) {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
       {items.map((item, i) => (
         <div key={i} style={bulletItem}>
-          <span style={bulletDot(color)}>{'\•'}</span>
+          <span style={bulletDot(color)}>{'•'}</span>
           {item}
         </div>
       ))}
@@ -1177,7 +1177,7 @@ function TypesTab() {
       {/* Winding Configurations */}
       <SectionTitle>Common Voltage & Winding Configurations</SectionTitle>
       <div style={infoBox}>
-        <strong>Delta-Wye (\Δ-Y)</strong> is the most common winding configuration for mining substations. Delta primary provides harmonic isolation. Wye secondary provides a neutral point for grounding and 347V line-to-neutral.
+        <strong>Delta-Wye (Δ-Y)</strong> is the most common winding configuration for mining substations. Delta primary provides harmonic isolation. Wye secondary provides a neutral point for grounding and 347V line-to-neutral.
       </div>
       <div style={{ overflowX: 'auto' }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: 540 }}>
@@ -1247,7 +1247,7 @@ function TypesTab() {
         </table>
       </div>
       <div style={{ fontSize: 11, color: 'var(--text-secondary)', fontStyle: 'italic' }}>
-        Note: Amperage calculated as I = kVA / (\√3 × V). Weights and dimensions are approximate and vary by manufacturer. Impedance per IEEE C57.12.00.
+        Note: Amperage calculated as I = kVA / (√3 × V). Weights and dimensions are approximate and vary by manufacturer. Impedance per IEEE C57.12.00.
       </div>
     </div>
   )
@@ -1542,7 +1542,7 @@ function MaintenanceTab() {
             </table>
           </div>
           <div style={warningBox}>
-            <strong>KEY:</strong> Condition 1 = Normal. Condition 2 = Caution, increase monitoring. Condition 3 = Warning, investigate immediately. ANY acetylene (C{'\₂'}H{'\₂'}) above 1 ppm requires immediate attention.
+            <strong>KEY:</strong> Condition 1 = Normal. Condition 2 = Caution, increase monitoring. Condition 3 = Warning, investigate immediately. ANY acetylene (C{'₂'}H{'₂'}) above 1 ppm requires immediate attention.
           </div>
           <div style={{ fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.5 }}>
             <strong>DGA Sampling Frequency:</strong> Annual for units in good condition. Every 3-6 months for units with Condition 2 gases. Monthly for units with Condition 3 gases or rapidly increasing trends. After every relocation if impact damage is suspected.
@@ -1553,8 +1553,8 @@ function MaintenanceTab() {
       <ExpandableCard title="Oil Dielectric Testing" color="#60a5fa">
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           <InfoRow label="Test Standard" value="ASTM D1816 (1mm gap)" />
-          <InfoRow label="Min. New Oil" value="\≥ 35 kV" valueColor="#4ade80" />
-          <InfoRow label="Min. In-Service" value="\≥ 30 kV" valueColor="#ffd700" />
+          <InfoRow label="Min. New Oil" value="≥ 35 kV" valueColor="#4ade80" />
+          <InfoRow label="Min. In-Service" value="≥ 30 kV" valueColor="#ffd700" />
           <InfoRow label="Investigate If" value="< 25 kV" valueColor="#ff6b6b" />
           <InfoRow label="Frequency" value="Annual, or after any relocation" />
           <InfoRow label="Sample Method" value="ASTM D923 — syringe from bottom drain valve" />
@@ -1576,8 +1576,8 @@ function MaintenanceTab() {
       <ExpandableCard title="Oil Moisture Content" color="#a78bfa">
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           <InfoRow label="Test Method" value="Karl Fischer titration (ASTM D1533)" />
-          <InfoRow label="New Oil Max" value="\≤ 20 ppm" valueColor="#4ade80" />
-          <InfoRow label="In-Service Max" value="\≤ 35 ppm" valueColor="#ffd700" />
+          <InfoRow label="New Oil Max" value="≤ 20 ppm" valueColor="#4ade80" />
+          <InfoRow label="In-Service Max" value="≤ 35 ppm" valueColor="#ffd700" />
           <InfoRow label="Investigate If" value="> 35 ppm" valueColor="#ff6b6b" />
           <InfoRow label="Critical Level" value="> 50 ppm" valueColor="#ff6b6b" />
           <div style={{ borderTop: '1px solid var(--divider)', paddingTop: 8, fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.5 }}>
@@ -1613,7 +1613,7 @@ function MaintenanceTab() {
         </table>
       </div>
       <div style={{ fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-        <strong>Temperature Correction:</strong> All insulation resistance readings must be corrected to 20{'\°'}C for comparison. IR approximately halves for every 10{'\°'}C increase above 20{'\°'}C. Use IEEE C57.12.90 correction factors.
+        <strong>Temperature Correction:</strong> All insulation resistance readings must be corrected to 20{'°'}C for comparison. IR approximately halves for every 10{'°'}C increase above 20{'°'}C. Use IEEE C57.12.90 correction factors.
       </div>
       <div style={{ fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.5 }}>
         <strong>Polarization Index (PI):</strong> Ratio of 10-minute to 1-minute IR reading. PI {'>'} 2.0 indicates dry insulation. PI {'<'} 1.5 may indicate moisture contamination. Trending PI over time is valuable for monitoring insulation condition.
@@ -1626,8 +1626,8 @@ function MaintenanceTab() {
           <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--text)' }}>Ground Fault Protection (GFP) — O.Reg.854 Mandatory</div>
           <InfoRow label="Test Frequency" value="Monthly minimum" valueColor="var(--primary)" />
           <InfoRow label="Test Method" value="Secondary injection via relay test set" />
-          <InfoRow label="Pickup Verify" value="\≤ 100 mA" valueColor="#4ade80" />
-          <InfoRow label="Trip Time" value="\≤ 200 ms" valueColor="#4ade80" />
+          <InfoRow label="Pickup Verify" value="≤ 100 mA" valueColor="#4ade80" />
+          <InfoRow label="Trip Time" value="≤ 200 ms" valueColor="#4ade80" />
           <InfoRow label="Trip Output" value="Verify relay trips secondary breaker" />
           <div style={warningBox}>
             <strong>MANDATORY:</strong> O.Reg.854 s.160 requires GFP testing at least monthly. Document all test results. A failed GFP test requires immediate repair before the substation can remain in service.
@@ -1640,7 +1640,7 @@ function MaintenanceTab() {
           <InfoRow label="Test Frequency" value="Annual" />
           <InfoRow label="Test Method" value="Secondary injection, primary injection, or trip-test button" />
           <InfoRow label="Verify" value="Pickup current, time-delay curve, instantaneous trip" />
-          <InfoRow label="Tolerance" value="\± 5% of settings" />
+          <InfoRow label="Tolerance" value="± 5% of settings" />
         </div>
       </div>
       <div style={card}>
@@ -1728,7 +1728,7 @@ function TroubleshootingTab() {
                 {t.causes.map((c, i) => (
                   <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '3px 0' }}>
                     <span style={{ fontSize: 13, color: 'var(--text-secondary)', paddingLeft: 16, position: 'relative' }}>
-                      <span style={{ position: 'absolute', left: 0, color: t.color }}>{'\•'}</span>
+                      <span style={{ position: 'absolute', left: 0, color: t.color }}>{'•'}</span>
                       {c.cause}
                     </span>
                     <span style={tagStyle(
@@ -1854,7 +1854,7 @@ function TroubleshootingTab() {
         </div>
         <div style={{ ...card, borderLeft: '4px solid #ffd700' }}>
           <div style={{ fontSize: 11, fontWeight: 700, color: '#ffd700', textTransform: 'uppercase', marginBottom: 6 }}>Caution — Investigate</div>
-          <InfoRow label="Top Oil Temp" value="> 95\°C" valueColor="#ffd700" />
+          <InfoRow label="Top Oil Temp" value="> 95°C" valueColor="#ffd700" />
           <InfoRow label="Oil Moisture" value="> 35 ppm" valueColor="#ffd700" />
           <InfoRow label="DGA Condition" value="2" valueColor="#ffd700" />
           <InfoRow label="Current Imbalance" value="> 5%" valueColor="#ffd700" />
@@ -1862,11 +1862,11 @@ function TroubleshootingTab() {
         </div>
         <div style={{ ...card, borderLeft: '4px solid #4ade80' }}>
           <div style={{ fontSize: 11, fontWeight: 700, color: '#4ade80', textTransform: 'uppercase', marginBottom: 6 }}>Normal Operation</div>
-          <InfoRow label="Oil Dielectric" value="\≥ 30 kV" valueColor="#4ade80" />
-          <InfoRow label="Oil Moisture" value="\≤ 35 ppm" valueColor="#4ade80" />
+          <InfoRow label="Oil Dielectric" value="≥ 30 kV" valueColor="#4ade80" />
+          <InfoRow label="Oil Moisture" value="≤ 35 ppm" valueColor="#4ade80" />
           <InfoRow label="DGA Condition" value="1" valueColor="#4ade80" />
-          <InfoRow label="GFP Response" value="\≤ 100mA/200ms" valueColor="#4ade80" />
-          <InfoRow label="Ground Resistance" value="\≤ 5Ω" valueColor="#4ade80" />
+          <InfoRow label="GFP Response" value="≤ 100mA/200ms" valueColor="#4ade80" />
+          <InfoRow label="Ground Resistance" value="≤ 5Ω" valueColor="#4ade80" />
         </div>
       </div>
     </div>

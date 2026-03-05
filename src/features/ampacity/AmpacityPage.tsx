@@ -21,9 +21,9 @@ const wireSizes = [
 ]
 
 const tempRatingOptions = [
-  { value: '60', label: '60\°C' },
-  { value: '75', label: '75\°C' },
-  { value: '90', label: '90\°C' },
+  { value: '60', label: '60°C' },
+  { value: '75', label: '75°C' },
+  { value: '90', label: '90°C' },
 ]
 
 // CEC Table 2 - Copper ampacities [60, 75, 90]
@@ -174,7 +174,7 @@ export default function AmpacityPage() {
         />
         <InputField
           label="Ambient Temperature"
-          unit="\°C"
+          unit="°C"
           value={ambientTemp}
           onChange={setAmbientTemp}
           placeholder="30"
@@ -186,9 +186,9 @@ export default function AmpacityPage() {
           onChange={setConductors}
           placeholder="3"
         />
-        <ResultDisplay results={results} formula={formula} />
+        <ResultDisplay results={results} formula={formula} title="Ampacity" />
         <InfoBox title="CEC Tables 2/4, 5A, 5C">
-          Ampacity is based on a 30\°C ambient temperature with not more than 3 current-carrying
+          Ampacity is based on a 30°C ambient temperature with not more than 3 current-carrying
           conductors in a raceway. When conditions differ, correction factors from Table 5A
           (temperature) and Table 5C (bundling/grouping) must be applied. The corrected ampacity
           is the base value multiplied by both factors.

@@ -52,9 +52,9 @@ const motorSections: TroubleshootingSection[] = [
           headers: ['Motor Voltage', 'Test Voltage', 'Min Insulation'],
           rows: [
             ['<1000V', '500V DC', '1 MΩ/kV + 1 MΩ'],
-            ['1000\–2500V', '1000V DC', '100 MΩ'],
-            ['2500\–5000V', '2500V DC', '100 MΩ'],
-            ['5000\‒13800V', '5000V DC', '1000 MΩ'],
+            ['1000–2500V', '1000V DC', '100 MΩ'],
+            ['2500–5000V', '2500V DC', '100 MΩ'],
+            ['5000‒13800V', '5000V DC', '1000 MΩ'],
           ],
         },
       },
@@ -71,10 +71,10 @@ const motorSections: TroubleshootingSection[] = [
           'Check ventilation — fan turning? Air passages clear? Fan cover not blocked with debris/dust',
           'Check voltage unbalance — >2% unbalance causes significant heating (see Power tab calculator)',
           'Check current per phase — unbalanced current indicates winding or connection issue',
-          'Check bearings — listen for noise, feel for excessive heat at bearing housings (>80\°C = problem)',
+          'Check bearings — listen for noise, feel for excessive heat at bearing housings (>80°C = problem)',
           'Check alignment — misalignment causes bearing load, vibration, and excess heat',
         ],
-        notes: 'A motor running at 10% above rated amps will experience a roughly 20% increase in winding temperature rise. Insulation life halves for every 10\°C above rated temperature.',
+        notes: 'A motor running at 10% above rated amps will experience a roughly 20% increase in winding temperature rise. Insulation life halves for every 10°C above rated temperature.',
       },
     ],
   },
@@ -86,8 +86,8 @@ const motorSections: TroubleshootingSection[] = [
         severity: 'warning',
         steps: [
           'Measure running amps vs nameplate FLA — if amps exceed nameplate, check mechanical load',
-          'Check for single-phasing — one phase lost means remaining phases carry \√3x current (~173%)',
-          'Check supply voltage — low voltage = high current. Every 10% voltage drop \≈ 10% current increase',
+          'Check for single-phasing — one phase lost means remaining phases carry √3x current (~173%)',
+          'Check supply voltage — low voltage = high current. Every 10% voltage drop ≈ 10% current increase',
           'Check mechanical load — binding, jammed, worn bearings, overloaded conveyor, frozen pump',
           'Check starter heater/OL sizing — heaters must match motor FLA and service factor. Ambient temp affects trip point',
         ],
@@ -177,8 +177,8 @@ const controlSections: TroubleshootingSection[] = [
         severity: 'warning',
         subItems: [
           { label: 'Chattering/Buzzing', detail: 'Low control voltage (measure at coil). Broken shading coil on AC contactor (causes AC buzz). Dirty/misaligned armature face. Foreign material in air gap. Mechanical binding.', color: '#ff3c3c' },
-          { label: 'Won\'t Pick Up', detail: 'No control power \→ check upstream fuse/breaker. Open coil \→ measure coil resistance. Wrong coil voltage \→ verify rating matches supply. Mechanical binding \→ check for debris or rust. Interlock preventing pickup.', color: '#ff8c00' },
-          { label: 'Won\'t Drop Out', detail: 'Welded main contacts \→ replace contactor. Stuck armature \→ clean contact faces, check spring. Voltage still applied to coil \→ trace control circuit. Residual magnetism in worn contactor \→ replace.', color: '#ff3c3c' },
+          { label: 'Won\'t Pick Up', detail: 'No control power → check upstream fuse/breaker. Open coil → measure coil resistance. Wrong coil voltage → verify rating matches supply. Mechanical binding → check for debris or rust. Interlock preventing pickup.', color: '#ff8c00' },
+          { label: 'Won\'t Drop Out', detail: 'Welded main contacts → replace contactor. Stuck armature → clean contact faces, check spring. Voltage still applied to coil → trace control circuit. Residual magnetism in worn contactor → replace.', color: '#ff3c3c' },
         ],
         notes: 'Chattering contactors will rapidly destroy contacts and can weld shut. Do not leave chattering — remove from service immediately.',
       },
@@ -315,10 +315,10 @@ const powerSections: TroubleshootingSection[] = [
           headers: ['Equipment Voltage', 'Test Voltage', 'Min. Acceptable'],
           rows: [
             ['<250V', '500V DC', '0.5 MΩ'],
-            ['250\–600V', '1000V DC', '1.0 MΩ'],
-            ['600\–1000V', '1000V DC', '2.0 MΩ'],
-            ['1000\–2500V', '2500V DC', '5.0 MΩ'],
-            ['2500\–5000V', '5000V DC', '20 MΩ'],
+            ['250–600V', '1000V DC', '1.0 MΩ'],
+            ['600–1000V', '1000V DC', '2.0 MΩ'],
+            ['1000–2500V', '2500V DC', '5.0 MΩ'],
+            ['2500–5000V', '5000V DC', '20 MΩ'],
           ],
         },
         notes: 'For mining trailing cables: O. Reg. 854 requires minimum 1 MΩ per kV + 1 MΩ. Test after any repair or splice. Record all readings — trending is as important as absolute values.',
@@ -347,7 +347,7 @@ const powerSections: TroubleshootingSection[] = [
         title: 'Transformer Tests & Checks',
         subItems: [
           { label: 'Turns Ratio Test', detail: 'Apply known voltage to primary (or use TTR test set), measure secondary. Ratio should match nameplate within 0.5%. Deviation indicates shorted turns. Test all phases.', color: 'var(--primary)' },
-          { label: 'Insulation Resistance', detail: 'Megger primary to secondary, primary to ground, secondary to ground. Min 1 MΩ per kV + 1 MΩ at 40\°C. Correct readings for temperature: halves for every 10\°C above 40\°C.', color: 'var(--primary)' },
+          { label: 'Insulation Resistance', detail: 'Megger primary to secondary, primary to ground, secondary to ground. Min 1 MΩ per kV + 1 MΩ at 40°C. Correct readings for temperature: halves for every 10°C above 40°C.', color: 'var(--primary)' },
           { label: 'Oil Analysis (liquid-filled)', detail: 'Dielectric breakdown voltage (should be >30 kV for mineral oil). Dissolved gas analysis (DGA) — detects internal faults before failure. Moisture content: <35 ppm for distribution transformers.', color: 'var(--primary)' },
           { label: 'Common Issues', detail: 'Overheating: check load, cooling fans/radiators, oil level. Humming/buzzing: loose laminations, DC offset, overexcitation. Oil leaks: check gaskets, bushings, drain valve.', color: '#ff8c00' },
         ],
@@ -396,11 +396,11 @@ const groundingSections: TroubleshootingSection[] = [
         table: {
           headers: ['Nominal Voltage', 'Megger Test V', 'New Equipment', 'In-Service Min'],
           rows: [
-            ['120\–240V', '500V DC', '>200 MΩ', '1 MΩ'],
-            ['240\–600V', '1000V DC', '>200 MΩ', '2 MΩ'],
-            ['600\–1000V', '1000V DC', '>500 MΩ', '5 MΩ'],
-            ['1\–5kV', '2500V DC', '>1000 MΩ', '25 MΩ'],
-            ['5\–15kV', '5000V DC', '>5000 MΩ', '100 MΩ'],
+            ['120–240V', '500V DC', '>200 MΩ', '1 MΩ'],
+            ['240–600V', '1000V DC', '>200 MΩ', '2 MΩ'],
+            ['600–1000V', '1000V DC', '>500 MΩ', '5 MΩ'],
+            ['1–5kV', '2500V DC', '>1000 MΩ', '25 MΩ'],
+            ['5–15kV', '5000V DC', '>5000 MΩ', '100 MΩ'],
           ],
         },
         notes: 'The absolute value matters less than the TREND. If a motor reads 50 MΩ this month and read 500 MΩ last month, investigate even though 50 MΩ is technically acceptable.',
@@ -409,7 +409,7 @@ const groundingSections: TroubleshootingSection[] = [
         title: 'Weather & Environmental Effects',
         subItems: [
           { label: 'Humidity', detail: 'High humidity lowers insulation resistance readings. Moisture condenses on insulation surfaces, creating conductive paths. If possible, test in similar conditions each time for consistent trending.', color: 'var(--primary)' },
-          { label: 'Temperature', detail: 'Insulation resistance approximately halves for every 10\°C rise above reference (40\°C). Correct readings to 40\°C for comparison. Formula: R_40 = R_measured x 0.5^((40-T)/10).', color: 'var(--primary)' },
+          { label: 'Temperature', detail: 'Insulation resistance approximately halves for every 10°C rise above reference (40°C). Correct readings to 40°C for comparison. Formula: R_40 = R_measured x 0.5^((40-T)/10).', color: 'var(--primary)' },
           { label: 'Mining Conditions', detail: 'Underground mines: consistently high humidity and temperature. Dust and mineral deposits reduce surface insulation. Water intrusion at cable glands and junction boxes is common. Check readings more frequently.', color: '#ff8c00' },
         ],
       },
@@ -489,8 +489,8 @@ const toolsSections: TroubleshootingSection[] = [
         steps: [
           'Identify the full scope of the circuit (from source to load, counting all devices in series)',
           'Test at the MIDDLE of the circuit — this eliminates half the components in one measurement',
-          'If the test shows good power at the midpoint \→ fault is in the second half (toward load)',
-          'If the test shows no power at the midpoint \→ fault is in the first half (toward source)',
+          'If the test shows good power at the midpoint → fault is in the second half (toward load)',
+          'If the test shows no power at the midpoint → fault is in the first half (toward source)',
           'Test at the middle of the remaining suspect half — eliminates another half',
           'Repeat until the single faulted component is identified',
         ],
@@ -511,7 +511,7 @@ const toolsSections: TroubleshootingSection[] = [
           { label: 'Frame', detail: 'Physical mounting dimensions (bolt pattern, shaft height). NEMA standardized: 56 frame to 5000+ frame. Same frame number = same physical mounting regardless of manufacturer.', color: 'var(--primary)' },
           { label: 'Enclosure', detail: 'ODP (Open Drip-Proof): indoor use, clean environments. TEFC (Totally Enclosed Fan Cooled): outdoor, dusty, wet. TENV: no fan, convection cooled. TEAO: for belt-driven fans. XP: explosion-proof for hazardous locations.', color: 'var(--primary)' },
           { label: 'NEMA Design', detail: 'Design A: normal torque, normal starting current. Design B: normal torque, low starting current (most common). Design C: high starting torque for hard-to-start loads. Design D: very high starting torque, high slip (crushers, hoists).', color: 'var(--primary)' },
-          { label: 'Insulation Class', detail: 'Class A: 105\°C max. Class B: 130\°C (most common). Class F: 155\°C (common modern motors). Class H: 180\°C (high temp applications, mining hoists). Class determines maximum allowable winding temperature.', color: 'var(--primary)' },
+          { label: 'Insulation Class', detail: 'Class A: 105°C max. Class B: 130°C (most common). Class F: 155°C (common modern motors). Class H: 180°C (high temp applications, mining hoists). Class determines maximum allowable winding temperature.', color: 'var(--primary)' },
           { label: 'Voltage / Connection', detail: 'Dual voltage: 230/460V. Low voltage = parallel (higher amps, lower voltage). High voltage = series (lower amps, higher voltage). Check connection diagram inside junction box. 9-lead or 12-lead configurations.', color: 'var(--primary)' },
           { label: 'Code Letter', detail: 'Indicates starting current (locked rotor kVA/HP). Code A = lowest starting current, Code V = highest. Affects branch circuit protection sizing. Most industrial motors are Code F to Code H.', color: 'var(--primary)' },
           { label: 'Efficiency / Premium', detail: 'IE1 (Standard), IE2 (High), IE3 (Premium), IE4 (Super Premium). Higher efficiency = lower operating cost. CEC requires minimum efficiency for most new installations.', color: 'var(--primary)' },
@@ -566,7 +566,7 @@ const toolsSections: TroubleshootingSection[] = [
       {
         title: 'Infrared Camera Best Practices',
         subItems: [
-          { label: 'What to Look For', detail: 'Hot spots on connections, breakers, fuses, contactors, motors, transformers. Compare similar components under similar loads. A connection 10\°C above its twin is suspect. 40\°C above ambient = immediate action.', color: 'var(--primary)' },
+          { label: 'What to Look For', detail: 'Hot spots on connections, breakers, fuses, contactors, motors, transformers. Compare similar components under similar loads. A connection 10°C above its twin is suspect. 40°C above ambient = immediate action.', color: 'var(--primary)' },
           { label: 'Emissivity Settings', detail: 'Bare copper: ~0.07 (very low, hard to measure). Oxidized copper: ~0.65. Painted surfaces: ~0.95. Electrical tape (black): ~0.95. For accurate readings, apply a patch of electrical tape and measure it.', color: 'var(--primary)' },
           { label: 'Comparison Method', detail: 'Scan all three phases of the same circuit. They should be similar temperature at similar loads. A phase that is significantly hotter indicates a problem on that phase (loose connection, overload, imbalance).', color: 'var(--primary)' },
           { label: 'Common Findings in Mining', detail: 'Loose bus connections (vibration). Overloaded trailing cable connectors. Motor bearing housings (hot bearing vs cool bearing). VFD heatsinks with blocked airflow. Undersized or corroded ground connections.', color: '#ff8c00' },
@@ -600,10 +600,10 @@ const toolsSections: TroubleshootingSection[] = [
 /* ------------------------------------------------------------------ */
 
 const tabs: { key: TabKey; label: string; icon: string }[] = [
-  { key: 'motors', label: 'Motors', icon: '\⚙' },
-  { key: 'controls', label: 'Controls', icon: '\⊞' },
-  { key: 'power', label: 'Power', icon: '\⚡' },
-  { key: 'grounding', label: 'Grounding', icon: '\⏚' },
+  { key: 'motors', label: 'Motors', icon: '⚙' },
+  { key: 'controls', label: 'Controls', icon: '⊞' },
+  { key: 'power', label: 'Power', icon: '⚡' },
+  { key: 'grounding', label: 'Grounding', icon: '⏚' },
   { key: 'tools', label: 'Tools & Tips', icon: '\uD83D\uDD27' },
 ]
 
@@ -698,13 +698,13 @@ function CollapsibleCard({ item }: { item: TroubleshootingItem }) {
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, flex: 1, minWidth: 0 }}>
           {item.severity === 'critical' && (
-            <span style={{ color: '#ff3c3c', fontSize: 16, flexShrink: 0 }}>{'\⚠'}</span>
+            <span style={{ color: '#ff3c3c', fontSize: 16, flexShrink: 0 }}>{'⚠'}</span>
           )}
           {item.severity === 'warning' && (
-            <span style={{ color: '#ff8c00', fontSize: 16, flexShrink: 0 }}>{'\▲'}</span>
+            <span style={{ color: '#ff8c00', fontSize: 16, flexShrink: 0 }}>{'▲'}</span>
           )}
           {item.severity === 'info' && (
-            <span style={{ color: 'var(--primary)', fontSize: 16, flexShrink: 0 }}>{'\ℹ'}</span>
+            <span style={{ color: 'var(--primary)', fontSize: 16, flexShrink: 0 }}>{'ℹ'}</span>
           )}
           <span style={{ fontSize: 15, fontWeight: 700, lineHeight: 1.3 }}>{item.title}</span>
         </div>
@@ -847,7 +847,7 @@ function CollapsibleCard({ item }: { item: TroubleshootingItem }) {
               <strong style={{
                 color: item.severity === 'critical' ? '#ff3c3c' : 'var(--primary)',
               }}>
-                {item.severity === 'critical' ? '\⚠ CRITICAL: ' : '\ℹ Note: '}
+                {item.severity === 'critical' ? '⚠ CRITICAL: ' : 'ℹ Note: '}
               </strong>
               {item.notes}
             </div>
@@ -926,7 +926,7 @@ function VoltageUnbalanceCalc() {
       gap: 12,
     }}>
       <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--primary)' }}>
-        {'\⚡'} Voltage Unbalance Calculator
+        {'⚡'} Voltage Unbalance Calculator
       </div>
       <div style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.5 }}>
         Enter your three phase-to-phase voltage readings:
@@ -1154,19 +1154,19 @@ export default function TroubleshootingPage() {
           lineHeight: 1.6,
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-            <span style={{ color: '#ff3c3c', fontSize: 14 }}>{'\⚠'}</span>
+            <span style={{ color: '#ff3c3c', fontSize: 14 }}>{'⚠'}</span>
             <span><strong>Critical</strong> &mdash; safety hazard or immediate damage risk</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-            <span style={{ color: '#ff8c00', fontSize: 14 }}>{'\▲'}</span>
+            <span style={{ color: '#ff8c00', fontSize: 14 }}>{'▲'}</span>
             <span><strong>Warning</strong> &mdash; common failure point, proceed carefully</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-            <span style={{ color: 'var(--primary)', fontSize: 14 }}>{'\ℹ'}</span>
+            <span style={{ color: 'var(--primary)', fontSize: 14 }}>{'ℹ'}</span>
             <span><strong>Info</strong> &mdash; key reference or procedure</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <span style={{ color: '#4caf50', fontSize: 14 }}>{'\●'}</span>
+            <span style={{ color: '#4caf50', fontSize: 14 }}>{'●'}</span>
             <span><strong>Solution</strong> &mdash; resolution or fix</span>
           </div>
         </div>

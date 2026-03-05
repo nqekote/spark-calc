@@ -152,7 +152,7 @@ export default function OhmsLawPage() {
           onChange={setInput2}
           placeholder="Enter value"
         />
-        <ResultDisplay results={results} formula={result?.formula} />
+        <ResultDisplay results={results} formula={result?.formula} title="Ohm's Law" />
       </div>
     </>
   )

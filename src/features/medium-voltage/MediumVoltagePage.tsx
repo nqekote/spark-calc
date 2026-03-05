@@ -46,14 +46,14 @@ interface SingleLineConcept {
 }
 
 const singleLineConcepts: SingleLineConcept[] = [
-  { symbol: '\─\│\─', name: 'Bus', description: 'Main power distribution conductor, typically colour-coded by voltage level' },
-  { symbol: '\─/\─', name: 'Disconnect Switch', description: 'Visible-break isolation device, no interrupting rating under load' },
-  { symbol: '\─[×]\─', name: 'Circuit Breaker', description: 'Fault interrupting device with trip unit, rated in kA interrupting capacity' },
-  { symbol: '\─|\‾|\─', name: 'Fuse', description: 'Overcurrent device, current-limiting or expulsion type at MV' },
+  { symbol: '─│─', name: 'Bus', description: 'Main power distribution conductor, typically colour-coded by voltage level' },
+  { symbol: '─/─', name: 'Disconnect Switch', description: 'Visible-break isolation device, no interrupting rating under load' },
+  { symbol: '─[×]─', name: 'Circuit Breaker', description: 'Fault interrupting device with trip unit, rated in kA interrupting capacity' },
+  { symbol: '─|‾|─', name: 'Fuse', description: 'Overcurrent device, current-limiting or expulsion type at MV' },
   { symbol: '(CT)', name: 'Current Transformer', description: 'Steps down current for metering and protection relays (e.g., 600:5A)' },
   { symbol: '(PT)', name: 'Potential Transformer', description: 'Steps down voltage for metering and relaying (e.g., 13800:120V)' },
-  { symbol: '\Δ/Y', name: 'Transformer', description: 'Shows winding configuration: Delta primary, Wye secondary is most common' },
-  { symbol: '\⏚', name: 'Ground', description: 'System grounding point, may be solid, resistance, or reactance grounded' },
+  { symbol: 'Δ/Y', name: 'Transformer', description: 'Shows winding configuration: Delta primary, Wye secondary is most common' },
+  { symbol: '⏚', name: 'Ground', description: 'System grounding point, may be solid, resistance, or reactance grounded' },
 ]
 
 /* ------------------------------------------------------------------ */
@@ -126,7 +126,7 @@ interface BreakerType {
 const breakerTypes: BreakerType[] = [
   {
     name: 'Vacuum Circuit Breaker',
-    medium: 'Vacuum (10\⁻\⁶ to 10\⁻\⁸ torr)',
+    medium: 'Vacuum (10⁻⁶ to 10⁻⁸ torr)',
     voltage: '4.16 kV to 38 kV',
     interrupting: 'Up to 63 kA',
     advantages: ['Minimal maintenance', 'Long mechanical life (10,000+ operations)', 'No gas handling', 'Fast reclosing capable', 'Environmentally friendly', 'Compact size'],
@@ -158,7 +158,7 @@ interface FuseType {
 }
 
 const mvFuseTypes: FuseType[] = [
-  { name: 'Current-Limiting Fuse (CLF)', type: 'Backup / General purpose', rating: 'Up to 36 kV, 400A', characteristics: ['Limits let-through energy (I\²t)', 'Very fast operation on high faults', 'No external flame or gas', 'Used inside switchgear', 'Must be replaced after operation'] },
+  { name: 'Current-Limiting Fuse (CLF)', type: 'Backup / General purpose', rating: 'Up to 36 kV, 400A', characteristics: ['Limits let-through energy (I²t)', 'Very fast operation on high faults', 'No external flame or gas', 'Used inside switchgear', 'Must be replaced after operation'] },
   { name: 'Expulsion Fuse (Bay-O-Net)', type: 'Dropout / Cutout', rating: 'Up to 38 kV, 200A', characteristics: ['Arc expelled externally', 'Visible open indication (dropout)', 'Used on pole-top cutouts', 'Lower fault interrupting than CLF', 'Replaceable fuse link'] },
   { name: 'Electronic Fuse', type: 'Solid-state sensing', rating: 'Up to 38 kV, 200A', characteristics: ['Adjustable trip curves', 'Ground fault detection built-in', 'Communication capable', 'Higher cost but more versatile', 'Eliminates nuisance fuse operations'] },
 ]
@@ -181,17 +181,17 @@ const cableInsulations: CableInsulation[] = [
   {
     type: 'XLPE',
     fullName: 'Cross-Linked Polyethylene',
-    tempRating: '90\°C continuous',
-    emergencyTemp: '130\°C emergency / 250\°C short circuit',
+    tempRating: '90°C continuous',
+    emergencyTemp: '130°C emergency / 250°C short circuit',
     advantages: ['Lower dielectric losses', 'Lower capacitance', 'Lighter weight', 'No lead sheath needed', 'Good moisture resistance', 'Most common for new installations'],
-    disadvantages: ['More susceptible to water treeing', 'Cannot be recycled easily', 'Harder to field-repair', 'Requires careful installation temp (>0\°C)'],
+    disadvantages: ['More susceptible to water treeing', 'Cannot be recycled easily', 'Harder to field-repair', 'Requires careful installation temp (>0°C)'],
     color: '#54a0ff',
   },
   {
     type: 'EPR',
     fullName: 'Ethylene Propylene Rubber',
-    tempRating: '90\°C continuous (105\°C available)',
-    emergencyTemp: '130\°C emergency / 250\°C short circuit',
+    tempRating: '90°C continuous (105°C available)',
+    emergencyTemp: '130°C emergency / 250°C short circuit',
     advantages: ['More flexible than XLPE', 'Better moisture resistance', 'Easier splicing', 'Better for reeling/trailing cables', 'Good for mining applications', 'Can install at lower temperatures'],
     disadvantages: ['Higher dielectric losses than XLPE', 'Higher capacitance', 'Slightly more expensive', 'Thicker insulation wall required'],
     color: '#ff9f43',
@@ -199,8 +199,8 @@ const cableInsulations: CableInsulation[] = [
   {
     type: 'TR-XLPE',
     fullName: 'Tree-Retardant Cross-Linked Polyethylene',
-    tempRating: '90\°C continuous',
-    emergencyTemp: '130\°C emergency / 250\°C short circuit',
+    tempRating: '90°C continuous',
+    emergencyTemp: '130°C emergency / 250°C short circuit',
     advantages: ['Enhanced water tree resistance', 'Extended cable life in wet conditions', 'Same electrical properties as XLPE', 'Preferred for direct buried installations'],
     disadvantages: ['Slightly higher cost than standard XLPE', 'Same flexibility limitations as XLPE'],
     color: '#5f27cd',
@@ -217,7 +217,7 @@ const shieldTypes: ShieldType[] = [
   { name: 'Copper Tape Shield', description: 'Helically wrapped copper tape, 0.064mm (2.5 mil) minimum. Overlap provides continuous metallic path.', application: 'Standard for most MV cables, direct buried or in duct. Provides fault current return path.' },
   { name: 'Wire Shield (Concentric)', description: 'Helically applied bare copper wires over insulation shield. Typically #14 AWG wires.', application: 'Common in utility URD cables. Good for direct buried — wires act as neutral.' },
   { name: 'Longitudinally Corrugated (LC) Shield', description: 'Corrugated copper or aluminum tape applied longitudinally with overlap.', application: 'Heavy-duty applications, industrial plant cables, mining. Higher fault current capability.' },
-  { name: 'UniShield\®', description: 'Combination of copper wires applied concentrically to serve as both shield and neutral.', application: 'Utility distribution, reduces separate neutral conductor requirement.' },
+  { name: 'UniShield®', description: 'Combination of copper wires applied concentrically to serve as both shield and neutral.', application: 'Utility distribution, reduces separate neutral conductor requirement.' },
 ]
 
 interface TerminationType {
@@ -247,7 +247,7 @@ interface CableTest {
 const cableTests: CableTest[] = [
   { name: 'Hi-Pot DC', fullName: 'High Potential DC Test', voltage: 'Typically 3× rated voltage DC', duration: '15 minutes', purpose: 'Acceptance test for new cable. Detects gross defects in insulation.', notes: 'DC testing is declining for aged XLPE — can worsen water trees. IEEE 400 recommends VLF for aged cable.', color: '#ff6b6b' },
   { name: 'VLF', fullName: 'Very Low Frequency (0.1 Hz)', voltage: 'Typically 3× Uo (phase-to-ground)', duration: '15-60 minutes', purpose: 'Withstand test for new and aged cable. Better detection of water trees than DC.', notes: 'Preferred over DC for aged XLPE cable. Sinusoidal or cosine-rectangular waveform. Portable equipment available.', color: '#ffd700' },
-  { name: 'Tan Delta', fullName: 'Dissipation Factor (Tan \δ)', voltage: 'Multiple voltage steps (0.5Uo to 2Uo)', duration: '~30 minutes', purpose: 'Diagnostic test — assesses insulation condition without damaging it.', notes: 'Measures dielectric losses at each voltage step. Increasing tan \δ with voltage indicates water treeing. Non-destructive.', color: '#54a0ff' },
+  { name: 'Tan Delta', fullName: 'Dissipation Factor (Tan δ)', voltage: 'Multiple voltage steps (0.5Uo to 2Uo)', duration: '~30 minutes', purpose: 'Diagnostic test — assesses insulation condition without damaging it.', notes: 'Measures dielectric losses at each voltage step. Increasing tan δ with voltage indicates water treeing. Non-destructive.', color: '#54a0ff' },
   { name: 'Partial Discharge', fullName: 'PD Testing (online or offline)', voltage: 'At or near operating voltage', duration: 'Variable', purpose: 'Locates voids, contamination, and defects in insulation and accessories.', notes: 'Can pinpoint defect location along cable length. Online PD testing possible during normal operation.', color: '#5f27cd' },
   { name: 'Megger / IR', fullName: 'Insulation Resistance', voltage: '2500V or 5000V DC', duration: '1-10 minutes', purpose: 'Quick field check of insulation integrity. Not a definitive pass/fail.', notes: 'Minimum 1 MΩ/kV + 1 MΩ. Temperature-correct readings. Record trend over time. Use PI (Polarization Index) for motors.', color: '#4ade80' },
 ]
@@ -383,17 +383,17 @@ interface RelayFunction {
 }
 
 const relayFunctions: RelayFunction[] = [
-  { ansiCode: '50', name: 'Instantaneous Overcurrent', function: 'Trips with no intentional time delay when current exceeds pickup', application: 'High-current fault protection. Set above maximum inrush and below minimum fault current.', settings: 'Pickup: 6\–10× FLA typical. Time: 0 cycles (instantaneous)', color: '#ff6b6b' },
-  { ansiCode: '51', name: 'Time Overcurrent', function: 'Inverse time-current characteristic — higher current = faster trip', application: 'Primary overcurrent protection for feeders, motors, transformers. Coordinates with downstream devices.', settings: 'Pickup: 1.25\–1.5× FLA. Curves: Very Inverse, Extremely Inverse, etc.', color: '#ff9f43' },
-  { ansiCode: '50G / 51G', name: 'Ground Fault Overcurrent', function: 'Detects ground fault current via residual CT or zero-sequence CT', application: 'Ground fault protection. In mines, must detect 100mA ground fault per O.Reg.854.', settings: 'Pickup: 5\–20% of CT rating (sensitive). Time: 0.1\–0.5s', color: '#ffd700' },
-  { ansiCode: '87', name: 'Differential', function: 'Compares current in and current out. Trips on difference (internal fault).', application: 'Transformer, bus, generator, large motor protection. Very fast, very selective.', settings: 'Pickup: 15\–40% of rated current. Slope: 15\–40%. Harmonic restraint for inrush.', color: '#4ade80' },
-  { ansiCode: '21', name: 'Distance (Impedance)', function: 'Measures impedance (V/I) to fault. Multiple zones with increasing time delay.', application: 'Transmission line protection. Zone 1 instantaneous, Zone 2 time-delayed backup.', settings: 'Zone 1: 80\–85% of line impedance. Zone 2: 120% of line. Zone 3: backup.', color: '#54a0ff' },
+  { ansiCode: '50', name: 'Instantaneous Overcurrent', function: 'Trips with no intentional time delay when current exceeds pickup', application: 'High-current fault protection. Set above maximum inrush and below minimum fault current.', settings: 'Pickup: 6–10× FLA typical. Time: 0 cycles (instantaneous)', color: '#ff6b6b' },
+  { ansiCode: '51', name: 'Time Overcurrent', function: 'Inverse time-current characteristic — higher current = faster trip', application: 'Primary overcurrent protection for feeders, motors, transformers. Coordinates with downstream devices.', settings: 'Pickup: 1.25–1.5× FLA. Curves: Very Inverse, Extremely Inverse, etc.', color: '#ff9f43' },
+  { ansiCode: '50G / 51G', name: 'Ground Fault Overcurrent', function: 'Detects ground fault current via residual CT or zero-sequence CT', application: 'Ground fault protection. In mines, must detect 100mA ground fault per O.Reg.854.', settings: 'Pickup: 5–20% of CT rating (sensitive). Time: 0.1–0.5s', color: '#ffd700' },
+  { ansiCode: '87', name: 'Differential', function: 'Compares current in and current out. Trips on difference (internal fault).', application: 'Transformer, bus, generator, large motor protection. Very fast, very selective.', settings: 'Pickup: 15–40% of rated current. Slope: 15–40%. Harmonic restraint for inrush.', color: '#4ade80' },
+  { ansiCode: '21', name: 'Distance (Impedance)', function: 'Measures impedance (V/I) to fault. Multiple zones with increasing time delay.', application: 'Transmission line protection. Zone 1 instantaneous, Zone 2 time-delayed backup.', settings: 'Zone 1: 80–85% of line impedance. Zone 2: 120% of line. Zone 3: backup.', color: '#54a0ff' },
   { ansiCode: '67', name: 'Directional Overcurrent', function: 'Overcurrent that only operates for fault current in one direction', application: 'Parallel feeders, ring bus configurations, looped distribution systems.', settings: 'Forward or reverse power flow. Uses voltage as polarizing reference.', color: '#5f27cd' },
-  { ansiCode: '27', name: 'Undervoltage', function: 'Trips when voltage drops below set threshold for set time', application: 'Motor protection (prevent re-energization), bus transfer schemes.', settings: 'Pickup: 80\–90% of nominal. Time: 0.5\–5 seconds.', color: '#ff6b6b' },
-  { ansiCode: '59', name: 'Overvoltage', function: 'Trips when voltage exceeds set threshold', application: 'Generator protection, capacitor bank protection, ungrounded system detection.', settings: 'Pickup: 110\–120% of nominal. Time: 1\–5 seconds.', color: '#ff9f43' },
-  { ansiCode: '46', name: 'Negative Sequence (Current Unbalance)', function: 'Detects negative sequence current from unbalanced faults or open phase', application: 'Motor protection — prevents rotor overheating from unbalanced supply.', settings: 'Pickup: 10\–20% I2. Definite or inverse time.', color: '#ffd700' },
-  { ansiCode: '49', name: 'Thermal Overload', function: 'Calculates thermal state using I\²t model and ambient temperature', application: 'Motor, transformer, cable thermal protection. Prevents insulation damage from sustained overload.', settings: 'Based on thermal time constant. Pickup: 105\–115% FLA.', color: '#4ade80' },
-  { ansiCode: '81', name: 'Frequency', function: 'Trips on under or over frequency condition', application: 'Generator protection, load shedding schemes, island detection.', settings: 'Underfreq: 59.0\–59.5 Hz. Overfreq: 60.5\–61.0 Hz.', color: '#54a0ff' },
+  { ansiCode: '27', name: 'Undervoltage', function: 'Trips when voltage drops below set threshold for set time', application: 'Motor protection (prevent re-energization), bus transfer schemes.', settings: 'Pickup: 80–90% of nominal. Time: 0.5–5 seconds.', color: '#ff6b6b' },
+  { ansiCode: '59', name: 'Overvoltage', function: 'Trips when voltage exceeds set threshold', application: 'Generator protection, capacitor bank protection, ungrounded system detection.', settings: 'Pickup: 110–120% of nominal. Time: 1–5 seconds.', color: '#ff9f43' },
+  { ansiCode: '46', name: 'Negative Sequence (Current Unbalance)', function: 'Detects negative sequence current from unbalanced faults or open phase', application: 'Motor protection — prevents rotor overheating from unbalanced supply.', settings: 'Pickup: 10–20% I2. Definite or inverse time.', color: '#ffd700' },
+  { ansiCode: '49', name: 'Thermal Overload', function: 'Calculates thermal state using I²t model and ambient temperature', application: 'Motor, transformer, cable thermal protection. Prevents insulation damage from sustained overload.', settings: 'Based on thermal time constant. Pickup: 105–115% FLA.', color: '#4ade80' },
+  { ansiCode: '81', name: 'Frequency', function: 'Trips on under or over frequency condition', application: 'Generator protection, load shedding schemes, island detection.', settings: 'Underfreq: 59.0–59.5 Hz. Overfreq: 60.5–61.0 Hz.', color: '#54a0ff' },
   { ansiCode: '86', name: 'Lockout Relay', function: 'Latching relay that requires manual reset after trip', application: 'Trips for serious faults (differential, Buchholz). Prevents automatic reclosing.', settings: 'Targets indicate which protection operated. Must be manually reset.', color: '#ff3c3c' },
 ]
 
@@ -413,7 +413,7 @@ const ctRatios: CTRatio[] = [
   { application: 'Transformer Differential', typicalRatio: 'Selected to match MVA', accuracy: 'C200 minimum', burden: 'B-1.0', notes: 'Primary & secondary CT ratios matched to compensate transformer ratio.' },
   { application: 'Bus Differential', typicalRatio: '1200:5, 2000:5, 3000:5', accuracy: 'C800 preferred', burden: 'B-4.0', notes: 'All CTs on bus must have matching ratios and accuracy class.' },
   { application: 'Ground Fault (Residual)', typicalRatio: '50:5 window type', accuracy: 'C20 minimum', burden: 'B-0.5', notes: 'Zero-sequence CT around all three phases. Very sensitive pickup possible.' },
-  { application: 'Mining Ground Fault', typicalRatio: '50:5 or 100:5', accuracy: 'C10 minimum', burden: 'B-0.2', notes: 'Must detect \≤100mA. Core-balance type. Per O.Reg.854 and CSA M421.' },
+  { application: 'Mining Ground Fault', typicalRatio: '50:5 or 100:5', accuracy: 'C10 minimum', burden: 'B-0.2', notes: 'Must detect ≤100mA. Core-balance type. Per O.Reg.854 and CSA M421.' },
 ]
 
 /* ------------------------------------------------------------------ */
@@ -446,7 +446,7 @@ interface SwitchingStep {
 
 const switchingProcedure: SwitchingStep[] = [
   { step: 1, action: 'Obtain Switching Order', detail: 'Written switching order from authorized person. Includes one-line diagram reference, steps, and verification points.', warning: 'Never switch without authorization. Verbal orders must be repeated back and confirmed.' },
-  { step: 2, action: 'Don Appropriate PPE', detail: 'Minimum PPE per arc flash analysis. For MV: typically HRC 3 or 4 (40 cal/cm\²). Face shield, flash suit, voltage-rated gloves.', warning: 'PPE must be rated for the incident energy. Check arc flash label on equipment.' },
+  { step: 2, action: 'Don Appropriate PPE', detail: 'Minimum PPE per arc flash analysis. For MV: typically HRC 3 or 4 (40 cal/cm²). Face shield, flash suit, voltage-rated gloves.', warning: 'PPE must be rated for the incident energy. Check arc flash label on equipment.' },
   { step: 3, action: 'Identify Sources & Verify', detail: 'Confirm correct equipment from one-line diagram. Verify labels, equipment numbers, and physical location.', warning: 'Never assume — verify equipment identity independently. Look at bus connections.' },
   { step: 4, action: 'Open Load Break Device', detail: 'Open circuit breaker or load-break switch under load. This interrupts the load current safely.', warning: 'Do not open a disconnect switch under load — it has no interrupting rating and will arc.' },
   { step: 5, action: 'Open Disconnect Switch', detail: 'After load is interrupted, open visible-break disconnect for isolation. Verify visible gap.', warning: 'Confirm breaker is open BEFORE opening disconnect. Use operating handle or key interlock.' },
@@ -467,7 +467,7 @@ const mvPPE: PPEItem[] = [
   { item: 'Rubber Insulating Gloves — Class 3', standard: 'CSA Z462, ASTM D120', voltageClass: 'Up to 26.5 kV AC', notes: 'For 27.6 kV systems. Air test before each use. Replace if punctured.' },
   { item: 'Rubber Insulating Gloves — Class 4', standard: 'CSA Z462, ASTM D120', voltageClass: 'Up to 36 kV AC', notes: 'For 34.5 kV systems. Heaviest class commonly used in field.' },
   { item: 'Rubber Insulating Blanket', standard: 'ASTM D1048', voltageClass: 'Class matching system voltage', notes: 'Used to cover adjacent live parts during work. Secure with non-conductive clips.' },
-  { item: 'Arc Flash Suit (HRC 3/4)', standard: 'CSA Z462, NFPA 70E', voltageClass: '25\–40+ cal/cm\²', notes: 'Required for MV switching. Includes hood, jacket, pants, gloves. Check arc flash label.' },
+  { item: 'Arc Flash Suit (HRC 3/4)', standard: 'CSA Z462, NFPA 70E', voltageClass: '25–40+ cal/cm²', notes: 'Required for MV switching. Includes hood, jacket, pants, gloves. Check arc flash label.' },
   { item: 'Hot Stick (Live-Line Tool)', standard: 'ASTM F711', voltageClass: 'Rated for system voltage', notes: 'Fiberglass with silicone coating. For operating disconnects, applying grounds, voltage testing.' },
   { item: 'Voltage Detector (Phasing Stick)', standard: 'IEC 61243', voltageClass: 'Rated for system voltage', notes: 'Capacitive type for MV. Test on known live source before use. Live-dead-live method.' },
   { item: 'Portable Protective Grounds', standard: 'IEEE 1246, ASTM F855', voltageClass: 'Rated for available fault current', notes: 'Copper cable with bronze clamps. Size for fault current and clearing time. Min #2 AWG Cu.' },
@@ -507,7 +507,7 @@ const minePowerCenters: MinePowerCenter[] = [
     name: 'Portable Power Center (Unit Sub)',
     primaryVoltage: '4.16 kV or 13.8 kV',
     secondaryVoltage: '600V',
-    kvaRange: '150\–2500 kVA',
+    kvaRange: '150–2500 kVA',
     features: ['Skid or wheel mounted', 'Integral MV fuses or breaker', 'LV breakers or contactors', 'GFP for each circuit (100mA)', 'Ground check monitor', 'Trailing cable receptacles'],
     application: 'Underground development headings — feeds drills, bolters, scoops, pumps, fans',
   },
@@ -515,7 +515,7 @@ const minePowerCenters: MinePowerCenter[] = [
     name: 'Stationary Mine Substation',
     primaryVoltage: '13.8 kV or 44 kV',
     secondaryVoltage: '4.16 kV or 13.8 kV',
-    kvaRange: '2500\–25000 kVA',
+    kvaRange: '2500–25000 kVA',
     features: ['Fixed installation in engineered room', 'MV switchgear with relay protection', 'Fire suppression system', 'SCADA monitoring', 'Neutral grounding resistor'],
     application: 'Main underground distribution, shaft bottom, surface primary substation',
   },
@@ -523,7 +523,7 @@ const minePowerCenters: MinePowerCenter[] = [
     name: 'Surface Main Substation',
     primaryVoltage: '44 kV or 115 kV',
     secondaryVoltage: '4.16 kV or 13.8 kV',
-    kvaRange: '5000\–60000 kVA',
+    kvaRange: '5000–60000 kVA',
     features: ['Outdoor oil-filled transformer', 'Metal-clad switchgear', 'Revenue metering', 'OLTC tap changers', 'Full relay protection suite', 'Battery-backed DC control'],
     application: 'Mine utility interconnection point, distributes to all mine loads',
   },
@@ -542,7 +542,7 @@ const mineGFPRequirements: MineGFPRequirement[] = [
   { application: 'Fixed 600V equipment underground', maxFault: '100 mA', maxTime: '200 ms', reference: 'O.Reg.854 s.160(2)', notes: 'All underground 600V circuits require sensitive GFP.' },
   { application: 'MV distribution underground', maxFault: '5 A recommended', maxTime: '500 ms', reference: 'CSA M421', notes: 'Resistance-grounded systems limit fault current. Relay detects neutral current.' },
   { application: 'Ground check monitor', maxFault: 'Continuity pilot', maxTime: 'Before energization', reference: 'O.Reg.854 s.160(5)', notes: 'Must verify ground conductor continuity before allowing power. Trips on ground wire break.' },
-  { application: 'Surface MV distribution', maxFault: 'Per CEC Part I', maxTime: 'Per relay coordination', reference: 'CEC Rule 36-302', notes: 'Resistance or solidly grounded. NGR typically 200\–400A for 5\–10 seconds.' },
+  { application: 'Surface MV distribution', maxFault: 'Per CEC Part I', maxTime: 'Per relay coordination', reference: 'CEC Rule 36-302', notes: 'Resistance or solidly grounded. NGR typically 200–400A for 5–10 seconds.' },
 ]
 
 /* ------------------------------------------------------------------ */
@@ -700,7 +700,7 @@ function ExpandableCard({ title, color, children }: { title: string; color?: str
           flexShrink: 0,
           marginLeft: 8,
         }}>
-          {'\▼'}
+          {'▼'}
         </span>
       </button>
       {open && <div style={{ marginTop: 10 }}>{children}</div>}
@@ -770,7 +770,7 @@ export default function MediumVoltagePage() {
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
               {[
-                { reason: 'Power Transmission Efficiency', detail: 'P = I\²R losses decrease as voltage increases. Doubling voltage cuts current in half, reducing losses by 75%.' },
+                { reason: 'Power Transmission Efficiency', detail: 'P = I²R losses decrease as voltage increases. Doubling voltage cuts current in half, reducing losses by 75%.' },
                 { reason: 'Smaller Conductors', detail: 'Higher voltage means lower current for same power, allowing smaller (cheaper) cable and equipment.' },
                 { reason: 'Longer Distances', detail: 'Voltage drop is proportional to current. MV enables runs of several kilometres with acceptable drop.' },
                 { reason: 'Large Motor Drives', detail: 'Motors above ~200 HP are more efficient and economical at MV. 4.16 kV motors common above 500 HP.' },
@@ -844,9 +844,9 @@ export default function MediumVoltagePage() {
               Key MV Formulas
             </div>
             {[
-              { name: 'Power (3-Phase)', formula: 'P = \√3 × V\ₗ × I\ₗ × PF', example: '13.8kV, 200A, PF=0.9: P = 1.732 × 13800 × 200 × 0.9 = 4,303 kW' },
-              { name: 'Current from kVA', formula: 'I = kVA × 1000 / (\√3 × V\ₗ)', example: '5000 kVA at 13.8 kV: I = 5000000 / (1.732 × 13800) = 209A' },
-              { name: 'Fault Current (Approx)', formula: 'I\ₛ\ₜ = kVA × 1000 / (\√3 × V × Z%)', example: '10 MVA, 13.8 kV, 6% Z: Isc = 10000000 / (1.732 × 13800 × 0.06) = 6,975A' },
+              { name: 'Power (3-Phase)', formula: 'P = √3 × Vₗ × Iₗ × PF', example: '13.8kV, 200A, PF=0.9: P = 1.732 × 13800 × 200 × 0.9 = 4,303 kW' },
+              { name: 'Current from kVA', formula: 'I = kVA × 1000 / (√3 × Vₗ)', example: '5000 kVA at 13.8 kV: I = 5000000 / (1.732 × 13800) = 209A' },
+              { name: 'Fault Current (Approx)', formula: 'Iₛₜ = kVA × 1000 / (√3 × V × Z%)', example: '10 MVA, 13.8 kV, 6% Z: Isc = 10000000 / (1.732 × 13800 × 0.06) = 6,975A' },
             ].map((f, i) => (
               <div key={i} style={{ marginBottom: i < 2 ? 12 : 0 }}>
                 <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--text)', marginBottom: 4 }}>{f.name}</div>
@@ -881,7 +881,7 @@ export default function MediumVoltagePage() {
               </div>
               {sg.features.map((f, j) => (
                 <div key={j} style={bulletItem}>
-                  <span style={bulletDot(sg.color)}>{'\•'}</span>
+                  <span style={bulletDot(sg.color)}>{'•'}</span>
                   {f}
                 </div>
               ))}
@@ -890,7 +890,7 @@ export default function MediumVoltagePage() {
               </div>
               {sg.applications.map((a, j) => (
                 <div key={j} style={bulletItem}>
-                  <span style={bulletDot('#4ade80')}>{'\•'}</span>
+                  <span style={bulletDot('#4ade80')}>{'•'}</span>
                   {a}
                 </div>
               ))}
@@ -909,7 +909,7 @@ export default function MediumVoltagePage() {
               </div>
               {b.advantages.map((a, j) => (
                 <div key={j} style={bulletItem}>
-                  <span style={bulletDot('#4ade80')}>{'\•'}</span>
+                  <span style={bulletDot('#4ade80')}>{'•'}</span>
                   {a}
                 </div>
               ))}
@@ -918,7 +918,7 @@ export default function MediumVoltagePage() {
               </div>
               {b.disadvantages.map((d, j) => (
                 <div key={j} style={bulletItem}>
-                  <span style={bulletDot('#ff6b6b')}>{'\•'}</span>
+                  <span style={bulletDot('#ff6b6b')}>{'•'}</span>
                   {d}
                 </div>
               ))}
@@ -938,7 +938,7 @@ export default function MediumVoltagePage() {
               </div>
               {f.characteristics.map((c, j) => (
                 <div key={j} style={bulletItem}>
-                  <span style={bulletDot('var(--primary)')}>{'\•'}</span>
+                  <span style={bulletDot('var(--primary)')}>{'•'}</span>
                   {c}
                 </div>
               ))}
@@ -970,7 +970,7 @@ export default function MediumVoltagePage() {
               </div>
               {device.types.map((t, j) => (
                 <div key={j} style={bulletItem}>
-                  <span style={bulletDot('var(--primary)')}>{'\•'}</span>
+                  <span style={bulletDot('var(--primary)')}>{'•'}</span>
                   {t}
                 </div>
               ))}
@@ -1001,7 +1001,7 @@ export default function MediumVoltagePage() {
             {[
               { layer: '1. Conductor', desc: 'Copper or aluminum, stranded (Class B or C)' },
               { layer: '2. Conductor Shield', desc: 'Semi-conducting tape or extruded layer — smooths electric field' },
-              { layer: '3. Insulation', desc: 'XLPE or EPR, thickness per voltage rating (90\°C rated)' },
+              { layer: '3. Insulation', desc: 'XLPE or EPR, thickness per voltage rating (90°C rated)' },
               { layer: '4. Insulation Shield', desc: 'Semi-conducting layer + metallic shield (copper tape or wire)' },
               { layer: '5. Jacket (Inner)', desc: 'PVC or PE jacket over each shielded core' },
               { layer: '6. Assembly', desc: 'Three individually shielded cores cabled together with fillers' },
@@ -1034,7 +1034,7 @@ export default function MediumVoltagePage() {
               </div>
               {ins.advantages.map((a, j) => (
                 <div key={j} style={bulletItem}>
-                  <span style={bulletDot('#4ade80')}>{'\•'}</span>
+                  <span style={bulletDot('#4ade80')}>{'•'}</span>
                   {a}
                 </div>
               ))}
@@ -1043,7 +1043,7 @@ export default function MediumVoltagePage() {
               </div>
               {ins.disadvantages.map((d, j) => (
                 <div key={j} style={bulletItem}>
-                  <span style={bulletDot('#ff6b6b')}>{'\•'}</span>
+                  <span style={bulletDot('#ff6b6b')}>{'•'}</span>
                   {d}
                 </div>
               ))}
@@ -1073,7 +1073,7 @@ export default function MediumVoltagePage() {
               <div style={{ marginTop: 8 }}>
                 {t.features.map((f, j) => (
                   <div key={j} style={bulletItem}>
-                    <span style={bulletDot('var(--primary)')}>{'\•'}</span>
+                    <span style={bulletDot('var(--primary)')}>{'•'}</span>
                     {f}
                   </div>
                 ))}
@@ -1126,7 +1126,7 @@ export default function MediumVoltagePage() {
               </div>
               {t.features.map((f, j) => (
                 <div key={j} style={bulletItem}>
-                  <span style={bulletDot(t.color)}>{'\•'}</span>
+                  <span style={bulletDot(t.color)}>{'•'}</span>
                   {f}
                 </div>
               ))}
@@ -1166,7 +1166,7 @@ export default function MediumVoltagePage() {
 
           <div style={infoBox}>
             <strong style={{ color: 'var(--primary)' }}>BIL (Basic Impulse Level):</strong> The crest value of a
-            standard lightning impulse (1.2/50 \µs) that the insulation can withstand without failure.
+            standard lightning impulse (1.2/50 µs) that the insulation can withstand without failure.
             Higher BIL is selected for equipment in exposed locations or areas with high lightning activity.
           </div>
 
@@ -1204,7 +1204,7 @@ export default function MediumVoltagePage() {
               </div>
               <div style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: 8 }}>
                 Changed only when the transformer is de-energized. Typically provides
-                {'\±'}2.5% or {'\±'}5% adjustment in 2.5% steps (5 positions). Used where voltage
+                {'±'}2.5% or {'±'}5% adjustment in 2.5% steps (5 positions). Used where voltage
                 variation is predictable and infrequent. Most common on distribution transformers.
               </div>
               <div style={warningBox}>
@@ -1220,7 +1220,7 @@ export default function MediumVoltagePage() {
               <div style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: 8 }}>
                 Can change taps while transformer is energized and carrying load. Uses a diverter
                 switch with resistors or reactors to bridge between taps during transition. Typically
-                {'\±'}10% range in 32 steps. Requires separate oil compartment and regular maintenance.
+                {'±'}10% range in 32 steps. Requires separate oil compartment and regular maintenance.
                 Common on large substation transformers and mine surface substations.
               </div>
               {[
@@ -1231,7 +1231,7 @@ export default function MediumVoltagePage() {
                 'Must maintain during annual shutdown',
               ].map((item, i) => (
                 <div key={i} style={bulletItem}>
-                  <span style={bulletDot('var(--primary)')}>{'\•'}</span>
+                  <span style={bulletDot('var(--primary)')}>{'•'}</span>
                   {item}
                 </div>
               ))}
@@ -1277,10 +1277,10 @@ export default function MediumVoltagePage() {
                 </thead>
                 <tbody>
                   {[
-                    { kva: '75\–500', z: '4.0\–5.0%', notes: 'Small distribution transformers' },
-                    { kva: '500\–2500', z: '5.0\–6.5%', notes: 'Medium distribution / mine unit subs' },
-                    { kva: '2500\–10000', z: '5.5\–7.5%', notes: 'Substation transformers' },
-                    { kva: '10000\–60000', z: '7.0\–12.0%', notes: 'Large power transformers' },
+                    { kva: '75–500', z: '4.0–5.0%', notes: 'Small distribution transformers' },
+                    { kva: '500–2500', z: '5.0–6.5%', notes: 'Medium distribution / mine unit subs' },
+                    { kva: '2500–10000', z: '5.5–7.5%', notes: 'Substation transformers' },
+                    { kva: '10000–60000', z: '7.0–12.0%', notes: 'Large power transformers' },
                   ].map((row, i) => (
                     <tr key={i}>
                       <td style={{ ...tableCell, ...mono, color: 'var(--primary)' }}>{row.kva} kVA</td>
@@ -1342,7 +1342,7 @@ export default function MediumVoltagePage() {
                 </thead>
                 <tbody>
                   {[
-                    { code: '49', func: 'Thermal Overload', purpose: 'I\²t thermal model prevents insulation damage' },
+                    { code: '49', func: 'Thermal Overload', purpose: 'I²t thermal model prevents insulation damage' },
                     { code: '50', func: 'Instantaneous OC', purpose: 'High fault current, trips in <1 cycle' },
                     { code: '51', func: 'Time Overcurrent', purpose: 'Moderate overcurrent with time delay' },
                     { code: '46', func: 'Neg Sequence / Unbalance', purpose: 'Prevents rotor overheating from unbalance' },
@@ -1376,7 +1376,7 @@ export default function MediumVoltagePage() {
             </div>
             {[
               { principle: 'Selectivity (Discrimination)', detail: 'Only the device immediately upstream of the fault should trip. Achieved by grading time settings between upstream and downstream devices.' },
-              { principle: 'Coordination Time Interval (CTI)', detail: 'Minimum time separation between upstream and downstream device curves. Typically 0.3\–0.4 seconds for electromechanical relays, 0.2\–0.3 seconds for digital relays.' },
+              { principle: 'Coordination Time Interval (CTI)', detail: 'Minimum time separation between upstream and downstream device curves. Typically 0.3–0.4 seconds for electromechanical relays, 0.2–0.3 seconds for digital relays.' },
               { principle: 'Time-Current Curves', detail: 'Plot trip time vs. fault current. Upstream device curve must be above (slower than) downstream curve at all fault levels. Standard curves: Moderately Inverse, Very Inverse, Extremely Inverse.' },
               { principle: 'Instantaneous Override', detail: 'Upstream device instantaneous element set above maximum through-fault current (to avoid tripping for downstream faults).' },
               { principle: 'Ground Fault Coordination', detail: 'Separate coordination study for ground faults. In resistance-grounded systems, ground current is limited, allowing sensitive pickup settings.' },
@@ -1638,7 +1638,7 @@ export default function MediumVoltagePage() {
               </div>
               {pc.features.map((f, j) => (
                 <div key={j} style={bulletItem}>
-                  <span style={bulletDot('var(--primary)')}>{'\•'}</span>
+                  <span style={bulletDot('var(--primary)')}>{'•'}</span>
                   {f}
                 </div>
               ))}
@@ -1743,7 +1743,7 @@ export default function MediumVoltagePage() {
               'Approved for underground use by MASHA or equivalent authority',
             ].map((req, i) => (
               <div key={i} style={bulletItem}>
-                <span style={bulletDot(i < 4 ? '#ff6b6b' : 'var(--primary)')}>{'\•'}</span>
+                <span style={bulletDot(i < 4 ? '#ff6b6b' : 'var(--primary)')}>{'•'}</span>
                 {req}
               </div>
             ))}
@@ -1772,10 +1772,10 @@ export default function MediumVoltagePage() {
                 </thead>
                 <tbody>
                   {[
-                    { param: 'NGR Current (4.16 kV)', value: '5\–25 A', notes: 'Limits fault current, enables detection' },
-                    { param: 'NGR Current (13.8 kV)', value: '200\–400 A', notes: 'Higher to allow relay coordination' },
+                    { param: 'NGR Current (4.16 kV)', value: '5–25 A', notes: 'Limits fault current, enables detection' },
+                    { param: 'NGR Current (13.8 kV)', value: '200–400 A', notes: 'Higher to allow relay coordination' },
                     { param: 'NGR Rating (Time)', value: '10 sec continuous', notes: 'Must withstand fault until cleared' },
-                    { param: 'Detection Level', value: '\≤100 mA', notes: 'Per O.Reg.854 for trailing cable equipment' },
+                    { param: 'Detection Level', value: '≤100 mA', notes: 'Per O.Reg.854 for trailing cable equipment' },
                     { param: 'GFP Method', value: 'Zero-sequence CT', notes: 'Core-balance CT around all 3 phases' },
                     { param: 'Alarm vs Trip', value: 'Trip required', notes: 'No alarm-only for mining GFP' },
                   ].map((row, i) => (

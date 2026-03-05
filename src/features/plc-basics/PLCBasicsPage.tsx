@@ -106,23 +106,23 @@ const analogInputs: IOEntry[] = [
   },
   {
     name: '0-10V Input',
-    voltage: '0-10VDC (some modules accept 0-5V, \±10V)',
+    voltage: '0-10VDC (some modules accept 0-5V, ±10V)',
     wiring: 'Signal wire from transmitter to input terminal, common to common. Keep cable short — susceptible to voltage drop. Use shielded cable.',
     useCase: 'VFD speed reference, some HVAC sensors, potentiometer position feedback. Shorter distances only — voltage drops over long runs.',
     tint: '#8b5cf6',
   },
   {
     name: 'RTD Input (PT100/PT1000)',
-    voltage: 'Resistance measurement — 100Ω at 0\°C (PT100)',
+    voltage: 'Resistance measurement — 100Ω at 0°C (PT100)',
     wiring: '2-wire: least accurate, lead resistance adds error. 3-wire: standard, compensates for lead resistance. 4-wire: most accurate. Use RTD-rated input module.',
-    useCase: 'Precise temperature measurement (-200 to +850\°C). Motor bearing temps, process fluid temps, transformer oil temp. Very common in mining process control.',
+    useCase: 'Precise temperature measurement (-200 to +850°C). Motor bearing temps, process fluid temps, transformer oil temp. Very common in mining process control.',
     tint: '#8b5cf6',
   },
   {
     name: 'Thermocouple Input',
     voltage: 'Millivolt signal (type-dependent)',
     wiring: 'Use correct thermocouple extension wire (matching type). Cold junction compensation at module. Types: J (iron/constantan, general), K (chromel/alumel, high temp), T (copper/constantan, low temp), N (nicrosil/nisil, high temp stable).',
-    useCase: 'Type K: furnaces, kilns, exhaust gas (up to 1260\°C). Type J: plastics, rubber processing. Type T: food, HVAC, cryogenics. Used in mining smelters and process heating.',
+    useCase: 'Type K: furnaces, kilns, exhaust gas (up to 1260°C). Type J: plastics, rubber processing. Type T: food, HVAC, cryogenics. Used in mining smelters and process heating.',
     tint: '#8b5cf6',
   },
 ]
@@ -137,7 +137,7 @@ const analogOutputs: IOEntry[] = [
   },
   {
     name: '0-10V Output',
-    voltage: '0-10VDC (some modules support 0-5V, \±10V)',
+    voltage: '0-10VDC (some modules support 0-5V, ±10V)',
     wiring: 'Voltage output to receiving device input. Minimum load resistance typically 1kΩ. Keep cable runs short. Use shielded cable.',
     useCase: 'VFD speed reference (short distance), damper actuators, proportional valves. Limited cable distance — keep under 15m in noisy mining environments.',
     tint: '#f59e0b',
@@ -244,7 +244,7 @@ const instructions: Instruction[] = [
   {
     symbol: '—[CMP]—',
     name: 'CMP/Compare',
-    description: 'Compares two values. Includes EQU (=), NEQ (\≠), GRT (>), LES (<), GEQ (\≥), LEQ (\≤). Output is true/false.',
+    description: 'Compares two values. Includes EQU (=), NEQ (≠), GRT (>), LES (<), GEQ (≥), LEQ (≤). Output is true/false.',
     useCase: 'Checking if temperature exceeds limit, verifying count reached target, analog alarm thresholds.',
     category: 'math',
   },
@@ -338,7 +338,7 @@ const troubleshootSections: TroubleshootSection[] = [
   },
   {
     title: 'Forcing I/O (Use with Extreme Caution)',
-    icon: '\⚠\uFE0F',
+    icon: '⚠\uFE0F',
     steps: [
       { step: 'Understand the risks', detail: 'Forcing overrides normal program logic. A forced output STAYS on/off regardless of program. Forced inputs lie to the program about real-world conditions.', isWarning: true },
       { step: 'Document before forcing', detail: 'Record what you are forcing, why, and communicate to all personnel in the area. In mining, inform the shift supervisor.' },
@@ -1102,7 +1102,7 @@ export default function PLCBasicsPage() {
                       marginBottom: 4,
                     }}
                   >
-                    {tip.isWarning ? '\⚠ ' : ''}{tip.title}
+                    {tip.isWarning ? '⚠ ' : ''}{tip.title}
                   </div>
                   <div
                     style={{
@@ -1170,7 +1170,7 @@ export default function PLCBasicsPage() {
                               marginTop: 1,
                             }}
                           >
-                            {s.isWarning ? '\⚠' : (i + 1)}
+                            {s.isWarning ? '⚠' : (i + 1)}
                           </span>
                           <div>
                             <div

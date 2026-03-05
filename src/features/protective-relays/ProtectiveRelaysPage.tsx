@@ -106,7 +106,7 @@ const ansiDevices: ANSIDevice[] = [
     number: '49',
     name: 'Thermal Overload',
     description: 'Functions when equipment temperature exceeds a set value. Uses thermal model based on current magnitude and duration.',
-    miningApplication: 'Motor thermal model protection for dragline hoist/swing motors, crusher motors, conveyor drives. Uses I\²t curve to track cumulative heating. Prevents insulation breakdown.',
+    miningApplication: 'Motor thermal model protection for dragline hoist/swing motors, crusher motors, conveyor drives. Uses I²t curve to track cumulative heating. Prevents insulation breakdown.',
     category: 'motor',
     common: true,
   },
@@ -345,7 +345,7 @@ const gfMethods: GFMethod[] = [
       'Not suitable for sensitive ground fault detection below 1A',
     ],
     miningNotes: 'Acceptable for solidly grounded systems but NOT recommended as the primary GF method for mine HRG systems. CT mismatch errors can mask small ground fault currents typical of HRG systems.',
-    diagram: 'A + B + C = 3I\₀ (residual)',
+    diagram: 'A + B + C = 3I₀ (residual)',
   },
   {
     method: 'Zero-Sequence CT (Core Balance CT)',
@@ -483,7 +483,7 @@ const vfRelaySettings: VFRelaySetting[] = [
     miningApplication: 'Indicates generator overspeed or load rejection. Alarm first, trip at 61.0-62.0 Hz. Critical when mine generators run in parallel with utility.',
   },
   {
-    device: '46 (I\₂)',
+    device: '46 (I₂)',
     function: 'Negative Sequence OC',
     pickupRange: '0.05 - 0.30 pu',
     typicalSetting: '0.10 - 0.20 pu',
@@ -495,7 +495,7 @@ const vfRelaySettings: VFRelaySetting[] = [
     function: 'Motor Thermal Model',
     pickupRange: '1.0 - 1.2x FLA',
     typicalSetting: 'Service Factor based',
-    timeDelay: 'I\²t curve',
+    timeDelay: 'I²t curve',
     miningApplication: 'Tracks cumulative motor heating using thermal model. Accounts for ambient temperature, prior loading. Critical for cyclic loads like shovel hoist motors.',
   },
 ]
@@ -931,7 +931,7 @@ export default function ProtectiveRelaysPage() {
           gap: 10,
           alignItems: 'flex-start',
         }}>
-          <span style={{ fontSize: 22, flexShrink: 0, lineHeight: 1 }}>{'\⚠\uFE0F'}</span>
+          <span style={{ fontSize: 22, flexShrink: 0, lineHeight: 1 }}>{'⚠\uFE0F'}</span>
           <div style={{ fontSize: 13, color: 'var(--text)', lineHeight: 1.6 }}>
             <strong style={{ color: '#ff8c00' }}>RELAY SETTINGS ARE CRITICAL.</strong>{' '}
             Incorrect settings can cause nuisance trips (production loss) or failure to trip (equipment damage, arc flash, injury).
@@ -1284,7 +1284,7 @@ export default function ProtectiveRelaysPage() {
               gap: 10,
               alignItems: 'flex-start',
             }}>
-              <span style={{ fontSize: 20, flexShrink: 0, lineHeight: 1 }}>{'\⚠\uFE0F'}</span>
+              <span style={{ fontSize: 20, flexShrink: 0, lineHeight: 1 }}>{'⚠\uFE0F'}</span>
               <div style={{ fontSize: 13, color: 'var(--text)', lineHeight: 1.6 }}>
                 <strong style={{ color: '#ff3c3c' }}>O.Reg 854 REQUIREMENT:</strong>{' '}
                 Ground fault protection is mandatory on all mine distribution systems in Ontario.
@@ -1558,7 +1558,7 @@ export default function ProtectiveRelaysPage() {
             <div style={card}>
               <div style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: 12 }}>
                 Modern microprocessor relays use a thermal model to simulate motor temperature. The model tracks
-                cumulative I{'\²'}t heating and cooling over time, providing a more accurate representation of motor
+                cumulative I{'²'}t heating and cooling over time, providing a more accurate representation of motor
                 thermal state than simple overload relays. This is critical for cyclic loads common in mining.
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>

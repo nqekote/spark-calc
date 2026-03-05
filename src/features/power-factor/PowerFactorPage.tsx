@@ -43,7 +43,7 @@ export default function PowerFactorPage() {
     newKVA = kW / pfNew
     savingsPercent = ((currentKVA - newKVA) / currentKVA) * 100
 
-    formula = `Required kVAR = kW × (tan(arccos(PF\₁)) \− tan(arccos(PF\₂))) = ${fmt(kW)} × (${fmt(Math.tan(thetaOld))} \− ${fmt(Math.tan(thetaNew))}) = ${fmt(requiredKVAR)} kVAR`
+    formula = `Required kVAR = kW × (tan(arccos(PF₁)) − tan(arccos(PF₂))) = ${fmt(kW)} × (${fmt(Math.tan(thetaOld))} − ${fmt(Math.tan(thetaNew))}) = ${fmt(requiredKVAR)} kVAR`
   }
 
   const results = hasInputs
@@ -89,7 +89,7 @@ export default function PowerFactorPage() {
           onChange={setDesiredPF}
           placeholder="e.g. 0.95"
         />
-        <ResultDisplay results={results} formula={hasInputs ? formula : undefined} />
+        <ResultDisplay results={results} formula={hasInputs ? formula : undefined} title="Power Factor" />
         <InfoBox title="Why Power Factor Correction Matters">
           A low power factor means your electrical system draws more current than necessary to
           deliver the same real power. This results in higher utility bills (demand charges),

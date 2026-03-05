@@ -84,20 +84,20 @@ export default function LightingCalcPage() {
     // Number of fixtures = (Lux × Area) / (Lumens × CU × LLF)
     numFixtures = (lux * area) / (lumens * cuVal * llfVal)
     totalLumens = Math.ceil(numFixtures) * lumens
-    formula = `N = (${fmt(lux, 0)} lux × ${fmt(area, 1)} m\²) / (${fmt(lumens, 0)} lm × ${fmt(cuVal, 2)} × ${fmt(llfVal, 2)}) = ${fmt(numFixtures, 1)}`
+    formula = `N = (${fmt(lux, 0)} lux × ${fmt(area, 1)} m²) / (${fmt(lumens, 0)} lm × ${fmt(cuVal, 2)} × ${fmt(llfVal, 2)}) = ${fmt(numFixtures, 1)}`
   }
 
   const roomResults = hasInputs
     ? [
         { label: 'Fixtures Required', value: `${Math.ceil(numFixtures)}`, highlight: true },
         { label: 'Calculated (exact)', value: fmt(numFixtures, 1), unit: 'fixtures' },
-        { label: 'Room Area', value: fmt(area, 1), unit: 'm\²' },
+        { label: 'Room Area', value: fmt(area, 1), unit: 'm²' },
         { label: 'Total Lumens Delivered', value: fmt(totalLumens, 0), unit: 'lm' },
         ...((!isNaN(H) && H > 0) ? [{ label: 'Room Cavity Ratio', value: fmt((5 * H * (L + W)) / (L * W), 2) }] : []),
       ]
     : [
         { label: 'Fixtures Required', value: '—' },
-        { label: 'Room Area', value: '—', unit: 'm\²' },
+        { label: 'Room Area', value: '—', unit: 'm²' },
         { label: 'Total Lumens', value: '—', unit: 'lm' },
       ]
 
@@ -185,14 +185,14 @@ export default function LightingCalcPage() {
                 options={llfOptions}
               />
 
-              <ResultDisplay results={roomResults} formula={hasInputs ? formula : undefined} />
+              <ResultDisplay results={roomResults} formula={hasInputs ? formula : undefined} title="Lighting" />
 
               <InfoBox title="Lumen Method">
                 The lumen method (or zonal cavity method) estimates the number of fixtures needed to
                 achieve a desired illumination level. The Coefficient of Utilization (CU) accounts for
                 room geometry and surface reflectances. The Light Loss Factor (LLF) accounts for lamp
                 depreciation, luminaire dirt, and other maintenance factors. For mining environments,
-                use lower LLF values (0.6\–0.7) due to dust and harsh conditions. Always verify
+                use lower LLF values (0.6–0.7) due to dust and harsh conditions. Always verify
                 emergency lighting meets minimum code requirements.
               </InfoBox>
             </>

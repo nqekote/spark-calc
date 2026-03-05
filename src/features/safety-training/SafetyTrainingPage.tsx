@@ -97,7 +97,7 @@ const ppeCats = [
   {
     cat: 1, arc: 4, color: '#4ade80',
     equip: [
-      'Arc-rated long-sleeve shirt and pants (min 4 cal/cm\²)',
+      'Arc-rated long-sleeve shirt and pants (min 4 cal/cm²)',
       'Arc-rated face shield or balaclava', 'Safety glasses or goggles',
       'Hard hat (non-melting)', 'Hearing protection (ear canal inserts)',
       'Heavy-duty leather gloves', 'Leather work boots',
@@ -112,7 +112,7 @@ const ppeCats = [
   {
     cat: 2, arc: 8, color: '#ffd700',
     equip: [
-      'Arc-rated long-sleeve shirt and pants (min 8 cal/cm\²)',
+      'Arc-rated long-sleeve shirt and pants (min 8 cal/cm²)',
       'Arc-rated flash suit hood or face shield + balaclava',
       'Arc-rated hard hat liner', 'Safety glasses (under face shield/hood)',
       'Hearing protection (under balaclava)',
@@ -128,7 +128,7 @@ const ppeCats = [
   {
     cat: 3, arc: 25, color: '#ff8c00',
     equip: [
-      'Arc-rated flash suit jacket and pants (min 25 cal/cm\²)',
+      'Arc-rated flash suit jacket and pants (min 25 cal/cm²)',
       'Arc-rated flash suit hood with lens', 'Arc-rated hard hat liner',
       'Safety glasses (under hood)', 'Hearing protection (under hood)',
       'Arc-rated gloves or rubber insulating gloves + leather protectors',
@@ -144,7 +144,7 @@ const ppeCats = [
   {
     cat: 4, arc: 40, color: '#ff4444',
     equip: [
-      'Arc-rated flash suit (jacket, pants, hood) min 40 cal/cm\²',
+      'Arc-rated flash suit (jacket, pants, hood) min 40 cal/cm²',
       'Arc-rated flash suit hood with full face lens',
       'Hard hat + arc-rated liner (under hood)', 'Safety glasses (under hood)',
       'Hearing protection (under hood)',
@@ -203,9 +203,9 @@ const quizQuestions = [
   {
     id: 3,
     q: 'What is the minimum arc rating for PPE Category 2?',
-    opts: ['4 cal/cm\²', '8 cal/cm\²', '25 cal/cm\²', '40 cal/cm\²'],
+    opts: ['4 cal/cm²', '8 cal/cm²', '25 cal/cm²', '40 cal/cm²'],
     ans: 1,
-    why: 'PPE Category 2 requires a minimum arc thermal performance value (ATPV) of 8 cal/cm\².',
+    why: 'PPE Category 2 requires a minimum arc thermal performance value (ATPV) of 8 cal/cm².',
     ref: 'CSA Z462, Table 6',
   },
   {
@@ -873,7 +873,7 @@ function ArcFlashTab() {
 
     setPpeResult({
       cat,
-      energy: `${energy} cal/cm\²`,
+      energy: `${energy} cal/cm²`,
       boundary: `${boundaryM} m (${boundaryFt} ft)`,
     })
   }
@@ -903,7 +903,7 @@ function ArcFlashTab() {
         </p>
         <div style={warnBox}>
           <p style={{ ...bodyText, margin: 0, color: '#ff6b6b', fontWeight: 600 }}>
-            If incident energy exceeds 40 cal/cm\², the equipment CANNOT be worked on while
+            If incident energy exceeds 40 cal/cm², the equipment CANNOT be worked on while
             energized. The hazard level is too high for any available PPE.
           </p>
         </div>
@@ -918,7 +918,7 @@ function ArcFlashTab() {
               <div style={{ width: 32, height: 32, borderRadius: 16, background: p.color, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16, fontWeight: 700, color: '#000' }}>{p.cat}</div>
               <div>
                 <div style={{ fontSize: 15, fontWeight: 700, color: p.color }}>PPE Category {p.cat}</div>
-                <div style={{ ...mono, fontSize: 12, color: 'var(--text-secondary)' }}>Min Arc Rating: {p.arc} cal/cm{'\²'}</div>
+                <div style={{ ...mono, fontSize: 12, color: 'var(--text-secondary)' }}>Min Arc Rating: {p.arc} cal/cm{'²'}</div>
               </div>
             </div>
             <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--text)', marginBottom: 4 }}>Required Equipment:</div>
@@ -944,7 +944,7 @@ function ArcFlashTab() {
           <div style={{ ...mono, color: 'var(--primary)', fontSize: 14, textAlign: 'center' as const, lineHeight: 1.8 }}>
             E = K x V x I_bf x t x D_factor<br />
             <span style={{ fontSize: 11, color: 'var(--text-secondary)' }}>
-              E = incident energy (cal/cm{'\²'}), V = voltage (kV), I_bf = bolted fault (kA),
+              E = incident energy (cal/cm{'²'}), V = voltage (kV), I_bf = bolted fault (kA),
               t = clearing time (sec), K = system factor, D = distance factor
             </span>
           </div>
@@ -990,7 +990,7 @@ function ArcFlashTab() {
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span style={{ fontSize: 13, color: 'var(--text-secondary)' }}>Min Arc Rating Required:</span>
-                <span style={{ ...mono, color: 'var(--text)' }}>{ppeCats[ppeResult.cat - 1]?.arc} cal/cm{'\²'}</span>
+                <span style={{ ...mono, color: 'var(--text)' }}>{ppeCats[ppeResult.cat - 1]?.arc} cal/cm{'²'}</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span style={{ fontSize: 13, color: 'var(--text-secondary)' }}>Estimated Arc Flash Boundary:</span>
@@ -1049,7 +1049,7 @@ function ArcFlashTab() {
           <div>Equipment ID: MCC-1A-001</div>
           <div>Nominal Voltage: 600V</div>
           <div>Arc Flash Boundary: 1.8 m (6 ft)</div>
-          <div>Incident Energy: 12.5 cal/cm{'\²'} at 455 mm</div>
+          <div>Incident Energy: 12.5 cal/cm{'²'} at 455 mm</div>
           <div>PPE Category: 3</div>
           <div>Limited Approach: 3.0 m (10 ft)</div>
           <div>Restricted Approach: 0.3 m (1 ft)</div>
@@ -1145,7 +1145,7 @@ function SafeWorkTab() {
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               fontSize: 14, color: '#000', fontWeight: 700,
             }}>
-              {eewpChecks[i] ? '\✓' : ''}
+              {eewpChecks[i] ? '✓' : ''}
             </div>
             <span style={{ fontSize: 13, color: eewpChecks[i] ? 'var(--text)' : 'var(--text-secondary)', lineHeight: 1.4 }}>
               {i + 1}. {item}
@@ -1619,7 +1619,7 @@ function TrainingTab() {
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               fontSize: 14, color: '#000', fontWeight: 700,
             }}>
-              {auditChecks[i] ? '\✓' : ''}
+              {auditChecks[i] ? '✓' : ''}
             </div>
             <span style={{ fontSize: 13, color: auditChecks[i] ? 'var(--text)' : 'var(--text-secondary)', lineHeight: 1.4 }}>{item}</span>
           </button>
@@ -1801,7 +1801,7 @@ export default function SafetyTrainingPage() {
           onClick={() => nav(-1)}
           style={{ background: 'none', border: 'none', color: 'var(--primary)', fontSize: 22, cursor: 'pointer', padding: 4 }}
         >
-          {'\←'}
+          {'←'}
         </button>
         <h1 style={{ fontSize: 20, fontWeight: 700, color: 'var(--text)', margin: 0 }}>
           Electrical Safety (CSA Z462)

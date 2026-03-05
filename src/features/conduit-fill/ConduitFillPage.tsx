@@ -183,7 +183,7 @@ export default function ConduitFillPage() {
           color: 'var(--text-secondary)',
           fontFamily: 'var(--font-mono)',
         }}>
-          Internal area: {fmt(conduitArea, 0)} mm\²
+          Internal area: {fmt(conduitArea, 0)} mm²
         </div>
 
         {/* Wire entries */}
@@ -227,7 +227,7 @@ export default function ConduitFillPage() {
                   }}
                   aria-label="Remove wire entry"
                 >
-                  \−
+                  −
                 </button>
               )}
             </div>
@@ -260,12 +260,12 @@ export default function ConduitFillPage() {
             {
               label: 'Total Wire Area',
               value: hasResults ? fmt(totalWireArea, 1) : '—',
-              unit: 'mm\²',
+              unit: 'mm²',
             },
             {
               label: 'Allowable Fill Area',
               value: hasResults ? fmt(allowableArea, 1) : '—',
-              unit: 'mm\²',
+              unit: 'mm²',
             },
             {
               label: 'Fill Percentage',
@@ -282,7 +282,7 @@ export default function ConduitFillPage() {
             },
           ]}
           formula={hasResults
-            ? `${fmt(totalWireArea, 1)} mm\² / ${fmt(conduitArea, 0)} mm\² = ${fmt(fillUsed, 1)}%`
+            ? `${fmt(totalWireArea, 1)} mm² / ${fmt(conduitArea, 0)} mm² = ${fmt(fillUsed, 1)}%`
             : undefined
           }
         />

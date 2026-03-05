@@ -15,21 +15,21 @@ const volumeAllowance: Record<string, number> = {
 }
 
 const conductorOptions = [
-  { value: '14', label: '14 AWG (32.8 cm\³)' },
-  { value: '12', label: '12 AWG (36.1 cm\³)' },
-  { value: '10', label: '10 AWG (40.7 cm\³)' },
-  { value: '8', label: '8 AWG (49.2 cm\³)' },
-  { value: '6', label: '6 AWG (81.9 cm\³)' },
+  { value: '14', label: '14 AWG (32.8 cm³)' },
+  { value: '12', label: '12 AWG (36.1 cm³)' },
+  { value: '10', label: '10 AWG (40.7 cm³)' },
+  { value: '8', label: '8 AWG (49.2 cm³)' },
+  { value: '6', label: '6 AWG (81.9 cm³)' },
 ]
 
 const standardBoxes: { value: string; label: string; volume: number }[] = [
-  { value: '295', label: '100mm × 54mm rectangular (single gang) — 295 cm\³', volume: 295 },
-  { value: '350', label: '100mm × 54mm deep rectangular — 350 cm\³', volume: 350 },
-  { value: '310', label: '100mm × 54mm device box — 310 cm\³', volume: 310 },
-  { value: '344', label: '4" square × 1-1/2" deep — 344 cm\³', volume: 344 },
-  { value: '497a', label: '4" square × 2-1/8" deep — 497 cm\³', volume: 497 },
-  { value: '497b', label: '4-11/16" square × 1-1/2" deep — 497 cm\³', volume: 497 },
-  { value: '720', label: '4-11/16" square × 2-1/8" deep — 720 cm\³', volume: 720 },
+  { value: '295', label: '100mm × 54mm rectangular (single gang) — 295 cm³', volume: 295 },
+  { value: '350', label: '100mm × 54mm deep rectangular — 350 cm³', volume: 350 },
+  { value: '310', label: '100mm × 54mm device box — 310 cm³', volume: 310 },
+  { value: '344', label: '4" square × 1-1/2" deep — 344 cm³', volume: 344 },
+  { value: '497a', label: '4" square × 2-1/8" deep — 497 cm³', volume: 497 },
+  { value: '497b', label: '4-11/16" square × 1-1/2" deep — 497 cm³', volume: 497 },
+  { value: '720', label: '4-11/16" square × 2-1/8" deep — 720 cm³', volume: 720 },
   { value: 'custom', label: 'Custom', volume: 0 },
 ]
 
@@ -65,28 +65,28 @@ export default function BoxFillPage() {
   const pass = hasInputs && remaining >= 0
 
   const formula = hasInputs
-    ? `Total = ${fmt(conductorVol)} + ${fmt(clampVol)} + ${fmt(groundVol)} + ${fmt(deviceVol)} = ${fmt(totalRequired)} cm\³`
+    ? `Total = ${fmt(conductorVol)} + ${fmt(clampVol)} + ${fmt(groundVol)} + ${fmt(deviceVol)} = ${fmt(totalRequired)} cm³`
     : undefined
 
   const results = hasInputs
     ? [
-        { label: 'Conductor volume', value: fmt(conductorVol), unit: 'cm\³' },
-        { label: 'Clamp volume', value: fmt(clampVol), unit: 'cm\³' },
-        { label: 'Ground volume', value: fmt(groundVol), unit: 'cm\³' },
-        { label: 'Device volume', value: fmt(deviceVol), unit: 'cm\³' },
-        { label: 'Total required', value: fmt(totalRequired), unit: 'cm\³', highlight: true },
-        { label: 'Box volume', value: fmt(boxVolume), unit: 'cm\³' },
-        { label: remaining >= 0 ? 'Remaining' : 'Deficit', value: fmt(Math.abs(remaining)), unit: 'cm\³' },
+        { label: 'Conductor volume', value: fmt(conductorVol), unit: 'cm³' },
+        { label: 'Clamp volume', value: fmt(clampVol), unit: 'cm³' },
+        { label: 'Ground volume', value: fmt(groundVol), unit: 'cm³' },
+        { label: 'Device volume', value: fmt(deviceVol), unit: 'cm³' },
+        { label: 'Total required', value: fmt(totalRequired), unit: 'cm³', highlight: true },
+        { label: 'Box volume', value: fmt(boxVolume), unit: 'cm³' },
+        { label: remaining >= 0 ? 'Remaining' : 'Deficit', value: fmt(Math.abs(remaining)), unit: 'cm³' },
         { label: 'Result', value: pass ? 'PASS' : 'FAIL', highlight: true },
       ]
     : [
-        { label: 'Conductor volume', value: '—', unit: 'cm\³' },
-        { label: 'Clamp volume', value: '—', unit: 'cm\³' },
-        { label: 'Ground volume', value: '—', unit: 'cm\³' },
-        { label: 'Device volume', value: '—', unit: 'cm\³' },
-        { label: 'Total required', value: '—', unit: 'cm\³' },
-        { label: 'Box volume', value: '—', unit: 'cm\³' },
-        { label: 'Remaining', value: '—', unit: 'cm\³' },
+        { label: 'Conductor volume', value: '—', unit: 'cm³' },
+        { label: 'Clamp volume', value: '—', unit: 'cm³' },
+        { label: 'Ground volume', value: '—', unit: 'cm³' },
+        { label: 'Device volume', value: '—', unit: 'cm³' },
+        { label: 'Total required', value: '—', unit: 'cm³' },
+        { label: 'Box volume', value: '—', unit: 'cm³' },
+        { label: 'Remaining', value: '—', unit: 'cm³' },
         { label: 'Result', value: '—' },
       ]
 
@@ -104,7 +104,7 @@ export default function BoxFillPage() {
         {isCustom && (
           <InputField
             label="Custom box volume"
-            unit="cm\³"
+            unit="cm³"
             value={customVolume}
             onChange={setCustomVolume}
             placeholder="Enter volume"
@@ -146,7 +146,7 @@ export default function BoxFillPage() {
           placeholder="0"
         />
 
-        <ResultDisplay results={results} formula={formula} />
+        <ResultDisplay results={results} formula={formula} title="Box Fill" />
 
         {hasInputs && (
           <div style={{
@@ -164,8 +164,8 @@ export default function BoxFillPage() {
             justifyContent: 'center',
           }}>
             {pass
-              ? `PASS — ${fmt(remaining)} cm\³ remaining`
-              : `FAIL — ${fmt(Math.abs(remaining))} cm\³ over capacity`}
+              ? `PASS — ${fmt(remaining)} cm³ remaining`
+              : `FAIL — ${fmt(Math.abs(remaining))} cm³ over capacity`}
           </div>
         )}
 

@@ -111,12 +111,12 @@ interface ComparisonEntry {
 }
 
 const comparisonData: ComparisonEntry[] = [
-  { cable: 'TECK90', voltage: '600V / 1000V', temp: '90\°C', armor: 'Interlocked aluminum + PVC jacket', wetRated: true, miningUse: 'Primary power cable for fixed installations', pros: 'Armor protection, wet-rated, armor as bonding, cable tray approved, direct burial', cons: 'Heavier than non-armored, requires gland termination, higher cost' },
-  { cable: 'AC90', voltage: '600V', temp: '90\°C', armor: 'Interlocked aluminum (no outer jacket)', wetRated: false, miningUse: 'Dry areas only - offices, control rooms', pros: 'Lower cost than TECK, armor bonding, widely available', cons: 'Dry locations only, no outer jacket means no moisture protection' },
-  { cable: 'ACWU90', voltage: '600V', temp: '90\°C', armor: 'Interlocked aluminum + moisture barrier + PVC', wetRated: true, miningUse: 'Alternative to TECK in some wet areas', pros: 'Wet-rated, armor bonding, available in large sizes', cons: 'Less common in mining, less mechanical protection than TECK' },
-  { cable: 'SHD-GC', voltage: '5kV - 25kV', temp: '90\°C', armor: 'Heavy rubber jacket (no metal armor)', wetRated: true, miningUse: 'Trailing cable for mobile equipment >5kV', pros: 'Highly flexible, ground check monitoring, designed for dragging', cons: 'No mechanical armor, expensive, requires special terminations' },
-  { cable: 'NMD90', voltage: '300V', temp: '90\°C', armor: 'None - PVC jacket only', wetRated: false, miningUse: 'Not permitted in mining', pros: 'Low cost, easy to work with, standard residential cable', cons: 'No armor, dry only, concealed only, 300V max, not for industrial' },
-  { cable: 'RW90/THWN', voltage: '600V', temp: '90\°C', armor: 'None - single conductor, insulation only', wetRated: true, miningUse: 'In conduit/raceway systems', pros: 'Flexible routing in conduit, wet-rated, many sizes available', cons: 'Requires conduit, no standalone mechanical protection, labor-intensive' },
+  { cable: 'TECK90', voltage: '600V / 1000V', temp: '90°C', armor: 'Interlocked aluminum + PVC jacket', wetRated: true, miningUse: 'Primary power cable for fixed installations', pros: 'Armor protection, wet-rated, armor as bonding, cable tray approved, direct burial', cons: 'Heavier than non-armored, requires gland termination, higher cost' },
+  { cable: 'AC90', voltage: '600V', temp: '90°C', armor: 'Interlocked aluminum (no outer jacket)', wetRated: false, miningUse: 'Dry areas only - offices, control rooms', pros: 'Lower cost than TECK, armor bonding, widely available', cons: 'Dry locations only, no outer jacket means no moisture protection' },
+  { cable: 'ACWU90', voltage: '600V', temp: '90°C', armor: 'Interlocked aluminum + moisture barrier + PVC', wetRated: true, miningUse: 'Alternative to TECK in some wet areas', pros: 'Wet-rated, armor bonding, available in large sizes', cons: 'Less common in mining, less mechanical protection than TECK' },
+  { cable: 'SHD-GC', voltage: '5kV - 25kV', temp: '90°C', armor: 'Heavy rubber jacket (no metal armor)', wetRated: true, miningUse: 'Trailing cable for mobile equipment >5kV', pros: 'Highly flexible, ground check monitoring, designed for dragging', cons: 'No mechanical armor, expensive, requires special terminations' },
+  { cable: 'NMD90', voltage: '300V', temp: '90°C', armor: 'None - PVC jacket only', wetRated: false, miningUse: 'Not permitted in mining', pros: 'Low cost, easy to work with, standard residential cable', cons: 'No armor, dry only, concealed only, 300V max, not for industrial' },
+  { cable: 'RW90/THWN', voltage: '600V', temp: '90°C', armor: 'None - single conductor, insulation only', wetRated: true, miningUse: 'In conduit/raceway systems', pros: 'Flexible routing in conduit, wet-rated, many sizes available', cons: 'Requires conduit, no standalone mechanical protection, labor-intensive' },
 ]
 
 /* ==================== STYLES ==================== */
@@ -310,12 +310,12 @@ export default function TECKCablePage() {
           <div style={cardTitleStyle}>TECK90 Construction</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: 13, lineHeight: 1.6, color: 'var(--text-secondary)' }}>
             <div><strong style={{ color: 'var(--text)' }}>Conductors:</strong> Annealed copper, Class B stranding</div>
-            <div><strong style={{ color: 'var(--text)' }}>Insulation:</strong> XLPE (cross-linked polyethylene), rated 90{'\°'}C wet and dry</div>
+            <div><strong style={{ color: 'var(--text)' }}>Insulation:</strong> XLPE (cross-linked polyethylene), rated 90{'°'}C wet and dry</div>
             <div><strong style={{ color: 'var(--text)' }}>Inner Jacket:</strong> PVC, provides additional moisture barrier</div>
             <div><strong style={{ color: 'var(--text)' }}>Armor:</strong> Interlocked aluminum alloy, provides mechanical protection and bonding path</div>
             <div><strong style={{ color: 'var(--text)' }}>Outer Jacket:</strong> PVC, sunlight and moisture resistant (black standard)</div>
             <div><strong style={{ color: 'var(--text)' }}>Voltage Rating:</strong> 600V and 1000V (most common ratings)</div>
-            <div><strong style={{ color: 'var(--text)' }}>Temperature:</strong> 90{'\°'}C wet/dry &mdash; the "90" in TECK90 is the temperature rating</div>
+            <div><strong style={{ color: 'var(--text)' }}>Temperature:</strong> 90{'°'}C wet/dry &mdash; the "90" in TECK90 is the temperature rating</div>
             <div><strong style={{ color: 'var(--text)' }}>CSA Markings:</strong> CSA C22.2 No. 131, cCSAus listed, rated voltage, conductor size, date of manufacture</div>
           </div>
         </div>
@@ -380,7 +380,7 @@ export default function TECKCablePage() {
           color: 'var(--text-secondary)',
           lineHeight: 1.6,
         }}>
-          <strong style={{ color: 'var(--text)' }}>Ampacity Note:</strong> Values shown are for 75{'\°'}C column per CEC Table 2 (copper conductors). Free air values assume single cable with no grouping derating. Tray values assume single-layer installation. Apply CEC Table 5C correction factors when cables are grouped or bundled. Always verify with manufacturer data and the latest CEC edition.
+          <strong style={{ color: 'var(--text)' }}>Ampacity Note:</strong> Values shown are for 75{'°'}C column per CEC Table 2 (copper conductors). Free air values assume single cable with no grouping derating. Tray values assume single-layer installation. Apply CEC Table 5C correction factors when cables are grouped or bundled. Always verify with manufacturer data and the latest CEC edition.
         </div>
       </div>
     )
@@ -436,7 +436,7 @@ export default function TECKCablePage() {
               </div>
               <div style={{ ...infoRowStyle, borderBottom: 'none' }}>
                 <span style={{ fontSize: 14, color: 'var(--text-secondary)' }}>Locknut Torque</span>
-                <span style={{ fontSize: 14, fontFamily: 'var(--font-mono)', fontWeight: 600, color: 'var(--text)' }}>{matchedGland.torqueNm} N{'\·'}m</span>
+                <span style={{ fontSize: 14, fontFamily: 'var(--font-mono)', fontWeight: 600, color: 'var(--text)' }}>{matchedGland.torqueNm} N{'·'}m</span>
               </div>
             </div>
           ) : (
@@ -483,7 +483,7 @@ export default function TECKCablePage() {
                 <th style={thStyle}>Cable OD (mm)</th>
                 <th style={thStyle}>Armor OD (mm)</th>
                 <th style={{ ...thStyle, color: 'var(--primary)' }}>Gland Size</th>
-                <th style={thStyle}>Torque (N{'\·'}m)</th>
+                <th style={thStyle}>Torque (N{'·'}m)</th>
               </tr>
             </thead>
             <tbody>
@@ -743,7 +743,7 @@ export default function TECKCablePage() {
             </table>
           </div>
           <div style={{ marginTop: 8, fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-            Rule of thumb: Minimum 1 M{'Ω'} per kV of rated voltage + 1 M{'Ω'}. New cable should read significantly higher. Temperature and humidity affect readings &mdash; correct to 40{'\°'}C baseline. Readings that decrease over 60 seconds indicate moisture ingress.
+            Rule of thumb: Minimum 1 M{'Ω'} per kV of rated voltage + 1 M{'Ω'}. New cable should read significantly higher. Temperature and humidity affect readings &mdash; correct to 40{'°'}C baseline. Readings that decrease over 60 seconds indicate moisture ingress.
           </div>
         </div>
 
@@ -811,7 +811,7 @@ export default function TECKCablePage() {
         <div style={cardStyle}>
           <div style={cardTitleStyle}>Thermal Imaging Tips</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: 13, lineHeight: 1.6, color: 'var(--text-secondary)' }}>
-            <div><strong style={{ color: 'var(--text)' }}>Connections:</strong> Scan all TECK gland terminations under load. Temperature difference of more than 10{'\°'}C between similar connections indicates a problem. More than 40{'\°'}C above ambient is critical.</div>
+            <div><strong style={{ color: 'var(--text)' }}>Connections:</strong> Scan all TECK gland terminations under load. Temperature difference of more than 10{'°'}C between similar connections indicates a problem. More than 40{'°'}C above ambient is critical.</div>
             <div><strong style={{ color: 'var(--text)' }}>Cable runs:</strong> Hot spots along a cable run may indicate damaged armor causing eddy current heating, or a high-resistance splice point.</div>
             <div><strong style={{ color: 'var(--text)' }}>Load requirement:</strong> Cable should be at minimum 40% of rated load for meaningful thermal scans. Scan under typical operating conditions for best results.</div>
             <div><strong style={{ color: 'var(--text)' }}>Emissivity:</strong> Set emissivity to 0.90-0.95 for PVC jacket surface. For bare aluminum armor, use 0.05-0.10 (highly reflective &mdash; thermal readings of bare armor are unreliable).</div>
@@ -929,7 +929,7 @@ export default function TECKCablePage() {
             <div><strong style={{ color: 'var(--text)' }}>Moisture resistance:</strong> The PVC outer jacket and inner jacket provide a double moisture barrier. Mines are inherently wet environments with standing water, dripping, and high humidity.</div>
             <div><strong style={{ color: 'var(--text)' }}>Bonding through armor:</strong> The aluminum armor serves as an effective equipment bonding conductor when properly terminated. This eliminates the need for a separate bonding conductor in many installations, simplifying cable routing.</div>
             <div><strong style={{ color: 'var(--text)' }}>Versatility:</strong> TECK90 is approved for cable tray, direct burial, exposed runs, and even hazardous locations (with appropriate glands). One cable type handles most fixed installation needs in a mine.</div>
-            <div><strong style={{ color: 'var(--text)' }}>Temperature rating:</strong> The 90{'\°'}C rating handles the elevated ambient temperatures found in deep mines. Combined with XLPE insulation, it resists thermal degradation over long service life.</div>
+            <div><strong style={{ color: 'var(--text)' }}>Temperature rating:</strong> The 90{'°'}C rating handles the elevated ambient temperatures found in deep mines. Combined with XLPE insulation, it resists thermal degradation over long service life.</div>
             <div><strong style={{ color: 'var(--text)' }}>Ontario standard:</strong> TECK90 is the de facto standard cable for fixed installations in Ontario mining operations. Electricians, maintenance crews, and supply chains are all built around TECK cable. Glands, tools, and training are universally available.</div>
           </div>
         </div>

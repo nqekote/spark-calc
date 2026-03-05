@@ -13,8 +13,8 @@ const phaseOptions = [
 ]
 
 const impedanceOptions = [
-  { value: 'lte6', label: '\≤6%' },
-  { value: 'gt6', label: '>6% and \≤10%' },
+  { value: 'lte6', label: '≤6%' },
+  { value: 'gt6', label: '>6% and ≤10%' },
 ]
 
 const standardSizes = [
@@ -112,7 +112,7 @@ export default function TransformerOCPPage() {
     if (phase === 'single') {
       formula = `FLA = kVA × 1000 / V = ${fmt(kvaVal)} × 1000 / ${fmt(vPri)} = ${fmt(primaryFLA)} A (primary)`
     } else {
-      formula = `FLA = kVA × 1000 / (V × \√3) = ${fmt(kvaVal)} × 1000 / (${fmt(vPri)} × 1.732) = ${fmt(primaryFLA)} A (primary)`
+      formula = `FLA = kVA × 1000 / (V × √3) = ${fmt(kvaVal)} × 1000 / (${fmt(vPri)} × 1.732) = ${fmt(primaryFLA)} A (primary)`
     }
   }
 
@@ -184,14 +184,14 @@ export default function TransformerOCPPage() {
           onChange={setImpedance}
           options={impedanceOptions}
         />
-        <ResultDisplay results={results} formula={hasInputs ? formula : undefined} />
+        <ResultDisplay results={results} formula={hasInputs ? formula : undefined} title="Transformer OCP" />
         <InfoBox title="CEC Rule 26-252">
           For transformers rated 750V or less, primary overcurrent protection shall not exceed
           125% of the primary full-load current. If 125% does not correspond to a standard
           overcurrent device rating, the next higher standard rating is permitted. When secondary
-          protection is provided, primary protection may be increased to 250% (impedance {'\≤'}6%)
+          protection is provided, primary protection may be increased to 250% (impedance {'≤'}6%)
           or 225% (impedance {'>'}6%). Secondary protection shall not exceed 125% of secondary FLA,
-          or 167% for transformers with impedance {'\≤'}6%.
+          or 167% for transformers with impedance {'≤'}6%.
         </InfoBox>
       </div>
     </>

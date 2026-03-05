@@ -89,7 +89,7 @@ export default function GroundingConductorPage() {
           options={ocpOptions}
         />
 
-        <ResultDisplay results={results} />
+        <ResultDisplay results={results} title="Grounding Conductor" />
 
         {/* CEC Table 17 Reference */}
         <div style={{

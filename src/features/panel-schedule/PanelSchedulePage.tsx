@@ -620,7 +620,7 @@ export default function PanelSchedulePage() {
                   </div>
                   <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 2 }}>
                     {activePanel.mainBreaker}A Main &bull; {activePanel.voltage}V &bull;{' '}
-                    {activePanel.phases === 'three' ? '3\ϕ' : '1\ϕ'}
+                    {activePanel.phases === 'three' ? '3ϕ' : '1ϕ'}
                   </div>
                 </div>
                 <button
@@ -864,7 +864,7 @@ export default function PanelSchedulePage() {
                       }}
                       aria-label="Edit circuit"
                     >
-                      \✎
+                      ✎
                     </button>
 
                     <button

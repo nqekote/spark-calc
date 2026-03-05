@@ -132,12 +132,12 @@ const equipmentMarkings: EquipmentMarking[] = [
   { marking: 'Ex n', meaning: 'Non-sparking / Non-incendive' },
   { marking: 'Ex tD', meaning: 'Protection by enclosure (dust)' },
   { marking: 'Ex m', meaning: 'Encapsulation (sealed in resin)' },
-  { marking: 'T1 (450\°C)', meaning: 'Lowest temperature class' },
-  { marking: 'T2 (300\°C)', meaning: 'Common for most applications' },
-  { marking: 'T3 (200\°C)', meaning: 'Gasoline, diesel applications' },
-  { marking: 'T4 (135\°C)', meaning: 'Acetaldehyde, diethyl ether' },
-  { marking: 'T5 (100\°C)', meaning: 'Carbon disulphide' },
-  { marking: 'T6 (85\°C)', meaning: 'Most restrictive class' },
+  { marking: 'T1 (450°C)', meaning: 'Lowest temperature class' },
+  { marking: 'T2 (300°C)', meaning: 'Common for most applications' },
+  { marking: 'T3 (200°C)', meaning: 'Gasoline, diesel applications' },
+  { marking: 'T4 (135°C)', meaning: 'Acetaldehyde, diethyl ether' },
+  { marking: 'T5 (100°C)', meaning: 'Carbon disulphide' },
+  { marking: 'T6 (85°C)', meaning: 'Most restrictive class' },
 ]
 
 const commonAreas: CommonArea[] = [
@@ -357,7 +357,7 @@ export default function HazardousAreasPage() {
                 alignSelf: 'flex-start',
               }}
             >
-              {showMiningOnly ? '\⛏ Mining Only' : 'Show All Areas'}
+              {showMiningOnly ? '⛏ Mining Only' : 'Show All Areas'}
             </button>
 
             {(showMiningOnly ? commonAreas.filter(a => a.mining) : commonAreas).map((area, i) => (
@@ -367,7 +367,7 @@ export default function HazardousAreasPage() {
                 borderLeft: area.mining ? '4px solid #ff8c00' : '4px solid var(--primary)',
               }}>
                 <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--text)', marginBottom: 4 }}>
-                  {area.mining && <span style={{ marginRight: 6 }}>{'\⛏'}</span>}
+                  {area.mining && <span style={{ marginRight: 6 }}>{'⛏'}</span>}
                   {area.location}
                 </div>
                 <div style={{

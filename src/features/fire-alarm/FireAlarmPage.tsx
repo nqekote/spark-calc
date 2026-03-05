@@ -224,15 +224,15 @@ const devices: DeviceInfo[] = [
   {
     name: 'Fixed Temperature Heat Detector',
     type: 'initiating',
-    description: 'Activates when ambient temperature reaches a preset threshold. Common ratings: 57\°C (135\°F) for ordinary areas, 93\°C (200\°F) for high-temperature environments. Uses bimetallic element, fusible alloy, or electronic sensor.',
-    placement: 'Kitchens, garages, boiler rooms, mechanical rooms, dusty environments where smoke detectors would false alarm. Must be rated at least 11\°C (20\°F) above maximum expected ambient temperature.',
+    description: 'Activates when ambient temperature reaches a preset threshold. Common ratings: 57°C (135°F) for ordinary areas, 93°C (200°F) for high-temperature environments. Uses bimetallic element, fusible alloy, or electronic sensor.',
+    placement: 'Kitchens, garages, boiler rooms, mechanical rooms, dusty environments where smoke detectors would false alarm. Must be rated at least 11°C (20°F) above maximum expected ambient temperature.',
     keySpecs: 'Spacing per ULC: ordinary rating 9.1m (30 ft), intermediate 9.1m, high temp 9.1m. Reduce spacing for high ceilings. Non-restorable (fusible) or restorable (bimetallic).',
     tint: '#f59e0b',
   },
   {
     name: 'Rate-of-Rise Heat Detector',
     type: 'initiating',
-    description: 'Activates when temperature rises faster than a set rate, typically 8.3\°C (15\°F) per minute. Also includes a fixed temperature element as backup. More responsive than fixed-temp alone. Pneumatic type uses air chamber that expands with rapid heat increase.',
+    description: 'Activates when temperature rises faster than a set rate, typically 8.3°C (15°F) per minute. Also includes a fixed temperature element as backup. More responsive than fixed-temp alone. Pneumatic type uses air chamber that expands with rapid heat increase.',
     placement: 'Same as fixed temperature, but provides faster response to rapidly developing fires. Good for areas with stable ambient temperatures. Not suitable for areas with normal rapid temperature changes.',
     keySpecs: 'Spacing: same as fixed temp per ULC. Combination rate-of-rise/fixed-temp is most common. Self-restoring after rate-of-rise activation. Fixed-temp element may be non-restorable.',
     tint: '#f59e0b',
@@ -294,7 +294,7 @@ const devices: DeviceInfo[] = [
     type: 'mining',
     description: 'Heat-sensitive cable that detects temperature along its entire length. Two conductors separated by heat-sensitive polymer. When temperature exceeds rating, polymer melts and conductors short, triggering alarm. Ideal for long, narrow spaces like conveyor belt tunnels.',
     placement: 'Run along conveyor belt structure, typically above the belt on the return side where friction fires originate. Also used in cable trays, tunnel ceilings, and along fuel lines. Fastened every 1.5-3m.',
-    keySpecs: 'Alarm temperatures: 68\°C (155\°F), 88\°C (190\°F), 105\°C (220\°F). Digital type can locate alarm point within 1m. Analog type provides continuous temperature monitoring. Non-restorable (replace after activation) or restorable.',
+    keySpecs: 'Alarm temperatures: 68°C (155°F), 88°C (190°F), 105°C (220°F). Digital type can locate alarm point within 1m. Analog type provides continuous temperature monitoring. Non-restorable (replace after activation) or restorable.',
     tint: '#ef4444',
   },
   {
@@ -550,11 +550,11 @@ interface TestProcedure {
 
 const testProcedures: TestProcedure[] = [
   { test: 'Smoke Entry Test', method: 'Apply canned aerosol smoke (UL-listed) at detector. Hold within 0.6m of detector for up to 20 seconds. Use extension pole for ceiling-mounted detectors.', passCriteria: 'Detector activates and panel shows correct device/zone in alarm within manufacturer time spec (typically <30 seconds).' },
-  { test: 'Heat Detector Test', method: 'Apply heat source (heat gun, hair dryer) to detector until rated temperature is reached. For rate-of-rise: apply heat rapidly. Electronic test tools available for some brands.', passCriteria: 'Fixed temp: activates at rated temperature (+/-5%). Rate-of-rise: activates when rate exceeds 8.3\°C/min. Panel shows correct device in alarm.' },
+  { test: 'Heat Detector Test', method: 'Apply heat source (heat gun, hair dryer) to detector until rated temperature is reached. For rate-of-rise: apply heat rapidly. Electronic test tools available for some brands.', passCriteria: 'Fixed temp: activates at rated temperature (+/-5%). Rate-of-rise: activates when rate exceeds 8.3°C/min. Panel shows correct device in alarm.' },
   { test: 'Pull Station Test', method: 'Operate pull station handle/lever. Note: some pull stations are single-action, some require protective cover to be lifted first. Reset with key after test.', passCriteria: 'Panel immediately shows alarm from correct device/zone. All programmed notification appliances activate. Signal received at monitoring station.' },
   { test: 'Waterflow Test', method: 'Open inspector test valve (ITV) on the most remote sprinkler riser. Water flows through test orifice, activating flow switch on the riser.', passCriteria: 'Alarm at panel within 90 seconds of opening ITV (retard timer delay). Correct zone identification. Monitoring station notified.' },
   { test: 'Battery Load Test', method: 'Disconnect AC power to FACP. Place system in alarm (activate one zone). Measure battery voltage under alarm load. Time battery duration.', passCriteria: 'Batteries must provide 24 hours standby + 5 minutes alarm load (or 60 hours standby + 5 min alarm if no generator). Voltage must stay above minimum operating threshold.' },
-  { test: 'Voice Intelligibility Test', method: 'Play pre-recorded message in each speaker zone. Measure Common Intelligibility Scale (CIS) using test equipment at multiple locations in each zone.', passCriteria: 'CIS score must be \≥0.70 (or per AHJ requirements). All words clearly intelligible above ambient noise. Live microphone test from each fire command station.' },
+  { test: 'Voice Intelligibility Test', method: 'Play pre-recorded message in each speaker zone. Measure Common Intelligibility Scale (CIS) using test equipment at multiple locations in each zone.', passCriteria: 'CIS score must be ≥0.70 (or per AHJ requirements). All words clearly intelligible above ambient noise. Live microphone test from each fire command station.' },
 ]
 
 interface DocumentReq {

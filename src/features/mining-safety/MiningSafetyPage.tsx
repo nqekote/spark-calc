@@ -65,7 +65,7 @@ const sections: Section[] = [
   {
     key: 'grounding',
     label: 'Mine Grounding',
-    icon: '\⏚',
+    icon: '⏚',
     rules: [
       {
         title: 'Ground Fault Protection',
@@ -129,7 +129,7 @@ const sections: Section[] = [
       {
         title: 'Ampacity Derating Underground',
         rule: 'CEC Table 5A',
-        detail: 'Ambient temperature in mines can exceed 30\°C. Apply temperature correction factors per CEC Table 5A. Deep mines may require 45\°C ambient rating.',
+        detail: 'Ambient temperature in mines can exceed 30°C. Apply temperature correction factors per CEC Table 5A. Deep mines may require 45°C ambient rating.',
       },
     ],
   },
@@ -169,18 +169,18 @@ const sections: Section[] = [
   {
     key: 'emergency',
     label: 'Emergency',
-    icon: '\⚠\uFE0F',
+    icon: '⚠\uFE0F',
     rules: [
       {
         title: 'Arc Flash Incident Energy',
         rule: 'CSA Z462-21',
-        detail: 'Arc flash analysis required for all mine electrical equipment > 240V. Labels must show incident energy (cal/cm\²), boundary distances, and required PPE.',
+        detail: 'Arc flash analysis required for all mine electrical equipment > 240V. Labels must show incident energy (cal/cm²), boundary distances, and required PPE.',
         critical: true,
       },
       {
         title: 'Underground Fire Procedure',
         rule: 'O. Reg. 854, s. 17',
-        detail: 'Electrical fire: de-energize first, then use CO\₂ or dry chemical. NEVER use water on energized equipment. Evacuate to fresh air.',
+        detail: 'Electrical fire: de-energize first, then use CO₂ or dry chemical. NEVER use water on energized equipment. Evacuate to fresh air.',
         critical: true,
       },
       {
@@ -197,7 +197,7 @@ const sections: Section[] = [
       {
         title: 'Methane Detection Integration',
         rule: 'O. Reg. 854, s. 184',
-        detail: 'In gassy mines, methane monitors must be interlocked with electrical systems. At 1% CH\₄, power to face equipment must disconnect automatically.',
+        detail: 'In gassy mines, methane monitors must be interlocked with electrical systems. At 1% CH₄, power to face equipment must disconnect automatically.',
         critical: true,
       },
     ],
@@ -210,7 +210,7 @@ const sections: Section[] = [
       {
         title: 'Arc Flash PPE Categories',
         rule: 'CSA Z462, Table 1',
-        detail: 'Cat 1: 4 cal/cm\² (arc-rated shirt + pants, safety glasses, leather gloves). Cat 2: 8 cal/cm\² (add face shield, balaclava). Cat 3: 25 cal/cm\² (arc flash suit). Cat 4: 40 cal/cm\² (full arc flash suit with hood).',
+        detail: 'Cat 1: 4 cal/cm² (arc-rated shirt + pants, safety glasses, leather gloves). Cat 2: 8 cal/cm² (add face shield, balaclava). Cat 3: 25 cal/cm² (arc flash suit). Cat 4: 40 cal/cm² (full arc flash suit with hood).',
         critical: true,
       },
       {
@@ -309,7 +309,7 @@ export default function MiningSafetyPage() {
           gap: 10,
           alignItems: 'flex-start',
         }}>
-          <span style={{ fontSize: 20, flexShrink: 0 }}>{'\⚠\uFE0F'}</span>
+          <span style={{ fontSize: 20, flexShrink: 0 }}>{'⚠\uFE0F'}</span>
           <div style={{ fontSize: 13, color: 'var(--text)', lineHeight: 1.5 }}>
             <strong>Safety reference only.</strong> Always follow your mine's specific procedures,
             O. Reg. 854, CSA Z462, and your company's Safe Work Procedures. When in doubt, ask your supervisor.
@@ -377,7 +377,7 @@ export default function MiningSafetyPage() {
                   fontSize: 15, fontWeight: 700, color: 'var(--text)',
                   lineHeight: 1.3,
                 }}>
-                  {rule.critical && <span style={{ color: '#ff3c3c', marginRight: 6 }}>{'\●'}</span>}
+                  {rule.critical && <span style={{ color: '#ff3c3c', marginRight: 6 }}>{'●'}</span>}
                   {rule.title}
                 </div>
               </div>
@@ -423,11 +423,11 @@ export default function MiningSafetyPage() {
           lineHeight: 1.6,
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-            <span style={{ color: '#ff3c3c', fontSize: 14 }}>{'\●'}</span>
+            <span style={{ color: '#ff3c3c', fontSize: 14 }}>{'●'}</span>
             <span><strong>Critical safety rules</strong> — violation can result in serious injury or death</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <span style={{ color: 'var(--primary)', fontSize: 14 }}>{'\●'}</span>
+            <span style={{ color: 'var(--primary)', fontSize: 14 }}>{'●'}</span>
             <span><strong>Standard rules</strong> — important for compliance and best practice</span>
           </div>
         </div>

@@ -412,32 +412,32 @@ export default function OCCoordinationPage() {
         </ExpandCard>
 
         <ExpandCard idx={4} expanded={expandedFund} setExpanded={setExpandedFund}
-          title="Let-Through Energy (I\²t)">
+          title="Let-Through Energy (I²t)">
           <p style={bodyText}>
-            I\²t (ampere-squared seconds) represents the thermal energy a protective device
+            I²t (ampere-squared seconds) represents the thermal energy a protective device
             allows to pass through to the downstream circuit during a fault. It is a measure
             of the destructive capability of the fault current.
           </p>
           <div style={{ ...card, background: 'rgba(255,215,0,0.04)', marginTop: 8 }}>
             <p style={{ ...mono, fontSize: 14, color: 'var(--primary)', textAlign: 'center', margin: '8px 0' }}>
-              I\²t = I\² x t (A\²s)
+              I²t = I² x t (A²s)
             </p>
             <p style={{ fontSize: 13, color: 'var(--text-secondary)', textAlign: 'center', margin: 0 }}>
               Where I = fault current (A) and t = clearing time (s)
             </p>
           </div>
           <ul style={bulletList}>
-            <li><strong>Lower I\²t = less damage</strong> to conductors, equipment, and reduced arc flash energy</li>
-            <li>Current-limiting fuses have very low I\²t because they clear in less than half a cycle</li>
-            <li>For coordination, the downstream device total I\²t must be less than the upstream device minimum melting I\²t</li>
-            <li>Conductor damage threshold: I\²t must not exceed the cable withstand rating</li>
+            <li><strong>Lower I²t = less damage</strong> to conductors, equipment, and reduced arc flash energy</li>
+            <li>Current-limiting fuses have very low I²t because they clear in less than half a cycle</li>
+            <li>For coordination, the downstream device total I²t must be less than the upstream device minimum melting I²t</li>
+            <li>Conductor damage threshold: I²t must not exceed the cable withstand rating</li>
           </ul>
           <div style={warnBox}>
             <p style={{ fontSize: 13, color: '#ff6b6b', fontWeight: 600, margin: '0 0 4px' }}>
               Cable Protection
             </p>
             <p style={{ fontSize: 13, color: 'var(--text)', margin: 0, lineHeight: 1.6 }}>
-              The I\²t let-through of the protective device must not exceed the I\²t
+              The I²t let-through of the protective device must not exceed the I²t
               withstand of the protected cable. Exceeding this value causes insulation damage,
               conductor annealing, or fire.
             </p>
@@ -1079,7 +1079,7 @@ TCC CURVE REQUIREMENT:
           title="Fuse Class Speed Comparison">
           <p style={bodyText}>
             Different fuse classes clear faults at different speeds. Faster fuses provide
-            better current limitation and lower I\²t, but may not ride through motor
+            better current limitation and lower I²t, but may not ride through motor
             starting inrush without nuisance blowing.
           </p>
           <div style={{ ...card, marginTop: 8 }}>
@@ -1116,7 +1116,7 @@ TCC CURVE REQUIREMENT:
           title="Current-Limiting Fuses: Peak Let-Through">
           <p style={bodyText}>
             Current-limiting fuses interrupt the fault before the first current peak is
-            reached. They limit both the peak current and the I\²t energy that reaches
+            reached. They limit both the peak current and the I²t energy that reaches
             downstream equipment.
           </p>
           <div style={{ ...card, marginTop: 8, marginBottom: 8 }}>
@@ -1154,7 +1154,7 @@ TCC CURVE REQUIREMENT:
           </div>
           <p style={{ fontSize: 12, color: 'var(--text-secondary)', fontStyle: 'italic' }}>
             Values are approximate and vary by manufacturer. Always consult specific
-            manufacturer let-through data (Ip and I\²t curves) for engineering calculations.
+            manufacturer let-through data (Ip and I²t curves) for engineering calculations.
           </p>
         </ExpandCard>
 

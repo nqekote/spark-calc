@@ -1,4 +1,4 @@
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation, Link } from 'react-router-dom'
 import { useTheme } from '../core/theme/ThemeContext'
 import { useFavorites } from '../core/hooks/useFavorites'
 import { allFeatures } from '../data/features'
@@ -75,6 +75,22 @@ export default function Header({ title }: { title?: string }) {
             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
           </svg>
         </button>
+      )}
+
+      {/* History button — only on home page */}
+      {isHome && (
+        <Link to="/history" className="tap-target" style={{
+          width: 40, height: 40,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          borderRadius: 10, color: 'var(--text-secondary)',
+          transition: 'color var(--transition-fast), background var(--transition-fast)',
+        }} aria-label="Calculation history">
+          <svg width={20} height={20} viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+            <circle cx={12} cy={12} r={10} />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+        </Link>
       )}
 
       {/* Status pill */}

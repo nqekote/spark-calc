@@ -190,9 +190,9 @@ const commonRanges: CommonRange[] = [
   { parameter: 'Pressure', unit: 'PSI', low: 0, high: 500, application: 'High-pressure process lines', color: '#3b82f6' },
   { parameter: 'Pressure', unit: 'kPa', low: 0, high: 700, application: 'Water distribution, HVAC', color: '#3b82f6' },
   { parameter: 'Pressure', unit: 'inH2O', low: 0, high: 200, application: 'Draft/duct pressure, filter differential', color: '#3b82f6' },
-  { parameter: 'Temperature', unit: '\°F', low: 0, high: 500, application: 'General process heating', color: '#ef4444' },
-  { parameter: 'Temperature', unit: '\°C', low: -40, high: 150, application: 'Ambient & low-temp process', color: '#ef4444' },
-  { parameter: 'Temperature', unit: '\°C', low: 0, high: 400, application: 'Kiln, dryer, heat treatment', color: '#ef4444' },
+  { parameter: 'Temperature', unit: '°F', low: 0, high: 500, application: 'General process heating', color: '#ef4444' },
+  { parameter: 'Temperature', unit: '°C', low: -40, high: 150, application: 'Ambient & low-temp process', color: '#ef4444' },
+  { parameter: 'Temperature', unit: '°C', low: 0, high: 400, application: 'Kiln, dryer, heat treatment', color: '#ef4444' },
   { parameter: 'Level', unit: '%', low: 0, high: 100, application: 'Tank level (any sensor type)', color: '#22c55e' },
   { parameter: 'Level', unit: 'ft', low: 0, high: 30, application: 'Open-channel / reservoir', color: '#22c55e' },
   { parameter: 'Level', unit: 'm', low: 0, high: 10, application: 'Sump / holding tank', color: '#22c55e' },
@@ -220,36 +220,36 @@ interface RTDType {
 const rtdTypes: RTDType[] = [
   {
     name: 'PT100',
-    resistance: '100Ω at 0\°C',
-    range: '-200 to +850\°C',
-    accuracy: 'Class A: \±0.15\°C at 0\°C',
+    resistance: '100Ω at 0°C',
+    range: '-200 to +850°C',
+    accuracy: 'Class A: ±0.15°C at 0°C',
     material: 'Platinum',
     application: 'Most common industrial RTD. Used in mining process control, HVAC, food & beverage.',
     color: '#3b82f6',
   },
   {
     name: 'PT1000',
-    resistance: '1000Ω at 0\°C',
-    range: '-200 to +850\°C',
-    accuracy: 'Class A: \±0.15\°C at 0\°C',
+    resistance: '1000Ω at 0°C',
+    range: '-200 to +850°C',
+    accuracy: 'Class A: ±0.15°C at 0°C',
     material: 'Platinum',
     application: 'Higher resistance = less lead wire error. Great for 2-wire applications and long cable runs in mines.',
     color: '#6366f1',
   },
   {
     name: 'Ni120',
-    resistance: '120Ω at 0\°C',
-    range: '-80 to +260\°C',
-    accuracy: '\±0.5\°C',
+    resistance: '120Ω at 0°C',
+    range: '-80 to +260°C',
+    accuracy: '±0.5°C',
     material: 'Nickel',
     application: 'HVAC, older industrial systems. Higher temperature coefficient than platinum.',
     color: '#22c55e',
   },
   {
     name: 'Cu10',
-    resistance: '10Ω at 0\°C',
-    range: '-50 to +150\°C',
-    accuracy: '\±0.5\°C',
+    resistance: '10Ω at 0°C',
+    range: '-50 to +150°C',
+    accuracy: '±0.5°C',
     material: 'Copper',
     application: 'Motor winding temperature measurement. Very linear but low resistance.',
     color: '#f59e0b',
@@ -277,7 +277,7 @@ const rtdWiringTypes: RTDWiring[] = [
     description: 'Three leads: two on one side, one on other. Third wire measures lead resistance for compensation.',
     accuracy: 'Good accuracy. Compensates for lead resistance assuming all 3 leads are equal length/gauge.',
     use: 'Most common industrial installation. Standard for mining process control.',
-    diagram: '[Tx +] ---wire1--- [RTD] ---wire2--- [Tx -]\n              \└---wire3--- [Tx comp]',
+    diagram: '[Tx +] ---wire1--- [RTD] ---wire2--- [Tx -]\n              └---wire3--- [Tx comp]',
   },
   {
     wires: 4,
@@ -403,19 +403,19 @@ const tcTypes: TCType[] = [
   {
     type: 'J',
     metals: 'Iron (+) / Constantan (-)',
-    range: '-210 to +760\°C',
-    accuracy: '\±2.2\°C or \±0.75%',
+    range: '-210 to +760°C',
+    accuracy: '±2.2°C or ±0.75%',
     color_pos_csa: 'White',
     color_neg_csa: 'Red',
     color_jacket_csa: 'Black',
-    application: 'General purpose. Not for oxidizing atmospheres above 500\°C. Iron oxidizes.',
+    application: 'General purpose. Not for oxidizing atmospheres above 500°C. Iron oxidizes.',
     tint: '#f59e0b',
   },
   {
     type: 'K',
     metals: 'Chromel (+) / Alumel (-)',
-    range: '-200 to +1260\°C',
-    accuracy: '\±2.2\°C or \±0.75%',
+    range: '-200 to +1260°C',
+    accuracy: '±2.2°C or ±0.75%',
     color_pos_csa: 'Yellow',
     color_neg_csa: 'Red',
     color_jacket_csa: 'Yellow',
@@ -425,8 +425,8 @@ const tcTypes: TCType[] = [
   {
     type: 'T',
     metals: 'Copper (+) / Constantan (-)',
-    range: '-200 to +370\°C',
-    accuracy: '\±1.0\°C or \±0.75%',
+    range: '-200 to +370°C',
+    accuracy: '±1.0°C or ±0.75%',
     color_pos_csa: 'Blue',
     color_neg_csa: 'Red',
     color_jacket_csa: 'Blue',
@@ -436,8 +436,8 @@ const tcTypes: TCType[] = [
   {
     type: 'E',
     metals: 'Chromel (+) / Constantan (-)',
-    range: '-200 to +900\°C',
-    accuracy: '\±1.7\°C or \±0.5%',
+    range: '-200 to +900°C',
+    accuracy: '±1.7°C or ±0.5%',
     color_pos_csa: 'Purple',
     color_neg_csa: 'Red',
     color_jacket_csa: 'Purple',
@@ -447,8 +447,8 @@ const tcTypes: TCType[] = [
   {
     type: 'N',
     metals: 'Nicrosil (+) / Nisil (-)',
-    range: '-200 to +1300\°C',
-    accuracy: '\±2.2\°C or \±0.75%',
+    range: '-200 to +1300°C',
+    accuracy: '±2.2°C or ±0.75%',
     color_pos_csa: 'Orange',
     color_neg_csa: 'Red',
     color_jacket_csa: 'Orange',
@@ -569,7 +569,7 @@ const sensors: SensorInfo[] = [
     typicalRange: '0.3-12 m/s velocity',
     output: '4-20 mA with HART, pulse output',
     advantages: 'No obstruction, no pressure drop. Works with slurries, dirty fluids. Very accurate.',
-    limitations: 'Fluid must be conductive (>5 \µS/cm). Full pipe required. Liner must match fluid.',
+    limitations: 'Fluid must be conductive (>5 µS/cm). Full pipe required. Liner must match fluid.',
     miningUse: 'Slurry flow, process water, reagent dosing. Primary flow meter in mining.',
     wiring: '4-wire (separate power supply). Signal cable must be shielded. Ground rings or electrodes.',
     color: '#a855f7',
@@ -681,7 +681,7 @@ const signalDevices: SignalDevice[] = [
     inputSignal: 'Varies (passes through)',
     outputSignal: 'Energy-limited version of input',
     application: 'Protects hazardous area instruments by clamping fault energy. Required for IS installations in mines.',
-    wiringNotes: 'MUST have dedicated IS ground bus (\≤1Ω to earth). Shunt type: diverts excess energy to ground. Consumes power.',
+    wiringNotes: 'MUST have dedicated IS ground bus (≤1Ω to earth). Shunt type: diverts excess energy to ground. Consumes power.',
     color: '#ef4444',
   },
   {
@@ -806,7 +806,7 @@ interface HARTFact {
 
 const hartFacts: HARTFact[] = [
   { title: 'What is HART?', detail: 'Highway Addressable Remote Transducer. A digital communication protocol superimposed on the standard 4-20 mA analog signal. Uses FSK (Frequency Shift Keying) modulation.' },
-  { title: 'Signal Type', detail: 'HART uses Bell 202 standard: 1200 Hz = logic "1" (mark), 2200 Hz = logic "0" (space). The digital signal is superimposed on the DC analog signal with a peak amplitude of \±0.5 mA.' },
+  { title: 'Signal Type', detail: 'HART uses Bell 202 standard: 1200 Hz = logic "1" (mark), 2200 Hz = logic "0" (space). The digital signal is superimposed on the DC analog signal with a peak amplitude of ±0.5 mA.' },
   { title: 'No Interference', detail: 'The average value of the HART AC signal is zero, so it does not affect the 4-20 mA analog reading. Both analog and digital communications work simultaneously.' },
   { title: 'Communication Modes', detail: 'Point-to-point: normal 4-20mA + HART. Multidrop: all devices at 4 mA, communication by polling (address 1-15). Burst mode: device sends data continuously without polling.' },
   { title: 'Loop Resistance', detail: 'HART requires minimum 250Ω loop resistance for communication. If PLC input impedance is too low, add a 250Ω resistor in series. Maximum loop resistance ~1100Ω.' },
@@ -935,11 +935,11 @@ const calibrationProcedure: CalibrationStep[] = [
   { step: 1, action: 'Prepare documentation', detail: 'Record instrument tag, make/model, serial number, range, and due date. Prepare as-found/as-left calibration sheet.' },
   { step: 2, action: 'Verify process isolation', detail: 'Isolate transmitter from process if applying simulated input. Close isolation valves. Follow LOTO procedures if required.' },
   { step: 3, action: 'Connect test equipment', detail: 'Connect loop calibrator in series to read mA. Connect pressure source, RTD simulator, or TC simulator as appropriate for the instrument type.' },
-  { step: 4, action: 'Record as-found at 0%', detail: 'Apply zero input (0 PSI, 0\°C, etc. or LRV value). Record the mA output. Expected: 4.000 mA \± tolerance.' },
-  { step: 5, action: 'Record as-found at 25%', detail: 'Apply 25% of range input. Record mA output. Expected: 8.000 mA \± tolerance.' },
-  { step: 6, action: 'Record as-found at 50%', detail: 'Apply 50% of range input. Record mA output. Expected: 12.000 mA \± tolerance.' },
-  { step: 7, action: 'Record as-found at 75%', detail: 'Apply 75% of range input. Record mA output. Expected: 16.000 mA \± tolerance.' },
-  { step: 8, action: 'Record as-found at 100%', detail: 'Apply 100% of range input (URV). Record mA output. Expected: 20.000 mA \± tolerance.' },
+  { step: 4, action: 'Record as-found at 0%', detail: 'Apply zero input (0 PSI, 0°C, etc. or LRV value). Record the mA output. Expected: 4.000 mA ± tolerance.' },
+  { step: 5, action: 'Record as-found at 25%', detail: 'Apply 25% of range input. Record mA output. Expected: 8.000 mA ± tolerance.' },
+  { step: 6, action: 'Record as-found at 50%', detail: 'Apply 50% of range input. Record mA output. Expected: 12.000 mA ± tolerance.' },
+  { step: 7, action: 'Record as-found at 75%', detail: 'Apply 75% of range input. Record mA output. Expected: 16.000 mA ± tolerance.' },
+  { step: 8, action: 'Record as-found at 100%', detail: 'Apply 100% of range input (URV). Record mA output. Expected: 20.000 mA ± tolerance.' },
   { step: 9, action: 'Evaluate as-found data', detail: 'If all points within tolerance, no adjustment needed. Record as-found = as-left. If out of tolerance, proceed to adjustment.' },
   { step: 10, action: 'Adjust zero (4 mA)', detail: 'Apply LRV input. Adjust transmitter zero until output reads 4.000 mA. Use HART trim or analog zero screw.' },
   { step: 11, action: 'Adjust span (20 mA)', detail: 'Apply URV input. Adjust transmitter span until output reads 20.000 mA. Use HART trim or analog span screw.' },
@@ -979,7 +979,7 @@ const gasDetectors: GasDetector[] = [
   },
   {
     gas: 'Hydrogen Sulphide',
-    formula: 'H\₂S',
+    formula: 'H₂S',
     twa: '10 ppm',
     stel: '15 ppm',
     idlh: '100 ppm',
@@ -991,10 +991,10 @@ const gasDetectors: GasDetector[] = [
   },
   {
     gas: 'Oxygen',
-    formula: 'O\₂',
+    formula: 'O₂',
     twa: '19.5-23.0%',
     stel: 'N/A',
-    idlh: '<16% (O\₂ deficient)',
+    idlh: '<16% (O₂ deficient)',
     alarmLow: '19.5% (deficient)',
     alarmHigh: '23.0% (enriched)',
     sensorType: 'Electrochemical (galvanic cell)',
@@ -1003,7 +1003,7 @@ const gasDetectors: GasDetector[] = [
   },
   {
     gas: 'Methane',
-    formula: 'CH\₄',
+    formula: 'CH₄',
     twa: 'N/A',
     stel: 'N/A',
     idlh: 'LEL = 5.0%',
@@ -1015,7 +1015,7 @@ const gasDetectors: GasDetector[] = [
   },
   {
     gas: 'Nitrogen Dioxide',
-    formula: 'NO\₂',
+    formula: 'NO₂',
     twa: '3 ppm',
     stel: '5 ppm',
     idlh: '20 ppm',
@@ -1027,7 +1027,7 @@ const gasDetectors: GasDetector[] = [
   },
   {
     gas: 'Sulphur Dioxide',
-    formula: 'SO\₂',
+    formula: 'SO₂',
     twa: '2 ppm',
     stel: '5 ppm',
     idlh: '100 ppm',
@@ -1152,10 +1152,10 @@ const miningInstruments: MiningInstrument[] = [
   {
     name: 'Dust Monitoring (Particulate)',
     parameter: 'Airborne Particulate Concentration',
-    description: 'Real-time dust monitors (nephelometer or optical) measure respirable dust concentration in mg/m\³. Critical for silicosis prevention.',
+    description: 'Real-time dust monitors (nephelometer or optical) measure respirable dust concentration in mg/m³. Critical for silicosis prevention.',
     location: 'Crusher areas, ore passes, dry drilling areas, conveyor transfer points.',
     signal: '4-20 mA or Modbus to SCADA. Alarm relay outputs for high dust levels.',
-    regulation: 'O. Reg. 854 s.186: Dust control requirements. ACGIH TLV for respirable silica: 0.025 mg/m\³.',
+    regulation: 'O. Reg. 854 s.186: Dust control requirements. ACGIH TLV for respirable silica: 0.025 mg/m³.',
     color: '#f59e0b',
   },
 ]
@@ -1362,11 +1362,11 @@ export default function InstrumentationPage() {
                   {[
                     { label: '0-100 PSI', min: '0', max: '100', unit: 'PSI' },
                     { label: '0-500 PSI', min: '0', max: '500', unit: 'PSI' },
-                    { label: '0-500\°F', min: '0', max: '500', unit: '\°F' },
-                    { label: '-40-150\°C', min: '-40', max: '150', unit: '\°C' },
+                    { label: '0-500°F', min: '0', max: '500', unit: '°F' },
+                    { label: '-40-150°C', min: '-40', max: '150', unit: '°C' },
                     { label: '0-100%', min: '0', max: '100', unit: '%' },
                     { label: '0-500 GPM', min: '0', max: '500', unit: 'GPM' },
-                    { label: '0-200 inH2O', min: '0', max: '200', unit: 'inH\₂O' },
+                    { label: '0-200 inH2O', min: '0', max: '200', unit: 'inH₂O' },
                     { label: '0-14 pH', min: '0', max: '14', unit: 'pH' },
                     { label: '0-1800 RPM', min: '0', max: '1800', unit: 'RPM' },
                     { label: '0-30 ft', min: '0', max: '30', unit: 'ft' },
@@ -1688,7 +1688,7 @@ export default function InstrumentationPage() {
             {/* RTD Troubleshooting */}
             <div style={tipBox}>
               <strong>RTD Troubleshooting Tips:</strong><br />
-              PT100 reads ~100Ω at 0\°C, ~138.5Ω at 100\°C. If you read 0Ω, the element is shorted.
+              PT100 reads ~100Ω at 0°C, ~138.5Ω at 100°C. If you read 0Ω, the element is shorted.
               If you read infinity (open), the element is broken. Measure resistance at the transmitter
               terminals with power disconnected. Compare to PT100 resistance table.
             </div>
@@ -1705,7 +1705,7 @@ export default function InstrumentationPage() {
                 <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: 300 }}>
                   <thead>
                     <tr>
-                      <th style={tableHeader}>Temp (\°C)</th>
+                      <th style={tableHeader}>Temp (°C)</th>
                       <th style={tableHeader}>PT100 (Ω)</th>
                       <th style={tableHeader}>PT1000 (Ω)</th>
                     </tr>
@@ -1716,7 +1716,7 @@ export default function InstrumentationPage() {
                         background: row.tempC === 0 ? 'rgba(255,215,0,0.08)'
                           : row.tempC === 100 ? 'rgba(255,215,0,0.06)' : 'transparent',
                       }}>
-                        <td style={tableCellMono}>{row.tempC}\°C</td>
+                        <td style={tableCellMono}>{row.tempC}°C</td>
                         <td style={tableCellMono}>{row.resistance} Ω</td>
                         <td style={tableCellMono}>{(parseFloat(row.resistance) * 10).toFixed(1)} Ω</td>
                       </tr>
@@ -1759,8 +1759,8 @@ export default function InstrumentationPage() {
                   </thead>
                   <tbody>
                     {[
-                      ['Temperature Range', '-200 to +850\°C', '-200 to +1800\°C'],
-                      ['Accuracy', 'Higher (\±0.1\°C possible)', 'Lower (\±1-2.2\°C typical)'],
+                      ['Temperature Range', '-200 to +850°C', '-200 to +1800°C'],
+                      ['Accuracy', 'Higher (±0.1°C possible)', 'Lower (±1-2.2°C typical)'],
                       ['Response Time', 'Slower (thermal mass)', 'Faster (small junction)'],
                       ['Long-term Stability', 'Excellent', 'Subject to drift'],
                       ['Cost', 'Higher', 'Lower'],
@@ -1980,7 +1980,7 @@ export default function InstrumentationPage() {
                   </thead>
                   <tbody>
                     {[
-                      ['IS Ground Bus', 'REQUIRED (\≤1Ω)', 'NOT required'],
+                      ['IS Ground Bus', 'REQUIRED (≤1Ω)', 'NOT required'],
                       ['Isolation', 'None (shunt type)', 'Full galvanic isolation'],
                       ['Power Loss', 'Significant voltage drop', 'Minimal'],
                       ['Cost', 'Lower', 'Higher'],
@@ -2526,12 +2526,12 @@ export default function InstrumentationPage() {
                   </thead>
                   <tbody>
                     {[
-                      ['Pressure transmitter', '\±0.1% of span', '0.04 mA on a 16 mA span'],
-                      ['Temperature transmitter', '\±0.25% of span', 'Includes sensor error'],
-                      ['DP flow transmitter', '\±0.1% of span', 'Before square root extraction'],
-                      ['Level transmitter', '\±0.2% of span', 'Varies with technology'],
-                      ['pH analyzer', '\±0.1 pH', 'Buffer calibration required'],
-                      ['Safety instrument (SIS)', '\±0.5% of span', 'Per SIL requirements, tighter may apply'],
+                      ['Pressure transmitter', '±0.1% of span', '0.04 mA on a 16 mA span'],
+                      ['Temperature transmitter', '±0.25% of span', 'Includes sensor error'],
+                      ['DP flow transmitter', '±0.1% of span', 'Before square root extraction'],
+                      ['Level transmitter', '±0.2% of span', 'Varies with technology'],
+                      ['pH analyzer', '±0.1 pH', 'Buffer calibration required'],
+                      ['Safety instrument (SIS)', '±0.5% of span', 'Per SIL requirements, tighter may apply'],
                     ].map(([type, tol, notes], i) => (
                       <tr key={i}>
                         <td style={{ ...tableCell, fontWeight: 600 }}>{type}</td>
@@ -2786,7 +2786,7 @@ export default function InstrumentationPage() {
                         padding: '4px 0',
                       }}>
                         <span style={{ color: '#06b6d4', fontWeight: 700, flexShrink: 0 }}>
-                          {'\•'}
+                          {'•'}
                         </span>
                         {item}
                       </div>
@@ -2820,7 +2820,7 @@ export default function InstrumentationPage() {
                         padding: '4px 0',
                       }}>
                         <span style={{ color: '#ef4444', fontWeight: 700, flexShrink: 0 }}>
-                          {'\•'}
+                          {'•'}
                         </span>
                         {item}
                       </div>

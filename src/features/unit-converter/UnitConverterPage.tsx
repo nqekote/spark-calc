@@ -40,28 +40,28 @@ const categories: { key: Category; label: string }[] = [
 const conversions: Record<Exclude<Category, 'wire'>, ConversionPair[]> = {
   length: [
     {
-      label: 'mm \↔ in',
+      label: 'mm ↔ in',
       unitA: 'mm',
       unitB: 'in',
       toB: v => v / 25.4,
       toA: v => v * 25.4,
     },
     {
-      label: 'cm \↔ in',
+      label: 'cm ↔ in',
       unitA: 'cm',
       unitB: 'in',
       toB: v => v / 2.54,
       toA: v => v * 2.54,
     },
     {
-      label: 'm \↔ ft',
+      label: 'm ↔ ft',
       unitA: 'm',
       unitB: 'ft',
       toB: v => v * 3.28084,
       toA: v => v / 3.28084,
     },
     {
-      label: 'km \↔ mi',
+      label: 'km ↔ mi',
       unitA: 'km',
       unitB: 'mi',
       toB: v => v / 1.60934,
@@ -70,46 +70,46 @@ const conversions: Record<Exclude<Category, 'wire'>, ConversionPair[]> = {
   ],
   area: [
     {
-      label: 'mm\² \↔ in\²',
-      unitA: 'mm\²',
-      unitB: 'in\²',
+      label: 'mm² ↔ in²',
+      unitA: 'mm²',
+      unitB: 'in²',
       toB: v => v / 645.16,
       toA: v => v * 645.16,
     },
     {
-      label: 'cm\² \↔ in\²',
-      unitA: 'cm\²',
-      unitB: 'in\²',
+      label: 'cm² ↔ in²',
+      unitA: 'cm²',
+      unitB: 'in²',
       toB: v => v / 6.4516,
       toA: v => v * 6.4516,
     },
     {
-      label: 'm\² \↔ ft\²',
-      unitA: 'm\²',
-      unitB: 'ft\²',
+      label: 'm² ↔ ft²',
+      unitA: 'm²',
+      unitB: 'ft²',
       toB: v => v * 10.7639,
       toA: v => v / 10.7639,
     },
   ],
   temp: [
     {
-      label: '\°C \↔ \°F',
-      unitA: '\°C',
-      unitB: '\°F',
+      label: '°C ↔ °F',
+      unitA: '°C',
+      unitB: '°F',
       toB: v => v * 9 / 5 + 32,
       toA: v => (v - 32) * 5 / 9,
     },
   ],
   weight: [
     {
-      label: 'kg \↔ lbs',
+      label: 'kg ↔ lbs',
       unitA: 'kg',
       unitB: 'lbs',
       toB: v => v * 2.20462,
       toA: v => v / 2.20462,
     },
     {
-      label: 'N \↔ lbf',
+      label: 'N ↔ lbf',
       unitA: 'N',
       unitB: 'lbf',
       toB: v => v * 0.224809,
@@ -118,16 +118,16 @@ const conversions: Record<Exclude<Category, 'wire'>, ConversionPair[]> = {
   ],
   torque: [
     {
-      label: 'N\·m \↔ lb\·ft',
-      unitA: 'N\·m',
-      unitB: 'lb\·ft',
+      label: 'N·m ↔ lb·ft',
+      unitA: 'N·m',
+      unitB: 'lb·ft',
       toB: v => v * 0.737562,
       toA: v => v / 0.737562,
     },
     {
-      label: 'N\·m \↔ lb\·in',
-      unitA: 'N\·m',
-      unitB: 'lb\·in',
+      label: 'N·m ↔ lb·in',
+      unitA: 'N·m',
+      unitB: 'lb·in',
       toB: v => v * 8.85075,
       toA: v => v / 8.85075,
     },
@@ -175,12 +175,12 @@ interface QuickRef {
 }
 
 const quickRefs: QuickRef[] = [
-  { label: '1 in \→ mm', cat: 'length', pairIdx: 0, value: '1', side: 'B' },
-  { label: '1 ft \→ m', cat: 'length', pairIdx: 2, value: '1', side: 'B' },
-  { label: '100\°C \→ \°F', cat: 'temp', pairIdx: 0, value: '100', side: 'A' },
-  { label: '1 m\² \→ ft\²', cat: 'area', pairIdx: 2, value: '1', side: 'A' },
-  { label: '10 kg \→ lbs', cat: 'weight', pairIdx: 0, value: '10', side: 'A' },
-  { label: '1 N\·m \→ lb\·in', cat: 'torque', pairIdx: 1, value: '1', side: 'A' },
+  { label: '1 in → mm', cat: 'length', pairIdx: 0, value: '1', side: 'B' },
+  { label: '1 ft → m', cat: 'length', pairIdx: 2, value: '1', side: 'B' },
+  { label: '100°C → °F', cat: 'temp', pairIdx: 0, value: '100', side: 'A' },
+  { label: '1 m² → ft²', cat: 'area', pairIdx: 2, value: '1', side: 'A' },
+  { label: '10 kg → lbs', cat: 'weight', pairIdx: 0, value: '10', side: 'A' },
+  { label: '1 N·m → lb·in', cat: 'torque', pairIdx: 1, value: '1', side: 'A' },
 ]
 
 /* ------------------------------------------------------------------ */
@@ -466,7 +466,7 @@ export default function UnitConverterPage() {
         {isWire ? (
           /* ---------- Wire Size Reference Table ---------- */
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            <div style={sectionTitle}>AWG / kcmil {'\↔'} mm{'\²'}</div>
+            <div style={sectionTitle}>AWG / kcmil {'↔'} mm{'²'}</div>
 
             {/* Search */}
             <div style={{ position: 'relative' }}>
@@ -488,7 +488,7 @@ export default function UnitConverterPage() {
                 type="text"
                 value={wireSearch}
                 onChange={e => setWireSearch(e.target.value)}
-                placeholder="Search wire size\…"
+                placeholder="Search wire size…"
                 style={{
                   width: '100%',
                   height: 'var(--touch-min)',
@@ -508,7 +508,7 @@ export default function UnitConverterPage() {
                 <thead>
                   <tr>
                     <th style={thStyle}>AWG / kcmil</th>
-                    <th style={{ ...thStyle, textAlign: 'right' }}>mm{'\²'}</th>
+                    <th style={{ ...thStyle, textAlign: 'right' }}>mm{'²'}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -603,7 +603,7 @@ export default function UnitConverterPage() {
                   </div>
 
                   {/* Arrow */}
-                  <div style={arrowStyle}>{'\↔'}</div>
+                  <div style={arrowStyle}>{'↔'}</div>
 
                   {/* Side B */}
                   <div style={{ flex: 1, minWidth: 0 }}>

@@ -142,7 +142,7 @@ export default function MotorFLCPage() {
           onChange={setVoltage}
           options={voltageOptions}
         />
-        <ResultDisplay results={results} />
+        <ResultDisplay results={results} title="Motor FLC" />
 
         {voltageRow && (
           <div style={{

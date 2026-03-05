@@ -15,9 +15,9 @@ const materialOptions = [
 ]
 
 const tempRatingOptions = [
-  { value: '60', label: '60\°C' },
-  { value: '75', label: '75\°C' },
-  { value: '90', label: '90\°C' },
+  { value: '60', label: '60°C' },
+  { value: '75', label: '75°C' },
+  { value: '90', label: '90°C' },
 ]
 
 const wireSizes = [
@@ -221,7 +221,7 @@ export default function WireSizingPage() {
         />
         <InputField
           label="Ambient Temperature"
-          unit={'\°C'}
+          unit={'°C'}
           value={ambientTemp}
           onChange={setAmbientTemp}
           placeholder="30"
@@ -233,7 +233,7 @@ export default function WireSizingPage() {
           onChange={setConductors}
           placeholder="3"
         />
-        <ResultDisplay results={results} />
+        <ResultDisplay results={results} title="Wire Sizing" />
 
         {nearbySizes.length > 0 && (
           <div style={{

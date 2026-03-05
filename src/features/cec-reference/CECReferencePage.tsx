@@ -78,12 +78,12 @@ interface Formula {
 const formulas: Formula[] = [
   { name: "Ohm's Law", formula: 'V = I × R' },
   { name: 'Power (single phase)', formula: 'P = V × I × PF' },
-  { name: 'Power (three phase)', formula: 'P = \√3 × V × I × PF' },
+  { name: 'Power (three phase)', formula: 'P = √3 × V × I × PF' },
   { name: 'Voltage Drop (single phase)', formula: 'VD = 2 × K × I × L / CM' },
   { name: 'Motor conductor', formula: '125% of FLC', note: 'CEC Rule 28-106' },
   { name: 'Continuous load conductor', formula: '125% of load current' },
   { name: 'Transformer FLA (single phase)', formula: 'FLA = kVA × 1000 / V' },
-  { name: 'Transformer FLA (three phase)', formula: 'FLA = kVA × 1000 / (V × \√3)' },
+  { name: 'Transformer FLA (three phase)', formula: 'FLA = kVA × 1000 / (V × √3)' },
 ]
 
 const breakerSizes = [15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100, 110, 125, 150, 175, 200, 225, 250, 300, 350, 400, 450, 500, 600]
