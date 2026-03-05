@@ -211,8 +211,8 @@ export default function BurialDepthsPage() {
 
   const lookup = depthLookup[wiringMethod]?.[locationType]
   const depthMm = lookup?.mm ?? 0
-  const depthLabel = lookup?.label ?? '\—'
-  const depthInches = lookup ? mmToInches(depthMm) : '\—'
+  const depthLabel = lookup?.label ?? '—'
+  const depthInches = lookup ? mmToInches(depthMm) : '—'
 
   return (
     <>

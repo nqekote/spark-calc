@@ -101,9 +101,9 @@ export default function VoltageDropPage() {
     vAtLoad = V - vDrop
 
     if (phase === 'single') {
-      formula = `VD = 2 \× K \× I \× L / CM = 2 \× ${K} \× ${fmt(I)} \× ${fmt(L)} / ${CM.toLocaleString()} = ${fmt(vDrop)} V`
+      formula = `VD = 2 × K × I × L / CM = 2 × ${K} × ${fmt(I)} × ${fmt(L)} / ${CM.toLocaleString()} = ${fmt(vDrop)} V`
     } else {
-      formula = `VD = \√3 \× K \× I \× L / CM = 1.732 \× ${K} \× ${fmt(I)} \× ${fmt(L)} / ${CM.toLocaleString()} = ${fmt(vDrop)} V`
+      formula = `VD = \√3 × K × I × L / CM = 1.732 × ${K} × ${fmt(I)} × ${fmt(L)} / ${CM.toLocaleString()} = ${fmt(vDrop)} V`
     }
   }
 
@@ -121,10 +121,10 @@ export default function VoltageDropPage() {
         { label: 'Status', value: getStatus(vDropPercent) },
       ]
     : [
-        { label: 'Voltage Drop', value: '\—', unit: 'V' },
-        { label: 'Voltage Drop', value: '\—', unit: '%' },
-        { label: 'Voltage at Load', value: '\—', unit: 'V' },
-        { label: 'Status', value: '\—' },
+        { label: 'Voltage Drop', value: '—', unit: 'V' },
+        { label: 'Voltage Drop', value: '—', unit: '%' },
+        { label: 'Voltage at Load', value: '—', unit: 'V' },
+        { label: 'Status', value: '—' },
       ]
 
   return (

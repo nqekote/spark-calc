@@ -110,9 +110,9 @@ export default function TransformerOCPPage() {
     }
 
     if (phase === 'single') {
-      formula = `FLA = kVA \× 1000 / V = ${fmt(kvaVal)} \× 1000 / ${fmt(vPri)} = ${fmt(primaryFLA)} A (primary)`
+      formula = `FLA = kVA × 1000 / V = ${fmt(kvaVal)} × 1000 / ${fmt(vPri)} = ${fmt(primaryFLA)} A (primary)`
     } else {
-      formula = `FLA = kVA \× 1000 / (V \× \√3) = ${fmt(kvaVal)} \× 1000 / (${fmt(vPri)} \× 1.732) = ${fmt(primaryFLA)} A (primary)`
+      formula = `FLA = kVA × 1000 / (V × \√3) = ${fmt(kvaVal)} × 1000 / (${fmt(vPri)} × 1.732) = ${fmt(primaryFLA)} A (primary)`
     }
   }
 
@@ -144,12 +144,12 @@ export default function TransformerOCPPage() {
         },
       ]
     : [
-        { label: 'Primary FLA', value: '\—', unit: 'A' },
-        { label: 'Secondary FLA', value: '\—', unit: 'A' },
-        { label: 'Max Primary OCP', value: '\—', unit: 'A' },
-        { label: 'Standard Primary OCP', value: '\—', unit: 'A' },
-        { label: 'Max Secondary OCP', value: '\—', unit: 'A' },
-        { label: 'Standard Secondary OCP', value: '\—', unit: 'A' },
+        { label: 'Primary FLA', value: '—', unit: 'A' },
+        { label: 'Secondary FLA', value: '—', unit: 'A' },
+        { label: 'Max Primary OCP', value: '—', unit: 'A' },
+        { label: 'Standard Primary OCP', value: '—', unit: 'A' },
+        { label: 'Max Secondary OCP', value: '—', unit: 'A' },
+        { label: 'Standard Secondary OCP', value: '—', unit: 'A' },
       ]
 
   return (

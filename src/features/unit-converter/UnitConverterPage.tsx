@@ -188,7 +188,7 @@ const quickRefs: QuickRef[] = [
 /* ------------------------------------------------------------------ */
 
 function fmt(n: number): string {
-  if (!isFinite(n)) return '\—'
+  if (!isFinite(n)) return '—'
   const abs = Math.abs(n)
   if (abs === 0) return '0'
   if (abs >= 1000) return n.toFixed(1)

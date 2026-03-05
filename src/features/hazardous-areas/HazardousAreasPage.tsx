@@ -119,7 +119,7 @@ const classGroups: ClassGroup[] = [
       { div: 'Division 2', detail: 'Fibres stored or handled (not manufactured)' },
     ],
     groups: [
-      { group: '\—', substances: 'Cotton, rayon, sawdust, wood shavings, textile fibres' },
+      { group: '—', substances: 'Cotton, rayon, sawdust, wood shavings, textile fibres' },
     ],
   },
 ]

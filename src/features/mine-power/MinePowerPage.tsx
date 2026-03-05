@@ -102,8 +102,8 @@ const formulas: Formula[] = [
   {
     name: 'Voltage Drop',
     formula: 'VD = (2 × L × I × R) / 1000',
-    description: 'Voltage drop in single conductor cable. L in metres, R in \Ω/km',
-    example: '200m run, 95A, #1/0 Cu (0.397 \Ω/km): VD = 2×200×95×0.397/1000 = 15.1V (2.6%)',
+    description: 'Voltage drop in single conductor cable. L in metres, R in Ω/km',
+    example: '200m run, 95A, #1/0 Cu (0.397 Ω/km): VD = 2×200×95×0.397/1000 = 15.1V (2.6%)',
   },
   {
     name: 'Transformer Sizing',
@@ -151,7 +151,7 @@ const troubleshootItems: TroubleshootItem[] = [
   {
     symptom: 'Ground fault alarm',
     causes: ['Damaged cable insulation', 'Water in junction box', 'Failed motor winding', 'Damaged connector', 'Insulation degradation over time'],
-    checks: ['Megger the cable (1M\Ω/kV + 1M\Ω minimum)', 'Inspect all J-boxes for moisture', 'Megger motor windings phase-to-ground', 'Inspect all connectors and plugs', 'Check insulation resistance trend records'],
+    checks: ['Megger the cable (1MΩ/kV + 1MΩ minimum)', 'Inspect all J-boxes for moisture', 'Megger motor windings phase-to-ground', 'Inspect all connectors and plugs', 'Check insulation resistance trend records'],
   },
   {
     symptom: 'Breaker trips repeatedly',

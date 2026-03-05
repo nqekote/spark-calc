@@ -25,7 +25,7 @@ const cableTypes: CableType[] = [
     uses: 'Residential branch circuits, lighting, receptacles in houses',
     locations: 'Dry locations only. Must be concealed (inside walls, ceilings, attics). Not for exposed runs.',
     conductor: 'Copper',
-    armour: 'None \— PVC outer jacket',
+    armour: 'None — PVC outer jacket',
     cecRule: 'CEC Rule 4-004, 12-100 to 12-120',
     sizes: '14\–8 AWG (2 or 3 conductor with ground)',
     miningUse: false,
@@ -83,14 +83,14 @@ const cableTypes: CableType[] = [
     voltage: '5kV to 25kV',
     temp: '90\°C',
     uses: 'Trailing cable for large mobile mining equipment: draglines, shovels, continuous miners, highwall miners',
-    locations: 'Mining operations \— surface and underground. Must be used with proper strain relief and cable handling equipment.',
+    locations: 'Mining operations — surface and underground. Must be used with proper strain relief and cable handling equipment.',
     conductor: 'Copper (tinned or bare)',
-    armour: 'No metallic armour \— heavy rubber outer jacket with individual conductor shielding',
+    armour: 'No metallic armour — heavy rubber outer jacket with individual conductor shielding',
     cecRule: 'CSA C22.2 No. 96, Ontario Mining Regs (O. Reg 854), CEC Section 76',
     sizes: '6 AWG to 500 kcmil (various conductor counts)',
     miningUse: true,
     description:
-      'Shield, Heavy-Duty, Ground Check cable. Designed specifically for high-voltage trailing cables on mobile mining equipment. Each conductor is individually shielded with a semi-conducting layer and copper tape/wire shield. The ground check conductor is a critical safety feature that continuously monitors the integrity of the grounding circuit \— if the ground check is broken, the system trips. The heavy rubber jacket provides excellent flexibility and mechanical protection for cables that are dragged across rough terrain.',
+      'Shield, Heavy-Duty, Ground Check cable. Designed specifically for high-voltage trailing cables on mobile mining equipment. Each conductor is individually shielded with a semi-conducting layer and copper tape/wire shield. The ground check conductor is a critical safety feature that continuously monitors the integrity of the grounding circuit — if the ground check is broken, the system trips. The heavy rubber jacket provides excellent flexibility and mechanical protection for cables that are dragged across rough terrain.',
   },
   {
     name: 'Type W / G-GC',
@@ -100,7 +100,7 @@ const cableTypes: CableType[] = [
     uses: 'Trailing cable for mobile mining equipment under 5kV: shuttle cars, LHD (scoop trams), bolters, drills, roof bolters',
     locations: 'Mining operations. Portable power connections for mobile equipment.',
     conductor: 'Copper (finely stranded for flexibility)',
-    armour: 'No metallic armour \— heavy rubber outer jacket',
+    armour: 'No metallic armour — heavy rubber outer jacket',
     cecRule: 'CSA C22.2 No. 96, Ontario Mining Regs (O. Reg 854), CEC Section 76',
     sizes: '8 AWG to 4/0 AWG (various conductor counts)',
     miningUse: true,
@@ -115,7 +115,7 @@ const cableTypes: CableType[] = [
     uses: 'Building wire in conduit, raceways, cable trays. Used for single-conductor runs.',
     locations: 'Wet and dry locations (in raceway or supported)',
     conductor: 'Copper',
-    armour: 'None \— single conductor with XLPE or EPR insulation',
+    armour: 'None — single conductor with XLPE or EPR insulation',
     cecRule: 'CEC Table 19, Rule 4-004',
     sizes: '14 AWG to 750 kcmil',
     miningUse: false,
@@ -130,7 +130,7 @@ const cableTypes: CableType[] = [
     uses: 'General building wire in conduit and raceways',
     locations: 'T90: Dry locations only. TWN75: Wet or dry locations at 75\°C rating.',
     conductor: 'Copper',
-    armour: 'None \— single conductor with thermoplastic (PVC) insulation',
+    armour: 'None — single conductor with thermoplastic (PVC) insulation',
     cecRule: 'CEC Table 19, Rule 4-004',
     sizes: '14 AWG to 1000 kcmil',
     miningUse: false,
@@ -145,7 +145,7 @@ const cableTypes: CableType[] = [
     uses: 'Residential underground feeders, outdoor lighting circuits, landscape wiring',
     locations: 'Wet locations, direct burial, underground residential',
     conductor: 'Copper',
-    armour: 'None \— PVC outer jacket rated for direct burial',
+    armour: 'None — PVC outer jacket rated for direct burial',
     cecRule: 'CEC Rule 12-012, 12-100',
     sizes: '14\–8 AWG',
     miningUse: false,
@@ -298,7 +298,7 @@ export default function CableTypesPage() {
                         fontWeight: c.miningUse ? 700 : 400,
                       }}
                     >
-                      {c.miningUse ? '\✓ Yes' : '\—'}
+                      {c.miningUse ? '\✓ Yes' : '—'}
                     </td>
                   </tr>
                 ))}

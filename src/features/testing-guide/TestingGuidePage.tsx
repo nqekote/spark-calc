@@ -27,13 +27,13 @@ interface TestVoltageRow {
 }
 
 const testVoltageTable: TestVoltageRow[] = [
-  { equipRating: '< 250V', testVoltage: '500 VDC', minIR: '0.5 M\Ω' },
-  { equipRating: '250V \– 600V', testVoltage: '1,000 VDC', minIR: '1.0 M\Ω' },
-  { equipRating: '601V \– 5,000V', testVoltage: '2,500 VDC', minIR: '5.0 M\Ω' },
-  { equipRating: '4,160V (typical mine)', testVoltage: '5,000 VDC', minIR: '5.16 M\Ω' },
-  { equipRating: '5,001V \– 15,000V', testVoltage: '5,000 VDC', minIR: '15.0 M\Ω' },
-  { equipRating: '15,001V \– 25,000V', testVoltage: '5,000 VDC', minIR: '25.0 M\Ω' },
-  { equipRating: '> 25,000V', testVoltage: '5,000 \– 10,000 VDC', minIR: '100.0 M\Ω' },
+  { equipRating: '< 250V', testVoltage: '500 VDC', minIR: '0.5 MΩ' },
+  { equipRating: '250V \– 600V', testVoltage: '1,000 VDC', minIR: '1.0 MΩ' },
+  { equipRating: '601V \– 5,000V', testVoltage: '2,500 VDC', minIR: '5.0 MΩ' },
+  { equipRating: '4,160V (typical mine)', testVoltage: '5,000 VDC', minIR: '5.16 MΩ' },
+  { equipRating: '5,001V \– 15,000V', testVoltage: '5,000 VDC', minIR: '15.0 MΩ' },
+  { equipRating: '15,001V \– 25,000V', testVoltage: '5,000 VDC', minIR: '25.0 MΩ' },
+  { equipRating: '> 25,000V', testVoltage: '5,000 \– 10,000 VDC', minIR: '100.0 MΩ' },
 ]
 
 interface TempCorrectionRow {
@@ -118,9 +118,9 @@ interface HiPotVoltageRow {
 }
 
 const hiPotVoltageTable: HiPotVoltageRow[] = [
-  { equipClass: 'LV Motors \≤ 600V', ratedVoltage: '600V', factoryTest: '2,200 VDC (2\×600+1000)', maintenanceTest: '1,320 VDC (60%)' },
-  { equipClass: 'LV Motors 480V', ratedVoltage: '480V', factoryTest: '1,960 VDC (2\×480+1000)', maintenanceTest: '1,176 VDC (60%)' },
-  { equipClass: 'MV Motors 4,160V', ratedVoltage: '4,160V', factoryTest: '10,120 VDC (2\×4160+1800)', maintenanceTest: '6,072 VDC (60%)' },
+  { equipClass: 'LV Motors \≤ 600V', ratedVoltage: '600V', factoryTest: '2,200 VDC (2×600+1000)', maintenanceTest: '1,320 VDC (60%)' },
+  { equipClass: 'LV Motors 480V', ratedVoltage: '480V', factoryTest: '1,960 VDC (2×480+1000)', maintenanceTest: '1,176 VDC (60%)' },
+  { equipClass: 'MV Motors 4,160V', ratedVoltage: '4,160V', factoryTest: '10,120 VDC (2×4160+1800)', maintenanceTest: '6,072 VDC (60%)' },
   { equipClass: 'MV Cable 5kV', ratedVoltage: '5,000V', factoryTest: '25,000 VDC', maintenanceTest: '15,000 VDC (60%)' },
   { equipClass: 'MV Cable 15kV', ratedVoltage: '15,000V', factoryTest: '55,000 VDC', maintenanceTest: '33,000 VDC (60%)' },
   { equipClass: 'MV Cable 25kV', ratedVoltage: '25,000V', factoryTest: '80,000 VDC', maintenanceTest: '48,000 VDC (60%)' },
@@ -144,12 +144,12 @@ const leakageLimits: LeakageLimit[] = [
 
 const dischargeSteps: string[] = [
   'Reduce test voltage to zero gradually (do not abruptly remove).',
-  'Connect a discharge resistor (typically 5k\Ω/kV of test voltage) across the specimen.',
+  'Connect a discharge resistor (typically 5kΩ/kV of test voltage) across the specimen.',
   'Wait a minimum of 4 times the test duration before touching any conductors.',
-  'For cables: discharge through 1\–5 M\Ω bleed resistor for at least 1 minute per kV of test voltage.',
+  'For cables: discharge through 1\–5 MΩ bleed resistor for at least 1 minute per kV of test voltage.',
   'Verify zero voltage with a voltmeter rated for the test voltage before removing leads.',
   'Apply a final hard ground (shorting bar) to all tested conductors.',
-  'NEVER assume equipment is discharged \— always verify with a rated instrument.',
+  'NEVER assume equipment is discharged — always verify with a rated instrument.',
 ]
 
 /* ------------------------------------------------------------------ */
@@ -167,7 +167,7 @@ const transformerTests: TTRRow[] = [
   { test: 'Turns Ratio (TTR)', method: 'Apply voltage to one winding, measure induced voltage on other winding', acceptable: '\±0.5% of nameplate ratio', notes: 'Test all taps. Deviations indicate shorted turns or tap changer issues.' },
   { test: 'Winding Resistance', method: 'DC resistance measurement using Kelvin bridge or micro-ohmmeter', acceptable: 'Within 2% between phases; within 5% of factory data', notes: 'Correct for temperature. Indicates loose connections, broken strands.' },
   { test: 'Power Factor / Dissipation Factor', method: 'Apply AC voltage, measure watts loss and reactive component', acceptable: 'New: < 0.5%. In service: < 2.0%', notes: 'Compare to factory test. Trending is critical. Higher = contamination.' },
-  { test: 'Insulation Resistance (Megger)', method: 'DC voltage applied between windings and ground', acceptable: 'IEEE 43: 1 M\Ω per kV rated +1 M\Ω', notes: 'Test HV-to-LV, HV-to-GND, LV-to-GND. Temperature correct.' },
+  { test: 'Insulation Resistance (Megger)', method: 'DC voltage applied between windings and ground', acceptable: 'IEEE 43: 1 MΩ per kV rated +1 MΩ', notes: 'Test HV-to-LV, HV-to-GND, LV-to-GND. Temperature correct.' },
   { test: 'Excitation Current', method: 'Energize one winding, measure exciting current per phase', acceptable: 'Balanced within 5% between phases; compare to factory data', notes: 'Detects core defects, shorted turns. Unbalanced readings indicate problems.' },
   { test: 'SFRA (Sweep Frequency Response)', method: 'Inject frequency-swept signal, compare transfer function response', acceptable: 'Match baseline or factory fingerprint within defined corridors', notes: 'Detects winding movement, core displacement. Required after transport or blasting events.' },
 ]
@@ -240,14 +240,14 @@ const motorTests: MotorTestRow[] = [
     test: 'Bearing Insulation',
     what: 'Verifies insulated bearings are preventing shaft currents',
     procedure: 'Measure resistance across bearing insulation (shaft to frame) with megger at 500V DC.',
-    acceptable: '> 1 M\Ω for insulated bearings. < 10 k\Ω indicates failed insulation.',
+    acceptable: '> 1 MΩ for insulated bearings. < 10 kΩ indicates failed insulation.',
     miningNote: 'VFD-driven motors and large generators require insulated bearings to prevent EDM damage.',
   },
   {
     test: 'Vibration Analysis',
     what: 'Running test to detect mechanical and electrical faults',
     procedure: 'Measure velocity (mm/s or in/s) and acceleration at DE and NDE bearings in horizontal, vertical, and axial planes.',
-    acceptable: 'ISO 10816: Velocity < 4.5 mm/s (0.18 in/s) for rigid mount, < 7.1 mm/s for flexible. Alert at 1.5\× baseline.',
+    acceptable: 'ISO 10816: Velocity < 4.5 mm/s (0.18 in/s) for rigid mount, < 7.1 mm/s for flexible. Alert at 1.5× baseline.',
     miningNote: 'Dust and vibration from blasting increase bearing wear. Baseline after installation, recheck monthly on shovels.',
   },
   {
@@ -262,7 +262,7 @@ const motorTests: MotorTestRow[] = [
     what: 'Verifies motor does not exceed insulation class temperature limits under load',
     procedure: 'Run motor at rated load until thermal equilibrium (typically 4\–8 hours). Measure winding temperature by resistance method or embedded RTD/thermocouple.',
     acceptable: 'Class B: 80\°C rise over 40\°C ambient. Class F: 105\°C rise. Class H: 125\°C rise.',
-    miningNote: 'Open pit ambient can exceed 40\°C in summer \— derate motors or use Class F/H insulation for all mine equipment.',
+    miningNote: 'Open pit ambient can exceed 40\°C in summer — derate motors or use Class F/H insulation for all mine equipment.',
   },
 ]
 
@@ -280,7 +280,7 @@ const testScheduleTable: TestScheduleRow[] = [
   { equipment: 'Drill Rotation Motors', irPI: 'Monthly', surge: 'Quarterly', vibration: 'Monthly', notes: 'High vibration environment. Check coupling alignment.' },
   { equipment: 'Crusher Motors', irPI: 'Quarterly', surge: 'Semi-annual', vibration: 'Monthly', notes: 'Heavy starting loads. Check rotor bars regularly.' },
   { equipment: 'Conveyor Drive Motors', irPI: 'Quarterly', surge: 'Annual', vibration: 'Quarterly', notes: 'Exposed to dust and moisture. Check belt alignment effect.' },
-  { equipment: 'Pump Motors', irPI: 'Quarterly', surge: 'Annual', vibration: 'Quarterly', notes: 'Dewatering pumps may run submerged \— check seals.' },
+  { equipment: 'Pump Motors', irPI: 'Quarterly', surge: 'Annual', vibration: 'Quarterly', notes: 'Dewatering pumps may run submerged — check seals.' },
   { equipment: 'Haul Truck Wheel Motors', irPI: 'Per service', surge: 'Annual', vibration: 'Per service', notes: 'Test during scheduled maintenance. Check traction motor brushes.' },
   { equipment: 'Substation Transformers', irPI: 'Semi-annual', surge: 'N/A', vibration: 'Annual', notes: 'DGA/oil testing annually. After blasting events or transport.' },
   { equipment: 'Portable Power Centers', irPI: 'Quarterly', surge: 'N/A', vibration: 'N/A', notes: 'Test after every relocation. Inspect cable entries.' },
@@ -854,7 +854,7 @@ export default function TestingGuidePage() {
                 'Continue the test without interruption for a full 10 minutes.',
                 'Record the IR value at exactly 10 minutes (R\₁\₀).',
                 'Calculate PI = R\₁\₀ / R\₁. Compare to minimum values for insulation class.',
-                'Discharge windings: short to ground for at least 4\× the test duration (40 minutes).',
+                'Discharge windings: short to ground for at least 4× the test duration (40 minutes).',
                 'Record all values with date, equipment ID, ambient conditions.',
               ].map((step, i) => (
                 <div key={i} style={{
@@ -1151,7 +1151,7 @@ export default function TestingGuidePage() {
                 { title: 'Barricade the Test Area', detail: 'Establish a physical barricade around the test area with caution tape and warning signs. No one enters the barricade during testing. Post a visible warning light.', critical: true },
                 { title: 'All Personnel Clear', detail: 'Verify all personnel are outside the barricade before applying test voltage. Maintain visual contact with all test leads. Use a spotter if test area is large.', critical: true },
                 { title: 'Use Grounding Stick', detail: 'After every test, discharge the specimen using an approved grounding stick (hot stick with ground lead). Apply the grounding stick before approaching the equipment.', critical: true },
-                { title: 'Verify Discharge', detail: 'After grounding, verify zero voltage with a voltmeter rated for the test voltage. Never trust a single discharge \— cables and windings can hold charge for hours.', critical: true },
+                { title: 'Verify Discharge', detail: 'After grounding, verify zero voltage with a voltmeter rated for the test voltage. Never trust a single discharge — cables and windings can hold charge for hours.', critical: true },
                 { title: 'Communication', detail: 'Maintain clear communication between the test operator and any assistants. Use radios if needed. Agree on start/stop signals before beginning.', critical: false },
                 { title: 'Weather Conditions', detail: 'Do not perform hi-pot testing in rain, snow, fog, or when humidity is excessive. Moisture on surfaces will cause surface flashover and invalid results.', critical: false },
                 { title: 'Emergency Procedures', detail: 'Have emergency response plan ready. Know location of nearest AED and first aid kit. Ensure at least two people are present during testing.', critical: true },
@@ -1628,10 +1628,10 @@ export default function TestingGuidePage() {
             <div style={sectionHeading}>Current Signature Analysis &mdash; Frequency Guide</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
               {[
-                { freq: 'f\ₗ \± 2sf\ₗ', fault: 'Broken rotor bars', detail: 'Sidebands at line frequency \± 2\×slip\×line frequency. Amplitude indicates severity. s = slip = (sync speed - actual speed) / sync speed.' },
-                { freq: '2 \× f\ₗ', fault: 'Eccentricity / air gap variation', detail: 'Twice line frequency component increases with non-uniform air gap. Static eccentricity from misaligned stator; dynamic from bent shaft.' },
+                { freq: 'f\ₗ \± 2sf\ₗ', fault: 'Broken rotor bars', detail: 'Sidebands at line frequency \± 2×slip×line frequency. Amplitude indicates severity. s = slip = (sync speed - actual speed) / sync speed.' },
+                { freq: '2 × f\ₗ', fault: 'Eccentricity / air gap variation', detail: 'Twice line frequency component increases with non-uniform air gap. Static eccentricity from misaligned stator; dynamic from bent shaft.' },
                 { freq: 'f\ₗ \± f\ᵣ', fault: 'Rotor mechanical fault', detail: 'Line frequency modulated by rotational frequency. Indicates mechanical imbalance, misalignment, or bearing fault.' },
-                { freq: 'High-frequency slots', fault: 'Stator winding issues', detail: 'Slot harmonics at n\×(number of slots)\×f\ᵣ \± f\ₗ. Changes from baseline indicate winding movement or short circuits.' },
+                { freq: 'High-frequency slots', fault: 'Stator winding issues', detail: 'Slot harmonics at n×(number of slots)×f\ᵣ \± f\ₗ. Changes from baseline indicate winding movement or short circuits.' },
               ].map((item, i) => (
                 <div key={i} style={card}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>

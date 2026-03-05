@@ -48,7 +48,7 @@ interface SingleLineConcept {
 const singleLineConcepts: SingleLineConcept[] = [
   { symbol: '\─\│\─', name: 'Bus', description: 'Main power distribution conductor, typically colour-coded by voltage level' },
   { symbol: '\─/\─', name: 'Disconnect Switch', description: 'Visible-break isolation device, no interrupting rating under load' },
-  { symbol: '\─[\×]\─', name: 'Circuit Breaker', description: 'Fault interrupting device with trip unit, rated in kA interrupting capacity' },
+  { symbol: '\─[×]\─', name: 'Circuit Breaker', description: 'Fault interrupting device with trip unit, rated in kA interrupting capacity' },
   { symbol: '\─|\‾|\─', name: 'Fuse', description: 'Overcurrent device, current-limiting or expulsion type at MV' },
   { symbol: '(CT)', name: 'Current Transformer', description: 'Steps down current for metering and protection relays (e.g., 600:5A)' },
   { symbol: '(PT)', name: 'Potential Transformer', description: 'Steps down voltage for metering and relaying (e.g., 13800:120V)' },
@@ -245,11 +245,11 @@ interface CableTest {
 }
 
 const cableTests: CableTest[] = [
-  { name: 'Hi-Pot DC', fullName: 'High Potential DC Test', voltage: 'Typically 3\× rated voltage DC', duration: '15 minutes', purpose: 'Acceptance test for new cable. Detects gross defects in insulation.', notes: 'DC testing is declining for aged XLPE — can worsen water trees. IEEE 400 recommends VLF for aged cable.', color: '#ff6b6b' },
-  { name: 'VLF', fullName: 'Very Low Frequency (0.1 Hz)', voltage: 'Typically 3\× Uo (phase-to-ground)', duration: '15-60 minutes', purpose: 'Withstand test for new and aged cable. Better detection of water trees than DC.', notes: 'Preferred over DC for aged XLPE cable. Sinusoidal or cosine-rectangular waveform. Portable equipment available.', color: '#ffd700' },
+  { name: 'Hi-Pot DC', fullName: 'High Potential DC Test', voltage: 'Typically 3× rated voltage DC', duration: '15 minutes', purpose: 'Acceptance test for new cable. Detects gross defects in insulation.', notes: 'DC testing is declining for aged XLPE — can worsen water trees. IEEE 400 recommends VLF for aged cable.', color: '#ff6b6b' },
+  { name: 'VLF', fullName: 'Very Low Frequency (0.1 Hz)', voltage: 'Typically 3× Uo (phase-to-ground)', duration: '15-60 minutes', purpose: 'Withstand test for new and aged cable. Better detection of water trees than DC.', notes: 'Preferred over DC for aged XLPE cable. Sinusoidal or cosine-rectangular waveform. Portable equipment available.', color: '#ffd700' },
   { name: 'Tan Delta', fullName: 'Dissipation Factor (Tan \δ)', voltage: 'Multiple voltage steps (0.5Uo to 2Uo)', duration: '~30 minutes', purpose: 'Diagnostic test — assesses insulation condition without damaging it.', notes: 'Measures dielectric losses at each voltage step. Increasing tan \δ with voltage indicates water treeing. Non-destructive.', color: '#54a0ff' },
   { name: 'Partial Discharge', fullName: 'PD Testing (online or offline)', voltage: 'At or near operating voltage', duration: 'Variable', purpose: 'Locates voids, contamination, and defects in insulation and accessories.', notes: 'Can pinpoint defect location along cable length. Online PD testing possible during normal operation.', color: '#5f27cd' },
-  { name: 'Megger / IR', fullName: 'Insulation Resistance', voltage: '2500V or 5000V DC', duration: '1-10 minutes', purpose: 'Quick field check of insulation integrity. Not a definitive pass/fail.', notes: 'Minimum 1 M\Ω/kV + 1 M\Ω. Temperature-correct readings. Record trend over time. Use PI (Polarization Index) for motors.', color: '#4ade80' },
+  { name: 'Megger / IR', fullName: 'Insulation Resistance', voltage: '2500V or 5000V DC', duration: '1-10 minutes', purpose: 'Quick field check of insulation integrity. Not a definitive pass/fail.', notes: 'Minimum 1 MΩ/kV + 1 MΩ. Temperature-correct readings. Record trend over time. Use PI (Polarization Index) for motors.', color: '#4ade80' },
 ]
 
 /* ------------------------------------------------------------------ */
@@ -383,8 +383,8 @@ interface RelayFunction {
 }
 
 const relayFunctions: RelayFunction[] = [
-  { ansiCode: '50', name: 'Instantaneous Overcurrent', function: 'Trips with no intentional time delay when current exceeds pickup', application: 'High-current fault protection. Set above maximum inrush and below minimum fault current.', settings: 'Pickup: 6\–10\× FLA typical. Time: 0 cycles (instantaneous)', color: '#ff6b6b' },
-  { ansiCode: '51', name: 'Time Overcurrent', function: 'Inverse time-current characteristic — higher current = faster trip', application: 'Primary overcurrent protection for feeders, motors, transformers. Coordinates with downstream devices.', settings: 'Pickup: 1.25\–1.5\× FLA. Curves: Very Inverse, Extremely Inverse, etc.', color: '#ff9f43' },
+  { ansiCode: '50', name: 'Instantaneous Overcurrent', function: 'Trips with no intentional time delay when current exceeds pickup', application: 'High-current fault protection. Set above maximum inrush and below minimum fault current.', settings: 'Pickup: 6\–10× FLA typical. Time: 0 cycles (instantaneous)', color: '#ff6b6b' },
+  { ansiCode: '51', name: 'Time Overcurrent', function: 'Inverse time-current characteristic — higher current = faster trip', application: 'Primary overcurrent protection for feeders, motors, transformers. Coordinates with downstream devices.', settings: 'Pickup: 1.25\–1.5× FLA. Curves: Very Inverse, Extremely Inverse, etc.', color: '#ff9f43' },
   { ansiCode: '50G / 51G', name: 'Ground Fault Overcurrent', function: 'Detects ground fault current via residual CT or zero-sequence CT', application: 'Ground fault protection. In mines, must detect 100mA ground fault per O.Reg.854.', settings: 'Pickup: 5\–20% of CT rating (sensitive). Time: 0.1\–0.5s', color: '#ffd700' },
   { ansiCode: '87', name: 'Differential', function: 'Compares current in and current out. Trips on difference (internal fault).', application: 'Transformer, bus, generator, large motor protection. Very fast, very selective.', settings: 'Pickup: 15\–40% of rated current. Slope: 15\–40%. Harmonic restraint for inrush.', color: '#4ade80' },
   { ansiCode: '21', name: 'Distance (Impedance)', function: 'Measures impedance (V/I) to fault. Multiple zones with increasing time delay.', application: 'Transmission line protection. Zone 1 instantaneous, Zone 2 time-delayed backup.', settings: 'Zone 1: 80\–85% of line impedance. Zone 2: 120% of line. Zone 3: backup.', color: '#54a0ff' },
@@ -844,9 +844,9 @@ export default function MediumVoltagePage() {
               Key MV Formulas
             </div>
             {[
-              { name: 'Power (3-Phase)', formula: 'P = \√3 \× V\ₗ \× I\ₗ \× PF', example: '13.8kV, 200A, PF=0.9: P = 1.732 \× 13800 \× 200 \× 0.9 = 4,303 kW' },
-              { name: 'Current from kVA', formula: 'I = kVA \× 1000 / (\√3 \× V\ₗ)', example: '5000 kVA at 13.8 kV: I = 5000000 / (1.732 \× 13800) = 209A' },
-              { name: 'Fault Current (Approx)', formula: 'I\ₛ\ₜ = kVA \× 1000 / (\√3 \× V \× Z%)', example: '10 MVA, 13.8 kV, 6% Z: Isc = 10000000 / (1.732 \× 13800 \× 0.06) = 6,975A' },
+              { name: 'Power (3-Phase)', formula: 'P = \√3 × V\ₗ × I\ₗ × PF', example: '13.8kV, 200A, PF=0.9: P = 1.732 × 13800 × 200 × 0.9 = 4,303 kW' },
+              { name: 'Current from kVA', formula: 'I = kVA × 1000 / (\√3 × V\ₗ)', example: '5000 kVA at 13.8 kV: I = 5000000 / (1.732 × 13800) = 209A' },
+              { name: 'Fault Current (Approx)', formula: 'I\ₛ\ₜ = kVA × 1000 / (\√3 × V × Z%)', example: '10 MVA, 13.8 kV, 6% Z: Isc = 10000000 / (1.732 × 13800 × 0.06) = 6,975A' },
             ].map((f, i) => (
               <div key={i} style={{ marginBottom: i < 2 ? 12 : 0 }}>
                 <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--text)', marginBottom: 4 }}>{f.name}</div>
@@ -1564,7 +1564,7 @@ export default function MediumVoltagePage() {
 
           {mvPPE.map((p, i) => (
             <div key={i} style={{ fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.4, paddingLeft: 8 }}>
-              <strong style={{ color: 'var(--text)' }}>{p.item.split(' \—')[0]}:</strong> {p.notes}
+              <strong style={{ color: 'var(--text)' }}>{p.item.split(' —')[0]}:</strong> {p.notes}
             </div>
           ))}
 

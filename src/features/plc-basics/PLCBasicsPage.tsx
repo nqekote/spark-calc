@@ -44,21 +44,21 @@ const digitalInputs: IOEntry[] = [
   },
   {
     name: 'Dry Contact (Voltage-Free)',
-    voltage: 'No voltage from field device \— PLC supplies sensing voltage',
+    voltage: 'No voltage from field device — PLC supplies sensing voltage',
     wiring: 'PLC provides internal voltage on input terminal. Field device simply makes/breaks contact between input and common.',
     useCase: 'Relay contacts, float switches, pressure switches, thermostat contacts. Simple on/off devices without their own power.',
     tint: '#3b82f6',
   },
   {
     name: 'Sourcing Input (PNP)',
-    voltage: '24VDC \— current flows INTO the input terminal',
+    voltage: '24VDC — current flows INTO the input terminal',
     wiring: 'PNP sensor sources current to PLC input. Sensor output goes high (+24V) when active. Input common connects to 0V. Most common in North America.',
     useCase: 'Modern 3-wire proximity sensors, photoelectric sensors. Standard for Allen-Bradley and most North American PLCs.',
     tint: '#3b82f6',
   },
   {
     name: 'Sinking Input (NPN)',
-    voltage: '24VDC \— current flows OUT OF the input terminal',
+    voltage: '24VDC — current flows OUT OF the input terminal',
     wiring: 'NPN sensor sinks current from PLC input. Sensor output pulls low (0V) when active. Input common connects to +24V. More common in Asian/European equipment.',
     useCase: 'Some imported sensors and equipment. Must match sensor type to input type or use converter.',
     tint: '#3b82f6',
@@ -68,15 +68,15 @@ const digitalInputs: IOEntry[] = [
 const digitalOutputs: IOEntry[] = [
   {
     name: 'Relay Output',
-    voltage: 'Handles AC or DC \— typically up to 250VAC / 30VDC, 2A',
-    wiring: 'Dry contact output \— provides isolated switching. Connect external power through output terminal and field device to common. Include suppression on inductive loads.',
-    useCase: 'Most versatile \— works with any voltage. Best for mixed voltage systems. Slower switching speed. Common in mining for contactor coils, pilot lights, horns.',
+    voltage: 'Handles AC or DC — typically up to 250VAC / 30VDC, 2A',
+    wiring: 'Dry contact output — provides isolated switching. Connect external power through output terminal and field device to common. Include suppression on inductive loads.',
+    useCase: 'Most versatile — works with any voltage. Best for mixed voltage systems. Slower switching speed. Common in mining for contactor coils, pilot lights, horns.',
     tint: '#22c55e',
   },
   {
     name: 'Transistor Sourcing (PNP)',
     voltage: '24VDC only, typically 0.5-2A per point',
-    wiring: 'Output sources +24V when energized. Field device connects between output and 0V common. Very fast switching. Solid state \— no mechanical wear.',
+    wiring: 'Output sources +24V when energized. Field device connects between output and 0V common. Very fast switching. Solid state — no mechanical wear.',
     useCase: 'High-speed applications, solenoid valves, indicator lights, driving relay coils. No contact bounce. Standard for Allen-Bradley DC output modules.',
     tint: '#22c55e',
   },
@@ -101,19 +101,19 @@ const analogInputs: IOEntry[] = [
     name: '4-20mA Input',
     voltage: '4-20mA current loop (live zero at 4mA)',
     wiring: '2-wire: PLC powers transmitter through loop. 3/4-wire: transmitter has separate power, signal wire to input. 4mA = 0%, 20mA = 100%. Below 4mA indicates fault.',
-    useCase: 'Industry standard for process instruments. Pressure transmitters, level transmitters, flow meters. Preferred in mining \— immune to voltage drop over long cable runs.',
+    useCase: 'Industry standard for process instruments. Pressure transmitters, level transmitters, flow meters. Preferred in mining — immune to voltage drop over long cable runs.',
     tint: '#8b5cf6',
   },
   {
     name: '0-10V Input',
     voltage: '0-10VDC (some modules accept 0-5V, \±10V)',
-    wiring: 'Signal wire from transmitter to input terminal, common to common. Keep cable short \— susceptible to voltage drop. Use shielded cable.',
-    useCase: 'VFD speed reference, some HVAC sensors, potentiometer position feedback. Shorter distances only \— voltage drops over long runs.',
+    wiring: 'Signal wire from transmitter to input terminal, common to common. Keep cable short — susceptible to voltage drop. Use shielded cable.',
+    useCase: 'VFD speed reference, some HVAC sensors, potentiometer position feedback. Shorter distances only — voltage drops over long runs.',
     tint: '#8b5cf6',
   },
   {
     name: 'RTD Input (PT100/PT1000)',
-    voltage: 'Resistance measurement \— 100\Ω at 0\°C (PT100)',
+    voltage: 'Resistance measurement — 100Ω at 0\°C (PT100)',
     wiring: '2-wire: least accurate, lead resistance adds error. 3-wire: standard, compensates for lead resistance. 4-wire: most accurate. Use RTD-rated input module.',
     useCase: 'Precise temperature measurement (-200 to +850\°C). Motor bearing temps, process fluid temps, transformer oil temp. Very common in mining process control.',
     tint: '#8b5cf6',
@@ -131,15 +131,15 @@ const analogOutputs: IOEntry[] = [
   {
     name: '4-20mA Output',
     voltage: '4-20mA current output (sourcing)',
-    wiring: 'Output terminal drives current through load resistor of receiving device. Max loop resistance typically 500-750\Ω. Use shielded twisted pair.',
+    wiring: 'Output terminal drives current through load resistor of receiving device. Max loop resistance typically 500-750Ω. Use shielded twisted pair.',
     useCase: 'VFD speed reference, valve positioners, analog meters, chart recorders. Preferred for long cable runs in mining plants.',
     tint: '#f59e0b',
   },
   {
     name: '0-10V Output',
     voltage: '0-10VDC (some modules support 0-5V, \±10V)',
-    wiring: 'Voltage output to receiving device input. Minimum load resistance typically 1k\Ω. Keep cable runs short. Use shielded cable.',
-    useCase: 'VFD speed reference (short distance), damper actuators, proportional valves. Limited cable distance \— keep under 15m in noisy mining environments.',
+    wiring: 'Voltage output to receiving device input. Minimum load resistance typically 1kΩ. Keep cable runs short. Use shielded cable.',
+    useCase: 'VFD speed reference (short distance), damper actuators, proportional valves. Limited cable distance — keep under 15m in noisy mining environments.',
     tint: '#f59e0b',
   },
 ]
@@ -158,105 +158,105 @@ interface Instruction {
 
 const instructions: Instruction[] = [
   {
-    symbol: '\—] [\—',
+    symbol: '—] [—',
     name: 'XIC (Examine If Closed)',
     description: 'Checks if a bit is ON (1). True when the referenced bit = 1. Acts like a normally-open contact.',
     useCase: 'Checking if a pushbutton is pressed, sensor is active, or internal bit is set. Most commonly used instruction.',
     category: 'bit',
   },
   {
-    symbol: '\—]/[\—',
+    symbol: '—]/[—',
     name: 'XIO (Examine If Open)',
     description: 'Checks if a bit is OFF (0). True when the referenced bit = 0. Acts like a normally-closed contact.',
     useCase: 'E-stop circuits (NC contact), checking if a fault is NOT present, interlock conditions that must be clear.',
     category: 'bit',
   },
   {
-    symbol: '\—( )\—',
+    symbol: '—( )—',
     name: 'OTE (Output Energize)',
-    description: 'Turns a bit ON when rung conditions are true, OFF when false. Non-retentive \— resets on power cycle or mode change.',
+    description: 'Turns a bit ON when rung conditions are true, OFF when false. Non-retentive — resets on power cycle or mode change.',
     useCase: 'Driving physical outputs (motors, valves, lights), setting internal status bits. Standard output instruction.',
     category: 'bit',
   },
   {
-    symbol: '\—(L)\—',
+    symbol: '—(L)—',
     name: 'OTL (Output Latch)',
     description: 'Sets a bit ON and KEEPS it on even if rung goes false. Must be unlatched with OTU. Retentive through power cycle.',
     useCase: 'Latching a fault condition, maintaining a run command, any condition that must stay on until explicitly cleared.',
     category: 'bit',
   },
   {
-    symbol: '\—(U)\—',
+    symbol: '—(U)—',
     name: 'OTU (Output Unlatch)',
     description: 'Turns OFF a latched bit. Only way to clear an OTL instruction. Always place OTU rung after OTL rung.',
     useCase: 'Resetting faulted equipment after acknowledgement, clearing latched alarms, reset pushbutton logic.',
     category: 'bit',
   },
   {
-    symbol: '\—[TON]\—',
+    symbol: '—[TON]—',
     name: 'TON (Timer On-Delay)',
     description: 'Starts timing when rung is true. Done bit (.DN) energizes after preset time. Resets when rung goes false. Accumulator (.ACC) tracks elapsed time.',
     useCase: 'Delayed start sequences, debouncing inputs, time-delay before fault trip, motor star-delta transition timing.',
     category: 'timer',
   },
   {
-    symbol: '\—[TOF]\—',
+    symbol: '—[TOF]—',
     name: 'TOF (Timer Off-Delay)',
     description: 'Done bit (.DN) is ON while rung is true. Starts timing when rung goes false. Done bit turns OFF after preset time.',
     useCase: 'Keeping a cooling fan running after motor stops, delayed alarm clearing, preventing rapid cycling.',
     category: 'timer',
   },
   {
-    symbol: '\—[CTU]\—',
+    symbol: '—[CTU]—',
     name: 'CTU (Counter Up)',
-    description: 'Increments count by 1 on each false-to-true transition of rung. Done bit (.DN) sets when count reaches preset. Retentive \— must use RES to reset.',
+    description: 'Increments count by 1 on each false-to-true transition of rung. Done bit (.DN) sets when count reaches preset. Retentive — must use RES to reset.',
     useCase: 'Counting parts, tracking cycles for maintenance, batch counting in process control.',
     category: 'counter',
   },
   {
-    symbol: '\—[CTD]\—',
+    symbol: '—[CTD]—',
     name: 'CTD (Counter Down)',
     description: 'Decrements count by 1 on each false-to-true transition. Done bit sets when count reaches zero. Often paired with CTU.',
     useCase: 'Tracking remaining inventory, countdown sequences, batch processing remaining count.',
     category: 'counter',
   },
   {
-    symbol: '\—[MOV]\—',
+    symbol: '—[MOV]—',
     name: 'MOV (Move)',
     description: 'Copies source value to destination when rung is true. Does not modify source. Executes every scan when true.',
     useCase: 'Loading setpoints, transferring analog values, copying timer/counter presets, initializing values.',
     category: 'math',
   },
   {
-    symbol: '\—[ADD]\—',
+    symbol: '—[ADD]—',
     name: 'ADD (Add)',
     description: 'Adds Source A + Source B, stores result in Destination. Executes every scan when rung is true.',
     useCase: 'Totalizing flow, accumulating production counts, calculating combined values.',
     category: 'math',
   },
   {
-    symbol: '\—[SUB]\—',
+    symbol: '—[SUB]—',
     name: 'SUB (Subtract)',
     description: 'Subtracts Source B from Source A (A - B), stores result in Destination.',
     useCase: 'Calculating differential pressure, level difference, deviation from setpoint.',
     category: 'math',
   },
   {
-    symbol: '\—[CMP]\—',
+    symbol: '—[CMP]—',
     name: 'CMP/Compare',
     description: 'Compares two values. Includes EQU (=), NEQ (\≠), GRT (>), LES (<), GEQ (\≥), LEQ (\≤). Output is true/false.',
     useCase: 'Checking if temperature exceeds limit, verifying count reached target, analog alarm thresholds.',
     category: 'math',
   },
   {
-    symbol: '\—[JMP]\—',
+    symbol: '—[JMP]—',
     name: 'JMP (Jump)',
     description: 'Skips program execution to a LBL instruction when rung is true. Rungs between JMP and LBL are NOT scanned.',
     useCase: 'Skipping sections of code based on machine mode, bypassing unused logic, conditional program flow.',
     category: 'flow',
   },
   {
-    symbol: '\—[LBL]\—',
+    symbol: '—[LBL]—',
     name: 'LBL (Label)',
     description: 'Target destination for a JMP instruction. Must have a matching number to the JMP. Always on first instruction of rung.',
     useCase: 'Marks the destination for JMP instructions. Used for mode-based program sections, error handling.',
@@ -281,7 +281,7 @@ const ladderTips: LadderTip[] = [
   },
   {
     title: 'Last Rung Wins',
-    detail: 'If the same output appears on multiple rungs, only the LAST rung in the program determines the final output state. This is the #1 beginner mistake \— always search for duplicate output addresses.',
+    detail: 'If the same output appears on multiple rungs, only the LAST rung in the program determines the final output state. This is the #1 beginner mistake — always search for duplicate output addresses.',
   },
   {
     title: 'Use Seal-In Circuits',
@@ -289,7 +289,7 @@ const ladderTips: LadderTip[] = [
   },
   {
     title: 'Always Wire E-Stops NC',
-    detail: 'Emergency stops should be wired as normally-closed (NC) and use XIO in logic. If the wire breaks, the E-stop activates \— fail-safe design. This is required by mining safety regulations.',
+    detail: 'Emergency stops should be wired as normally-closed (NC) and use XIO in logic. If the wire breaks, the E-stop activates — fail-safe design. This is required by mining safety regulations.',
     isWarning: true,
   },
   {
@@ -303,7 +303,7 @@ const ladderTips: LadderTip[] = [
   },
   {
     title: 'Timer/Counter Gotchas',
-    detail: 'TON resets to 0 when rung goes false. If you need retentive timing, use RTO (retentive timer). Counters are retentive by default \— you must add a RES instruction to reset them.',
+    detail: 'TON resets to 0 when rung goes false. If you need retentive timing, use RTO (retentive timer). Counters are retentive by default — you must add a RES instruction to reset them.',
   },
 ]
 
@@ -354,7 +354,7 @@ const troubleshootSections: TroubleshootSection[] = [
     steps: [
       { step: 'Major Fault Type 1: Power-Up', detail: 'PLC detected power loss. Check power supply, battery backup. May need to clear fault and switch to RUN.' },
       { step: 'Major Fault Type 4: I/O', detail: 'Communication lost with I/O module. Check module seating, backplane connection, I/O wiring for shorts.' },
-      { step: 'Major Fault Type 6: Instruction', detail: 'Program execution error \— divide by zero, invalid address, math overflow. Check program logic.' },
+      { step: 'Major Fault Type 6: Instruction', detail: 'Program execution error — divide by zero, invalid address, math overflow. Check program logic.' },
       { step: 'Minor Fault: Battery Low', detail: 'Replace processor battery soon. Program is retained but will be lost if power is removed with dead battery. Standard in CompactLogix/SLC.' },
       { step: 'Minor Fault: I/O Warning', detail: 'Module reporting a warning but still operating. Check module diagnostics. May indicate wiring issue or overtemp.' },
       { step: 'I/O Fault: Module Not Responding', detail: 'Check EtherNet/IP or backplane connection. Verify module is powered and firmware is correct revision.' },
@@ -367,7 +367,7 @@ const troubleshootSections: TroubleshootSection[] = [
       { step: 'Check physical connections', detail: 'Ethernet: verify link lights on switch and PLC port. Serial: check cable, pinout (null modem vs straight). Fieldbus: check termination resistors.' },
       { step: 'Verify IP address settings', detail: 'PLC and PC must be on the same subnet. Use BOOTP/DHCP tool or front panel display to check PLC IP. Common mining subnet: 192.168.1.x/24.' },
       { step: 'Ping test', detail: 'From PC command prompt, ping PLC IP address. If no reply: check cable, switch, IP config. If reply but can not connect: check driver/protocol settings.' },
-      { step: 'Check switch/network', detail: 'Verify managed switch port is enabled and in correct VLAN. Check for duplicate IP addresses. Mining networks often use ring topology \— check ring status.' },
+      { step: 'Check switch/network', detail: 'Verify managed switch port is enabled and in correct VLAN. Check for duplicate IP addresses. Mining networks often use ring topology — check ring status.' },
       { step: 'RSLinx/RSWho (Allen-Bradley)', detail: 'Use RSLinx Classic to browse the network. If PLC shows in RSWho but cannot go online, check firmware revision compatibility with Studio 5000.' },
     ],
   },
@@ -382,12 +382,12 @@ const decisionTrees: DecisionTree[] = [
   {
     problem: 'Motor Won\'t Start',
     steps: [
-      'Check PLC output status LED \— is it ON?',
+      'Check PLC output status LED — is it ON?',
       'If LED off: check program logic online. Is the output rung true? Check interlocks.',
       'If LED on: check contactor coil voltage with meter. Is voltage present at output terminal?',
-      'If voltage present: check contactor \— is coil burned? Are contacts welded?',
+      'If voltage present: check contactor — is coil burned? Are contacts welded?',
       'If contactor pulls in: check overload relay. Is it tripped? Reset and check current draw.',
-      'Check motor disconnect \— is it in the ON position?',
+      'Check motor disconnect — is it in the ON position?',
       'Check motor terminal connections. Meg motor windings if suspect.',
       'Check VFD fault codes if motor is VFD-driven. Common: overcurrent, overvoltage, ground fault.',
     ],
@@ -395,7 +395,7 @@ const decisionTrees: DecisionTree[] = [
   {
     problem: 'Analog Reading is Wrong',
     steps: [
-      'Check module status \— any fault LEDs on the analog input module?',
+      'Check module status — any fault LEDs on the analog input module?',
       'Verify scaling in program: raw count to engineering units. 4mA = 0%, 20mA = 100%, typical raw 0-32767.',
       'Measure actual signal at module terminals with milliamp clamp or multimeter in series.',
       'If reading 0mA (not 4mA): wire is broken, transmitter is dead, or fuse is blown.',
@@ -413,8 +413,8 @@ const decisionTrees: DecisionTree[] = [
       'Type 1 (Power-up): check power supply voltage, check battery, check for brownouts.',
       'Type 4 (I/O): check all modules are seated, check for disconnected cables, check module LEDs.',
       'Type 6 (Instruction): check for divide-by-zero, out-of-range array index, invalid address reference.',
-      'Check if fault is repeatable \— same conditions trigger it consistently?',
-      'Check fault timestamp \— does it correlate with any operational event (motor starting, VFD running)?',
+      'Check if fault is repeatable — same conditions trigger it consistently?',
+      'Check fault timestamp — does it correlate with any operational event (motor starting, VFD running)?',
       'If power-related, check for grounding issues. Mining environments often have ground fault problems.',
     ],
   },
@@ -422,11 +422,11 @@ const decisionTrees: DecisionTree[] = [
     problem: 'Output Turns On/Off Unexpectedly',
     steps: [
       'Go online and monitor the output rung. Which condition is changing?',
-      'Check for forces \— someone may have left a force on this output.',
+      'Check for forces — someone may have left a force on this output.',
       'Search entire program for this output address. Is it used on multiple rungs? (Last rung wins rule).',
-      'Check if a timer is involved \— is it timing out and resetting?',
+      'Check if a timer is involved — is it timing out and resetting?',
       'If output is on an OTL, check all OTU rungs that affect it.',
-      'Check scan time \— if too slow, fast inputs may be missed between scans.',
+      'Check scan time — if too slow, fast inputs may be missed between scans.',
       'Check for electrical noise on input wiring causing false triggers. Common near VFDs in mining.',
       'Verify field device is not bouncing (mechanical switch chatter). Add debounce timer if needed.',
     ],
@@ -507,7 +507,7 @@ const protocols: Protocol[] = [
     name: 'HART',
     description: 'Highway Addressable Remote Transducer. Digital signal superimposed on 4-20mA analog wiring. Allows configuration and diagnostics without additional wiring.',
     miningUse: 'Smart transmitter configuration and diagnostics. Calibrate instruments from control room. Common on pressure, level, and flow transmitters in mining process plants.',
-    speed: '1200 baud (slow \— for configuration, not control)',
+    speed: '1200 baud (slow — for configuration, not control)',
     maxDistance: 'Same as 4-20mA wiring (up to 3000m depending on cable)',
     maxNodes: '15 devices in multidrop mode (rarely used); typically 1 per loop',
   },
@@ -548,7 +548,7 @@ const plcData: PLCInfo[] = [
     family: 'MicroLogix (1100/1400)',
     software: 'RSLogix 500',
     commonModules: '1762-IQ16 (DI expansion), 1762-OB16 (DO expansion), 1762-IF4 (AI). Built-in I/O on base unit. Ethernet port on 1100/1400.',
-    miningNotes: 'Small standalone applications, auxiliary systems. Being discontinued \— replaced by Micro800 series. Still very common in existing mining installations. Fixed I/O with expansion.',
+    miningNotes: 'Small standalone applications, auxiliary systems. Being discontinued — replaced by Micro800 series. Still very common in existing mining installations. Fixed I/O with expansion.',
     status: 'legacy',
   },
   {
@@ -556,7 +556,7 @@ const plcData: PLCInfo[] = [
     family: 'SLC 500 (1747 series)',
     software: 'RSLogix 500',
     commonModules: '1746-IB16 (DI), 1746-OB16 (DO), 1746-NI4 (AI), 1746-P2 (power supply). Modular rack-based system.',
-    miningNotes: 'Legacy workhorse \— huge installed base in mining. Being replaced by CompactLogix. File-based addressing (N7, B3, T4, etc.). Spare parts becoming scarce.',
+    miningNotes: 'Legacy workhorse — huge installed base in mining. Being replaced by CompactLogix. File-based addressing (N7, B3, T4, etc.). Spare parts becoming scarce.',
     status: 'legacy',
   },
   {
@@ -846,13 +846,13 @@ export default function PLCBasicsPage() {
               {/* Sourcing vs Sinking Explainer */}
               <div style={{ ...cardStyle, borderLeft: '4px solid var(--primary)' }}>
                 <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--primary)', marginBottom: 8 }}>
-                  Sourcing vs Sinking \— Quick Explanation
+                  Sourcing vs Sinking — Quick Explanation
                 </div>
                 <div style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.7 }}>
-                  <strong style={{ color: 'var(--text)' }}>Sourcing (PNP):</strong> The device <em>sources</em> current \— it provides +24V on its output. Current flows FROM the device TO the PLC input, then to 0V common. Think: device is the source of current.
+                  <strong style={{ color: 'var(--text)' }}>Sourcing (PNP):</strong> The device <em>sources</em> current — it provides +24V on its output. Current flows FROM the device TO the PLC input, then to 0V common. Think: device is the source of current.
                 </div>
                 <div style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.7, marginTop: 6 }}>
-                  <strong style={{ color: 'var(--text)' }}>Sinking (NPN):</strong> The device <em>sinks</em> current \— it provides a path to 0V. Current flows from +24V supply, through the PLC input, and DOWN through the device to 0V. Think: device is the sink (drain) for current.
+                  <strong style={{ color: 'var(--text)' }}>Sinking (NPN):</strong> The device <em>sinks</em> current — it provides a path to 0V. Current flows from +24V supply, through the PLC input, and DOWN through the device to 0V. Think: device is the sink (drain) for current.
                 </div>
                 <div style={{ ...warningBox, marginTop: 10 }}>
                   <strong>Important:</strong> You must match sensor type to input type. A PNP sensor needs a sourcing-compatible (sinking input) module, and vice versa. Most Allen-Bradley DC input modules accept both.

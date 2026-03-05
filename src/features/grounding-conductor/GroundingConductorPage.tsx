@@ -73,7 +73,7 @@ export default function GroundingConductorPage() {
         },
       ]
     : [
-        { label: 'Minimum Bonding Conductor', value: '\—' },
+        { label: 'Minimum Bonding Conductor', value: '—' },
       ]
 
   return (
@@ -105,7 +105,7 @@ export default function GroundingConductorPage() {
             color: 'var(--text-secondary)',
             borderBottom: '1px solid var(--divider)',
           }}>
-            CEC Table 17 \— Bonding Conductor Sizes
+            CEC Table 17 — Bonding Conductor Sizes
           </div>
 
           {/* Table header */}
@@ -152,7 +152,7 @@ export default function GroundingConductorPage() {
           })}
         </div>
 
-        <InfoBox title="CEC Table 17 \— Bonding Conductors">
+        <InfoBox title="CEC Table 17 — Bonding Conductors">
           The bonding conductor must not be smaller than the values shown. For circuits
           with multiple conduit runs, each run requires its own bonding conductor.
           CEC Rule 10-614.

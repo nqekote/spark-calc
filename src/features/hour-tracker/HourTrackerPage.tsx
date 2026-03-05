@@ -419,7 +419,7 @@ export default function HourTrackerPage() {
                     }}
                     aria-label="Delete entry"
                   >
-                    \×
+                    ×
                   </button>
                 </div>
               ))}

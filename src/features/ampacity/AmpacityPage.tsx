@@ -133,26 +133,26 @@ export default function AmpacityPage() {
     : null
 
   const formula = correctedAmpacity !== null && baseAmpacity !== null && tempFactor !== null && bundleFactor !== null
-    ? `Corrected = ${baseAmpacity} A \× ${fmt(tempFactor)} \× ${fmt(bundleFactor)} = ${fmt(correctedAmpacity)} A`
+    ? `Corrected = ${baseAmpacity} A × ${fmt(tempFactor)} × ${fmt(bundleFactor)} = ${fmt(correctedAmpacity)} A`
     : undefined
 
   const results = baseAmpacity !== null
     ? [
         { label: 'Base Ampacity', value: fmt(baseAmpacity), unit: 'A' },
-        { label: 'Temp Correction Factor', value: tempFactor !== null ? fmt(tempFactor) : '\—' },
-        { label: 'Bundling Derating Factor', value: bundleFactor !== null ? fmt(bundleFactor) : '\—' },
+        { label: 'Temp Correction Factor', value: tempFactor !== null ? fmt(tempFactor) : '—' },
+        { label: 'Bundling Derating Factor', value: bundleFactor !== null ? fmt(bundleFactor) : '—' },
         {
           label: 'Corrected Ampacity',
-          value: correctedAmpacity !== null ? fmt(correctedAmpacity) : '\—',
+          value: correctedAmpacity !== null ? fmt(correctedAmpacity) : '—',
           unit: 'A',
           highlight: true,
         },
       ]
     : [
-        { label: 'Base Ampacity', value: '\—', unit: 'A' },
-        { label: 'Temp Correction Factor', value: '\—' },
-        { label: 'Bundling Derating Factor', value: '\—' },
-        { label: 'Corrected Ampacity', value: '\—', unit: 'A' },
+        { label: 'Base Ampacity', value: '—', unit: 'A' },
+        { label: 'Temp Correction Factor', value: '—' },
+        { label: 'Bundling Derating Factor', value: '—' },
+        { label: 'Corrected Ampacity', value: '—', unit: 'A' },
       ]
 
   return (

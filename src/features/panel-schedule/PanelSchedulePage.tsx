@@ -480,7 +480,7 @@ export default function PanelSchedulePage() {
           </>
         ) : (
           <span style={{ fontSize: 11, color: 'var(--text-secondary)', flex: 1, textAlign: 'center', opacity: 0.4 }}>
-            \—
+            —
           </span>
         )}
       </div>
@@ -744,7 +744,7 @@ export default function PanelSchedulePage() {
                   background: 'var(--input-bg)',
                 }}
               >
-                Bus Layout \— Left (Odd) | Right (Even)
+                Bus Layout — Left (Odd) | Right (Even)
               </div>
               <div style={{ display: 'flex' }}>
                 {/* Left bus */}
@@ -885,7 +885,7 @@ export default function PanelSchedulePage() {
                       }}
                       aria-label="Delete circuit"
                     >
-                      \×
+                      ×
                     </button>
                   </div>
                 )

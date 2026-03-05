@@ -331,7 +331,7 @@ function calcHotSpot(loadingPct: number, ambientC: number): number {
 
 /** Format number with fixed decimals */
 function fmt(n: number, decimals: number = 1): string {
-  if (!isFinite(n)) return '\—'
+  if (!isFinite(n)) return '—'
   return n.toFixed(decimals)
 }
 
@@ -679,7 +679,7 @@ export default function TransformerLoadingPage() {
                   <span style={monoValue}>{fmt(secondaryFLA, 1)} A</span>
                 </div>
                 <div style={{ fontSize: 11, color: 'var(--text-tertiary)', marginTop: 4 }}>
-                  FLA = kVA / ({'\√'}3 {'\×'} kV)
+                  FLA = kVA / ({'\√'}3 {'×'} kV)
                 </div>
               </div>
             )}
@@ -820,15 +820,15 @@ export default function TransformerLoadingPage() {
                 {/* Formula Display */}
                 <div style={{ ...noteBox, fontFamily: 'var(--font-mono)', fontSize: 12 }}>
                   <div style={{ fontWeight: 700, color: 'var(--text)', marginBottom: 4 }}>Formulas Used:</div>
-                  <div>%Loading = (Actual kVA / Rated kVA) {'\×'} 100</div>
+                  <div>%Loading = (Actual kVA / Rated kVA) {'×'} 100</div>
                   <div>
-                    %Loading = ({fmt(actualLoadKva, 1)} / {fmt(kvaRating, 0)}) {'\×'} 100 = {fmt(loadingPct, 1)}%
+                    %Loading = ({fmt(actualLoadKva, 1)} / {fmt(kvaRating, 0)}) {'×'} 100 = {fmt(loadingPct, 1)}%
                   </div>
-                  <div style={{ marginTop: 4 }}>FLA = kVA / ({'\√'}3 {'\×'} kV)</div>
+                  <div style={{ marginTop: 4 }}>FLA = kVA / ({'\√'}3 {'×'} kV)</div>
                   {loadInputMode === 'amps' && (
                     <div>
-                      Load kVA = (A {'\×'} V {'\×'} {'\√'}3) / 1000
-                      = ({fmt(loadVal, 1)} {'\×'} {secV} {'\×'} 1.732) / 1000
+                      Load kVA = (A {'×'} V {'×'} {'\√'}3) / 1000
+                      = ({fmt(loadVal, 1)} {'×'} {secV} {'×'} 1.732) / 1000
                       = {fmt(actualLoadKva, 1)} kVA
                     </div>
                   )}
@@ -1061,10 +1061,10 @@ export default function TransformerLoadingPage() {
             {/* Formula Box */}
             <div style={{ ...noteBox, fontFamily: 'var(--font-mono)', fontSize: 12 }}>
               <div style={{ fontWeight: 700, color: 'var(--text)', marginBottom: 4 }}>Derating Formulas:</div>
-              <div>Temp Factor = 1.0 - ((T_ambient - 30) / 5) {'\×'} 0.025</div>
-              <div>Alt Factor = 1.0 - ((Alt_m - 1000) / 100) {'\×'} 0.004</div>
+              <div>Temp Factor = 1.0 - ((T_ambient - 30) / 5) {'×'} 0.025</div>
+              <div>Alt Factor = 1.0 - ((Alt_m - 1000) / 100) {'×'} 0.004</div>
               <div>{'\ \ '}(applies only above 1000m)</div>
-              <div>Derated kVA = Nameplate kVA {'\×'} Temp Factor {'\×'} Alt Factor</div>
+              <div>Derated kVA = Nameplate kVA {'×'} Temp Factor {'×'} Alt Factor</div>
             </div>
 
             {/* Mining Notes */}
@@ -1344,9 +1344,9 @@ export default function TransformerLoadingPage() {
               <div>{'\ \ '}110{'\°'}C = Reference hot spot for 65{'\°'}C rise class</div>
               <div>{'\ \ '}6.328 = Aging constant (doubling every ~6.3{'\°'}C)</div>
               <div style={{ marginTop: 4 }}>
-                Equivalent aging hours = Per-unit aging {'\×'} Actual hours
+                Equivalent aging hours = Per-unit aging {'×'} Actual hours
               </div>
-              <div>Loss of life % = Equivalent hours / 180,000 hrs {'\×'} 100</div>
+              <div>Loss of life % = Equivalent hours / 180,000 hrs {'×'} 100</div>
             </div>
 
             {/* Mining Life Notes */}
@@ -1588,14 +1588,14 @@ export default function TransformerLoadingPage() {
               <div>4. Select next standard size above calculated kVA</div>
               <div>5. Verify loading is below 80% for continuous duty</div>
               <div style={{ marginTop: 4 }}>
-                Required kVA = Connected Load {'\×'} Diversity {'\×'} Growth Factor
+                Required kVA = Connected Load {'×'} Diversity {'×'} Growth Factor
               </div>
               <div style={{ marginTop: 4 }}>
-                HP to kVA: kVA = (HP {'\×'} 0.746) / (PF {'\×'} Eff)
+                HP to kVA: kVA = (HP {'×'} 0.746) / (PF {'×'} Eff)
               </div>
               <div>Typical motor PF = 0.85, Eff = 0.90</div>
               <div>
-                kVA per HP {'\≈'} 0.746 / (0.85 {'\×'} 0.90) {'\≈'} 0.975 kVA/HP
+                kVA per HP {'\≈'} 0.746 / (0.85 {'×'} 0.90) {'\≈'} 0.975 kVA/HP
               </div>
             </div>
 

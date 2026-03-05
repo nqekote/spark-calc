@@ -1155,7 +1155,7 @@ function SafeWorkTab() {
         <div style={{ marginTop: 10, padding: 10, background: 'var(--bg)', borderRadius: 8, textAlign: 'center' as const }}>
           <span style={{ ...mono, fontSize: 14, color: eewpChecks.every(c => c) ? '#4ade80' : 'var(--text-secondary)' }}>
             {eewpChecks.filter(c => c).length} / {eewpChecks.length} items checked
-            {eewpChecks.every(c => c) ? ' \— PERMIT READY' : ''}
+            {eewpChecks.every(c => c) ? ' — PERMIT READY' : ''}
           </span>
         </div>
       </div>
@@ -1627,7 +1627,7 @@ function TrainingTab() {
         <div style={{ marginTop: 10, padding: 10, background: 'var(--bg)', borderRadius: 8, textAlign: 'center' as const }}>
           <span style={{ ...mono, fontSize: 14, color: auditChecks.every(c => c) ? '#4ade80' : 'var(--text-secondary)' }}>
             {auditChecks.filter(c => c).length} / {auditChecks.length} items compliant
-            {auditChecks.every(c => c) ? ' \— PROGRAM COMPLIANT' : ''}
+            {auditChecks.every(c => c) ? ' — PROGRAM COMPLIANT' : ''}
           </span>
         </div>
       </div>
@@ -1724,7 +1724,7 @@ function TrainingTab() {
                   border: `1px solid ${isCorrect ? 'rgba(74,222,128,0.2)' : 'rgba(255,68,68,0.2)'}`,
                 }}>
                   <div style={{ fontSize: 12, fontWeight: 600, color: isCorrect ? '#4ade80' : '#ff6b6b', marginBottom: 4 }}>
-                    {isCorrect ? 'Correct!' : `Incorrect \— Correct answer: ${String.fromCharCode(65 + q.ans)}`}
+                    {isCorrect ? 'Correct!' : `Incorrect — Correct answer: ${String.fromCharCode(65 + q.ans)}`}
                   </div>
                   <div style={{ fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.5 }}>{q.why}</div>
                   <div style={{ fontSize: 11, color: 'var(--text-secondary)', marginTop: 4, fontStyle: 'italic' }}>Ref: {q.ref}</div>
@@ -1755,7 +1755,7 @@ function TrainingTab() {
               }}>
                 <span style={{ ...mono, fontSize: 18, fontWeight: 700, color: quizScore >= 8 ? '#4ade80' : quizScore >= 6 ? 'var(--primary)' : '#ff4444' }}>
                   {quizScore} / {quizQuestions.length}
-                  {quizScore >= 8 ? ' \— Excellent' : quizScore >= 6 ? ' \— Review Needed' : ' \— Study Required'}
+                  {quizScore >= 8 ? ' — Excellent' : quizScore >= 6 ? ' — Review Needed' : ' — Study Required'}
                 </span>
               </div>
               <button onClick={resetQuiz} style={{ ...btnStyle, background: 'var(--surface)', color: 'var(--text)', border: '1px solid var(--divider)' }}>

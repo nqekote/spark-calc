@@ -460,7 +460,7 @@ interface WiringTip {
 const wiringTips: WiringTip[] = [
   { tip: 'T-tapping: devices can be connected as spur taps off the main circuit (Class B). Keep spurs short. T-taps are common practice but some manufacturers recommend daisy-chain only.', category: 'best-practice' },
   { tip: 'EOL resistor placement: MUST be at the last device, NOT at the panel. Placing EOL at the panel supervises nothing — the entire field wiring could be open and the panel would show normal.', category: 'code' },
-  { tip: 'EOL resistor value: use the value specified by the panel manufacturer (typically 3.9k\Ω, 4.7k\Ω, or 10k\Ω). Using the wrong value causes trouble or false alarm.', category: 'code' },
+  { tip: 'EOL resistor value: use the value specified by the panel manufacturer (typically 3.9kΩ, 4.7kΩ, or 10kΩ). Using the wrong value causes trouble or false alarm.', category: 'code' },
   { tip: 'Maintain supervision: never "jump out" an EOL or bypass a device without restoring supervision. Even during service, use a supervisory jumper that maintains the expected circuit resistance.', category: 'best-practice' },
   { tip: 'CEC Section 32: fire alarm wiring must be run in dedicated raceways. Do not mix fire alarm wiring with other systems in the same conduit or cable tray.', category: 'code' },
   { tip: 'Proper terminations: use manufacturer-approved wire nuts or terminal blocks. Do not use push-in connectors for fire alarm circuits. Secure all connections with appropriate mechanical fasteners.', category: 'best-practice' },

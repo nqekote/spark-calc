@@ -23,13 +23,13 @@ const conductorOptions = [
 ]
 
 const standardBoxes: { value: string; label: string; volume: number }[] = [
-  { value: '295', label: '100mm \× 54mm rectangular (single gang) \— 295 cm\³', volume: 295 },
-  { value: '350', label: '100mm \× 54mm deep rectangular \— 350 cm\³', volume: 350 },
-  { value: '310', label: '100mm \× 54mm device box \— 310 cm\³', volume: 310 },
-  { value: '344', label: '4" square \× 1-1/2" deep \— 344 cm\³', volume: 344 },
-  { value: '497a', label: '4" square \× 2-1/8" deep \— 497 cm\³', volume: 497 },
-  { value: '497b', label: '4-11/16" square \× 1-1/2" deep \— 497 cm\³', volume: 497 },
-  { value: '720', label: '4-11/16" square \× 2-1/8" deep \— 720 cm\³', volume: 720 },
+  { value: '295', label: '100mm × 54mm rectangular (single gang) — 295 cm\³', volume: 295 },
+  { value: '350', label: '100mm × 54mm deep rectangular — 350 cm\³', volume: 350 },
+  { value: '310', label: '100mm × 54mm device box — 310 cm\³', volume: 310 },
+  { value: '344', label: '4" square × 1-1/2" deep — 344 cm\³', volume: 344 },
+  { value: '497a', label: '4" square × 2-1/8" deep — 497 cm\³', volume: 497 },
+  { value: '497b', label: '4-11/16" square × 1-1/2" deep — 497 cm\³', volume: 497 },
+  { value: '720', label: '4-11/16" square × 2-1/8" deep — 720 cm\³', volume: 720 },
   { value: 'custom', label: 'Custom', volume: 0 },
 ]
 
@@ -80,14 +80,14 @@ export default function BoxFillPage() {
         { label: 'Result', value: pass ? 'PASS' : 'FAIL', highlight: true },
       ]
     : [
-        { label: 'Conductor volume', value: '\—', unit: 'cm\³' },
-        { label: 'Clamp volume', value: '\—', unit: 'cm\³' },
-        { label: 'Ground volume', value: '\—', unit: 'cm\³' },
-        { label: 'Device volume', value: '\—', unit: 'cm\³' },
-        { label: 'Total required', value: '\—', unit: 'cm\³' },
-        { label: 'Box volume', value: '\—', unit: 'cm\³' },
-        { label: 'Remaining', value: '\—', unit: 'cm\³' },
-        { label: 'Result', value: '\—' },
+        { label: 'Conductor volume', value: '—', unit: 'cm\³' },
+        { label: 'Clamp volume', value: '—', unit: 'cm\³' },
+        { label: 'Ground volume', value: '—', unit: 'cm\³' },
+        { label: 'Device volume', value: '—', unit: 'cm\³' },
+        { label: 'Total required', value: '—', unit: 'cm\³' },
+        { label: 'Box volume', value: '—', unit: 'cm\³' },
+        { label: 'Remaining', value: '—', unit: 'cm\³' },
+        { label: 'Result', value: '—' },
       ]
 
   return (
@@ -164,12 +164,12 @@ export default function BoxFillPage() {
             justifyContent: 'center',
           }}>
             {pass
-              ? `PASS \— ${fmt(remaining)} cm\³ remaining`
-              : `FAIL \— ${fmt(Math.abs(remaining))} cm\³ over capacity`}
+              ? `PASS — ${fmt(remaining)} cm\³ remaining`
+              : `FAIL — ${fmt(Math.abs(remaining))} cm\³ over capacity`}
           </div>
         )}
 
-        <InfoBox title="CEC Rule 12-3034 \— Box Fill Counting Rules">
+        <InfoBox title="CEC Rule 12-3034 — Box Fill Counting Rules">
           <p>Per CEC Rule 12-3034 and Table 22, the volume of a box must be sufficient for all conductors, clamps, grounds, and devices:</p>
           <ol style={{ paddingLeft: 20, margin: '8px 0' }}>
             <li style={{ marginBottom: 4 }}>Each current-carrying conductor counts as 1 volume allowance based on its size.</li>

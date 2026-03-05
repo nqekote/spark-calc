@@ -170,7 +170,7 @@ export default function WireSizingPage() {
       const corrected = getCorrectedAmpacity(size, material, tempRating, ambTemp, numConductors)
       nearbySizes.push({
         size: formatSize(size),
-        ampacity: corrected !== null ? `${fmt(corrected)} A` : '\—',
+        ampacity: corrected !== null ? `${fmt(corrected)} A` : '—',
       })
     }
   }
@@ -184,7 +184,7 @@ export default function WireSizingPage() {
         },
         {
           label: 'Corrected Ampacity',
-          value: recommendedAmpacity !== null ? fmt(recommendedAmpacity) : '\—',
+          value: recommendedAmpacity !== null ? fmt(recommendedAmpacity) : '—',
           unit: 'A',
         },
         ...(nextSizeUp !== null
@@ -197,8 +197,8 @@ export default function WireSizingPage() {
     : hasInputs
       ? [{ label: 'Recommended Wire Size', value: 'No suitable wire found' }]
       : [
-          { label: 'Recommended Wire Size', value: '\—' },
-          { label: 'Corrected Ampacity', value: '\—', unit: 'A' },
+          { label: 'Recommended Wire Size', value: '—' },
+          { label: 'Corrected Ampacity', value: '—', unit: 'A' },
         ]
 
   return (

@@ -125,13 +125,13 @@ export default function ResidentialDemandPage() {
         { label: 'Recommended service size', value: `${recommendedSize}`, unit: 'A', highlight: true },
       ]
     : [
-        { label: 'General lighting demand', value: '\—', unit: 'W' },
-        { label: 'Range demand', value: '\—', unit: 'W' },
-        { label: 'Fixed appliance demand', value: '\—', unit: 'W' },
-        { label: 'Heating/Cooling demand', value: '\—', unit: 'W' },
-        { label: 'TOTAL DEMAND', value: '\—', unit: 'W' },
-        { label: 'Service current', value: '\—', unit: 'A' },
-        { label: 'Recommended service size', value: '\—', unit: 'A' },
+        { label: 'General lighting demand', value: '—', unit: 'W' },
+        { label: 'Range demand', value: '—', unit: 'W' },
+        { label: 'Fixed appliance demand', value: '—', unit: 'W' },
+        { label: 'Heating/Cooling demand', value: '—', unit: 'W' },
+        { label: 'TOTAL DEMAND', value: '—', unit: 'W' },
+        { label: 'Service current', value: '—', unit: 'A' },
+        { label: 'Recommended service size', value: '—', unit: 'A' },
       ]
 
   const formula = canCalculate
@@ -278,10 +278,10 @@ export default function ResidentialDemandPage() {
           </div>
         )}
 
-        <InfoBox title="CEC Rule 8-200 \— Residential Demand">
+        <InfoBox title="CEC Rule 8-200 — Residential Demand">
           <p>This calculator uses a simplified CEC Rule 8-200 method for estimating residential service demand:</p>
           <ul style={{ paddingLeft: 20, margin: '8px 0' }}>
-            <li style={{ marginBottom: 4 }}><strong>General lighting:</strong> Floor area \× 75 W/m\² + appliance circuits (1500W each) + laundry. First 5000W at 100%, remainder at 35%.</li>
+            <li style={{ marginBottom: 4 }}><strong>General lighting:</strong> Floor area × 75 W/m\² + appliance circuits (1500W each) + laundry. First 5000W at 100%, remainder at 35%.</li>
             <li style={{ marginBottom: 4 }}><strong>Range:</strong> Up to 12kW rated = 6000W flat demand. Above 12kW, add 40% of the excess.</li>
             <li style={{ marginBottom: 4 }}><strong>Fixed appliances:</strong> If fewer than 4, apply at 100%. If 4 or more, apply at 75% each.</li>
             <li style={{ marginBottom: 4 }}><strong>Heating/Cooling:</strong> Use the larger of A/C or electric heat at 100%.</li>

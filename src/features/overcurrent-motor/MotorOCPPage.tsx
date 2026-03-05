@@ -155,15 +155,15 @@ export default function MotorOCPPage() {
         { label: 'Overload Relay (SF<1.15)', value: fmt(overload125, 1), unit: 'A' },
       ]
     : [
-        { label: 'Motor FLC', value: '\—', unit: 'A' },
-        { label: 'Max OCP', value: '\—', unit: 'A' },
-        { label: 'Standard OCP Size', value: '\—', unit: 'A' },
-        { label: 'Overload Relay (SF\≥1.15)', value: '\—', unit: 'A' },
-        { label: 'Overload Relay (SF<1.15)', value: '\—', unit: 'A' },
+        { label: 'Motor FLC', value: '—', unit: 'A' },
+        { label: 'Max OCP', value: '—', unit: 'A' },
+        { label: 'Standard OCP Size', value: '—', unit: 'A' },
+        { label: 'Overload Relay (SF\≥1.15)', value: '—', unit: 'A' },
+        { label: 'Overload Relay (SF<1.15)', value: '—', unit: 'A' },
       ]
 
   const formula = hasResult
-    ? `FLC = ${fmt(flc, 1)} A (${tableRef}) | Max OCP = ${fmt(flc, 1)} \× ${percent} = ${fmt(maxOCPCalculated, 1)} A \→ ${fmt(standardOCP, 0)} A std`
+    ? `FLC = ${fmt(flc, 1)} A (${tableRef}) | Max OCP = ${fmt(flc, 1)} × ${percent} = ${fmt(maxOCPCalculated, 1)} A \→ ${fmt(standardOCP, 0)} A std`
     : undefined
 
   // Build comparison table of all OCP device types for current FLC
@@ -208,7 +208,7 @@ export default function MotorOCPPage() {
             padding: 16,
           }}>
             <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--text)', marginBottom: 12 }}>
-              OCP Comparison \— All Device Types ({selectedHp} HP @ {selectedVoltage}V)
+              OCP Comparison — All Device Types ({selectedHp} HP @ {selectedVoltage}V)
             </div>
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
               <thead>

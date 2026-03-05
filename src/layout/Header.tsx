@@ -1,12 +1,20 @@
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useTheme } from '../core/theme/ThemeContext'
+import { useFavorites } from '../core/hooks/useFavorites'
+import { allFeatures } from '../data/features'
+
+/** Set of all feature page paths for quick lookup */
+const featurePaths = new Set(allFeatures.map(f => f.to))
 
 export default function Header({ title }: { title?: string }) {
   const navigate = useNavigate()
   const location = useLocation()
   const { theme, toggle } = useTheme()
+  const { isFavorite, toggle: toggleFav } = useFavorites()
   const isHome = location.pathname === '/'
   const isOnline = typeof navigator !== 'undefined' ? navigator.onLine : true
+  const isFeaturePage = featurePaths.has(location.pathname)
+  const isFav = isFeaturePage && isFavorite(location.pathname)
 
   return (
     <header style={{
@@ -43,6 +51,31 @@ export default function Header({ title }: { title?: string }) {
       }}>
         {isHome ? 'SparkCalc' : (title || 'SparkCalc')}
       </h1>
+
+      {/* Favorite toggle — only on feature pages */}
+      {isFeaturePage && (
+        <button
+          onClick={() => toggleFav(location.pathname)}
+          className="tap-target"
+          style={{
+            width: 40, height: 40,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            borderRadius: 10,
+            color: isFav ? 'var(--primary)' : 'var(--text-tertiary)',
+            transition: 'color var(--transition-fast), transform 150ms ease',
+          }}
+          aria-label={isFav ? 'Remove from favorites' : 'Add to favorites'}
+        >
+          <svg width={20} height={20} viewBox="0 0 24 24"
+            fill={isFav ? 'currentColor' : 'none'}
+            stroke="currentColor" strokeWidth={2}
+            strokeLinecap="round" strokeLinejoin="round"
+            style={{ transition: 'transform 200ms ease', transform: isFav ? 'scale(1.1)' : 'scale(1)' }}
+          >
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+          </svg>
+        </button>
+      )}
 
       {/* Status pill */}
       <div style={{

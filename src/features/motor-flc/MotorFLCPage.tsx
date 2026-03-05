@@ -115,7 +115,7 @@ export default function MotorFLCPage() {
 
   const row = data[selectedHp]
   const flcValue = row ? row[selectedVoltage] : null
-  const flcDisplay = flcValue != null ? fmt(flcValue, 1) : '\—'
+  const flcDisplay = flcValue != null ? fmt(flcValue, 1) : '—'
 
   const results = [
     { label: 'Full Load Current', value: flcDisplay, unit: 'A', highlight: true },
@@ -180,7 +180,7 @@ export default function MotorFLCPage() {
                         fontFamily: 'var(--font-mono)',
                         fontWeight: isSelected ? 700 : 400,
                         color: isSelected ? 'var(--primary)' : 'var(--text)',
-                      }}>{val != null ? fmt(val, 1) : '\—'}</td>
+                      }}>{val != null ? fmt(val, 1) : '—'}</td>
                     </tr>
                   )
                 })}

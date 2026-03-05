@@ -156,13 +156,13 @@ interface SubstationRating {
 }
 
 const substationRatings: SubstationRating[] = [
-  { kva: 500, primaryAmps13_8: '20.9A', primaryAmps4_16: '69.4A', secondaryAmps600: '481A', approxWeight: '2,500 kg', approxDimensions: '1.8 \× 1.2 \× 1.8 m', impedance: '4.5-5.75%' },
-  { kva: 750, primaryAmps13_8: '31.4A', primaryAmps4_16: '104A', secondaryAmps600: '722A', approxWeight: '3,200 kg', approxDimensions: '2.0 \× 1.4 \× 2.0 m', impedance: '5.0-5.75%' },
-  { kva: 1000, primaryAmps13_8: '41.8A', primaryAmps4_16: '139A', secondaryAmps600: '962A', approxWeight: '4,000 kg', approxDimensions: '2.2 \× 1.5 \× 2.1 m', impedance: '5.5-5.75%' },
-  { kva: 1500, primaryAmps13_8: '62.8A', primaryAmps4_16: '208A', secondaryAmps600: '1443A', approxWeight: '5,500 kg', approxDimensions: '2.5 \× 1.6 \× 2.3 m', impedance: '5.75-6.0%' },
-  { kva: 2000, primaryAmps13_8: '83.7A', primaryAmps4_16: '277A', secondaryAmps600: '1925A', approxWeight: '7,000 kg', approxDimensions: '2.8 \× 1.8 \× 2.4 m', impedance: '5.75-6.5%' },
-  { kva: 2500, primaryAmps13_8: '104.6A', primaryAmps4_16: '347A', secondaryAmps600: '2406A', approxWeight: '8,500 kg', approxDimensions: '3.0 \× 1.9 \× 2.5 m', impedance: '6.0-6.5%' },
-  { kva: 3333, primaryAmps13_8: '139.5A', primaryAmps4_16: '462A', secondaryAmps600: '3208A', approxWeight: '11,000 kg', approxDimensions: '3.3 \× 2.1 \× 2.7 m', impedance: '6.0-7.0%' },
+  { kva: 500, primaryAmps13_8: '20.9A', primaryAmps4_16: '69.4A', secondaryAmps600: '481A', approxWeight: '2,500 kg', approxDimensions: '1.8 × 1.2 × 1.8 m', impedance: '4.5-5.75%' },
+  { kva: 750, primaryAmps13_8: '31.4A', primaryAmps4_16: '104A', secondaryAmps600: '722A', approxWeight: '3,200 kg', approxDimensions: '2.0 × 1.4 × 2.0 m', impedance: '5.0-5.75%' },
+  { kva: 1000, primaryAmps13_8: '41.8A', primaryAmps4_16: '139A', secondaryAmps600: '962A', approxWeight: '4,000 kg', approxDimensions: '2.2 × 1.5 × 2.1 m', impedance: '5.5-5.75%' },
+  { kva: 1500, primaryAmps13_8: '62.8A', primaryAmps4_16: '208A', secondaryAmps600: '1443A', approxWeight: '5,500 kg', approxDimensions: '2.5 × 1.6 × 2.3 m', impedance: '5.75-6.0%' },
+  { kva: 2000, primaryAmps13_8: '83.7A', primaryAmps4_16: '277A', secondaryAmps600: '1925A', approxWeight: '7,000 kg', approxDimensions: '2.8 × 1.8 × 2.4 m', impedance: '5.75-6.5%' },
+  { kva: 2500, primaryAmps13_8: '104.6A', primaryAmps4_16: '347A', secondaryAmps600: '2406A', approxWeight: '8,500 kg', approxDimensions: '3.0 × 1.9 × 2.5 m', impedance: '6.0-6.5%' },
+  { kva: 3333, primaryAmps13_8: '139.5A', primaryAmps4_16: '462A', secondaryAmps600: '3208A', approxWeight: '11,000 kg', approxDimensions: '3.3 × 2.1 × 2.7 m', impedance: '6.0-7.0%' },
 ]
 
 /* ------------------------------------------------------------------ */
@@ -183,7 +183,7 @@ const installSteps: InstallStep[] = [
     title: 'Site Preparation',
     description: 'Prepare a level, stable pad with proper drainage and containment.',
     details: [
-      'Clear and grade area to minimum 3m \× 4m (larger for trailer-mount)',
+      'Clear and grade area to minimum 3m × 4m (larger for trailer-mount)',
       'Compact gravel base to 95% Proctor density, minimum 200mm thick',
       'Grade for drainage — 2% slope away from transformer on all sides',
       'Install secondary containment (oil spill berms or containment pad)',
@@ -199,7 +199,7 @@ const installSteps: InstallStep[] = [
     title: 'Grounding System Installation',
     description: 'Install the grounding electrode system before energization.',
     details: [
-      'Drive minimum 2 ground rods (3m \× 16mm copper-clad steel) spaced 3m apart',
+      'Drive minimum 2 ground rods (3m × 16mm copper-clad steel) spaced 3m apart',
       'Connect rods with #2/0 AWG bare copper in trench minimum 450mm deep',
       'Bond transformer tank/skid to ground grid with #2/0 AWG or larger',
       'Bond all metallic structures within 2.5m of substation',
@@ -236,7 +236,7 @@ const installSteps: InstallStep[] = [
     details: [
       'Verify secondary breaker is OPEN and locked out before connecting',
       'Route secondary cables through proper strain relief or cable glands',
-      'Maintain minimum bending radius: 12\× cable OD for shielded, 8\× for unshielded',
+      'Maintain minimum bending radius: 12× cable OD for shielded, 8× for unshielded',
       'Torque all secondary lug connections per manufacturer spec (typically 45-75 ft-lb)',
       'Verify phase rotation matches mine distribution standard (ABC clockwise)',
       'Install cable supports every 600mm on vertical runs',
@@ -269,7 +269,7 @@ const installSteps: InstallStep[] = [
     description: 'Perform electrical tests to verify transformer integrity before energization.',
     details: [
       'Insulation resistance (megger) test: 1000V DC for 600V winding, 5000V DC for HV winding',
-      'Minimum acceptable IR: 100 M\Ω at 20\°C for new oil-filled transformers',
+      'Minimum acceptable IR: 100 MΩ at 20\°C for new oil-filled transformers',
       'Turns ratio test (TTR): verify ratio within 0.5% of nameplate on all taps',
       'Winding resistance test: verify within 2% between phases (balance check)',
       'Power factor / dissipation factor test: should be < 0.5% for new oil-filled units',
@@ -467,10 +467,10 @@ interface RecommissionTest {
 const recommissionTests: RecommissionTest[] = [
   { test: 'Visual Inspection', purpose: 'Check for transport damage, oil leaks, loose connections', acceptCriteria: 'No visible damage, leaks, or loose components', required: 'Always' },
   { test: 'Oil Level Check', purpose: 'Verify oil is at proper level after transport', acceptCriteria: 'Oil level in normal range on sight glass at current temp', required: 'Always' },
-  { test: 'Insulation Resistance (Megger)', purpose: 'Verify winding insulation integrity after move', acceptCriteria: '\≥ 100 M\Ω at 20\°C (oil-filled), PI > 2.0', required: 'Always' },
+  { test: 'Insulation Resistance (Megger)', purpose: 'Verify winding insulation integrity after move', acceptCriteria: '\≥ 100 MΩ at 20\°C (oil-filled), PI > 2.0', required: 'Always' },
   { test: 'Turns Ratio Test (TTR)', purpose: 'Verify core and winding integrity', acceptCriteria: 'Within 0.5% of nameplate ratio on all taps', required: 'After significant impact or damage suspected' },
   { test: 'Oil Dielectric Strength', purpose: 'Verify oil has not been contaminated during move', acceptCriteria: '\≥ 30 kV breakdown (ASTM D1816)', required: 'Always' },
-  { test: 'Ground Resistance', purpose: 'Verify new grounding system is adequate', acceptCriteria: '\≤ 5\Ω (O.Reg.854), target < 1\Ω', required: 'Always' },
+  { test: 'Ground Resistance', purpose: 'Verify new grounding system is adequate', acceptCriteria: '\≤ 5Ω (O.Reg.854), target < 1Ω', required: 'Always' },
   { test: 'Phase Rotation', purpose: 'Verify correct phase sequence at new location', acceptCriteria: 'ABC clockwise rotation matches mine standard', required: 'Always' },
   { test: 'GFP Relay Test', purpose: 'Verify ground fault protection is operational', acceptCriteria: 'Trips at \≤ 100 mA within 200 ms', required: 'Always' },
   { test: 'Phasing Verification', purpose: 'Verify phase alignment with existing mine distribution', acceptCriteria: 'Zero volts between same phases of parallel sources', required: 'When paralleling with other sources' },
@@ -523,7 +523,7 @@ const inspectionChecklist: InspectionItem[] = [
   { item: 'Dissolved Gas Analysis (DGA)', frequency: 'Annual', procedure: 'Sample oil per IEEE C57.104. Lab analysis for combustible gases.', acceptCriteria: 'All gases within Condition 1 limits (see DGA table)', color: '#ff6b6b' },
   { item: 'Oil moisture content', frequency: 'Annual', procedure: 'Sample oil. Karl Fischer titration per ASTM D1533.', acceptCriteria: '\≤ 35 ppm for in-service oil (per IEEE C57.106)', color: '#ff6b6b' },
   { item: 'Insulation resistance (megger)', frequency: 'Annual', procedure: 'De-energize. Megger H-L, H-Gnd, L-Gnd at rated test voltage for 1 minute.', acceptCriteria: 'Minimum per voltage class table. PI > 2.0.', color: '#ff6b6b' },
-  { item: 'Ground resistance test', frequency: 'Annual', procedure: 'Fall-of-potential method. Test entire ground grid resistance.', acceptCriteria: '\≤ 5\Ω per O.Reg.854 s.159, target < 1\Ω', color: '#ff6b6b' },
+  { item: 'Ground resistance test', frequency: 'Annual', procedure: 'Fall-of-potential method. Test entire ground grid resistance.', acceptCriteria: '\≤ 5Ω per O.Reg.854 s.159, target < 1Ω', color: '#ff6b6b' },
   { item: 'Cooling system check', frequency: 'Annual', procedure: 'Clean radiator fins, test fan motors (if ONAF), check oil pump (if OFAF).', acceptCriteria: 'Fins clear of debris, fans start and run properly, pumps flow verified', color: '#ff6b6b' },
   { item: 'Protection relay calibration', frequency: 'Annual', procedure: 'Full relay calibration using secondary injection test set.', acceptCriteria: 'All pickup and timing values within \± 5% of settings', color: '#ff6b6b' },
 ]
@@ -559,11 +559,11 @@ interface InsulationResistance {
 }
 
 const insulationResistanceTable: InsulationResistance[] = [
-  { voltageClass: '600V secondary', testVoltage: '1000V DC', minNew: '100 M\Ω', minService: '25 M\Ω', notes: 'Correct all readings to 20\°C. Halves for every 10\°C above 20\°C.' },
-  { voltageClass: '4.16 kV', testVoltage: '5000V DC', minNew: '500 M\Ω', minService: '100 M\Ω', notes: 'PI (Polarization Index) > 2.0 indicates dry insulation.' },
-  { voltageClass: '13.8 kV', testVoltage: '5000V DC', minNew: '1000 M\Ω', minService: '200 M\Ω', notes: 'Trending over time is more important than absolute value.' },
-  { voltageClass: '25 kV', testVoltage: '5000V DC', minNew: '1500 M\Ω', minService: '300 M\Ω', notes: 'If below minimum, investigate before re-energizing.' },
-  { voltageClass: '44 kV', testVoltage: '5000V DC', minNew: '2000 M\Ω', minService: '500 M\Ω', notes: 'Low readings may indicate moisture in oil or contaminated bushings.' },
+  { voltageClass: '600V secondary', testVoltage: '1000V DC', minNew: '100 MΩ', minService: '25 MΩ', notes: 'Correct all readings to 20\°C. Halves for every 10\°C above 20\°C.' },
+  { voltageClass: '4.16 kV', testVoltage: '5000V DC', minNew: '500 MΩ', minService: '100 MΩ', notes: 'PI (Polarization Index) > 2.0 indicates dry insulation.' },
+  { voltageClass: '13.8 kV', testVoltage: '5000V DC', minNew: '1000 MΩ', minService: '200 MΩ', notes: 'Trending over time is more important than absolute value.' },
+  { voltageClass: '25 kV', testVoltage: '5000V DC', minNew: '1500 MΩ', minService: '300 MΩ', notes: 'If below minimum, investigate before re-energizing.' },
+  { voltageClass: '44 kV', testVoltage: '5000V DC', minNew: '2000 MΩ', minService: '500 MΩ', notes: 'Low readings may indicate moisture in oil or contaminated bushings.' },
 ]
 
 interface CoolingComponent {
@@ -833,11 +833,11 @@ const commissioningChecklist: CommissioningItem[] = [
   { category: 'Site', item: 'Danger High Voltage signs posted on all sides', pass: 'Visible from 5m' },
   { category: 'Site', item: 'Fire extinguisher in place (20 lb min BC/ABC)', pass: 'Within 3m, inspected' },
   { category: 'Grounding', item: 'Ground rods installed per design', pass: 'Min 2 rods, 3m apart' },
-  { category: 'Grounding', item: 'Ground resistance tested', pass: '\≤ 5\Ω (target < 1\Ω)' },
+  { category: 'Grounding', item: 'Ground resistance tested', pass: '\≤ 5Ω (target < 1Ω)' },
   { category: 'Grounding', item: 'Tank/skid bonded to ground grid', pass: '#2/0 AWG minimum' },
   { category: 'Grounding', item: 'Neutral-ground bond in place (if req\'d)', pass: 'Per system design' },
   { category: 'Electrical', item: 'Insulation resistance — HV to ground', pass: '\≥ min per voltage class' },
-  { category: 'Electrical', item: 'Insulation resistance — LV to ground', pass: '\≥ 100 M\Ω at 20\°C' },
+  { category: 'Electrical', item: 'Insulation resistance — LV to ground', pass: '\≥ 100 MΩ at 20\°C' },
   { category: 'Electrical', item: 'Insulation resistance — HV to LV', pass: '\≥ min per voltage class' },
   { category: 'Electrical', item: 'Turns ratio test (all taps)', pass: 'Within 0.5% of nameplate' },
   { category: 'Electrical', item: 'Winding resistance (all phases)', pass: 'Within 2% between phases' },
@@ -856,7 +856,7 @@ const commissioningChecklist: CommissioningItem[] = [
   { category: 'Connections', item: 'All primary connections torqued', pass: 'Per manufacturer spec' },
   { category: 'Connections', item: 'All secondary connections torqued', pass: 'Per manufacturer spec' },
   { category: 'Connections', item: 'All cables labeled and secured', pass: 'Both ends labeled' },
-  { category: 'Connections', item: 'Cable bending radius maintained', pass: '12\× OD shielded, 8\× unshielded' },
+  { category: 'Connections', item: 'Cable bending radius maintained', pass: '12× OD shielded, 8× unshielded' },
   { category: 'Final', item: 'Single-line diagram updated', pass: 'Current revision on file' },
   { category: 'Final', item: 'Energization authorized by supervisor', pass: 'Signed authorization' },
   { category: 'Final', item: 'All personnel clear of substation', pass: 'Head count verified' },
@@ -1227,7 +1227,7 @@ function TypesTab() {
               <th style={tableHeader}>Primary A (4.16kV)</th>
               <th style={tableHeader}>Secondary A (600V)</th>
               <th style={tableHeader}>Weight (Approx)</th>
-              <th style={tableHeader}>Dimensions (L\×W\×H)</th>
+              <th style={tableHeader}>Dimensions (L×W×H)</th>
               <th style={tableHeader}>Impedance (%Z)</th>
             </tr>
           </thead>
@@ -1247,7 +1247,7 @@ function TypesTab() {
         </table>
       </div>
       <div style={{ fontSize: 11, color: 'var(--text-secondary)', fontStyle: 'italic' }}>
-        Note: Amperage calculated as I = kVA / (\√3 \× V). Weights and dimensions are approximate and vary by manufacturer. Impedance per IEEE C57.12.00.
+        Note: Amperage calculated as I = kVA / (\√3 × V). Weights and dimensions are approximate and vary by manufacturer. Impedance per IEEE C57.12.00.
       </div>
     </div>
   )
@@ -1866,7 +1866,7 @@ function TroubleshootingTab() {
           <InfoRow label="Oil Moisture" value="\≤ 35 ppm" valueColor="#4ade80" />
           <InfoRow label="DGA Condition" value="1" valueColor="#4ade80" />
           <InfoRow label="GFP Response" value="\≤ 100mA/200ms" valueColor="#4ade80" />
-          <InfoRow label="Ground Resistance" value="\≤ 5\Ω" valueColor="#4ade80" />
+          <InfoRow label="Ground Resistance" value="\≤ 5Ω" valueColor="#4ade80" />
         </div>
       </div>
     </div>

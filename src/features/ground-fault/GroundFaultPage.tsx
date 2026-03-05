@@ -53,14 +53,14 @@ interface StandardNGR {
 }
 
 const standardNGRValues: StandardNGR[] = [
-  { voltage: '480V', typicalR: '13.9 \Ω', faultLimit: '20A', duration: '10 sec', application: 'Small industrial systems' },
-  { voltage: '600V', typicalR: '13.9 \Ω', faultLimit: '25A', duration: '10 sec', application: 'Open pit mine power centers' },
-  { voltage: '600V', typicalR: '6.9 \Ω', faultLimit: '50A', duration: '10 sec', application: 'Mine surface distribution' },
-  { voltage: '2400V', typicalR: '139.0 \Ω', faultLimit: '10A', duration: '10 sec', application: 'Legacy mine distribution' },
-  { voltage: '4160V', typicalR: '240.0 \Ω', faultLimit: '10A', duration: '10 sec', application: 'Standard mine MV distribution' },
-  { voltage: '4160V', typicalR: '96.0 \Ω', faultLimit: '25A', duration: '10 sec', application: 'Large open pit shovel feeders' },
-  { voltage: '13800V', typicalR: '796.0 \Ω', faultLimit: '10A', duration: '10 sec', application: 'Mine main substation' },
-  { voltage: '13800V', typicalR: '319.0 \Ω', faultLimit: '25A', duration: '10 sec', application: 'High-capacity mine feeders' },
+  { voltage: '480V', typicalR: '13.9 Ω', faultLimit: '20A', duration: '10 sec', application: 'Small industrial systems' },
+  { voltage: '600V', typicalR: '13.9 Ω', faultLimit: '25A', duration: '10 sec', application: 'Open pit mine power centers' },
+  { voltage: '600V', typicalR: '6.9 Ω', faultLimit: '50A', duration: '10 sec', application: 'Mine surface distribution' },
+  { voltage: '2400V', typicalR: '139.0 Ω', faultLimit: '10A', duration: '10 sec', application: 'Legacy mine distribution' },
+  { voltage: '4160V', typicalR: '240.0 Ω', faultLimit: '10A', duration: '10 sec', application: 'Standard mine MV distribution' },
+  { voltage: '4160V', typicalR: '96.0 Ω', faultLimit: '25A', duration: '10 sec', application: 'Large open pit shovel feeders' },
+  { voltage: '13800V', typicalR: '796.0 Ω', faultLimit: '10A', duration: '10 sec', application: 'Mine main substation' },
+  { voltage: '13800V', typicalR: '319.0 Ω', faultLimit: '25A', duration: '10 sec', application: 'High-capacity mine feeders' },
 ]
 
 /* ------------------------------------------------------------------ */
@@ -134,7 +134,7 @@ const gcmFaults: GCMFault[] = [
       'Inspect all couplers for moisture and contamination',
       'Clean and dry coupler contacts',
       'Check cable for visible damage or hot spots',
-      'Replace cable section if insulation resistance below 1 M\Ω',
+      'Replace cable section if insulation resistance below 1 MΩ',
     ],
     severity: 'high',
   },
@@ -232,7 +232,7 @@ const testMethods: TestMethod[] = [
       'Move P2 to 52% and 72% positions to verify (readings should agree within 10%)',
       'If readings vary >10%, increase C2 distance and repeat',
     ],
-    acceptableLimits: 'Mine substations: <1\Ω | Distribution poles: <5\Ω | Equipment grounds: <25\Ω',
+    acceptableLimits: 'Mine substations: <1Ω | Distribution poles: <5Ω | Equipment grounds: <25Ω',
     miningNotes: 'In open pit mines, rocky terrain may require longer electrode spacings. Bentonite slurry in drill holes improves electrode contact. Test in summer and winter to establish seasonal range.',
   },
   {
@@ -247,7 +247,7 @@ const testMethods: TestMethod[] = [
       'Compare to previous readings to trend changes',
       'Method reads individual electrode resistance in parallel network',
     ],
-    acceptableLimits: 'Individual electrode: <25\Ω | System (paralleled): <1\Ω for substations',
+    acceptableLimits: 'Individual electrode: <25Ω | System (paralleled): <1Ω for substations',
     miningNotes: 'Very useful in open pit mines for routine testing without disconnecting grounds. Cannot be used on isolated single electrodes. Ideal for checking ground grid integrity around shovels and crusher substations.',
   },
   {
@@ -262,8 +262,8 @@ const testMethods: TestMethod[] = [
       'Repeat with different spacings to profile resistivity vs. depth',
       'Use multiple directions if terrain is variable (open pit benches)',
     ],
-    acceptableLimits: 'Design data \— not a pass/fail test. Typical values: rocky soil 1000-5000 \Ω\·m, clay 25-70 \Ω\·m, gravel 600-1000 \Ω\·m',
-    miningNotes: 'Open pit ore body and waste rock have widely varying resistivity. Test on multiple benches and in different seasons. Frozen ground resistivity can exceed 10,000 \Ω\·m \— critical for winter ground fault protection.',
+    acceptableLimits: 'Design data — not a pass/fail test. Typical values: rocky soil 1000-5000 Ω\·m, clay 25-70 Ω\·m, gravel 600-1000 Ω\·m',
+    miningNotes: 'Open pit ore body and waste rock have widely varying resistivity. Test on multiple benches and in different seasons. Frozen ground resistivity can exceed 10,000 Ω\·m — critical for winter ground fault protection.',
   },
 ]
 
@@ -274,15 +274,15 @@ interface GroundRef {
 }
 
 const groundingReferences: GroundRef[] = [
-  { item: 'Mine substation ground grid', requirement: '\≤1 \Ω resistance to remote earth', reference: 'IEEE 80, O.Reg 854 s.159' },
+  { item: 'Mine substation ground grid', requirement: '\≤1 Ω resistance to remote earth', reference: 'IEEE 80, O.Reg 854 s.159' },
   { item: 'Portable equipment ground', requirement: 'Equipment grounding conductor continuous to source', reference: 'CEC 10-600, O.Reg 854 s.160' },
-  { item: 'Trailing cable ground conductor', requirement: 'Monitored by GCM, resistance <1 \Ω end-to-end', reference: 'O.Reg 854 s.160(2)' },
+  { item: 'Trailing cable ground conductor', requirement: 'Monitored by GCM, resistance <1 Ω end-to-end', reference: 'O.Reg 854 s.160(2)' },
   { item: 'Ground fault relay', requirement: 'Required on all mine distribution, trip <0.5 sec', reference: 'O.Reg 854 s.160(1)' },
   { item: 'Grounding electrode conductor', requirement: 'Per CEC Table 10, min #6 AWG Cu', reference: 'CEC 10-114' },
   { item: 'Step potential limit', requirement: '\≤50V RMS for 1 second (70 kg person)', reference: 'IEEE 80-2013 Table 9' },
   { item: 'Touch potential limit', requirement: '\≤50V RMS for 1 second', reference: 'IEEE 80-2013 Table 10' },
   { item: 'Bonding jumper at service', requirement: 'Sized per CEC Table 16', reference: 'CEC 10-614' },
-  { item: 'Shovel/drill ground rod', requirement: '<25 \Ω individual, system <5 \Ω with grid', reference: 'Mine site specification' },
+  { item: 'Shovel/drill ground rod', requirement: '<25 Ω individual, system <5 Ω with grid', reference: 'Mine site specification' },
   { item: 'Seasonal testing', requirement: 'Test in worst-case season (winter for open pit)', reference: 'IEEE 81, Mine practice' },
 ]
 
@@ -294,12 +294,12 @@ interface TestEquipment {
 }
 
 const testEquipmentList: TestEquipment[] = [
-  { name: 'Megger DET2/2', type: '4-terminal ground tester', use: 'Fall-of-potential, soil resistivity', range: '0.01\Ω to 20k\Ω' },
-  { name: 'Fluke 1625-2', type: '4-terminal ground tester', use: 'Fall-of-potential, selective measurement', range: '0.001\Ω to 300k\Ω' },
-  { name: 'Fluke 1630-2', type: 'Clamp-on ground tester', use: 'Stakeless ground resistance', range: '0.025\Ω to 1500\Ω' },
-  { name: 'AEMC 6417', type: 'Clamp-on ground tester', use: 'Multi-ground systems testing', range: '0.01\Ω to 1500\Ω' },
-  { name: 'Megger MIT485', type: 'Insulation resistance tester', use: 'Cable insulation testing (Megger)', range: '0.01 M\Ω to 20 G\Ω' },
-  { name: 'Megger DLRO-10', type: 'Micro-ohmmeter', use: 'Bonding connection resistance', range: '0.1\µ\Ω to 2000\Ω' },
+  { name: 'Megger DET2/2', type: '4-terminal ground tester', use: 'Fall-of-potential, soil resistivity', range: '0.01Ω to 20kΩ' },
+  { name: 'Fluke 1625-2', type: '4-terminal ground tester', use: 'Fall-of-potential, selective measurement', range: '0.001Ω to 300kΩ' },
+  { name: 'Fluke 1630-2', type: 'Clamp-on ground tester', use: 'Stakeless ground resistance', range: '0.025Ω to 1500Ω' },
+  { name: 'AEMC 6417', type: 'Clamp-on ground tester', use: 'Multi-ground systems testing', range: '0.01Ω to 1500Ω' },
+  { name: 'Megger MIT485', type: 'Insulation resistance tester', use: 'Cable insulation testing (Megger)', range: '0.01 MΩ to 20 GΩ' },
+  { name: 'Megger DLRO-10', type: 'Micro-ohmmeter', use: 'Bonding connection resistance', range: '0.1\µΩ to 2000Ω' },
   { name: 'Dranetz HDPQ', type: 'Power quality analyzer', use: 'Ground current monitoring', range: 'N/A' },
 ]
 
@@ -493,7 +493,7 @@ const dangerBox: React.CSSProperties = {
 /* ------------------------------------------------------------------ */
 
 function fmt(n: number, decimals: number): string {
-  if (!isFinite(n)) return '\—'
+  if (!isFinite(n)) return '—'
   return n.toLocaleString('en-US', {
     minimumFractionDigits: decimals,
     maximumFractionDigits: decimals,
@@ -645,7 +645,7 @@ export default function GroundFaultPage() {
 
             {/* NGR Resistance */}
             <div>
-              <label style={labelStyle}>NGR Resistance ({'\Ω'})</label>
+              <label style={labelStyle}>NGR Resistance ({'Ω'})</label>
               <input
                 type="number"
                 inputMode="decimal"
@@ -676,7 +676,7 @@ export default function GroundFaultPage() {
                       }}
                       onClick={() => setGfNgrResistance(String(p.ngrOhms))}
                     >
-                      {p.ngrOhms}{'\Ω'} ({p.faultCurrentA}A)
+                      {p.ngrOhms}{'Ω'} ({p.faultCurrentA}A)
                     </button>
                   ))}
               </div>
@@ -709,14 +709,14 @@ export default function GroundFaultPage() {
               />
               {gfRcable > 0 && (
                 <div style={{ fontSize: 12, color: 'var(--text-tertiary)', marginTop: 4, fontFamily: 'var(--font-mono)' }}>
-                  R<sub>cable</sub> = {fmt(gfRcable, 4)} {'\Ω'}
+                  R<sub>cable</sub> = {fmt(gfRcable, 4)} {'Ω'}
                 </div>
               )}
             </div>
 
             {/* Ground Resistance */}
             <div>
-              <label style={labelStyle}>Ground Path Resistance ({'\Ω'})</label>
+              <label style={labelStyle}>Ground Path Resistance ({'Ω'})</label>
               <input
                 type="number"
                 inputMode="decimal"
@@ -726,7 +726,7 @@ export default function GroundFaultPage() {
                 placeholder="e.g. 1"
               />
               <div style={{ fontSize: 11, color: 'var(--text-tertiary)', marginTop: 4 }}>
-                Typically 0.5-5{'\Ω'} for mine grounding grids. Higher in winter (frozen ground).
+                Typically 0.5-5{'Ω'} for mine grounding grids. Higher in winter (frozen ground).
               </div>
             </div>
 
@@ -776,7 +776,7 @@ export default function GroundFaultPage() {
                       <span style={resultUnit}>A</span>
                     </div>
                     <div style={{ fontSize: 12, color: 'var(--text-tertiary)', marginTop: 6, fontFamily: 'var(--font-mono)' }}>
-                      I<sub>arc</sub> = {fmt(gfIbolted, 2)} {'\×'} {gfArcingPct}% = {fmt(gfIarcing, 2)} A
+                      I<sub>arc</sub> = {fmt(gfIbolted, 2)} {'×'} {gfArcingPct}% = {fmt(gfIarcing, 2)} A
                     </div>
                   </div>
                 )}
@@ -796,7 +796,7 @@ export default function GroundFaultPage() {
                         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, marginBottom: 3 }}>
                           <span style={{ color: 'var(--text-secondary)' }}>{item.label}</span>
                           <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--text)' }}>
-                            {fmt(item.value, 4)} {'\Ω'} ({fmt(item.pct, 1)}%)
+                            {fmt(item.value, 4)} {'Ω'} ({fmt(item.pct, 1)}%)
                           </span>
                         </div>
                         <div style={{
@@ -825,7 +825,7 @@ export default function GroundFaultPage() {
                     }}>
                       <span style={{ color: 'var(--text)' }}>Total</span>
                       <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--primary)' }}>
-                        {fmt(gfTotalR, 4)} {'\Ω'}
+                        {fmt(gfTotalR, 4)} {'Ω'}
                       </span>
                     </div>
                   </div>
@@ -890,7 +890,7 @@ export default function GroundFaultPage() {
                           {p.faultCurrentA}A
                         </td>
                         <td style={{ ...tableCell, fontFamily: 'var(--font-mono)' }}>
-                          {p.ngrOhms}{'\Ω'}
+                          {p.ngrOhms}{'Ω'}
                         </td>
                         <td style={{ ...tableCell, fontSize: 12, color: 'var(--text-secondary)' }}>
                           {p.typicalUse}
@@ -940,7 +940,7 @@ export default function GroundFaultPage() {
                 gap: 4,
               }}>
                 <div>R<sub>NGR</sub> = V<sub>L-N</sub> / I<sub>fault</sub></div>
-                <div>P<sub>NGR</sub> = V<sub>L-N</sub> {'\×'} I<sub>fault</sub></div>
+                <div>P<sub>NGR</sub> = V<sub>L-N</sub> {'×'} I<sub>fault</sub></div>
               </div>
             </div>
 
@@ -1023,13 +1023,13 @@ export default function GroundFaultPage() {
                   <div style={resultLabel}>Required NGR Resistance</div>
                   <div style={{ display: 'flex', alignItems: 'baseline' }}>
                     <span style={resultValue}>{fmt(ngrR, 2)}</span>
-                    <span style={resultUnit}>{'\Ω'}</span>
+                    <span style={resultUnit}>{'Ω'}</span>
                   </div>
                   <div style={{
                     fontSize: 12, color: 'var(--text-tertiary)', marginTop: 6,
                     fontFamily: 'var(--font-mono)',
                   }}>
-                    R = {fmt(ngrVln, 1)} / {ngrDesiredCurrent} = {fmt(ngrR, 2)} {'\Ω'}
+                    R = {fmt(ngrVln, 1)} / {ngrDesiredCurrent} = {fmt(ngrR, 2)} {'Ω'}
                   </div>
                 </div>
 
@@ -1045,7 +1045,7 @@ export default function GroundFaultPage() {
                     fontSize: 12, color: 'var(--text-tertiary)', marginTop: 6,
                     fontFamily: 'var(--font-mono)',
                   }}>
-                    P = {fmt(ngrVln, 1)} {'\×'} {ngrDesiredCurrent} = {fmt(ngrP, 0)} W
+                    P = {fmt(ngrVln, 1)} {'×'} {ngrDesiredCurrent} = {fmt(ngrP, 0)} W
                   </div>
                 </div>
 
@@ -1074,11 +1074,11 @@ export default function GroundFaultPage() {
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                     {[
                       { label: 'System Voltage', value: `${ngrVoltage}V L-L (${fmt(ngrVln, 0)}V L-N)` },
-                      { label: 'Resistance', value: `${fmt(ngrR, 2)} \Ω` },
+                      { label: 'Resistance', value: `${fmt(ngrR, 2)} Ω` },
                       { label: 'Current Rating', value: `${ngrDesiredCurrent}A` },
                       { label: 'Power Rating', value: `${fmt(ngrP, 0)} W (${fmt(ngrP / 1000, 2)} kW)` },
                       { label: 'Duration', value: durationEntry.duration },
-                      { label: 'Size Factor', value: `${durationEntry.sizeFactor}\× (relative to 10 sec)` },
+                      { label: 'Size Factor', value: `${durationEntry.sizeFactor}× (relative to 10 sec)` },
                     ].map(row => (
                       <div key={row.label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <span style={{ fontSize: 13, color: 'var(--text-secondary)' }}>{row.label}</span>
@@ -1107,7 +1107,7 @@ export default function GroundFaultPage() {
                 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <span style={{ fontSize: 14, fontWeight: 700, color: 'var(--text)' }}>{d.duration}</span>
-                    <span style={badge}>Size: {d.sizeFactor}{'\×'}</span>
+                    <span style={badge}>Size: {d.sizeFactor}{'×'}</span>
                   </div>
                   <div style={{ fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.5 }}>
                     {d.notes}
@@ -1126,7 +1126,7 @@ export default function GroundFaultPage() {
                   <thead>
                     <tr>
                       <th style={tableHeader}>Voltage</th>
-                      <th style={tableHeader}>R ({'\Ω'})</th>
+                      <th style={tableHeader}>R ({'Ω'})</th>
                       <th style={tableHeader}>I<sub>limit</sub></th>
                       <th style={tableHeader}>Duration</th>
                       <th style={tableHeader}>Application</th>
@@ -1234,10 +1234,10 @@ export default function GroundFaultPage() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                 {[
                   { param: 'Pilot Wire Voltage', value: '24-48V DC (low energy)', notes: 'Safe for personnel contact' },
-                  { param: 'Trip Resistance', value: '25-50 \Ω (adjustable)', notes: 'Set based on cable length and temperature' },
+                  { param: 'Trip Resistance', value: '25-50 Ω (adjustable)', notes: 'Set based on cable length and temperature' },
                   { param: 'Trip Time', value: '<0.1 sec (instantaneous)', notes: 'Ground fault = immediate de-energize' },
-                  { param: 'Ground Continuity', value: '<1 \Ω end-to-end (typical)', notes: 'Includes cable + connections' },
-                  { param: 'End Resistance (R)', value: '120-680 \Ω (equipment end)', notes: 'Creates the monitoring loop' },
+                  { param: 'Ground Continuity', value: '<1 Ω end-to-end (typical)', notes: 'Includes cable + connections' },
+                  { param: 'End Resistance (R)', value: '120-680 Ω (equipment end)', notes: 'Creates the monitoring loop' },
                   { param: 'Time Delay Option', value: '0.1-0.5 sec (motor start)', notes: 'Prevents nuisance trips on VFD startup' },
                 ].map(row => (
                   <div key={row.param} style={{
@@ -1659,7 +1659,7 @@ export default function GroundFaultPage() {
               </div>
               <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 10, lineHeight: 1.6 }}>
                 This is the Schwarz/Laurent formula (IEEE 80). For open pit mine substations, the target
-                is typically {'<'}1{'\Ω'}. Achieving this in rocky, high-resistivity soil may require ground
+                is typically {'<'}1{'Ω'}. Achieving this in rocky, high-resistivity soil may require ground
                 enhancement (bentonite, chemical rods, or counterpoise conductors extending into lower benches).
               </div>
             </div>
@@ -1678,10 +1678,10 @@ export default function GroundFaultPage() {
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                 {[
-                  { season: 'Summer', factor: '1.0\× (baseline)', color: '#4ade80', notes: 'Best conditions. Moist soil, unfrozen ground. Ideal time for baseline testing.' },
-                  { season: 'Fall', factor: '1.2-1.5\×', color: '#fbbf24', notes: 'Drying soil increases resistance. Ground starting to freeze on surface.' },
-                  { season: 'Winter', factor: '3-10\×+', color: '#f87171', notes: 'Frozen ground dramatically increases resistance. Frost depth 1-2m in Northern Ontario. Ground rods below frost line critical.' },
-                  { season: 'Spring', factor: '0.8-1.2\×', color: '#60a5fa', notes: 'Thawing and moisture reduce resistance. Spring runoff can temporarily improve grounding. Watch for frost heave damage to ground connections.' },
+                  { season: 'Summer', factor: '1.0× (baseline)', color: '#4ade80', notes: 'Best conditions. Moist soil, unfrozen ground. Ideal time for baseline testing.' },
+                  { season: 'Fall', factor: '1.2-1.5×', color: '#fbbf24', notes: 'Drying soil increases resistance. Ground starting to freeze on surface.' },
+                  { season: 'Winter', factor: '3-10×+', color: '#f87171', notes: 'Frozen ground dramatically increases resistance. Frost depth 1-2m in Northern Ontario. Ground rods below frost line critical.' },
+                  { season: 'Spring', factor: '0.8-1.2×', color: '#60a5fa', notes: 'Thawing and moisture reduce resistance. Spring runoff can temporarily improve grounding. Watch for frost heave damage to ground connections.' },
                 ].map(s => (
                   <div key={s.season} style={{
                     background: 'var(--surface-elevated)',
@@ -1731,7 +1731,7 @@ export default function GroundFaultPage() {
               conductor from an energized system to test ground resistance. Always de-energize and follow
               LOTO procedures before disconnecting any grounding connections. Use clamp-on ground testers
               for testing on energized multi-ground systems. Step potential hazards exist near ground fault
-              locations {'\—'} approach with caution and use proper PPE.
+              locations {'—'} approach with caution and use proper PPE.
             </div>
           </div>
         )}

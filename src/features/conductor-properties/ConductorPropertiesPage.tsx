@@ -382,15 +382,15 @@ interface MaterialProp {
 
 const materialProps: MaterialProp[] = [
   { property: 'Conductivity (% IACS)', copper: '100%', aluminum: '61%', copperClad: '80\–85%' },
-  { property: 'Resistivity (\Ω\·mm\²/m at 20\°C)', copper: '0.01724', aluminum: '0.02828', copperClad: '0.0206' },
+  { property: 'Resistivity (Ω\·mm\²/m at 20\°C)', copper: '0.01724', aluminum: '0.02828', copperClad: '0.0206' },
   { property: 'Density (g/cm\³)', copper: '8.89', aluminum: '2.70', copperClad: '6.30' },
   { property: 'Weight (relative to copper)', copper: '1.00', aluminum: '0.30', copperClad: '0.71' },
   { property: 'Tensile Strength (MPa)', copper: '220\–400', aluminum: '75\–200', copperClad: '280\–350' },
   { property: 'Melting Point (\°C)', copper: '1083', aluminum: '660', copperClad: '~1000' },
-  { property: 'Thermal Expansion (per \°C)', copper: '17 \× 10\⁻\⁶', aluminum: '23 \× 10\⁻\⁶', copperClad: '18 \× 10\⁻\⁶' },
+  { property: 'Thermal Expansion (per \°C)', copper: '17 × 10\⁻\⁶', aluminum: '23 × 10\⁻\⁶', copperClad: '18 × 10\⁻\⁶' },
   { property: 'Temp Coefficient (\α at 20\°C)', copper: '0.00393', aluminum: '0.00403', copperClad: '~0.0039' },
   { property: 'Relative Cost (approx.)', copper: 'High', aluminum: 'Low (~35% of Cu)', copperClad: 'Medium' },
-  { property: 'Size for Same Ampacity', copper: '1\×', aluminum: '~1.6\× larger', copperClad: '~1.2\× larger' },
+  { property: 'Size for Same Ampacity', copper: '1×', aluminum: '~1.6× larger', copperClad: '~1.2× larger' },
 ]
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -427,8 +427,8 @@ function WireGaugeTab() {
             <th style={thStyle}>Size</th>
             <th style={thStyle}>Dia (mm)</th>
             <th style={thStyle}>Area (mm{'\²'})</th>
-            <th style={{ ...thStyle, color: '#ff9800' }}>R<sub>DC</sub> Cu ({'\Ω'}/km)</th>
-            <th style={{ ...thStyle, color: '#90caf9' }}>R<sub>DC</sub> Al ({'\Ω'}/km)</th>
+            <th style={{ ...thStyle, color: '#ff9800' }}>R<sub>DC</sub> Cu ({'Ω'}/km)</th>
+            <th style={{ ...thStyle, color: '#90caf9' }}>R<sub>DC</sub> Al ({'Ω'}/km)</th>
             <th style={thStyle}>Wt Cu (kg/km)</th>
             <th style={thStyle}>Wt Al (kg/km)</th>
             <th style={{ ...thStyle, color: 'var(--primary)' }}>Amps 75{'\°'}C</th>
@@ -553,7 +553,7 @@ function ResistanceReactanceTab() {
 
       {/* AC Resistance Table */}
       <div style={sectionCard}>
-        <div style={sectionTitle}>AC Resistance and Reactance at 60 Hz (Copper, {'\Ω'}/km at 75{'\°'}C)</div>
+        <div style={sectionTitle}>AC Resistance and Reactance at 60 Hz (Copper, {'Ω'}/km at 75{'\°'}C)</div>
         <p style={bodyText}>
           Based on CEC Table 9 data. R<sub>AC</sub> includes skin effect. Reactance (X<sub>L</sub>) shown for
           PVC conduit and steel conduit at standard spacings.
@@ -564,11 +564,11 @@ function ResistanceReactanceTab() {
         <thead>
           <tr>
             <th style={thStyle}>Size</th>
-            <th style={thStyle}>R<sub>DC</sub> ({'\Ω'}/km)</th>
-            <th style={thStyle}>R<sub>AC</sub> ({'\Ω'}/km)</th>
+            <th style={thStyle}>R<sub>DC</sub> ({'Ω'}/km)</th>
+            <th style={thStyle}>R<sub>AC</sub> ({'Ω'}/km)</th>
             <th style={thStyle}>Skin Factor</th>
-            <th style={thStyle}>X<sub>L</sub> PVC ({'\Ω'}/km)</th>
-            <th style={thStyle}>X<sub>L</sub> Steel ({'\Ω'}/km)</th>
+            <th style={thStyle}>X<sub>L</sub> PVC ({'Ω'}/km)</th>
+            <th style={thStyle}>X<sub>L</sub> Steel ({'Ω'}/km)</th>
           </tr>
         </thead>
         <tbody>
@@ -593,7 +593,7 @@ function ResistanceReactanceTab() {
           temperature to a different operating temperature.
         </p>
         <div style={formulaBox}>
-          R<sub>T</sub> = R<sub>base</sub> {'\×'} [1 + {'\α'} {'\×'} (T<sub>target</sub> - T<sub>base</sub>)]
+          R<sub>T</sub> = R<sub>base</sub> {'×'} [1 + {'\α'} {'×'} (T<sub>target</sub> - T<sub>base</sub>)]
           <br />
           Where {'\α'}<sub>Cu</sub> = 0.00393/{'\°'}C, {'\α'}<sub>Al</sub> = 0.00403/{'\°'}C (at 20{'\°'}C)
         </div>
@@ -607,7 +607,7 @@ function ResistanceReactanceTab() {
             </select>
           </div>
           <div>
-            <div style={labelStyle}>Base Resistance ({'\Ω'}/km)</div>
+            <div style={labelStyle}>Base Resistance ({'Ω'}/km)</div>
             <input style={inputStyle} type="number" step="any" value={baseRes} onChange={e => setBaseRes(e.target.value)} placeholder="1.32" />
           </div>
           <div>
@@ -623,13 +623,13 @@ function ResistanceReactanceTab() {
         {correctedRes !== null && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             <div style={resultBox}>
-              <div style={resultValue}>{fmt(correctedRes, 4)} {'\Ω'}/km</div>
+              <div style={resultValue}>{fmt(correctedRes, 4)} {'Ω'}/km</div>
               <div style={resultLabel}>Corrected Resistance at {Ttarget}{'\°'}C</div>
             </div>
             <div style={formulaBox}>
-              R = {fmt(Rbase, 4)} {'\×'} [1 + {alpha} {'\×'} ({Ttarget} - {Tbase})]
-              {' = '}{fmt(Rbase, 4)} {'\×'} {fmt(1 + alpha * (Ttarget - Tbase), 4)}
-              {' = '}{fmt(correctedRes, 4)} {'\Ω'}/km
+              R = {fmt(Rbase, 4)} {'×'} [1 + {alpha} {'×'} ({Ttarget} - {Tbase})]
+              {' = '}{fmt(Rbase, 4)} {'×'} {fmt(1 + alpha * (Ttarget - Tbase), 4)}
+              {' = '}{fmt(correctedRes, 4)} {'Ω'}/km
             </div>
           </div>
         )}
@@ -641,7 +641,7 @@ function ResistanceReactanceTab() {
         <ul style={{ ...bodyText, margin: 0, paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: 6 }}>
           <li>Reactance (X<sub>L</sub>) is inductive and depends on conductor spacing, not conductor material.</li>
           <li>Steel conduit has higher reactance than PVC because the magnetic steel increases inductance.</li>
-          <li>For voltage drop calculations: V<sub>drop</sub> = I {'\×'} L {'\×'} (R{'\·'}cos{'\θ'} + X<sub>L</sub>{'\·'}sin{'\θ'})</li>
+          <li>For voltage drop calculations: V<sub>drop</sub> = I {'×'} L {'×'} (R{'\·'}cos{'\θ'} + X<sub>L</sub>{'\·'}sin{'\θ'})</li>
           <li>At unity power factor, reactance has zero contribution to voltage drop.</li>
           <li>CEC Table 9 provides impedance values for both copper and aluminum in various conduit types.</li>
           <li>For larger conductors (above 4/0), reactance becomes a more significant portion of total impedance.</li>
@@ -1061,7 +1061,7 @@ function TemperatureDeratingTab() {
               </div>
             </div>
             <div style={formulaBox}>
-              Corrected = {fmt(ampBase)} A {'\×'} {fmt(tempFactor)} {'\×'} {fmt(bundleFactor)} = {fmt(correctedAmp)} A
+              Corrected = {fmt(ampBase)} A {'×'} {fmt(tempFactor)} {'×'} {fmt(bundleFactor)} = {fmt(correctedAmp)} A
             </div>
           </div>
         ) : tempFactor === null && !isNaN(ambTemp) ? (
@@ -1104,13 +1104,13 @@ function TemperatureDeratingTab() {
                   {r.ambientRange} {isBase ? '(base)' : ''}
                 </td>
                 <td style={{ ...tdStyle, color: r.factor60 === null ? 'var(--error)' : r.factor60 < 1 ? '#ff6b6b' : '#4caf50' }}>
-                  {r.factor60 !== null ? fmt(r.factor60) : '\—'}
+                  {r.factor60 !== null ? fmt(r.factor60) : '—'}
                 </td>
                 <td style={{ ...tdStyle, color: r.factor75 === null ? 'var(--error)' : r.factor75 < 1 ? '#ff9800' : '#4caf50' }}>
-                  {r.factor75 !== null ? fmt(r.factor75) : '\—'}
+                  {r.factor75 !== null ? fmt(r.factor75) : '—'}
                 </td>
                 <td style={{ ...tdStyle, color: r.factor90 === null ? 'var(--error)' : r.factor90 < 1 ? '#ff9800' : '#4caf50' }}>
-                  {r.factor90 !== null ? fmt(r.factor90) : '\—'}
+                  {r.factor90 !== null ? fmt(r.factor90) : '—'}
                 </td>
               </tr>
             )
@@ -1527,7 +1527,7 @@ function ConductorSelectionTab() {
             <ul style={{ ...bodyText, margin: 0, paddingLeft: 44, display: 'flex', flexDirection: 'column', gap: 4 }}>
               <li>Table 5A: Ambient temperature correction (base is 30{'\°'}C)</li>
               <li>Table 5C: Bundling derating (more than 3 current-carrying conductors)</li>
-              <li>Required ampacity = Load current {'\÷'} (temp factor {'\×'} bundle factor)</li>
+              <li>Required ampacity = Load current {'\÷'} (temp factor {'×'} bundle factor)</li>
             </ul>
           </div>
 
@@ -1561,7 +1561,7 @@ function ConductorSelectionTab() {
             </div>
             <ul style={{ ...bodyText, margin: 0, paddingLeft: 44, display: 'flex', flexDirection: 'column', gap: 4 }}>
               <li>CEC Rule 8-102: Max 5% total voltage drop (3% branch, 2% feeder recommended)</li>
-              <li>V<sub>drop</sub> = I {'\×'} L {'\×'} 2 {'\×'} R / 1000 (single-phase)</li>
+              <li>V<sub>drop</sub> = I {'×'} L {'×'} 2 {'×'} R / 1000 (single-phase)</li>
               <li>If voltage drop exceeds limits, upsize the conductor</li>
               <li>Long runs in mining often require oversizing for voltage drop</li>
             </ul>

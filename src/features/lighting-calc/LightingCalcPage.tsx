@@ -13,34 +13,34 @@ const modeOptions = [
 ]
 
 const luxPresets = [
-  { value: '50', label: '50 lux \— Garage / Parking' },
-  { value: '100', label: '100 lux \— Warehouse' },
-  { value: '150', label: '150 lux \— Workshop' },
-  { value: '200', label: '200 lux \— Office / Classroom' },
-  { value: '300', label: '300 lux \— Detailed Work' },
-  { value: '500', label: '500 lux \— Fine Detail' },
+  { value: '50', label: '50 lux — Garage / Parking' },
+  { value: '100', label: '100 lux — Warehouse' },
+  { value: '150', label: '150 lux — Workshop' },
+  { value: '200', label: '200 lux — Office / Classroom' },
+  { value: '300', label: '300 lux — Detailed Work' },
+  { value: '500', label: '500 lux — Fine Detail' },
 ]
 
 const cuOptions = [
-  { value: '0.40', label: '0.40 \— Dark surfaces' },
+  { value: '0.40', label: '0.40 — Dark surfaces' },
   { value: '0.45', label: '0.45' },
-  { value: '0.50', label: '0.50 \— Average' },
+  { value: '0.50', label: '0.50 — Average' },
   { value: '0.55', label: '0.55' },
-  { value: '0.60', label: '0.60 \— Light surfaces' },
+  { value: '0.60', label: '0.60 — Light surfaces' },
   { value: '0.65', label: '0.65' },
-  { value: '0.70', label: '0.70 \— Very light' },
+  { value: '0.70', label: '0.70 — Very light' },
   { value: '0.75', label: '0.75' },
-  { value: '0.80', label: '0.80 \— White / reflective' },
+  { value: '0.80', label: '0.80 — White / reflective' },
 ]
 
 const llfOptions = [
-  { value: '0.60', label: '0.60 \— Very dirty / dusty' },
-  { value: '0.65', label: '0.65 \— Dirty' },
-  { value: '0.70', label: '0.70 \— Moderate dirt' },
-  { value: '0.75', label: '0.75 \— Average' },
-  { value: '0.80', label: '0.80 \— Clean' },
-  { value: '0.85', label: '0.85 \— Very clean' },
-  { value: '0.90', label: '0.90 \— Pristine' },
+  { value: '0.60', label: '0.60 — Very dirty / dusty' },
+  { value: '0.65', label: '0.65 — Dirty' },
+  { value: '0.70', label: '0.70 — Moderate dirt' },
+  { value: '0.75', label: '0.75 — Average' },
+  { value: '0.80', label: '0.80 — Clean' },
+  { value: '0.85', label: '0.85 — Very clean' },
+  { value: '0.90', label: '0.90 — Pristine' },
 ]
 
 const miningLightingReqs: { area: string; lux: number; notes: string }[] = [
@@ -84,7 +84,7 @@ export default function LightingCalcPage() {
     // Number of fixtures = (Lux × Area) / (Lumens × CU × LLF)
     numFixtures = (lux * area) / (lumens * cuVal * llfVal)
     totalLumens = Math.ceil(numFixtures) * lumens
-    formula = `N = (${fmt(lux, 0)} lux \× ${fmt(area, 1)} m\²) / (${fmt(lumens, 0)} lm \× ${fmt(cuVal, 2)} \× ${fmt(llfVal, 2)}) = ${fmt(numFixtures, 1)}`
+    formula = `N = (${fmt(lux, 0)} lux × ${fmt(area, 1)} m\²) / (${fmt(lumens, 0)} lm × ${fmt(cuVal, 2)} × ${fmt(llfVal, 2)}) = ${fmt(numFixtures, 1)}`
   }
 
   const roomResults = hasInputs
@@ -96,9 +96,9 @@ export default function LightingCalcPage() {
         ...((!isNaN(H) && H > 0) ? [{ label: 'Room Cavity Ratio', value: fmt((5 * H * (L + W)) / (L * W), 2) }] : []),
       ]
     : [
-        { label: 'Fixtures Required', value: '\—' },
-        { label: 'Room Area', value: '\—', unit: 'm\²' },
-        { label: 'Total Lumens', value: '\—', unit: 'lm' },
+        { label: 'Fixtures Required', value: '—' },
+        { label: 'Room Area', value: '—', unit: 'm\²' },
+        { label: 'Total Lumens', value: '—', unit: 'lm' },
       ]
 
   const thStyle: React.CSSProperties = {

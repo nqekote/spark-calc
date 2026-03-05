@@ -85,15 +85,15 @@ interface MeggerRow {
 }
 
 const meggerValues: MeggerRow[] = [
-  { voltageClass: '120V', testVoltage: '500V DC', minInsulation: '1 M\Ω', notes: 'Residential/control wiring' },
-  { voltageClass: '240V', testVoltage: '500V DC', minInsulation: '1 M\Ω', notes: 'Single phase power' },
-  { voltageClass: '600V', testVoltage: '1000V DC', minInsulation: '2 M\Ω', notes: 'Standard mine power — 1 M\Ω/kV + 1 M\Ω' },
-  { voltageClass: '1000V', testVoltage: '1000V DC', minInsulation: '2 M\Ω', notes: 'Low voltage switchgear' },
-  { voltageClass: '2400V', testVoltage: '2500V DC', minInsulation: '3.4 M\Ω', notes: 'Medium voltage distribution' },
-  { voltageClass: '4160V', testVoltage: '2500V DC', minInsulation: '5.16 M\Ω', notes: 'Medium voltage mine feeders' },
-  { voltageClass: '5000V', testVoltage: '2500V DC', minInsulation: '6 M\Ω', notes: 'Common trailing cable voltage' },
-  { voltageClass: '13.8kV', testVoltage: '5000V DC', minInsulation: '14.8 M\Ω', notes: 'Primary distribution' },
-  { voltageClass: '25kV', testVoltage: '5000V DC', minInsulation: '26 M\Ω', notes: 'Utility supply' },
+  { voltageClass: '120V', testVoltage: '500V DC', minInsulation: '1 MΩ', notes: 'Residential/control wiring' },
+  { voltageClass: '240V', testVoltage: '500V DC', minInsulation: '1 MΩ', notes: 'Single phase power' },
+  { voltageClass: '600V', testVoltage: '1000V DC', minInsulation: '2 MΩ', notes: 'Standard mine power — 1 MΩ/kV + 1 MΩ' },
+  { voltageClass: '1000V', testVoltage: '1000V DC', minInsulation: '2 MΩ', notes: 'Low voltage switchgear' },
+  { voltageClass: '2400V', testVoltage: '2500V DC', minInsulation: '3.4 MΩ', notes: 'Medium voltage distribution' },
+  { voltageClass: '4160V', testVoltage: '2500V DC', minInsulation: '5.16 MΩ', notes: 'Medium voltage mine feeders' },
+  { voltageClass: '5000V', testVoltage: '2500V DC', minInsulation: '6 MΩ', notes: 'Common trailing cable voltage' },
+  { voltageClass: '13.8kV', testVoltage: '5000V DC', minInsulation: '14.8 MΩ', notes: 'Primary distribution' },
+  { voltageClass: '25kV', testVoltage: '5000V DC', minInsulation: '26 MΩ', notes: 'Utility supply' },
 ]
 
 /* ------------------------------------------------------------------ */
@@ -259,7 +259,7 @@ export default function MultimeterPage() {
               <div style={heading}>How to Measure AC Voltage</div>
               <div style={body14}>
                 1. Set meter to AC Voltage (V~) and select appropriate range{'\n'}
-                2. Insert black lead into COM jack, red lead into V/{'\Ω'} jack{'\n'}
+                2. Insert black lead into COM jack, red lead into V/{'Ω'} jack{'\n'}
                 3. Touch probes to the two points to measure across (L-L, L-N, or L-G){'\n'}
                 4. Read the RMS voltage on the display
               </div>
@@ -301,7 +301,7 @@ export default function MultimeterPage() {
               <div style={heading}>What Is Ghost Voltage?</div>
               <div style={body14}>
                 Ghost voltage (phantom voltage) occurs when a high-impedance digital multimeter reads voltage on a circuit that is supposed to be de-energized. The meter picks up induced voltage from nearby energized conductors through capacitive coupling.{'\n\n'}
-                <strong style={{ color: 'var(--text)' }}>Why it happens:</strong> High-impedance meters (10 M{'\Ω'} input) draw almost no current. Long wire runs in the same conduit as energized conductors act as capacitors, coupling voltage onto the supposedly dead wire. The meter displays this as a real voltage (often 30-80V or more).{'\n\n'}
+                <strong style={{ color: 'var(--text)' }}>Why it happens:</strong> High-impedance meters (10 M{'Ω'} input) draw almost no current. Long wire runs in the same conduit as energized conductors act as capacitors, coupling voltage onto the supposedly dead wire. The meter displays this as a real voltage (often 30-80V or more).{'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>How to verify:</strong>{'\n'}
                 {'\•'} Use a low-impedance meter (LoZ mode) or a solenoid tester (wiggy). These draw enough current to collapse a ghost voltage but will still read a real voltage.{'\n'}
                 {'\•'} Most quality meters have a LoZ or Low-Z function — use it any time you are verifying de-energization.{'\n'}
@@ -539,11 +539,11 @@ export default function MultimeterPage() {
                 1. Verify circuit is de-energized and locked out{'\n'}
                 2. Set meter to continuity mode (audible beep){'\n'}
                 3. Touch probes to both ends of the conductor or connection{'\n'}
-                4. A good connection reads near 0 {'\Ω'} with a continuous beep{'\n\n'}
+                4. A good connection reads near 0 {'Ω'} with a continuous beep{'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>Expected readings:</strong>{'\n'}
-                {'\•'} Good wire connection: {'\u003C'} 0.5 {'\Ω'}{'\n'}
-                {'\•'} Good splice or terminal: {'\u003C'} 1.0 {'\Ω'}{'\n'}
-                {'\•'} Long cable run (300m): up to 2-5 {'\Ω'} depending on wire size{'\n'}
+                {'\•'} Good wire connection: {'\u003C'} 0.5 {'Ω'}{'\n'}
+                {'\•'} Good splice or terminal: {'\u003C'} 1.0 {'Ω'}{'\n'}
+                {'\•'} Long cable run (300m): up to 2-5 {'Ω'} depending on wire size{'\n'}
                 {'\•'} Open circuit: OL (overload) — no continuity
               </div>
             </div>
@@ -557,9 +557,9 @@ export default function MultimeterPage() {
                 {'\•'} T1-T2, T2-T3, T1-T3{'\n\n'}
                 All three readings should be within 5% of each other. A significant difference indicates a winding fault (shorted turns, open winding, or bad connection).{'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>Typical winding resistance values:</strong>{'\n'}
-                {'\•'} Small motors (1-10 HP): 1-20 {'\Ω'}{'\n'}
-                {'\•'} Medium motors (15-50 HP): 0.1-5 {'\Ω'}{'\n'}
-                {'\•'} Large motors (75-200 HP): 0.01-1 {'\Ω'}{'\n\n'}
+                {'\•'} Small motors (1-10 HP): 1-20 {'Ω'}{'\n'}
+                {'\•'} Medium motors (15-50 HP): 0.1-5 {'Ω'}{'\n'}
+                {'\•'} Large motors (75-200 HP): 0.01-1 {'Ω'}{'\n\n'}
                 Use a quality meter with milliohm resolution for large motors. Temperature affects readings — ensure motor is at ambient temperature, or apply temperature correction.
               </div>
               <div style={miningTip}>
@@ -578,11 +578,11 @@ export default function MultimeterPage() {
                 3. Discharge any stored capacitance (short phases to ground briefly){'\n'}
                 4. Connect megger leads: LINE to conductor under test, EARTH to ground{'\n'}
                 5. Apply test voltage for 1 minute (standard test duration){'\n'}
-                6. Read insulation resistance in megohms (M{'\Ω'}){'\n'}
+                6. Read insulation resistance in megohms (M{'Ω'}){'\n'}
                 7. After test, discharge the cable/winding to ground before handling{'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>Minimum Acceptable Value (Rule of Thumb):</strong>{'\n'}
                 <strong style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)' }}>
-                  R(min) = (kV rating {'\×'} 1 M{'\Ω'}) + 1 M{'\Ω'}
+                  R(min) = (kV rating {'×'} 1 M{'Ω'}) + 1 M{'Ω'}
                 </strong>{'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>Temperature effect:</strong> Insulation resistance halves for every 10{'\°'}C rise. Always record ambient temperature. Correct readings to a common reference (usually 40{'\°'}C) for trending.{'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>Moisture effect:</strong> Wet insulation reads dramatically lower. If readings are low, try drying out the winding/cable with a space heater or by running a small current through it, then re-test.
@@ -631,10 +631,10 @@ export default function MultimeterPage() {
                 3. The tester injects current through C and measures voltage at P{'\n'}
                 4. R = V/I (the tester calculates and displays this){'\n\n'}
                 <strong style={{ color: 'var(--text)' }}>Acceptable values:</strong>{'\n'}
-                {'\•'} CEC Rule 10-700: Maximum 25 {'\Ω'} for grounding electrodes{'\n'}
-                {'\•'} Preferred: Below 5 {'\Ω'} for commercial/industrial{'\n'}
-                {'\•'} Mining best practice: Below 5 {'\Ω'} for mine ground beds{'\n'}
-                {'\•'} Sensitive equipment (data centres, PLC rooms): Below 1 {'\Ω'}
+                {'\•'} CEC Rule 10-700: Maximum 25 {'Ω'} for grounding electrodes{'\n'}
+                {'\•'} Preferred: Below 5 {'Ω'} for commercial/industrial{'\n'}
+                {'\•'} Mining best practice: Below 5 {'Ω'} for mine ground beds{'\n'}
+                {'\•'} Sensitive equipment (data centres, PLC rooms): Below 1 {'Ω'}
               </div>
               <div style={miningTip}>
                 <strong>Mining Tip:</strong> Rock has very high resistivity. Achieving low ground resistance in Canadian Shield rock can be challenging. Mine ground beds often use multiple driven rods, buried ring conductors, or ground enhancement materials (GEM). Test annually and after any ground fault event.
@@ -757,7 +757,7 @@ export default function MultimeterPage() {
                 <strong style={{ color: 'var(--text)' }}>Clamp-on Method:</strong> Does not require disconnecting the electrode. Measures the loop impedance of the grounding system. Limited accuracy compared to fall-of-potential but useful for quick checks and for electrodes that cannot be easily disconnected.
               </div>
               <div style={miningTip}>
-                <strong>Mining Tip:</strong> Use the 4-point Wenner method when designing new mine ground beds on the Canadian Shield. Precambrian rock has extremely high resistivity (10,000+ {'\Ω'}{'\·'}m). You may need deep-driven rods, multiple electrodes in parallel, or ground enhancement material to achieve acceptable resistance.
+                <strong>Mining Tip:</strong> Use the 4-point Wenner method when designing new mine ground beds on the Canadian Shield. Precambrian rock has extremely high resistivity (10,000+ {'Ω'}{'\·'}m). You may need deep-driven rods, multiple electrodes in parallel, or ground enhancement material to achieve acceptable resistance.
               </div>
             </div>
 
@@ -771,7 +771,7 @@ export default function MultimeterPage() {
                 <strong style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)' }}>
                   PFC = Supply Voltage / Loop Impedance
                 </strong>{'\n\n'}
-                Example: 600V system, loop impedance 0.5{'\Ω'}: PFC = 600 / 0.5 = 1200A. Verify this exceeds the overcurrent device trip threshold.
+                Example: 600V system, loop impedance 0.5{'Ω'}: PFC = 600 / 0.5 = 1200A. Verify this exceeds the overcurrent device trip threshold.
               </div>
             </div>
 

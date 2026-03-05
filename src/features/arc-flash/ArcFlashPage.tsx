@@ -226,7 +226,7 @@ const riskSteps: RiskStep[] = [
     title: 'Determine PPE Category',
     details: [
       'Match incident energy to PPE category (Cat 1: \≤4, Cat 2: \≤8, Cat 3: \≤25, Cat 4: \≤40 cal/cm\²)',
-      'If incident energy exceeds 40 cal/cm\²: DO NOT WORK ENERGIZED \— no PPE is rated above 40 cal/cm\²',
+      'If incident energy exceeds 40 cal/cm\²: DO NOT WORK ENERGIZED — no PPE is rated above 40 cal/cm\²',
       'Select all required PPE items for the category',
       'Verify PPE arc ratings meet or exceed the incident energy',
     ],
@@ -236,9 +236,9 @@ const riskSteps: RiskStep[] = [
     step: 4,
     title: 'Establish Boundaries',
     details: [
-      'Mark the Flash Protection Boundary \— all persons inside must wear arc-rated PPE',
-      'Mark the Limited Approach Boundary \— only qualified persons may enter',
-      'Mark the Restricted Approach Boundary \— requires energized work permit',
+      'Mark the Flash Protection Boundary — all persons inside must wear arc-rated PPE',
+      'Mark the Limited Approach Boundary — only qualified persons may enter',
+      'Mark the Restricted Approach Boundary — requires energized work permit',
       'Use barricades, tape, or cones to clearly identify boundaries',
     ],
   },
@@ -490,7 +490,7 @@ function calcIncidentEnergy(
     catNum = 4
     catColor = '#ff3c3c'
   } else {
-    category = 'EXCEEDS CAT 4 \— DO NOT WORK ENERGIZED'
+    category = 'EXCEEDS CAT 4 — DO NOT WORK ENERGIZED'
     catNum = 5
     catColor = '#ff3c3c'
   }
@@ -972,7 +972,7 @@ export default function ArcFlashPage() {
                     textAlign: 'center',
                     lineHeight: 1.5,
                   }}>
-                    {'\⛔'} DANGER: Exceeds 40 cal/cm{'\²'} {'\—'} DO NOT WORK ENERGIZED
+                    {'\⛔'} DANGER: Exceeds 40 cal/cm{'\²'} {'—'} DO NOT WORK ENERGIZED
                   </div>
                 )}
 
@@ -1057,7 +1057,7 @@ export default function ArcFlashPage() {
                   D = working distance (mm), x = distance exponent
                 </div>
                 <div style={{ marginTop: 6, fontSize: 11, fontFamily: 'var(--font-sans)' }}>
-                  Lee Method ({'>'}600V): E = 5.12{'\×'}10{'\⁵'} {'\·'} V {'\·'} Ibf {'\·'} t / D{'\²'}
+                  Lee Method ({'>'}600V): E = 5.12{'×'}10{'\⁵'} {'\·'} V {'\·'} Ibf {'\·'} t / D{'\²'}
                 </div>
               </div>
             </div>
@@ -1187,7 +1187,7 @@ export default function ArcFlashPage() {
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                 {[
-                  'STOP \— Do not assume the equipment is safe.',
+                  'STOP — Do not assume the equipment is safe.',
                   'Treat as potentially hazardous. Use the CSA Z462 table-based method to estimate the PPE category based on equipment type and voltage.',
                   'Report the missing label to your supervisor immediately.',
                   'Request an arc flash study be performed on the equipment.',

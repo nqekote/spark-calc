@@ -296,7 +296,7 @@ export default function GfciAfciPage() {
           fontWeight: 600,
           color: 'var(--text-secondary)',
         }}>
-          {tab === 'gfci' ? 'GFCI Protection Required \— CEC Rule 26-700' : 'AFCI Protection Required \— CEC Rule 26-722'}
+          {tab === 'gfci' ? 'GFCI Protection Required — CEC Rule 26-700' : 'AFCI Protection Required — CEC Rule 26-722'}
           <span style={{ fontWeight: 400, marginLeft: 8 }}>
             ({filteredRequirements.length} location{filteredRequirements.length !== 1 ? 's' : ''})
           </span>

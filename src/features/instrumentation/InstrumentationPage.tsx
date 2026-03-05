@@ -220,7 +220,7 @@ interface RTDType {
 const rtdTypes: RTDType[] = [
   {
     name: 'PT100',
-    resistance: '100\Ω at 0\°C',
+    resistance: '100Ω at 0\°C',
     range: '-200 to +850\°C',
     accuracy: 'Class A: \±0.15\°C at 0\°C',
     material: 'Platinum',
@@ -229,7 +229,7 @@ const rtdTypes: RTDType[] = [
   },
   {
     name: 'PT1000',
-    resistance: '1000\Ω at 0\°C',
+    resistance: '1000Ω at 0\°C',
     range: '-200 to +850\°C',
     accuracy: 'Class A: \±0.15\°C at 0\°C',
     material: 'Platinum',
@@ -238,7 +238,7 @@ const rtdTypes: RTDType[] = [
   },
   {
     name: 'Ni120',
-    resistance: '120\Ω at 0\°C',
+    resistance: '120Ω at 0\°C',
     range: '-80 to +260\°C',
     accuracy: '\±0.5\°C',
     material: 'Nickel',
@@ -247,7 +247,7 @@ const rtdTypes: RTDType[] = [
   },
   {
     name: 'Cu10',
-    resistance: '10\Ω at 0\°C',
+    resistance: '10Ω at 0\°C',
     range: '-50 to +150\°C',
     accuracy: '\±0.5\°C',
     material: 'Copper',
@@ -347,14 +347,14 @@ interface RTDFault {
 
 const rtdFaults: RTDFault[] = [
   {
-    symptom: 'Reads 0\Ω (shorted element)',
+    symptom: 'Reads 0Ω (shorted element)',
     likelyCause: 'RTD element has failed internally or moisture has entered the sensor and created a short path.',
     test: 'Disconnect RTD leads at transmitter. Measure resistance between RTD leads with multimeter.',
     fix: 'Replace RTD sensor. Check thermowell seal and connection head gasket for moisture entry points.',
     color: '#ef4444',
   },
   {
-    symptom: 'Reads open circuit (infinite \Ω)',
+    symptom: 'Reads open circuit (infinite Ω)',
     likelyCause: 'Broken RTD element, broken lead wire, loose terminal, or corroded connection.',
     test: 'Measure resistance at each junction point from transmitter back to sensor to isolate the break.',
     fix: 'Repair or replace broken wire/connection. If element is open, replace sensor.',
@@ -370,7 +370,7 @@ const rtdFaults: RTDFault[] = [
   {
     symptom: 'Reading drifts slowly over time',
     likelyCause: 'Sensor contamination, moisture ingress, insulation degradation. Long-term element drift at high temperatures.',
-    test: 'Compare reading to a known reference thermometer. Check insulation resistance (megger leads to ground, should be >100 M\Ω).',
+    test: 'Compare reading to a known reference thermometer. Check insulation resistance (megger leads to ground, should be >100 MΩ).',
     fix: 'Replace sensor. Seal connection head. Consider ceramic insulated RTD for high temperature applications.',
     color: '#a855f7',
   },
@@ -654,7 +654,7 @@ const signalDevices: SignalDevice[] = [
     inputSignal: '4-20 mA',
     outputSignal: '0-5V, 0-10V, or 1-5V',
     application: 'Interface 4-20mA field devices to voltage-input PLC modules or data loggers. Common in older or mixed systems.',
-    wiringNotes: 'Simple: 250\Ω precision resistor converts 4-20mA to 1-5V. Active converters provide isolation and variable output.',
+    wiringNotes: 'Simple: 250Ω precision resistor converts 4-20mA to 1-5V. Active converters provide isolation and variable output.',
     color: '#22c55e',
   },
   {
@@ -681,7 +681,7 @@ const signalDevices: SignalDevice[] = [
     inputSignal: 'Varies (passes through)',
     outputSignal: 'Energy-limited version of input',
     application: 'Protects hazardous area instruments by clamping fault energy. Required for IS installations in mines.',
-    wiringNotes: 'MUST have dedicated IS ground bus (\≤1\Ω to earth). Shunt type: diverts excess energy to ground. Consumes power.',
+    wiringNotes: 'MUST have dedicated IS ground bus (\≤1Ω to earth). Shunt type: diverts excess energy to ground. Consumes power.',
     color: '#ef4444',
   },
   {
@@ -809,11 +809,11 @@ const hartFacts: HARTFact[] = [
   { title: 'Signal Type', detail: 'HART uses Bell 202 standard: 1200 Hz = logic "1" (mark), 2200 Hz = logic "0" (space). The digital signal is superimposed on the DC analog signal with a peak amplitude of \±0.5 mA.' },
   { title: 'No Interference', detail: 'The average value of the HART AC signal is zero, so it does not affect the 4-20 mA analog reading. Both analog and digital communications work simultaneously.' },
   { title: 'Communication Modes', detail: 'Point-to-point: normal 4-20mA + HART. Multidrop: all devices at 4 mA, communication by polling (address 1-15). Burst mode: device sends data continuously without polling.' },
-  { title: 'Loop Resistance', detail: 'HART requires minimum 250\Ω loop resistance for communication. If PLC input impedance is too low, add a 250\Ω resistor in series. Maximum loop resistance ~1100\Ω.' },
+  { title: 'Loop Resistance', detail: 'HART requires minimum 250Ω loop resistance for communication. If PLC input impedance is too low, add a 250Ω resistor in series. Maximum loop resistance ~1100Ω.' },
   { title: 'Cable Requirements', detail: 'Shielded twisted pair recommended. Maximum cable length: ~3000m (1500m typical for best reliability). Single twisted pair only, no T-splices for reliable communication.' },
   { title: 'Device Variables', detail: 'PV (Primary Variable), SV (Secondary Variable), TV (Tertiary Variable), QV (Quaternary Variable). A pressure transmitter might also report sensor temperature as SV.' },
   { title: 'Configuration Data', detail: 'Device tag, descriptor, date, assembly number, sensor type, measurement range (URV/LRV), damping, output function (linear, square root), engineering units.' },
-  { title: 'Handheld Communicator', detail: 'Connects in parallel across any point in the 4-20mA loop (at the transmitter terminals or at the marshalling panel). Requires 250\Ω minimum resistance between communicator and power supply.' },
+  { title: 'Handheld Communicator', detail: 'Connects in parallel across any point in the 4-20mA loop (at the transmitter terminals or at the marshalling panel). Requires 250Ω minimum resistance between communicator and power supply.' },
   { title: 'Diagnostic Capabilities', detail: 'Device status, loop current verification, sensor diagnostics, configuration change counter, operating hours. Enables predictive maintenance.' },
   { title: 'HART 7 / WirelessHART', detail: 'HART 7 added WirelessHART (IEEE 802.15.4 mesh network at 2.4 GHz). Same HART commands, no wiring needed. Good for retrofit and hard-to-reach locations in mines.' },
 ]
@@ -1570,12 +1570,12 @@ export default function InstrumentationPage() {
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 4, marginTop: 6 }}>
                 {[
-                  { device: 'PLC analog input (250\Ω)', drop: '5.0V' },
+                  { device: 'PLC analog input (250Ω)', drop: '5.0V' },
                   { device: 'Signal isolator', drop: '2.0-4.0V' },
                   { device: 'IS barrier (zener)', drop: '5.0-7.0V' },
                   { device: 'IS barrier (galvanic)', drop: '2.0-3.0V' },
-                  { device: 'Cable resistance (500m x 2 x 44\Ω/km)', drop: '0.9V' },
-                  { device: 'HART resistor (250\Ω)', drop: '5.0V' },
+                  { device: 'Cable resistance (500m x 2 x 44Ω/km)', drop: '0.9V' },
+                  { device: 'HART resistor (250Ω)', drop: '5.0V' },
                 ].map((item, i) => (
                   <div key={i} style={{
                     display: 'flex', justifyContent: 'space-between',
@@ -1688,7 +1688,7 @@ export default function InstrumentationPage() {
             {/* RTD Troubleshooting */}
             <div style={tipBox}>
               <strong>RTD Troubleshooting Tips:</strong><br />
-              PT100 reads ~100\Ω at 0\°C, ~138.5\Ω at 100\°C. If you read 0\Ω, the element is shorted.
+              PT100 reads ~100Ω at 0\°C, ~138.5Ω at 100\°C. If you read 0Ω, the element is shorted.
               If you read infinity (open), the element is broken. Measure resistance at the transmitter
               terminals with power disconnected. Compare to PT100 resistance table.
             </div>
@@ -1706,8 +1706,8 @@ export default function InstrumentationPage() {
                   <thead>
                     <tr>
                       <th style={tableHeader}>Temp (\°C)</th>
-                      <th style={tableHeader}>PT100 (\Ω)</th>
-                      <th style={tableHeader}>PT1000 (\Ω)</th>
+                      <th style={tableHeader}>PT100 (Ω)</th>
+                      <th style={tableHeader}>PT1000 (Ω)</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -1717,8 +1717,8 @@ export default function InstrumentationPage() {
                           : row.tempC === 100 ? 'rgba(255,215,0,0.06)' : 'transparent',
                       }}>
                         <td style={tableCellMono}>{row.tempC}\°C</td>
-                        <td style={tableCellMono}>{row.resistance} \Ω</td>
-                        <td style={tableCellMono}>{(parseFloat(row.resistance) * 10).toFixed(1)} \Ω</td>
+                        <td style={tableCellMono}>{row.resistance} Ω</td>
+                        <td style={tableCellMono}>{(parseFloat(row.resistance) * 10).toFixed(1)} Ω</td>
                       </tr>
                     ))}
                   </tbody>
@@ -1980,7 +1980,7 @@ export default function InstrumentationPage() {
                   </thead>
                   <tbody>
                     {[
-                      ['IS Ground Bus', 'REQUIRED (\≤1\Ω)', 'NOT required'],
+                      ['IS Ground Bus', 'REQUIRED (\≤1Ω)', 'NOT required'],
                       ['Isolation', 'None (shunt type)', 'Full galvanic isolation'],
                       ['Power Loss', 'Significant voltage drop', 'Minimal'],
                       ['Cost', 'Lower', 'Higher'],
@@ -2012,8 +2012,8 @@ export default function InstrumentationPage() {
               </div>
               <div style={{ ...bodyText, marginTop: 8 }}>
                 Example: 24V supply, transmitter needs 12V minimum:<br />
-                Max Loop R = (24 - 12) / 0.020 = <strong>600\Ω</strong><br />
-                PLC input (250\Ω) + cable (50\Ω) + isolator (100\Ω) = 400\Ω &lt; 600\Ω OK
+                Max Loop R = (24 - 12) / 0.020 = <strong>600Ω</strong><br />
+                PLC input (250Ω) + cable (50Ω) + isolator (100Ω) = 400Ω &lt; 600Ω OK
               </div>
             </div>
 
@@ -2039,21 +2039,21 @@ export default function InstrumentationPage() {
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 10 }}>
                 <div>
-                  <div style={labelStyle}>PLC Input R (\Ω)</div>
+                  <div style={labelStyle}>PLC Input R (Ω)</div>
                   <input type="number" value={loopPlcR} onChange={e => setLoopPlcR(e.target.value)} style={inputStyle} inputMode="decimal" />
                 </div>
                 <div>
-                  <div style={labelStyle}>Cable R (\Ω)</div>
+                  <div style={labelStyle}>Cable R (Ω)</div>
                   <input type="number" value={loopCableR} onChange={e => setLoopCableR(e.target.value)} style={inputStyle} inputMode="decimal" />
                 </div>
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 12 }}>
                 <div>
-                  <div style={labelStyle}>Barrier R (\Ω)</div>
+                  <div style={labelStyle}>Barrier R (Ω)</div>
                   <input type="number" value={loopBarrierR} onChange={e => setLoopBarrierR(e.target.value)} style={inputStyle} inputMode="decimal" />
                 </div>
                 <div>
-                  <div style={labelStyle}>Other R (\Ω)</div>
+                  <div style={labelStyle}>Other R (Ω)</div>
                   <input type="number" value={loopOtherR} onChange={e => setLoopOtherR(e.target.value)} style={inputStyle} inputMode="decimal" />
                 </div>
               </div>
@@ -2072,8 +2072,8 @@ export default function InstrumentationPage() {
                 const ok = vAtTx >= vtMin
                 return (
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                    <div style={resultBox}>Total Loop Resistance: {rTotal.toFixed(0)} \Ω</div>
-                    <div style={resultBox}>Max Allowable Loop R: {maxR.toFixed(0)} \Ω</div>
+                    <div style={resultBox}>Total Loop Resistance: {rTotal.toFixed(0)} Ω</div>
+                    <div style={resultBox}>Max Allowable Loop R: {maxR.toFixed(0)} Ω</div>
                     <div style={resultBox}>Voltage Drop at 20 mA: {vDrop.toFixed(2)} V</div>
                     <div style={resultBox}>Voltage at Transmitter: {vAtTx.toFixed(2)} V</div>
                     <div style={{
@@ -2082,8 +2082,8 @@ export default function InstrumentationPage() {
                       color: ok ? '#22c55e' : '#ef4444',
                     }}>
                       Status: {ok
-                        ? `OK \— Transmitter has ${(vAtTx - vtMin).toFixed(1)}V margin`
-                        : `FAIL \— Needs ${vtMin}V, only gets ${vAtTx.toFixed(1)}V`
+                        ? `OK — Transmitter has ${(vAtTx - vtMin).toFixed(1)}V margin`
+                        : `FAIL — Needs ${vtMin}V, only gets ${vAtTx.toFixed(1)}V`
                       }
                     </div>
                   </div>
@@ -2092,10 +2092,10 @@ export default function InstrumentationPage() {
             </div>
 
             <div style={tipBox}>
-              <strong>250\Ω Resistor Rule:</strong> A 250\Ω precision resistor converts 4-20 mA
+              <strong>250Ω Resistor Rule:</strong> A 250Ω precision resistor converts 4-20 mA
               to 1-5V (Ohm's law: V = I x R). This is the simplest current-to-voltage conversion.
-              Many PLC analog inputs have a 250\Ω input impedance built in. HART communication
-              requires minimum 250\Ω in the loop.
+              Many PLC analog inputs have a 250Ω input impedance built in. HART communication
+              requires minimum 250Ω in the loop.
             </div>
 
             {/* Common Signal Conversions */}
@@ -2112,9 +2112,9 @@ export default function InstrumentationPage() {
                   </thead>
                   <tbody>
                     {[
-                      ['4-20 mA', '1-5 V', '250\Ω precision resistor in series'],
+                      ['4-20 mA', '1-5 V', '250Ω precision resistor in series'],
                       ['4-20 mA', '0-5 V', 'Active converter (I/V converter IC)'],
-                      ['4-20 mA', '0-10 V', '500\Ω resistor or active converter'],
+                      ['4-20 mA', '0-10 V', '500Ω resistor or active converter'],
                       ['0-10 V', '4-20 mA', 'Active V/I converter module'],
                       ['RTD', '4-20 mA', 'Head-mount temperature transmitter'],
                       ['TC (mV)', '4-20 mA', 'TC transmitter with CJC'],
@@ -2297,7 +2297,7 @@ export default function InstrumentationPage() {
               </div>
               <div style={{ ...bodyText, marginTop: 8 }}>
                 The HART communicator connects in <strong>parallel</strong> across
-                the transmitter terminals or at the marshalling panel. The 250\Ω
+                the transmitter terminals or at the marshalling panel. The 250Ω
                 resistance must be between the communicator and the power supply
                 (not between the communicator and the transmitter).
               </div>
@@ -2346,9 +2346,9 @@ export default function InstrumentationPage() {
 
             <div style={warningBox}>
               <strong>HART Loop Resistance:</strong> If you cannot communicate with
-              a transmitter, check that there is at least 250\Ω between the
+              a transmitter, check that there is at least 250Ω between the
               communicator connection point and the power supply. Some PLC input
-              cards have very low input impedance ({'<'}250\Ω), requiring an
+              cards have very low input impedance ({'<'}250Ω), requiring an
               external resistor in series.
             </div>
           </div>
@@ -2445,7 +2445,7 @@ export default function InstrumentationPage() {
                   { mode: 'Read mA', desc: 'Measure actual loop current (in series). Compare to PLC reading to verify input card.' },
                   { mode: 'Source V', desc: 'Generate voltage signal (0-10V) for testing voltage inputs.' },
                   { mode: 'Source TC (mV)', desc: 'Simulate thermocouple millivolts with CJC compensation for testing TC inputs.' },
-                  { mode: 'Source RTD (\Ω)', desc: 'Simulate RTD resistance for testing RTD inputs. Select PT100, PT1000, etc.' },
+                  { mode: 'Source RTD (Ω)', desc: 'Simulate RTD resistance for testing RTD inputs. Select PT100, PT1000, etc.' },
                   { mode: 'Source Pressure', desc: 'With pressure module: apply known pressure to test pressure transmitter calibration.' },
                 ].map((item, i) => (
                   <div key={i} style={{

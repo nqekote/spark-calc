@@ -44,17 +44,17 @@ const flashcards: Flashcard[] = [
   { id: 15, question: 'What is the minimum clearance for a 120/240V service entrance above a walkway?', answer: '3.0m minimum (CEC Rule 6-112).', category: 'CEC Rules' },
 
   // Electrical Theory (12 cards)
-  { id: 16, question: 'What is the formula for three-phase power?', answer: 'P = \√3 \× V_L \× I_L \× PF (where V_L is line voltage, I_L is line current, PF is power factor).', category: 'Electrical Theory' },
-  { id: 17, question: 'In a balanced wye system, what is the relationship between line and phase voltage?', answer: 'V_Line = \√3 \× V_Phase. For a 208V system, V_Phase = 120V.', category: 'Electrical Theory' },
+  { id: 16, question: 'What is the formula for three-phase power?', answer: 'P = \√3 × V_L × I_L × PF (where V_L is line voltage, I_L is line current, PF is power factor).', category: 'Electrical Theory' },
+  { id: 17, question: 'In a balanced wye system, what is the relationship between line and phase voltage?', answer: 'V_Line = \√3 × V_Phase. For a 208V system, V_Phase = 120V.', category: 'Electrical Theory' },
   { id: 18, question: 'What is the power factor of a purely resistive load?', answer: 'Power factor = 1.0 (unity). Voltage and current are in phase.', category: 'Electrical Theory' },
   { id: 19, question: 'How many watts are in one horsepower?', answer: '746 watts = 1 HP.', category: 'Electrical Theory' },
   { id: 20, question: 'What is the formula for transformer turns ratio?', answer: 'Np/Ns = Vp/Vs = Is/Ip (primary turns/secondary turns = primary voltage/secondary voltage).', category: 'Electrical Theory' },
-  { id: 21, question: 'What is the synchronous speed of a 4-pole motor at 60 Hz?', answer: 'Ns = 120f/P = 120 \× 60/4 = 1800 RPM.', category: 'Electrical Theory' },
-  { id: 22, question: 'In a delta connection, what is the relationship between line current and phase current?', answer: 'I_Line = \√3 \× I_Phase. Line voltage equals phase voltage.', category: 'Electrical Theory' },
+  { id: 21, question: 'What is the synchronous speed of a 4-pole motor at 60 Hz?', answer: 'Ns = 120f/P = 120 × 60/4 = 1800 RPM.', category: 'Electrical Theory' },
+  { id: 22, question: 'In a delta connection, what is the relationship between line current and phase current?', answer: 'I_Line = \√3 × I_Phase. Line voltage equals phase voltage.', category: 'Electrical Theory' },
   { id: 23, question: 'What is the formula for capacitive reactance?', answer: 'Xc = 1 / (2\πfC) where f is frequency in Hz and C is capacitance in farads.', category: 'Electrical Theory' },
   { id: 24, question: 'What is the formula for inductive reactance?', answer: 'XL = 2\πfL where f is frequency in Hz and L is inductance in henries.', category: 'Electrical Theory' },
   { id: 25, question: 'What is impedance in an AC circuit?', answer: 'Z = \√(R\² + (XL - Xc)\²). Impedance is the total opposition to current flow in an AC circuit, measured in ohms.', category: 'Electrical Theory' },
-  { id: 26, question: 'What is the relationship between kW, kVA, and kVAR?', answer: 'kVA\² = kW\² + kVAR\² (power triangle). kW = kVA \× PF.', category: 'Electrical Theory' },
+  { id: 26, question: 'What is the relationship between kW, kVA, and kVAR?', answer: 'kVA\² = kW\² + kVAR\² (power triangle). kW = kVA × PF.', category: 'Electrical Theory' },
   { id: 27, question: 'What happens to current when you double the voltage across a fixed resistance?', answer: 'Current doubles. I = V/R (Ohm\'s Law). Doubling V with constant R doubles I.', category: 'Electrical Theory' },
 
   // Motor Controls (10 cards)
@@ -66,7 +66,7 @@ const flashcards: Flashcard[] = [
   { id: 33, question: 'Why must you use CEC Table values for motor FLC instead of nameplate values?', answer: 'CEC Tables (44, 45, 46) provide standardized FLC values for sizing branch circuit conductors and overcurrent protection. Nameplate values may vary between manufacturers.', category: 'Motor Controls' },
   { id: 34, question: 'What is the purpose of a motor starter overload relay?', answer: 'Protects the motor from sustained overcurrent (overload) conditions. Trips the contactor to disconnect the motor before insulation damage occurs. Does NOT protect against short circuits.', category: 'Motor Controls' },
   { id: 35, question: 'In a star-delta (wye-delta) starter, what happens to the starting current?', answer: 'Starting current is reduced to 1/3 of the direct-on-line (DOL) value. Motor starts in wye (lower voltage per winding), then switches to delta for full speed.', category: 'Motor Controls' },
-  { id: 36, question: 'What is motor slip and what is a typical value?', answer: 'Slip is the difference between synchronous speed and actual rotor speed, expressed as a percentage. Typical slip for induction motors is 2-5%. Slip = (Ns - N) / Ns \× 100.', category: 'Motor Controls' },
+  { id: 36, question: 'What is motor slip and what is a typical value?', answer: 'Slip is the difference between synchronous speed and actual rotor speed, expressed as a percentage. Typical slip for induction motors is 2-5%. Slip = (Ns - N) / Ns × 100.', category: 'Motor Controls' },
   { id: 37, question: 'What is the purpose of a disconnect switch on a motor circuit?', answer: 'Provides a visible, lockable means of disconnecting the motor for maintenance. Must be within sight of the motor and controller, or be capable of being locked open (CEC Rule 28-602).', category: 'Motor Controls' },
 
   // Safety (CSA Z462) (8 cards)

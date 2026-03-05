@@ -192,7 +192,7 @@ export default function FeederOCPPage() {
     }
 
     if (loadType === 'continuous') {
-      formula = `Design Current = ${fmt(loadA)} A \× 125% = ${fmt(designCurrent)} A`
+      formula = `Design Current = ${fmt(loadA)} A × 125% = ${fmt(designCurrent)} A`
     } else {
       formula = `Design Current = ${fmt(loadA)} A (non-continuous)`
     }
@@ -212,27 +212,27 @@ export default function FeederOCPPage() {
         },
         {
           label: 'Wire Ampacity',
-          value: wireAmpacity !== null ? fmt(wireAmpacity) : '\—',
+          value: wireAmpacity !== null ? fmt(wireAmpacity) : '—',
           unit: 'A',
         },
         {
           label: 'Recommended OCP Size',
-          value: recommendedOCP !== null ? fmt(recommendedOCP) : '\—',
+          value: recommendedOCP !== null ? fmt(recommendedOCP) : '—',
           unit: 'A',
           highlight: true,
         },
         {
           label: 'Next Size Down OCP',
-          value: nextSizeDown !== null ? fmt(nextSizeDown) : '\—',
+          value: nextSizeDown !== null ? fmt(nextSizeDown) : '—',
           unit: 'A',
         },
       ]
     : [
-        { label: 'Design Current', value: '\—', unit: 'A' },
-        { label: 'Minimum Wire Size', value: '\—' },
-        { label: 'Wire Ampacity', value: '\—', unit: 'A' },
-        { label: 'Recommended OCP Size', value: '\—', unit: 'A' },
-        { label: 'Next Size Down OCP', value: '\—', unit: 'A' },
+        { label: 'Design Current', value: '—', unit: 'A' },
+        { label: 'Minimum Wire Size', value: '—' },
+        { label: 'Wire Ampacity', value: '—', unit: 'A' },
+        { label: 'Recommended OCP Size', value: '—', unit: 'A' },
+        { label: 'Next Size Down OCP', value: '—', unit: 'A' },
       ]
 
   return (

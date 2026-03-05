@@ -724,7 +724,7 @@ export default function TECKCablePage() {
                 <tr>
                   <th style={thStyle}>Cable Voltage Rating</th>
                   <th style={thStyle}>Test Voltage (DC)</th>
-                  <th style={{ ...thStyle, color: 'var(--primary)' }}>Min Acceptable (M{'\Ω'})</th>
+                  <th style={{ ...thStyle, color: 'var(--primary)' }}>Min Acceptable (M{'Ω'})</th>
                 </tr>
               </thead>
               <tbody>
@@ -736,14 +736,14 @@ export default function TECKCablePage() {
                   <tr key={r.rating} style={{ background: i % 2 === 0 ? 'transparent' : 'var(--surface)' }}>
                     <td style={{ ...tdStyle, fontWeight: 600 }}>{r.rating}</td>
                     <td style={{ ...tdStyle, fontFamily: 'var(--font-mono)' }}>{r.testV}</td>
-                    <td style={{ ...tdStyle, fontFamily: 'var(--font-mono)', fontWeight: 700, color: 'var(--primary)' }}>{r.minMohm} M{'\Ω'}</td>
+                    <td style={{ ...tdStyle, fontFamily: 'var(--font-mono)', fontWeight: 700, color: 'var(--primary)' }}>{r.minMohm} M{'Ω'}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
           <div style={{ marginTop: 8, fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-            Rule of thumb: Minimum 1 M{'\Ω'} per kV of rated voltage + 1 M{'\Ω'}. New cable should read significantly higher. Temperature and humidity affect readings &mdash; correct to 40{'\°'}C baseline. Readings that decrease over 60 seconds indicate moisture ingress.
+            Rule of thumb: Minimum 1 M{'Ω'} per kV of rated voltage + 1 M{'Ω'}. New cable should read significantly higher. Temperature and humidity affect readings &mdash; correct to 40{'\°'}C baseline. Readings that decrease over 60 seconds indicate moisture ingress.
           </div>
         </div>
 
@@ -752,7 +752,7 @@ export default function TECKCablePage() {
           <div style={cardTitleStyle}>Armor Continuity Testing</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: 13, lineHeight: 1.6, color: 'var(--text-secondary)' }}>
             <div><strong style={{ color: 'var(--text)' }}>Method:</strong> Use a low-resistance ohmmeter or milliohmmeter. Test end-to-end on the aluminum armor.</div>
-            <div><strong style={{ color: 'var(--text)' }}>Expected values:</strong> Less than 1 {'\Ω'} for short runs (&lt;30m). For longer runs, approximately 0.03-0.05 {'\Ω'}/m for typical TECK armor. A reading above 1 {'\Ω'} for short runs suggests a damaged or broken armor interlock.</div>
+            <div><strong style={{ color: 'var(--text)' }}>Expected values:</strong> Less than 1 {'Ω'} for short runs (&lt;30m). For longer runs, approximately 0.03-0.05 {'Ω'}/m for typical TECK armor. A reading above 1 {'Ω'} for short runs suggests a damaged or broken armor interlock.</div>
             <div><strong style={{ color: 'var(--text)' }}>Gland connection:</strong> Also test from armor to enclosure through the gland. This should read near zero. A high reading indicates a poor bonding connection at the gland &mdash; retorque or clean the contact surfaces.</div>
           </div>
         </div>
