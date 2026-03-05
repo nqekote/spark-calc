@@ -1,6 +1,8 @@
 import { useState, useMemo, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import Header from './Header'
+import InstallPrompt from '../components/InstallPrompt'
+import { useRecentlyUsed } from '../core/hooks/useRecentlyUsed'
 import {
   allFeatures, categoryOrder, spotlightRoutes,
   type Feature,
@@ -48,6 +50,14 @@ const catMeta: Record<string, { accent: string; bg: string; icon: ReactNode }> =
 export default function HomePage() {
   const [search, setSearch] = useState('')
   const [expandedCat, setExpandedCat] = useState<string | null>(null)
+  const { recent } = useRecentlyUsed()
+
+  const recentFeatures = useMemo(
+    () => recent
+      .map(path => allFeatures.find(f => f.to === path))
+      .filter((f): f is Feature => f !== undefined),
+    [recent]
+  )
 
   const filtered = useMemo(() => {
     if (!search.trim()) return allFeatures
@@ -180,6 +190,9 @@ export default function HomePage() {
           </div>
         )}
 
+        {/* ─── Install Prompt ─── */}
+        {!isSearching && <InstallPrompt />}
+
         {/* ─── Search ─── */}
         <div style={{
           position: 'relative',
@@ -299,6 +312,55 @@ export default function HomePage() {
                   </span>
                 </Link>
               ))}
+            </div>
+          </section>
+        )}
+
+        {/* ─── Recently Used ─── */}
+        {!isSearching && recentFeatures.length > 0 && (
+          <section style={{ marginBottom: 28 }}>
+            <SectionLabel>Recently Used</SectionLabel>
+            <div style={{
+              display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10,
+            }}>
+              {recentFeatures.map((f, i) => {
+                const meta = catMeta[f.category] || catMeta.Calculators
+                return (
+                  <Link key={f.to} to={f.to} className="home-card animate-in" style={{
+                    display: 'flex', flexDirection: 'column',
+                    alignItems: 'center', justifyContent: 'center',
+                    gap: 8, padding: '18px 8px 16px',
+                    background: 'var(--surface)',
+                    borderRadius: 'var(--radius)',
+                    border: '1px solid var(--divider)',
+                    textDecoration: 'none', minHeight: 88,
+                    position: 'relative', overflow: 'hidden',
+                    animationDelay: `${i * 40}ms`,
+                  }}>
+                    <div style={{
+                      position: 'absolute', top: 0, left: 0, right: 0,
+                      height: 2,
+                      background: `linear-gradient(90deg, transparent, ${meta.accent}, transparent)`,
+                      opacity: 0.5,
+                    }} />
+                    <span style={{
+                      fontSize: 24, width: 40, height: 40,
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      background: meta.bg, borderRadius: 10,
+                    }}>
+                      {f.icon}
+                    </span>
+                    <span style={{
+                      fontSize: 11, fontWeight: 600,
+                      fontFamily: 'var(--font-display)',
+                      color: 'var(--text)', textAlign: 'center',
+                      lineHeight: 1.2,
+                    }}>
+                      {f.title}
+                    </span>
+                  </Link>
+                )
+              })}
             </div>
           </section>
         )}

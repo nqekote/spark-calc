@@ -206,6 +206,39 @@ function LoadingSpinner() {
   )
 }
 
+// Prefetch popular routes during idle time
+const prefetchRoutes = () => {
+  const chunks = [
+    () => import('./features/voltage-drop/VoltageDropPage'),
+    () => import('./features/ohms-law/OhmsLawPage'),
+    () => import('./features/conduit-fill/ConduitFillPage'),
+    () => import('./features/ampacity/AmpacityPage'),
+    () => import('./features/teck-cable/TECKCablePage'),
+    () => import('./features/troubleshooting/TroubleshootingPage'),
+    () => import('./features/loto/LOTOPage'),
+  ]
+  let i = 0
+  const next = () => {
+    if (i < chunks.length) {
+      chunks[i]().catch(() => {})
+      i++
+      if ('requestIdleCallback' in window) {
+        (window as unknown as { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback(next)
+      } else {
+        setTimeout(next, 200)
+      }
+    }
+  }
+  next()
+}
+
+// Start prefetching after initial paint
+if ('requestIdleCallback' in window) {
+  (window as unknown as { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback(prefetchRoutes)
+} else {
+  setTimeout(prefetchRoutes, 2000)
+}
+
 export default function App() {
   return (
     <ThemeProvider>
