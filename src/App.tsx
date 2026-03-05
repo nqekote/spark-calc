@@ -98,6 +98,7 @@ const SwitchgearPage = React.lazy(() => import('./features/switchgear/Switchgear
 
 // Utility pages
 const HistoryPage = React.lazy(() => import('./features/history/HistoryPage'))
+const FieldNotesPage = React.lazy(() => import('./features/field-notes/FieldNotesPage'))
 
 // Category items
 const electricalItems: CalcItem[] = [
@@ -189,6 +190,7 @@ const toolsItems: CalcItem[] = [
   { to: '/tools/hour-tracker', title: 'Hour Tracker', subtitle: 'Apprentice hour logging', icon: '\u23F1' },
   { to: '/tools/exam-prep', title: 'Exam Prep', subtitle: 'CEC flashcards & practice', icon: '\uD83C\uDF93' },
   { to: '/tools/single-line', title: 'Single-Line Builder', subtitle: 'Diagram builder & symbols', icon: '\u2500' },
+  { to: '/tools/field-notes', title: 'Field Notes', subtitle: 'On-site journal & measurements', icon: '\uD83D\uDCDD' },
 ]
 
 function LoadingSpinner() {
@@ -342,6 +344,7 @@ export default function App() {
             <Route path="/tools/exam-prep" element={<ExamPrepPage />} />
             <Route path="/materials" element={<MaterialListPage />} />
             <Route path="/tools/single-line" element={<SingleLinePage />} />
+            <Route path="/tools/field-notes" element={<FieldNotesPage />} />
             </Routes>
           </Suspense>
         </ErrorBoundary>

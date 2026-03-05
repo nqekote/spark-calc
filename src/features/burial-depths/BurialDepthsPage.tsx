@@ -292,6 +292,7 @@ export default function BurialDepthsPage() {
         />
 
         <ResultDisplay
+          title="Burial Depths"
           results={[
             {
               label: 'Minimum Cover Depth',

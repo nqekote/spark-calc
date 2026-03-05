@@ -221,6 +221,7 @@ function OffsetCalc() {
       <InputField label="Offset Height" unit="in" value={height} onChange={setHeight} placeholder="e.g. 6" />
       <SelectField label="Bend Angle" value={angle} onChange={setAngle} options={angleOptions} />
       <ResultDisplay
+        title="Offset Bend"
         results={[
           { label: 'Distance Between Marks', value: !isNaN(dist) ? fmt(dist) : '—', unit: 'in', highlight: true },
           { label: 'Shrinkage', value: !isNaN(shrink) ? fmt(shrink, 3) : '—', unit: 'in' },
@@ -250,6 +251,7 @@ function ThreePointSaddleCalc() {
       <InputField label="Saddle Height" unit="in" value={height} onChange={setHeight} placeholder="e.g. 4" />
       <SelectField label="Pipe Size" value={pipeSize} onChange={setPipeSize} options={pipeSizeOptions} />
       <ResultDisplay
+        title="3-Point Saddle"
         results={[
           { label: 'Mark Spacing from Center', value: !isNaN(markSpacing) ? fmt(markSpacing) : '—', unit: 'in', highlight: true },
           { label: 'Total Shrinkage', value: !isNaN(shrink) ? fmt(shrink, 3) : '—', unit: 'in' },
@@ -290,6 +292,7 @@ function FourPointSaddleCalc() {
         ]}
       />
       <ResultDisplay
+        title="4-Point Saddle"
         results={[
           { label: 'Outer Mark Spacing', value: !isNaN(outerSpacing) ? fmt(outerSpacing) : '—', unit: 'in', highlight: true },
           { label: 'Inner Mark Spacing', value: !isNaN(innerSpacing) ? fmt(innerSpacing) : '—', unit: 'in' },
@@ -318,6 +321,7 @@ function StubUpCalc() {
       <InputField label="Desired Stub Height" unit="in" value={stubHeight} onChange={setStubHeight} placeholder="e.g. 12" />
       <SelectField label="Pipe Size" value={pipeSize} onChange={setPipeSize} options={pipeSizeOptions} />
       <ResultDisplay
+        title="90° Stub-Up"
         results={[
           { label: 'Mark Position from End', value: !isNaN(markPos) && markPos > 0 ? fmt(markPos) : markPos <= 0 ? 'Too short' : '—', unit: markPos > 0 ? 'in' : '', highlight: true },
           { label: 'Deduct', value: fmt(deduct), unit: 'in' },
@@ -346,6 +350,7 @@ function BackToBackCalc() {
       <InputField label="Distance Between Stubs" unit="in" value={distance} onChange={setDistance} placeholder="e.g. 24" />
       <SelectField label="Pipe Size" value={pipeSize} onChange={setPipeSize} options={pipeSizeOptions} />
       <ResultDisplay
+        title="Back-to-Back 90°"
         results={[
           { label: 'Second Bend Mark', value: !isNaN(secondMark) && secondMark > 0 ? fmt(secondMark) : secondMark <= 0 ? 'Too short' : '—', unit: secondMark > 0 ? 'in' : '', highlight: true },
           { label: 'Deduct per Bend', value: fmt(deduct), unit: 'in' },
@@ -381,6 +386,7 @@ function KickCalc() {
       <InputField label="Stub Height" unit="in" value={stubHeight} onChange={setStubHeight} placeholder="e.g. 12" />
       <SelectField label="Pipe Size" value={pipeSize} onChange={setPipeSize} options={pipeSizeOptions} />
       <ResultDisplay
+        title="Kick 90°"
         results={[
           { label: 'Kick Angle', value: !isNaN(kickAngle) ? fmt(kickAngle, 1) : '—', unit: '°', highlight: true },
           { label: 'Stub Mark from End', value: !isNaN(stubMark) && stubMark > 0 ? fmt(stubMark) : '—', unit: 'in' },
@@ -417,6 +423,7 @@ function RollingOffsetCalc() {
       <InputField label="Vertical Offset" unit="in" value={vertical} onChange={setVertical} placeholder="e.g. 6" />
       <SelectField label="Bend Angle" value={angle} onChange={setAngle} options={angleOptions} />
       <ResultDisplay
+        title="Rolling Offset"
         results={[
           { label: 'True Offset (Hypotenuse)', value: !isNaN(rollingOffset) ? fmt(rollingOffset) : '—', unit: 'in', highlight: true },
           { label: 'Distance Between Marks', value: !isNaN(dist) ? fmt(dist) : '—', unit: 'in' },

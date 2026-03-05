@@ -232,7 +232,7 @@ export default function DisconnectSizingPage() {
                 options={[{ value: '', label: 'Select HP...' }, ...hpOptions]}
               />
 
-              <ResultDisplay results={motorResults} />
+              <ResultDisplay results={motorResults} title="Motor Disconnect" />
             </>
           )}
 
@@ -248,7 +248,7 @@ export default function DisconnectSizingPage() {
                 placeholder="Enter load amps"
               />
 
-              <ResultDisplay results={nonMotorResults} />
+              <ResultDisplay results={nonMotorResults} title="Non-Motor Disconnect" />
             </>
           )}
 

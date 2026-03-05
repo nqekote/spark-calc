@@ -341,7 +341,7 @@ export default function GeneratorSizingPage() {
                 + Add Load
               </button>
 
-              <ResultDisplay results={loadListResults} />
+              <ResultDisplay results={loadListResults} title="Generator Sizing" />
             </>
           )}
 
@@ -355,7 +355,7 @@ export default function GeneratorSizingPage() {
                 placeholder="Enter total kW needed"
               />
 
-              <ResultDisplay results={quickResults} />
+              <ResultDisplay results={quickResults} title="Generator Quick Calc" />
             </>
           )}
 

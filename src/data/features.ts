@@ -98,6 +98,7 @@ export const allFeatures: Feature[] = [
   { to: '/tools/hour-tracker', title: 'Hour Tracker', icon: '⏱', category: 'Tools', subtitle: 'Apprentice hrs', keywords: 'hour tracker apprentice log' },
   { to: '/tools/exam-prep', title: 'Exam Prep', icon: '🎓', category: 'Tools', subtitle: 'CEC flashcards', keywords: 'exam prep flashcard quiz cec' },
   { to: '/tools/single-line', title: 'Single-Line', icon: '─', category: 'Tools', subtitle: 'Diagram builder', keywords: 'single line diagram one-line builder' },
+  { to: '/tools/field-notes', title: 'Field Notes', icon: '📝', category: 'Tools', subtitle: 'On-site journal', keywords: 'notes journal memo field site' },
 ]
 
 export const categoryOrder = [
