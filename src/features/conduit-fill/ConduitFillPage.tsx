@@ -5,6 +5,7 @@ import ResultDisplay from '../../components/ResultDisplay'
 import InfoBox from '../../components/InfoBox'
 import Header from '../../layout/Header'
 import { fmt } from '../../core/utils/formatters'
+import { useSessionStorage } from '../../core/hooks/useSessionStorage'
 
 /* ---------- Data tables ---------- */
 
@@ -101,8 +102,8 @@ function getFillRuleLabel(totalConductors: number): string {
 /* ---------- Main page ---------- */
 
 export default function ConduitFillPage() {
-  const [conduitType, setConduitType] = useState<string>('EMT')
-  const [tradeSize, setTradeSize] = useState('1/2')
+  const [conduitType, setConduitType] = useSessionStorage<string>('cfill-type', 'EMT')
+  const [tradeSize, setTradeSize] = useSessionStorage('cfill-size', '1/2')
   const [wireEntries, setWireEntries] = useState<WireEntry[]>([
     { id: 1, wireSize: '14', quantity: '' },
   ])

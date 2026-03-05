@@ -1,9 +1,9 @@
-import { useState } from 'react'
 import InputField from '../../components/InputField'
 import ResultDisplay from '../../components/ResultDisplay'
 import SegmentedControl from '../../components/SegmentedControl'
 import Header from '../../layout/Header'
 import { fmt } from '../../core/utils/formatters'
+import { useSessionStorage } from '../../core/hooks/useSessionStorage'
 
 type SolveFor = 'V' | 'I' | 'R' | 'P'
 
@@ -83,9 +83,9 @@ function calculate(solveFor: SolveFor, val1: number, val2: number) {
 }
 
 export default function OhmsLawPage() {
-  const [solveFor, setSolveFor] = useState<SolveFor>('V')
-  const [input1, setInput1] = useState('')
-  const [input2, setInput2] = useState('')
+  const [solveFor, setSolveFor] = useSessionStorage<SolveFor>('ohms-solve', 'V')
+  const [input1, setInput1] = useSessionStorage('ohms-in1', '')
+  const [input2, setInput2] = useSessionStorage('ohms-in2', '')
 
   const labels = getInputLabels(solveFor)
   const v1 = parseFloat(input1)

@@ -4,6 +4,7 @@ import { ThemeProvider } from './core/theme/ThemeContext'
 import AppShell from './layout/AppShell'
 import HomePage from './layout/HomePage'
 import CategoryPage, { type CalcItem } from './layout/CategoryPage'
+import ErrorBoundary from './components/ErrorBoundary'
 
 // Lazy-loaded calculator pages
 const OhmsLawPage = React.lazy(() => import('./features/ohms-law/OhmsLawPage'))
@@ -209,8 +210,9 @@ export default function App() {
   return (
     <ThemeProvider>
       <AppShell>
-        <Suspense fallback={<LoadingSpinner />}>
-          <Routes>
+        <ErrorBoundary>
+          <Suspense fallback={<LoadingSpinner />}>
+            <Routes>
             <Route path="/" element={<HomePage />} />
 
             {/* Electrical */}
@@ -303,8 +305,9 @@ export default function App() {
             <Route path="/tools/exam-prep" element={<ExamPrepPage />} />
             <Route path="/materials" element={<MaterialListPage />} />
             <Route path="/tools/single-line" element={<SingleLinePage />} />
-          </Routes>
-        </Suspense>
+            </Routes>
+          </Suspense>
+        </ErrorBoundary>
       </AppShell>
     </ThemeProvider>
   )

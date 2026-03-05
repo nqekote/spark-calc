@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import InputField from '../../components/InputField'
 import SelectField from '../../components/SelectField'
 import ResultDisplay from '../../components/ResultDisplay'
@@ -6,6 +5,7 @@ import SegmentedControl from '../../components/SegmentedControl'
 import InfoBox from '../../components/InfoBox'
 import Header from '../../layout/Header'
 import { fmt } from '../../core/utils/formatters'
+import { useSessionStorage } from '../../core/hooks/useSessionStorage'
 
 const phaseOptions = [
   { value: 'single', label: 'Single Phase' },
@@ -72,13 +72,13 @@ const K_VALUES: Record<string, number> = {
 const METERS_TO_FEET = 3.281
 
 export default function VoltageDropPage() {
-  const [phase, setPhase] = useState('single')
-  const [distUnit, setDistUnit] = useState('ft')
-  const [voltage, setVoltage] = useState('')
-  const [current, setCurrent] = useState('')
-  const [distance, setDistance] = useState('')
-  const [material, setMaterial] = useState('copper')
-  const [wireSize, setWireSize] = useState('12')
+  const [phase, setPhase] = useSessionStorage('vdrop-phase', 'single')
+  const [distUnit, setDistUnit] = useSessionStorage('vdrop-unit', 'ft')
+  const [voltage, setVoltage] = useSessionStorage('vdrop-voltage', '')
+  const [current, setCurrent] = useSessionStorage('vdrop-current', '')
+  const [distance, setDistance] = useSessionStorage('vdrop-distance', '')
+  const [material, setMaterial] = useSessionStorage('vdrop-material', 'copper')
+  const [wireSize, setWireSize] = useSessionStorage('vdrop-wiresize', '12')
 
   const V = parseFloat(voltage)
   const I = parseFloat(current)

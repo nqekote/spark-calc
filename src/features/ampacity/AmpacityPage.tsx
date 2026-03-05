@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import InputField from '../../components/InputField'
 import SelectField from '../../components/SelectField'
 import ResultDisplay from '../../components/ResultDisplay'
@@ -6,6 +5,7 @@ import SegmentedControl from '../../components/SegmentedControl'
 import InfoBox from '../../components/InfoBox'
 import Header from '../../layout/Header'
 import { fmt } from '../../core/utils/formatters'
+import { useSessionStorage } from '../../core/hooks/useSessionStorage'
 
 type TempRating = '60' | '75' | '90'
 
@@ -94,11 +94,11 @@ function getBundlingFactor(conductors: number): number {
 }
 
 export default function AmpacityPage() {
-  const [material, setMaterial] = useState('copper')
-  const [wireSize, setWireSize] = useState('12')
-  const [tempRating, setTempRating] = useState<TempRating>('75')
-  const [ambientTemp, setAmbientTemp] = useState('30')
-  const [conductors, setConductors] = useState('3')
+  const [material, setMaterial] = useSessionStorage('amp-material', 'copper')
+  const [wireSize, setWireSize] = useSessionStorage('amp-wiresize', '12')
+  const [tempRating, setTempRating] = useSessionStorage<TempRating>('amp-temp', '75')
+  const [ambientTemp, setAmbientTemp] = useSessionStorage('amp-ambient', '30')
+  const [conductors, setConductors] = useSessionStorage('amp-conductors', '3')
 
   const ambTemp = parseFloat(ambientTemp)
   const numConductors = parseFloat(conductors)

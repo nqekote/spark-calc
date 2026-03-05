@@ -1,9 +1,9 @@
-import { useState } from 'react'
 import InputField from '../../components/InputField'
 import ResultDisplay from '../../components/ResultDisplay'
 import SegmentedControl from '../../components/SegmentedControl'
 import Header from '../../layout/Header'
 import { fmt } from '../../core/utils/formatters'
+import { useSessionStorage } from '../../core/hooks/useSessionStorage'
 
 const phaseOptions = [
   { value: 'single', label: 'Single Phase' },
@@ -11,10 +11,10 @@ const phaseOptions = [
 ]
 
 export default function PowerCalcPage() {
-  const [phase, setPhase] = useState('single')
-  const [voltage, setVoltage] = useState('')
-  const [current, setCurrent] = useState('')
-  const [pf, setPf] = useState('1.0')
+  const [phase, setPhase] = useSessionStorage('pwr-phase', 'single')
+  const [voltage, setVoltage] = useSessionStorage('pwr-voltage', '')
+  const [current, setCurrent] = useSessionStorage('pwr-current', '')
+  const [pf, setPf] = useSessionStorage('pwr-pf', '1.0')
 
   const V = parseFloat(voltage)
   const I = parseFloat(current)

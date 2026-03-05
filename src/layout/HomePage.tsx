@@ -1,9 +1,13 @@
 import { useState, useMemo, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import Header from './Header'
+import {
+  allFeatures, categoryOrder, spotlightRoutes,
+  type Feature,
+} from '../data/features'
 
 /* ═══════════════════════════════════════════
-   Design tokens per category
+   Design tokens per category (SVG icons)
    ═══════════════════════════════════════════ */
 const catMeta: Record<string, { accent: string; bg: string; icon: ReactNode }> = {
   Calculators: {
@@ -40,113 +44,6 @@ const catMeta: Record<string, { accent: string; bg: string; icon: ReactNode }> =
   },
 }
 
-/* ═══════════════════════════════════════════
-   Feature catalogue
-   ═══════════════════════════════════════════ */
-interface Feature { to: string; title: string; icon: string; category: string; subtitle?: string }
-
-const allFeatures: Feature[] = [
-  // ── Calculators ──
-  { to: '/electrical/ohms-law', title: "Ohm's Law", icon: 'Ω', category: 'Calculators', subtitle: 'V, I, R' },
-  { to: '/electrical/power', title: 'Power Calc', icon: '⚡', category: 'Calculators', subtitle: 'Watts & VA' },
-  { to: '/electrical/voltage-drop', title: 'Voltage Drop', icon: '↓', category: 'Calculators', subtitle: 'Wire loss' },
-  { to: '/electrical/power-factor', title: 'Power Factor', icon: '∼', category: 'Calculators', subtitle: 'PF correction' },
-  { to: '/electrical/short-circuit', title: 'Short Circuit', icon: '💥', category: 'Calculators', subtitle: 'Fault current' },
-  { to: '/electrical/lighting', title: 'Lighting', icon: '💡', category: 'Calculators', subtitle: 'Lux & lumens' },
-  { to: '/electrical/transformer-sizing', title: 'Transformer', icon: '⎔', category: 'Calculators', subtitle: 'kVA sizing' },
-  { to: '/electrical/disconnect', title: 'Disconnect', icon: '⎓', category: 'Calculators', subtitle: 'HP-rated switch' },
-  { to: '/electrical/generator', title: 'Generator', icon: '⚡', category: 'Calculators', subtitle: 'Backup power' },
-  { to: '/reference/box-fill', title: 'Box Fill', icon: '▣', category: 'Calculators', subtitle: 'Junction box' },
-  { to: '/reference/residential', title: 'Residential', icon: '⌂', category: 'Calculators', subtitle: 'Demand load' },
-  { to: '/electrical/oc-coordination', title: 'OC Coordination', icon: '📊', category: 'Calculators', subtitle: 'Selectivity' },
-  { to: '/electrical/transformer-loading', title: 'Xfmr Loading', icon: '🔥', category: 'Calculators', subtitle: 'Loading & life' },
-  { to: '/electrical/ground-fault', title: 'Ground Fault', icon: '⏚', category: 'Calculators', subtitle: 'GF & NGR calc' },
-
-  // ── Wire & Cable ──
-  { to: '/wire/ampacity', title: 'Ampacity', icon: 'ᴬ', category: 'Wire & Cable', subtitle: 'Wire tables' },
-  { to: '/wire/sizing', title: 'Wire Sizing', icon: '⌸', category: 'Wire & Cable', subtitle: 'Conductor sizing' },
-  { to: '/wire/grounding', title: 'Grounding', icon: '⏚', category: 'Wire & Cable', subtitle: 'Table 17' },
-  { to: '/wire/cable-types', title: 'Cable Types', icon: '🔌', category: 'Wire & Cable', subtitle: 'NMD, TECK, AC90' },
-  { to: '/wire/teck-cable', title: 'TECK90 Guide', icon: '🔩', category: 'Wire & Cable', subtitle: 'Specs & glands' },
-  { to: '/wire/ocp-transformer', title: 'Transformer OCP', icon: '⍗', category: 'Wire & Cable', subtitle: 'Protection' },
-  { to: '/wire/ocp-feeder', title: 'Feeder OCP', icon: '⎓', category: 'Wire & Cable', subtitle: 'Protection' },
-  { to: '/wire/torque-specs', title: 'Torque Specs', icon: '🔧', category: 'Wire & Cable', subtitle: 'Termination' },
-  { to: '/conduit/raceway-spacing', title: 'Raceway Spacing', icon: '⎓', category: 'Wire & Cable', subtitle: 'Support dist.' },
-  { to: '/conduit/burial-depths', title: 'Burial Depths', icon: '⬇', category: 'Wire & Cable', subtitle: 'Min. cover' },
-  { to: '/conduit/cable-tray', title: 'Cable Tray', icon: '▤', category: 'Wire & Cable', subtitle: 'Tray fill' },
-  { to: '/conduit/fill', title: 'Conduit Fill', icon: '◎', category: 'Wire & Cable', subtitle: 'Fill calcs' },
-  { to: '/conduit/bending', title: 'EMT Bending', icon: '⌒', category: 'Wire & Cable', subtitle: 'Offsets & saddles' },
-
-  // ── Motors & Drives ──
-  { to: '/motors/flc', title: 'Motor FLC', icon: '⚙', category: 'Motors & Drives', subtitle: 'Current tables' },
-  { to: '/motors/branch', title: 'Motor Branch', icon: '⑂', category: 'Motors & Drives', subtitle: 'Circuit sizing' },
-  { to: '/motors/ocp', title: 'Motor OCP', icon: '⛔', category: 'Motors & Drives', subtitle: 'Protection' },
-  { to: '/motors/starters', title: 'Motor Starters', icon: '▶', category: 'Motors & Drives', subtitle: 'DOL, Y/Δ, VFD' },
-  { to: '/motors/vfd', title: 'VFD Reference', icon: '∿', category: 'Motors & Drives', subtitle: 'Params & faults' },
-  { to: '/motors/medium-voltage', title: 'Medium Voltage', icon: '⚡', category: 'Motors & Drives', subtitle: 'MV systems' },
-
-  // ── Safety ──
-  { to: '/safety/arc-flash', title: 'Arc Flash', icon: '⚡', category: 'Safety', subtitle: 'PPE & boundaries' },
-  { to: '/safety/loto', title: 'Lockout/Tagout', icon: '🔒', category: 'Safety', subtitle: 'LOTO procedures' },
-  { to: '/mining/safety', title: 'Mining Safety', icon: '⚠️', category: 'Safety', subtitle: 'PPE, grounding' },
-  { to: '/mining/hazardous-areas', title: 'Hazardous Areas', icon: '💨', category: 'Safety', subtitle: 'Zone classify' },
-  { to: '/safety/training', title: 'CSA Z462', icon: '🎓', category: 'Safety', subtitle: 'Safety training' },
-
-  // ── Reference ──
-  { to: '/reference/formulas', title: 'Formulas', icon: '📝', category: 'Reference', subtitle: 'Cheat sheet' },
-  { to: '/reference/cec', title: 'CEC Tables', icon: '📖', category: 'Reference', subtitle: 'Code reference' },
-  { to: '/reference/code-requirements', title: 'CEC by Task', icon: '📜', category: 'Reference', subtitle: 'Rules by job' },
-  { to: '/reference/electrical-symbols', title: 'Symbols', icon: '🔌', category: 'Reference', subtitle: 'Schematics' },
-  { to: '/reference/unit-converter', title: 'Converter', icon: '🔄', category: 'Reference', subtitle: 'AWG↔mm²' },
-  { to: '/reference/troubleshooting', title: 'Troubleshoot', icon: '🔍', category: 'Reference', subtitle: 'Fault finding' },
-  { to: '/reference/multimeter', title: 'Multimeter', icon: '📏', category: 'Reference', subtitle: 'Usage guide' },
-  { to: '/reference/control-circuits', title: 'Control Circuits', icon: '⭡', category: 'Reference', subtitle: 'Schematics' },
-  { to: '/reference/plc-basics', title: 'PLC Basics', icon: '🧠', category: 'Reference', subtitle: 'Ladder logic' },
-  { to: '/reference/instrumentation', title: 'Instrumentation', icon: '📡', category: 'Reference', subtitle: '4-20mA, HART' },
-  { to: '/reference/power-quality', title: 'Power Quality', icon: '📈', category: 'Reference', subtitle: 'Harmonics/THD' },
-  { to: '/electrical/gfci-afci', title: 'GFCI / AFCI', icon: '🛡', category: 'Reference', subtitle: 'Protection' },
-  { to: '/reference/battery-ups', title: 'Battery & UPS', icon: '🔋', category: 'Reference', subtitle: 'UPS systems' },
-  { to: '/reference/solar-renewable', title: 'Solar & PV', icon: '☀', category: 'Reference', subtitle: 'PV systems' },
-  { to: '/reference/emergency-power', title: 'Emergency Power', icon: '🚨', category: 'Reference', subtitle: 'ATS & gensets' },
-  { to: '/reference/protective-relays', title: 'Protective Relays', icon: '⚡', category: 'Reference', subtitle: 'ANSI & settings' },
-  { to: '/reference/switchgear', title: 'Switchgear', icon: '🔧', category: 'Reference', subtitle: 'MV/LV types' },
-  { to: '/reference/portable-substation', title: 'Portable Subs', icon: '⎔', category: 'Reference', subtitle: 'Install & maint.' },
-
-  // ── Installation Guides ──
-  { to: '/reference/grounding-systems', title: 'Grounding Systems', icon: '⏚', category: 'Installation Guides', subtitle: 'HRG, testing' },
-  { to: '/reference/fire-alarm', title: 'Fire Alarm', icon: '🔔', category: 'Installation Guides', subtitle: 'Wiring & inspect' },
-  { to: '/reference/wiring-methods', title: 'Wiring Methods', icon: '🔧', category: 'Installation Guides', subtitle: 'EMT, TECK, burial' },
-  { to: '/reference/conductor-properties', title: 'Conductors', icon: '🧵', category: 'Installation Guides', subtitle: 'AWG, derating' },
-  { to: '/reference/industrial-comms', title: 'Industrial Comms', icon: '📡', category: 'Installation Guides', subtitle: 'Modbus, Ethernet' },
-  { to: '/reference/testing-guide', title: 'Hi-Pot & Megger', icon: '📏', category: 'Installation Guides', subtitle: 'IR, PI, hi-pot' },
-
-  // ── Mining ──
-  { to: '/mining/power', title: 'Mine Power', icon: '⛏', category: 'Mining', subtitle: 'Equipment & volts' },
-  { to: '/mining/cable-tray', title: 'Mine Cable Tray', icon: '▤', category: 'Mining', subtitle: 'TECK90 tray fill' },
-
-  // ── Tools ──
-  { to: '/materials', title: 'Material Lists', icon: '📋', category: 'Tools', subtitle: 'Job tracking' },
-  { to: '/tools/panel-schedule', title: 'Panel Schedule', icon: '📊', category: 'Tools', subtitle: 'Panel builder' },
-  { to: '/tools/hour-tracker', title: 'Hour Tracker', icon: '⏱', category: 'Tools', subtitle: 'Apprentice hrs' },
-  { to: '/tools/exam-prep', title: 'Exam Prep', icon: '🎓', category: 'Tools', subtitle: 'CEC flashcards' },
-  { to: '/tools/single-line', title: 'Single-Line', icon: '─', category: 'Tools', subtitle: 'Diagram builder' },
-]
-
-/* Quick access pinned routes */
-const spotlightRoutes = [
-  '/wire/teck-cable',
-  '/safety/loto',
-  '/reference/code-requirements',
-  '/motors/vfd',
-  '/reference/troubleshooting',
-  '/safety/arc-flash',
-]
-
-const categoryOrder = [
-  'Calculators', 'Wire & Cable', 'Motors & Drives', 'Safety',
-  'Reference', 'Installation Guides', 'Mining', 'Tools',
-]
-
 /* ═══════════════════════════════════════════ */
 export default function HomePage() {
   const [search, setSearch] = useState('')
@@ -158,7 +55,8 @@ export default function HomePage() {
     return allFeatures.filter(
       c => c.title.toLowerCase().includes(q) ||
         c.category.toLowerCase().includes(q) ||
-        (c.subtitle && c.subtitle.toLowerCase().includes(q))
+        (c.subtitle && c.subtitle.toLowerCase().includes(q)) ||
+        (c.keywords && c.keywords.toLowerCase().includes(q))
     )
   }, [search])
 

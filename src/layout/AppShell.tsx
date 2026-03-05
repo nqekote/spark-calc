@@ -1,5 +1,6 @@
 import { type ReactNode } from 'react'
 import BottomNav from './BottomNav'
+import GlobalSearch from '../components/GlobalSearch'
 
 export default function AppShell({ children }: { children: ReactNode }) {
   return (
@@ -8,6 +9,7 @@ export default function AppShell({ children }: { children: ReactNode }) {
         {children}
       </main>
       <BottomNav />
+      <GlobalSearch />
     </div>
   )
 }
