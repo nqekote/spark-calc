@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 /* ------------------------------------------------------------------ */
 /*  Battery & UPS Systems – Ontario Electrical Apprentice Reference     */
-/*  SparkCalc PWA – comprehensive single-file component                */
+/*  JBox PWA – comprehensive single-file component                     */
 /* ------------------------------------------------------------------ */
 
 type TabKey = 'ups' | 'battery' | 'sizing' | 'install' | 'maint'

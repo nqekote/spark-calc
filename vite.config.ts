@@ -13,8 +13,8 @@ export default defineConfig({
       strategies: 'generateSW',
       includeAssets: ['favicon.ico', 'icons/*.png'],
       manifest: {
-        name: 'SparkCalc - Electrical Apprentice Tools',
-        short_name: 'SparkCalc',
+        name: 'JBox - Electrical Apprentice Tools',
+        short_name: 'JBox',
         description: 'Offline electrical calculators for Ontario CEC apprentices',
         theme_color: '#0f0f1a',
         background_color: '#0f0f1a',

@@ -119,7 +119,7 @@ export default function FieldNotesPage() {
       return lines.join('\n')
     }).join('\n---\n\n')
 
-    const header = `# SparkCalc Field Notes\nExported: ${new Date().toLocaleDateString('en-CA')}\n\n---\n\n`
+    const header = `# JBox Field Notes\nExported: ${new Date().toLocaleDateString('en-CA')}\n\n---\n\n`
     const blob = new Blob([header + text], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')

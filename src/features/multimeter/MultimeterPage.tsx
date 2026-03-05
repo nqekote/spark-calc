@@ -3,7 +3,7 @@ import Header from '../../layout/Header'
 
 /* ------------------------------------------------------------------ */
 /*  Multimeter & Test Equipment Reference                              */
-/*  Ontario Mining Electrician — SparkCalc                             */
+/*  Ontario Mining Electrician — JBox                                  */
 /* ------------------------------------------------------------------ */
 
 type TabKey = 'voltage' | 'current' | 'resistance' | 'specialty' | 'safety'

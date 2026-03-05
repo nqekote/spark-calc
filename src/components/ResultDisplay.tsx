@@ -19,7 +19,7 @@ interface Props {
 /** Build clean plain-text from results + formula */
 function buildText(results: ResultItem[], formula?: string, title?: string): string {
   const lines: string[] = []
-  if (title) lines.push(title + ' \u2014 SparkCalc')
+  if (title) lines.push(title + ' \u2014 JBox')
   for (const r of results) {
     if (r.value === '\u2014' || r.value === '') continue
     const unit = r.unit ? ' ' + r.unit : ''

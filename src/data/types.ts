@@ -1,6 +1,6 @@
 /**
  * Shared TypeScript types for CEC (Canadian Electrical Code) data tables.
- * Used across all SparkCalc calculator modules.
+ * Used across all JBox calculator modules.
  */
 
 /** AWG/kcmil wire sizes used throughout the CEC */

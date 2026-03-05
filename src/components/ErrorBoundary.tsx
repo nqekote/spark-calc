@@ -22,7 +22,7 @@ class ErrorBoundaryInner extends React.Component<Props, State> {
   }
 
   componentDidCatch(error: Error, info: ErrorInfo) {
-    console.error('[SparkCalc] Route error:', error, info.componentStack)
+    console.error('[JBox] Route error:', error, info.componentStack)
   }
 
   handleReset = () => {

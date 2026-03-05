@@ -4,7 +4,7 @@ import Header from '../../layout/Header'
 /* ------------------------------------------------------------------ */
 /*  Switchgear Reference — Open Pit Mine Electricians                  */
 /*  IEEE C37.20 series, CSA C22.2 No. 31, Ontario Reg. 854            */
-/*  SparkCalc PWA                                                      */
+/*  JBox PWA                                                            */
 /* ------------------------------------------------------------------ */
 
 type TabKey = 'types' | 'racking' | 'maintenance' | 'testing' | 'troubleshooting'

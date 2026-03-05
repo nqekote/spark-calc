@@ -85,8 +85,13 @@ export default function InstallPrompt() {
           background: 'linear-gradient(135deg, #FF6B2C, #D4510F)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
         }}>
-          <svg width={20} height={20} viewBox="0 0 24 24" fill="#000">
-            <path d="M13 2L4 14h7l-2 8 11-14h-7l4-6z" />
+          <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+            <rect x={4} y={5} width={16} height={14} rx={2} />
+            <circle cx={9} cy={5} r={1.5} fill="#000" />
+            <circle cx={15} cy={5} r={1.5} fill="#000" />
+            <circle cx={9} cy={19} r={1.5} fill="#000" />
+            <circle cx={15} cy={19} r={1.5} fill="#000" />
+            <path d="M10 10 L14 10 L14 15 Q14 17 12 17 Q10 17 10 15 L10 14" strokeWidth={2.5} />
           </svg>
         </div>
 
@@ -96,7 +101,7 @@ export default function InstallPrompt() {
             fontFamily: 'var(--font-display)',
             color: 'var(--text)',
           }}>
-            Install SparkCalc
+            Install JBox
           </div>
           <div style={{
             fontSize: 12, color: 'var(--text-secondary)',

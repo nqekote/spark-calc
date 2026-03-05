@@ -49,7 +49,7 @@ export default function Header({ title }: { title?: string }) {
         color: isHome ? 'var(--primary)' : 'var(--text)',
         letterSpacing: isHome ? '-0.3px' : '-0.2px',
       }}>
-        {isHome ? 'SparkCalc' : (title || 'SparkCalc')}
+        {isHome ? 'JBox' : (title || 'JBox')}
       </h1>
 
       {/* Favorite toggle — only on feature pages */}

@@ -162,7 +162,7 @@ export default function HourTrackerPage() {
 
   const exportText = useMemo(() => {
     const lines = [
-      '=== SparkCalc Hour Tracker Export ===',
+      '=== JBox Hour Tracker Export ===',
       `Date: ${new Date().toLocaleDateString()}`,
       '',
       `Total Hours: ${totalHours.toFixed(1)}`,
