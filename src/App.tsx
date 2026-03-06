@@ -99,6 +99,7 @@ const SwitchgearPage = React.lazy(() => import('./features/switchgear/Switchgear
 // Utility pages
 const HistoryPage = React.lazy(() => import('./features/history/HistoryPage'))
 const FieldNotesPage = React.lazy(() => import('./features/field-notes/FieldNotesPage'))
+const WireColorsPage = React.lazy(() => import('./features/wire-colors/WireColorsPage'))
 
 // Category items
 const electricalItems: CalcItem[] = [
@@ -131,6 +132,7 @@ const wireItems: CalcItem[] = [
   { to: '/conduit/raceway-spacing', title: 'Raceway Spacing', subtitle: 'Support distances & clamps', icon: '\u2393' },
   { to: '/conduit/burial-depths', title: 'Burial Depths', subtitle: 'Minimum cover requirements', icon: '\u2B07' },
   { to: '/conduit/cable-tray', title: 'Cable Tray Sizing', subtitle: 'Tray fill calculator', icon: '\u25A4' },
+  { to: '/wire/colors', title: 'Wire Colors', subtitle: 'Canadian color codes', icon: '\uD83C\uDFA8' },
 ]
 
 const motorItems: CalcItem[] = [
@@ -286,6 +288,7 @@ export default function App() {
             <Route path="/conduit/raceway-spacing" element={<RacewaySpacingPage />} />
             <Route path="/conduit/burial-depths" element={<BurialDepthsPage />} />
             <Route path="/conduit/cable-tray" element={<CableTrayPage />} />
+            <Route path="/wire/colors" element={<WireColorsPage />} />
 
             {/* Motors */}
             <Route path="/motors" element={<CategoryPage title="Motors" items={motorItems} />} />

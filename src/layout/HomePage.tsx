@@ -435,6 +435,120 @@ export default function HomePage() {
           </section>
         )}
 
+        {/* ─── Quick Ref ─── */}
+        {!isSearching && (
+          <section style={{ marginBottom: 28 }}>
+            <SectionLabel>Quick Reference</SectionLabel>
+            <div style={{
+              display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10,
+            }}>
+              {/* Standard Breakers */}
+              <div style={{
+                background: 'var(--surface)',
+                borderRadius: 'var(--radius)',
+                border: '1px solid var(--divider)',
+                padding: '12px 12px 10px',
+              }}>
+                <div style={{
+                  fontSize: 10, fontWeight: 700, color: 'var(--accent-calc)',
+                  fontFamily: 'var(--font-display)',
+                  textTransform: 'uppercase', letterSpacing: '0.5px',
+                  marginBottom: 6,
+                }}>
+                  Breaker Sizes
+                </div>
+                <div style={{
+                  fontSize: 11, color: 'var(--text-secondary)',
+                  fontFamily: 'var(--font-mono)', lineHeight: 1.7,
+                }}>
+                  15 &middot; 20 &middot; 30 &middot; 40 &middot; 50<br/>
+                  60 &middot; 70 &middot; 100 &middot; 125<br/>
+                  150 &middot; 200 &middot; 225 &middot; 400
+                </div>
+              </div>
+
+              {/* Phase Colors */}
+              <div style={{
+                background: 'var(--surface)',
+                borderRadius: 'var(--radius)',
+                border: '1px solid var(--divider)',
+                padding: '12px 12px 10px',
+              }}>
+                <div style={{
+                  fontSize: 10, fontWeight: 700, color: 'var(--accent-wire)',
+                  fontFamily: 'var(--font-display)',
+                  textTransform: 'uppercase', letterSpacing: '0.5px',
+                  marginBottom: 6,
+                }}>
+                  Phase Colors
+                </div>
+                <div style={{
+                  fontSize: 11, color: 'var(--text-secondary)',
+                  fontFamily: 'var(--font-mono)', lineHeight: 1.7,
+                }}>
+                  <span style={{ color: '#1a1a1a', background: 'var(--text-secondary)', padding: '0 4px', borderRadius: 3 }}>A</span>{' '}
+                  <span style={{ color: '#dc2626' }}>B</span>{' '}
+                  <span style={{ color: '#2563eb' }}>C</span>{' '}
+                  <span style={{ color: '#9ca3af' }}>N</span>{' '}
+                  <span style={{ color: '#16a34a' }}>G</span>
+                  <br/>
+                  <span style={{ fontSize: 10, color: 'var(--text-tertiary)' }}>BLK RED BLU WHT GRN</span>
+                </div>
+              </div>
+
+              {/* Common Copper Ampacity */}
+              <div style={{
+                background: 'var(--surface)',
+                borderRadius: 'var(--radius)',
+                border: '1px solid var(--divider)',
+                padding: '12px 12px 10px',
+              }}>
+                <div style={{
+                  fontSize: 10, fontWeight: 700, color: 'var(--accent-motor)',
+                  fontFamily: 'var(--font-display)',
+                  textTransform: 'uppercase', letterSpacing: '0.5px',
+                  marginBottom: 6,
+                }}>
+                  Cu Ampacity (75°C)
+                </div>
+                <div style={{
+                  fontSize: 11, color: 'var(--text-secondary)',
+                  fontFamily: 'var(--font-mono)', lineHeight: 1.7,
+                }}>
+                  #14=15A &middot; #12=20A<br/>
+                  #10=30A &middot; #8=45A<br/>
+                  #6=65A &middot; #4=85A
+                </div>
+              </div>
+
+              {/* Standard Voltages */}
+              <div style={{
+                background: 'var(--surface)',
+                borderRadius: 'var(--radius)',
+                border: '1px solid var(--divider)',
+                padding: '12px 12px 10px',
+              }}>
+                <div style={{
+                  fontSize: 10, fontWeight: 700, color: 'var(--accent-safety)',
+                  fontFamily: 'var(--font-display)',
+                  textTransform: 'uppercase', letterSpacing: '0.5px',
+                  marginBottom: 6,
+                }}>
+                  Standard Voltages
+                </div>
+                <div style={{
+                  fontSize: 11, color: 'var(--text-secondary)',
+                  fontFamily: 'var(--font-mono)', lineHeight: 1.7,
+                }}>
+                  120/240V &middot; 1\u03D5<br/>
+                  120/208V &middot; 3\u03D5 wye<br/>
+                  347/600V &middot; 3\u03D5 wye
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* ─── Quick Access ─── */}
         {!isSearching && (
           <section style={{ marginBottom: 28 }}>

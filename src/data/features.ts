@@ -44,6 +44,7 @@ export const allFeatures: Feature[] = [
   { to: '/conduit/cable-tray', title: 'Cable Tray', icon: '▤', category: 'Wire & Cable', subtitle: 'Tray fill', keywords: 'cable tray fill teck' },
   { to: '/conduit/fill', title: 'Conduit Fill', icon: '◎', category: 'Wire & Cable', subtitle: 'Fill calcs', keywords: 'conduit fill emt rigid pvc' },
   { to: '/conduit/bending', title: 'EMT Bending', icon: '⌒', category: 'Wire & Cable', subtitle: 'Offsets & saddles', keywords: 'bending offset saddle kick stub' },
+  { to: '/wire/colors', title: 'Wire Colors', icon: '🎨', category: 'Wire & Cable', subtitle: 'Color codes', keywords: 'wire color code phase neutral ground' },
 
   // ── Motors & Drives ──
   { to: '/motors/flc', title: 'Motor FLC', icon: '⚙', category: 'Motors & Drives', subtitle: 'Current tables', keywords: 'flc full load current motor table' },

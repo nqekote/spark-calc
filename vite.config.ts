@@ -30,8 +30,8 @@ export default defineConfig({
         shortcuts: [
           { name: "Ohm's Law", short_name: "Ohm's Law", url: base + 'electrical/ohms-law', icons: [{ src: 'icons/icon-192.png', sizes: '192x192' }] },
           { name: 'Voltage Drop', short_name: 'V-Drop', url: base + 'electrical/voltage-drop', icons: [{ src: 'icons/icon-192.png', sizes: '192x192' }] },
-          { name: 'Conduit Fill', short_name: 'Conduit', url: base + 'wire-cable/conduit-fill', icons: [{ src: 'icons/icon-192.png', sizes: '192x192' }] },
-          { name: 'Motor FLC', short_name: 'Motor FLC', url: base + 'motors/motor-flc', icons: [{ src: 'icons/icon-192.png', sizes: '192x192' }] },
+          { name: 'Conduit Fill', short_name: 'Conduit', url: base + 'conduit/fill', icons: [{ src: 'icons/icon-192.png', sizes: '192x192' }] },
+          { name: 'Motor FLC', short_name: 'Motor FLC', url: base + 'motors/flc', icons: [{ src: 'icons/icon-192.png', sizes: '192x192' }] },
         ],
         categories: ['utilities', 'productivity'],
       },
