@@ -100,6 +100,7 @@ const SwitchgearPage = React.lazy(() => import('./features/switchgear/Switchgear
 const HistoryPage = React.lazy(() => import('./features/history/HistoryPage'))
 const FieldNotesPage = React.lazy(() => import('./features/field-notes/FieldNotesPage'))
 const WireColorsPage = React.lazy(() => import('./features/wire-colors/WireColorsPage'))
+const CECLookupPage = React.lazy(() => import('./features/cec-lookup/CECLookupPage'))
 
 // Category items
 const electricalItems: CalcItem[] = [
@@ -160,6 +161,7 @@ const referenceItems: CalcItem[] = [
   { to: '/reference/instrumentation', title: 'Instrumentation', subtitle: '4-20mA, RTDs, P&ID, HART', icon: '\uD83D\uDCE1' },
   { to: '/reference/power-quality', title: 'Power Quality', subtitle: 'Harmonics, THD, K-factor calculator', icon: '\uD83D\uDCC8' },
   { to: '/reference/code-requirements', title: 'CEC Code by Task', subtitle: 'Rules for disconnects, TECK, motors', icon: '\uD83D\uDCDC' },
+  { to: '/reference/cec-lookup', title: 'CEC Code Lookup', subtitle: 'Smart search & decision trees', icon: '\u26A1' },
   { to: '/reference/conductor-properties', title: 'Conductor Properties', subtitle: 'AWG, resistance, derating, selection', icon: '\uD83E\uDDF5' },
   { to: '/reference/wiring-methods', title: 'Wiring Methods', subtitle: 'EMT, TECK, cable tray, burial', icon: '\uD83D\uDD27' },
   { to: '/reference/industrial-comms', title: 'Industrial Comms', subtitle: 'RS-485, Ethernet, fiber, Modbus', icon: '\uD83D\uDCE1' },
@@ -316,6 +318,7 @@ export default function App() {
             <Route path="/reference/instrumentation" element={<InstrumentationPage />} />
             <Route path="/reference/power-quality" element={<PowerQualityPage />} />
             <Route path="/reference/code-requirements" element={<CodeRequirementsPage />} />
+            <Route path="/reference/cec-lookup" element={<CECLookupPage />} />
             <Route path="/reference/conductor-properties" element={<ConductorPropertiesPage />} />
             <Route path="/reference/wiring-methods" element={<WiringMethodsPage />} />
             <Route path="/reference/industrial-comms" element={<IndustrialCommsPage />} />

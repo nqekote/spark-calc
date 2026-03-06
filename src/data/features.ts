@@ -65,6 +65,7 @@ export const allFeatures: Feature[] = [
   { to: '/reference/formulas', title: 'Formulas', icon: '📝', category: 'Reference', subtitle: 'Cheat sheet', keywords: 'formula cheat sheet equations' },
   { to: '/reference/cec', title: 'CEC Tables', icon: '📖', category: 'Reference', subtitle: 'Code reference', keywords: 'cec code table canadian electrical' },
   { to: '/reference/code-requirements', title: 'CEC by Task', icon: '📜', category: 'Reference', subtitle: 'Rules by job', keywords: 'code requirement rule task disconnect' },
+  { to: '/reference/cec-lookup', title: 'CEC Code Lookup', icon: '⚡', category: 'Reference', subtitle: 'Smart search & trees', keywords: 'cec code lookup search rule decision tree motor wire grounding' },
   { to: '/reference/electrical-symbols', title: 'Symbols', icon: '🔌', category: 'Reference', subtitle: 'Schematics', keywords: 'symbol schematic one-line drawing' },
   { to: '/reference/unit-converter', title: 'Converter', icon: '🔄', category: 'Reference', subtitle: 'AWG↔mm²', keywords: 'convert awg mm celsius fahrenheit' },
   { to: '/reference/troubleshooting', title: 'Troubleshoot', icon: '🔍', category: 'Reference', subtitle: 'Fault finding', keywords: 'troubleshoot fault finding diagnosis' },
