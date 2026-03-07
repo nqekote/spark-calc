@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import './styles/variables.css'
 import './styles/reset.css'
+import './pwa'
 import App from './App'
 
 // Use /spark-calc/ base when deployed to GitHub Pages (repo name)
