@@ -1,13 +1,31 @@
-import { defineConfig } from 'vite'
+import { defineConfig, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
 const base = process.env.GITHUB_PAGES ? '/spark-calc/' : '/'
 
+/* Unique build hash — injected into JS bundle AND written to version.txt */
+const buildHash = Date.now().toString(36)
+
+/** Emits version.txt at build time for CDN-busted update detection */
+function versionFilePlugin(hash: string): Plugin {
+  return {
+    name: 'version-txt',
+    apply: 'build',
+    generateBundle() {
+      this.emitFile({ type: 'asset', fileName: 'version.txt', source: hash })
+    },
+  }
+}
+
 export default defineConfig({
   base,
+  define: {
+    __BUILD_HASH__: JSON.stringify(buildHash),
+  },
   plugins: [
     react(),
+    versionFilePlugin(buildHash),
     VitePWA({
       registerType: 'autoUpdate',
       injectRegister: false,
@@ -38,6 +56,7 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
+        globIgnores: ['**/version.txt'],
         cleanupOutdatedCaches: true,
         skipWaiting: true,
         clientsClaim: true,
