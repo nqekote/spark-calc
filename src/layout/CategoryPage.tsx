@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import Header from './Header'
+import ToolIcon from '../components/icons/ToolIcon'
 
 export interface CalcItem {
   to: string
@@ -61,12 +62,13 @@ export default function CategoryPage({ title, items }: { title: string; items: C
             animationDelay: `${Math.min(i, 12) * 30}ms`,
           }}>
             <span style={{
-              fontSize: 24, width: 42, height: 42,
+              width: 42, height: 42,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               background: 'var(--primary-subtle)',
               borderRadius: 10, flexShrink: 0,
+              color: accent,
             }}>
-              {item.icon}
+              <ToolIcon name={item.icon} size={22} />
             </span>
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{

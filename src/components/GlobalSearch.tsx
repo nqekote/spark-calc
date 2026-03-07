@@ -1,6 +1,7 @@
 import { useState, useMemo, useRef, useEffect, useCallback } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { allFeatures, categoryAccents, categoryBgs, type Feature } from '../data/features'
+import ToolIcon from './icons/ToolIcon'
 
 /**
  * Global Search — floating action button + full-screen search overlay.
@@ -216,13 +217,14 @@ export default function GlobalSearch() {
                       }}
                     >
                       <span style={{
-                        fontSize: 20, width: 36, height: 36,
+                        width: 36, height: 36,
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         flexShrink: 0,
                         background: categoryBgs[f.category] || 'var(--primary-subtle)',
                         borderRadius: 'var(--radius-sm)',
+                        color: categoryAccents[f.category] || 'var(--primary)',
                       }}>
-                        {f.icon}
+                        <ToolIcon name={f.icon} size={18} />
                       </span>
 
                       <div style={{ flex: 1, minWidth: 0 }}>

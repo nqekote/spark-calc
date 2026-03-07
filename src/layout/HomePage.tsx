@@ -2,6 +2,7 @@ import { useState, useMemo, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import Header from './Header'
 import InstallPrompt from '../components/InstallPrompt'
+import ToolIcon from '../components/icons/ToolIcon'
 import { useRecentlyUsed } from '../core/hooks/useRecentlyUsed'
 import { useFavorites } from '../core/hooks/useFavorites'
 import {
@@ -261,12 +262,13 @@ export default function HomePage() {
                   animationDelay: `${Math.min(i, 8) * 25}ms`,
                 }}>
                   <span style={{
-                    fontSize: 20, width: 36, height: 36, textAlign: 'center',
-                    lineHeight: '36px', flexShrink: 0,
+                    width: 36, height: 36, flexShrink: 0,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
                     background: catMeta[f.category]?.bg || 'var(--primary-subtle)',
                     borderRadius: 'var(--radius-sm)',
+                    color: catMeta[f.category]?.accent || 'var(--primary)',
                   }}>
-                    {f.icon}
+                    <ToolIcon name={f.icon} size={18} />
                   </span>
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div style={{
@@ -330,11 +332,12 @@ export default function HomePage() {
                       opacity: 0.7,
                     }} />
                     <span style={{
-                      fontSize: 24, width: 40, height: 40,
+                      width: 40, height: 40,
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       background: meta.bg, borderRadius: 10,
+                      color: meta.accent,
                     }}>
-                      {f.icon}
+                      <ToolIcon name={f.icon} size={22} />
                     </span>
                     <span style={{
                       fontSize: 11, fontWeight: 600,
@@ -379,11 +382,12 @@ export default function HomePage() {
                       opacity: 0.5,
                     }} />
                     <span style={{
-                      fontSize: 24, width: 40, height: 40,
+                      width: 40, height: 40,
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       background: meta.bg, borderRadius: 10,
+                      color: meta.accent,
                     }}>
-                      {f.icon}
+                      <ToolIcon name={f.icon} size={22} />
                     </span>
                     <span style={{
                       fontSize: 11, fontWeight: 600,
