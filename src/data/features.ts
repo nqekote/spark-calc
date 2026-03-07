@@ -108,14 +108,6 @@ export const categoryOrder = [
   'Reference', 'Installation Guides', 'Mining', 'Tools',
 ]
 
-export const spotlightRoutes = [
-  '/wire/teck-cable',
-  '/safety/loto',
-  '/reference/code-requirements',
-  '/motors/vfd',
-  '/reference/troubleshooting',
-  '/safety/arc-flash',
-]
 
 /** Category accent colors (CSS variables) */
 export const categoryAccents: Record<string, string> = {
