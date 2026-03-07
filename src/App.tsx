@@ -192,7 +192,7 @@ const toolsItems: CalcItem[] = [
   { to: '/materials', title: 'Material Lists', subtitle: 'Job material tracking & notes', icon: '\uD83D\uDCCB' },
   { to: '/tools/panel-schedule', title: 'Panel Schedule', subtitle: 'Digital panel schedule builder', icon: '\uD83D\uDCCA' },
   { to: '/tools/hour-tracker', title: 'Hour Tracker', subtitle: 'Apprentice hour logging', icon: '\u23F1' },
-  { to: '/tools/exam-prep', title: 'Exam Prep', subtitle: 'CEC flashcards & practice', icon: '\uD83C\uDF93' },
+  { to: '/tools/exam-prep', title: 'Exam Prep', subtitle: '309A certification prep', icon: '\uD83C\uDF93' },
   { to: '/tools/single-line', title: 'Single-Line Builder', subtitle: 'Diagram builder & symbols', icon: '\u2500' },
   { to: '/tools/field-notes', title: 'Field Notes', subtitle: 'On-site journal & measurements', icon: '\uD83D\uDCDD' },
 ]
