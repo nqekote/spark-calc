@@ -53,6 +53,9 @@ export default function ExamPrepPage() {
   const [view, setView] = useState<ExamView>('dashboard')
   const [progress, setProgress] = useState(() => loadExamProgress())
 
+  // Scroll to top on view change
+  useEffect(() => { window.scrollTo(0, 0) }, [view])
+
   // Persist on change
   useEffect(() => { saveExamProgress(progress) }, [progress])
 
